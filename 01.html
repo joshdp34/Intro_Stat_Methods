@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Introduction to Statistics – STA 2381 Introductory Statistical Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+freeblank {
+  color: transparent;
+  cursor: pointer;
+}
+freeblank.clicked {
+  color: red;
+}
+blank {
+  display: inline-block; 
+  position: relative;
+  padding: 0 10px;
+  color: transparent;
+  cursor: pointer;
+}
+blank::before {
+  content: ''; /* Creates a custom underline */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px; /* Thickness of the underline */
+  background-color: black; /* Color of the underline */
+}
+blank.clicked {
+  color: red;
+}
+</style>
+<script>
+document.addEventListener('click', (event) => {
+  if (event.target.tagName === 'BLANK') {
+    event.target.classList.add('clicked');
+  }
+});
+document.addEventListener('click', (event) => {
+  if (event.target.tagName === 'FREEBLANK') {
+    event.target.classList.add('clicked');
+  }
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Statistics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Collecting Data</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-statistics" id="toc-what-is-statistics" class="nav-link active" data-scroll-target="#what-is-statistics"><span class="header-section-number">1.1</span> What is Statistics?</a>
+  <ul class="collapse">
+  <li><a href="#what-is-statistics-exactly" id="toc-what-is-statistics-exactly" class="nav-link" data-scroll-target="#what-is-statistics-exactly">What is “statistics,” exactly?</a></li>
+  <li><a href="#why-decisions-need-both-description-and-inference" id="toc-why-decisions-need-both-description-and-inference" class="nav-link" data-scroll-target="#why-decisions-need-both-description-and-inference">Why decisions need both description and inference</a></li>
+  <li><a href="#variability-bias-and-honest-uncertainty" id="toc-variability-bias-and-honest-uncertainty" class="nav-link" data-scroll-target="#variability-bias-and-honest-uncertainty">Variability, bias, and honest uncertainty</a></li>
+  <li><a href="#how-well-work-in-this-course-and-in-jmp" id="toc-how-well-work-in-this-course-and-in-jmp" class="nav-link" data-scroll-target="#how-well-work-in-this-course-and-in-jmp">How we’ll work in this course (and in JMP)</a></li>
+  <li><a href="#a-first-look-at-long-run-regularity-illustration" id="toc-a-first-look-at-long-run-regularity-illustration" class="nav-link" data-scroll-target="#a-first-look-at-long-run-regularity-illustration">A first look at long-run regularity (illustration)</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#populations-and-samples" id="toc-populations-and-samples" class="nav-link" data-scroll-target="#populations-and-samples"><span class="header-section-number">1.2</span> Populations and Samples</a>
+  <ul class="collapse">
+  <li><a href="#defining-the-population-clearly" id="toc-defining-the-population-clearly" class="nav-link" data-scroll-target="#defining-the-population-clearly">Defining the population (clearly!)</a></li>
+  <li><a href="#what-counts-as-a-sample" id="toc-what-counts-as-a-sample" class="nav-link" data-scroll-target="#what-counts-as-a-sample">What counts as a sample?</a></li>
+  <li><a href="#parameters-and-statistics-the-bridge-between-the-two" id="toc-parameters-and-statistics-the-bridge-between-the-two" class="nav-link" data-scroll-target="#parameters-and-statistics-the-bridge-between-the-two">Parameters and statistics (the bridge between the two)</a></li>
+  <li><a href="#observational-units-vs.-sampling-units" id="toc-observational-units-vs.-sampling-units" class="nav-link" data-scroll-target="#observational-units-vs.-sampling-units">Observational units vs.&nbsp;sampling units</a></li>
+  <li><a href="#why-sampling-works-and-when-it-doesnt" id="toc-why-sampling-works-and-when-it-doesnt" class="nav-link" data-scroll-target="#why-sampling-works-and-when-it-doesnt">Why sampling works (and when it doesn’t)</a></li>
+  <li><a href="#a-quick-illustration-samples-differ-the-goal-doesnt" id="toc-a-quick-illustration-samples-differ-the-goal-doesnt" class="nav-link" data-scroll-target="#a-quick-illustration-samples-differ-the-goal-doesnt">A quick illustration: samples differ, the goal doesn’t</a></li>
+  <li><a href="#connecting-to-jmp-pro-17" id="toc-connecting-to-jmp-pro-17" class="nav-link" data-scroll-target="#connecting-to-jmp-pro-17">Connecting to JMP Pro 17</a></li>
+  <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
+  <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#variables-and-types-of-data" id="toc-variables-and-types-of-data" class="nav-link" data-scroll-target="#variables-and-types-of-data"><span class="header-section-number">1.3</span> Variables and Types of Data</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-variable" id="toc-what-is-a-variable" class="nav-link" data-scroll-target="#what-is-a-variable">What is a variable?</a></li>
+  <li><a href="#the-two-big-families" id="toc-the-two-big-families" class="nav-link" data-scroll-target="#the-two-big-families">The two big families</a></li>
+  <li><a href="#measurement-scales-youll-hear-about" id="toc-measurement-scales-youll-hear-about" class="nav-link" data-scroll-target="#measurement-scales-youll-hear-about">Measurement scales you’ll hear about</a></li>
+  <li><a href="#identifier-and-datetime-variables" id="toc-identifier-and-datetime-variables" class="nav-link" data-scroll-target="#identifier-and-datetime-variables">“Identifier” and date/time variables</a></li>
+  <li><a href="#why-types-matter-graphs-and-analyses" id="toc-why-types-matter-graphs-and-analyses" class="nav-link" data-scroll-target="#why-types-matter-graphs-and-analyses">Why types matter (graphs and analyses)</a></li>
+  <li><a href="#working-in-jmp-pro-17" id="toc-working-in-jmp-pro-17" class="nav-link" data-scroll-target="#working-in-jmp-pro-17">Working in JMP Pro 17</a></li>
+  <li><a href="#a-quick-illustration-discrete-vs.-continuous" id="toc-a-quick-illustration-discrete-vs.-continuous" class="nav-link" data-scroll-target="#a-quick-illustration-discrete-vs.-continuous">A quick illustration (discrete vs.&nbsp;continuous)</a></li>
+  <li><a href="#common-pitfalls-and-quick-fixes" id="toc-common-pitfalls-and-quick-fixes" class="nav-link" data-scroll-target="#common-pitfalls-and-quick-fixes">Common pitfalls (and quick fixes)</a></li>
+  <li><a href="#recap-2" id="toc-recap-2" class="nav-link" data-scroll-target="#recap-2">Recap</a></li>
+  <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#the-role-of-statistics-in-research" id="toc-the-role-of-statistics-in-research" class="nav-link" data-scroll-target="#the-role-of-statistics-in-research"><span class="header-section-number">1.4</span> The Role of Statistics in Research</a>
+  <ul class="collapse">
+  <li><a href="#from-question-to-estimand-to-design" id="toc-from-question-to-estimand-to-design" class="nav-link" data-scroll-target="#from-question-to-estimand-to-design">From question to estimand to design</a></li>
+  <li><a href="#the-statistical-process-a-workable-blueprint" id="toc-the-statistical-process-a-workable-blueprint" class="nav-link" data-scroll-target="#the-statistical-process-a-workable-blueprint">The statistical process: a workable blueprint</a></li>
+  <li><a href="#working-in-jmp-pro-17-1" id="toc-working-in-jmp-pro-17-1" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-1">Working in JMP Pro 17</a></li>
+  <li><a href="#recap-3" id="toc-recap-3" class="nav-link" data-scroll-target="#recap-3">Recap</a></li>
+  <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#the-statistical-process" id="toc-the-statistical-process" class="nav-link" data-scroll-target="#the-statistical-process"><span class="header-section-number">1.5</span> The Statistical Process</a>
+  <ul class="collapse">
+  <li><a href="#what-context-actually-includes" id="toc-what-context-actually-includes" class="nav-link" data-scroll-target="#what-context-actually-includes">What “context” actually includes</a></li>
+  <li><a href="#same-numbers-different-stories-why-stratification-matters" id="toc-same-numbers-different-stories-why-stratification-matters" class="nav-link" data-scroll-target="#same-numbers-different-stories-why-stratification-matters">Same numbers, different stories: why stratification matters</a></li>
+  <li><a href="#a-practical-context-checklist-before-you-compute" id="toc-a-practical-context-checklist-before-you-compute" class="nav-link" data-scroll-target="#a-practical-context-checklist-before-you-compute">A practical context checklist (before you compute)</a></li>
+  <li><a href="#working-in-jmp-pro-17-making-context-visible" id="toc-working-in-jmp-pro-17-making-context-visible" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-making-context-visible">Working in JMP Pro 17: making context visible</a></li>
+  <li><a href="#language-that-respects-context" id="toc-language-that-respects-context" class="nav-link" data-scroll-target="#language-that-respects-context">Language that respects context</a></li>
+  <li><a href="#recap-4" id="toc-recap-4" class="nav-link" data-scroll-target="#recap-4">Recap</a></li>
+  <li><a href="#check-your-understanding-4" id="toc-check-your-understanding-4" class="nav-link" data-scroll-target="#check-your-understanding-4">Check your understanding</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Statistics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-is-statistics" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-statistics"><span class="header-section-number">1.1</span> What is Statistics?</h2>
+<blockquote class="blockquote">
+<p>“The non-scientist in the street probably has a clearer notion of physics, chemistry and biology than of statistics, regarding statisticians as numerical philatelists, mere collector of numbers.” - Stephen Senn, <em>Dicing with Death: Chance, Risk and Health</em></p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>How do we use data to make better decisions?</em></p>
+<p>When people say “trust the data,” it can sound like magic. It isn’t. Statistics is the discipline that helps us collect, organize, and interpret data so that our decisions are more principled and less guess-y. In this course, we’ll treat statistics as a practical toolkit you’ll use across science, business, health, and everyday life.</p>
+<p>The basic premise is simple: if we describe the data clearly and account for uncertainty honestly, we can make better choices. That might mean deciding which treatment is more effective, which ad design leads to more clicks, or whether a new policy seems to be working.</p>
+<section id="what-is-statistics-exactly" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-statistics-exactly">What is “statistics,” exactly?</h3>
+<p><blank>Statistics</blank> is the science of collecting, organizing, analyzing, and interpreting data to make decisions or draw conclusions. It’s not just about numbers—it’s about what those numbers tell us.</p>
+<p>If Statistics concerns data, then we should define “data.” First, note that “<blank>data</blank>” is a plural word. “<blank>Datum</blank>” is singular, although it is common to hear someone refer to “data” in the singular. A “datum” is a piece of information or fact. So “data” is a collection of facts or information we collect. That could mean</p>
+<ul>
+<li>the amount of profit a company makes,</li>
+<li>the growth of plants under some conditions,</li>
+<li>or how many people voted in an election.</li>
+</ul>
+<p>A helpful way to organize the subject of Statistics is to distinguish two complementary activities:</p>
+<ul>
+<li><blank>Descriptive statistics</blank> help us <em>summarize and visualize</em> what we observed—think graphs, tables, and numerical summaries. The goal is clarity.</li>
+<li><blank>Inferential statistics</blank> help us <em>generalize from a sample to a broader group (or process)</em> and quantify our <blank>uncertainty</blank> about that generalization. The goal is justified conclusions.</li>
+</ul>
+<p>Even in a short conversation about data, you’ll hear a few recurring ideas:</p>
+<ul>
+<li>A <blank>population</blank> is the full set of people, items, or occasions we care about (all Baylor first-years this fall, all batteries produced this week).</li>
+<li>A <blank>sample</blank> is the subset we actually observe.</li>
+<li>A <blank>parameter</blank> is a (usually unknown) number that describes a population (the true average battery life, for example).</li>
+<li>A <blank>statistic</blank> is a number we compute from a sample (the sample’s average battery life) that we use to learn about the parameter.</li>
+</ul>
+<p>We’ll study these terms in more detail soon; for now, hold on to the big idea: we summarize what we see (description) and we reason beyond what we see (inference).</p>
+</section>
+<section id="why-decisions-need-both-description-and-inference" class="level3">
+<h3 class="anchored" data-anchor-id="why-decisions-need-both-description-and-inference">Why decisions need both description and inference</h3>
+<p>Suppose a clinic tests a new flu-prevention program among 200 volunteer patients. A month later, 18% of the “usual care” group got the flu, compared to 12% of the “new program” group. Descriptively, the new program looks better. Inferentially, we ask: could this gap be due to chance? If we ran the study again with different patients, might the difference shrink or flip? Statistics gives us a way to quantify that uncertainty and decide what to do next.</p>
+<p>A similar story plays out in business A/B tests, manufacturing quality checks, and sports analytics. The descriptive picture tells us what happened in the data; inference tells us how strongly that evidence supports a decision.</p>
+</section>
+<section id="variability-bias-and-honest-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="variability-bias-and-honest-uncertainty">Variability, bias, and honest uncertainty</h3>
+<p>Two forces shape every data story:</p>
+<ul>
+<li><blank>Variability</blank> is the natural fluctuation we see from case to case or study to study. Even fair coins produce streaks.</li>
+<li><blank>Bias</blank> is systematic deviation—our design, measurement, or selection method pushes results in a consistent direction.</li>
+</ul>
+<p>Good statistical practice aims to reduce bias and acknowledge variability. We’ll use design principles to minimize bias and inferential tools to express uncertainty honestly.</p>
+</section>
+<section id="how-well-work-in-this-course-and-in-jmp" class="level3">
+<h3 class="anchored" data-anchor-id="how-well-work-in-this-course-and-in-jmp">How we’ll work in this course (and in JMP)</h3>
+<p>Our general workflow:</p>
+<ol type="1">
+<li>Start with a clear question and name the <blank>observational units</blank> (what a single case is) and <blank>variables</blank> (what we record about each case).</li>
+<li>Decide how the data were or will be collected (survey, experiment, database pull).</li>
+<li>Use descriptive statistics and graphics to get oriented.</li>
+<li>Build an inferential argument when you need to generalize or compare.</li>
+<li>Communicate a conclusion in context—what it means, what it doesn’t, and what to do next.</li>
+</ol>
+<p><strong>JMP Pro 17 note.</strong> In JMP, we’ll lean on <em>Graph Builder</em>, <em>Distribution</em>, and <em>Fit Y by X</em> for description; and on <em>Analyze</em> platforms (e.g., <em>Fit Y by X</em>, <em>Fit Model</em>) for inference. You’ll learn to read the output and connect it to the logic above.</p>
+</section>
+<section id="a-first-look-at-long-run-regularity-illustration" class="level3">
+<h3 class="anchored" data-anchor-id="a-first-look-at-long-run-regularity-illustration">A first look at long-run regularity (illustration)</h3>
+<p>To make “variability vs.&nbsp;long-run behavior” concrete, here’s a quick simulation of coin flips. Early on, the proportion of heads jumps around. As the number of flips grows, the proportion tends to settle near 0.5. We’ll rely on this idea—randomness in the short run, stability in the long run—throughout the course.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="recap" class="level3">
+<h3 class="anchored" data-anchor-id="recap">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Statistics</strong></td>
+<td>The discipline of learning from data to describe patterns and make decisions under uncertainty.</td>
+</tr>
+<tr class="even">
+<td><strong>Data</strong></td>
+<td>Recorded information about cases (people/items/occasions) used as evidence for questions of interest.</td>
+</tr>
+<tr class="odd">
+<td><strong>Descriptive statistics</strong></td>
+<td>Methods for summarizing and visualizing what was observed (tables, graphs, numerical summaries).</td>
+</tr>
+<tr class="even">
+<td><strong>Inferential statistics</strong></td>
+<td>Methods for generalizing from a sample to a population and quantifying uncertainty.</td>
+</tr>
+<tr class="odd">
+<td><strong>Population</strong></td>
+<td>The full group or process we want to understand.</td>
+</tr>
+<tr class="even">
+<td><strong>Sample</strong></td>
+<td>The subset we actually observe and analyze.</td>
+</tr>
+<tr class="odd">
+<td><strong>Parameter</strong></td>
+<td>A (usually unknown) numerical characteristic of a population.</td>
+</tr>
+<tr class="even">
+<td><strong>Statistic</strong></td>
+<td>A numerical summary computed from a sample, used to learn about a parameter.</td>
+</tr>
+<tr class="odd">
+<td><strong>Variability</strong></td>
+<td>Natural fluctuation in data from case to case or study to study.</td>
+</tr>
+<tr class="even">
+<td><strong>Bias</strong></td>
+<td>Systematic deviation caused by design, measurement, or selection issues.</td>
+</tr>
+<tr class="odd">
+<td><strong>Observational unit</strong></td>
+<td>The “one thing” a single row in the data represents (a person, part, game, etc.).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+<ol type="1">
+<li><p>In your own words, how is describing data different from inferring from data? Give a short example for each.</p></li>
+<li><p>Identify the population, sample, parameter, and statistic in this scenario: A battery company tests 60 batteries from today’s production line and finds an average life of 7.8 hours. The company wants to know the true average life of all batteries produced today.</p></li>
+<li><p>A streaming service tests two home-page designs on 5,000 visitors each. Version B produces a 0.6 percentage-point higher click-through rate than Version A. What questions would you ask before recommending the company switch to Version B?</p></li>
+<li><p>Explain the difference between variability and bias using a dartboard analogy.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Description vs.&nbsp;inference. Description summarizes what happened in the observed data (e.g., “The median wait time yesterday was 11 minutes.”). Inference uses the sample to say something about a broader group or process, with uncertainty (e.g., “We estimate the typical wait time for all days like yesterday is 11 minutes, with margin of error ±2 minutes.”).</p></li>
+<li><p>Battery scenario. Population: all batteries produced today. Sample: the 60 tested batteries. Parameter: the true mean life of all batteries produced today. Statistic: the sample mean of 7.8 hours.</p></li>
+<li><p>A/B test questions. How were visitors assigned to versions (randomly)? Were there differences in traffic sources or device types? Is the effect stable over time? What margin of error or confidence interval accompanies the difference? What outcome do we ultimately care about (sign-ups, retention), and does the change affect it?</p></li>
+<li><p>Dartboard analogy. Variability: darts land around the bullseye but are spread out randomly. Bias: darts consistently land off to the lower-left—systematically shifted rather than centered.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="populations-and-samples" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="populations-and-samples"><span class="header-section-number">1.2</span> Populations and Samples</h2>
+<blockquote class="blockquote">
+<p>“To understand God’s thoughts, we must study statistics, for these are the measures of his purpose.” - Florence Nightingale</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>What’s the difference between a population and a sample?</em></p>
+<p>When you start any statistical investigation, the first two things to name are the <blank>population</blank> and the <blank>sample</blank>. The population is the full group or process you want to understand; the sample is the smaller set of cases you actually observe. Most of the time we can’t measure everyone or everything, so we sample wisely and then use statistics to bridge from the sample back to the population.</p>
+<section id="defining-the-population-clearly" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-population-clearly">Defining the population (clearly!)</h3>
+<p>A population can be concrete (“all tires produced by Line A this week”) or conceptual (“all patients like these under similar conditions”). Two refinements are helpful:</p>
+<ul>
+<li>The <blank>target population</blank> is the group you truly care about.</li>
+<li>The <blank>accessible population</blank> is the group you can practically reach, often represented by a <blank>sampling frame</blank>—a list or mechanism from which you select the sample.</li>
+</ul>
+<p>Clarity matters. If your target is “all Baylor first-year students this fall,” using a sampling frame of “students who attend welcome week” might miss commuters or students who arrived late. That gap can create <blank>bias</blank> if the missed students differ in a systematic way.</p>
+</section>
+<section id="what-counts-as-a-sample" class="level3">
+<h3 class="anchored" data-anchor-id="what-counts-as-a-sample">What counts as a sample?</h3>
+<p>A sample is the subset of the population you measure. We’ll study “how to sample” in Chapter 2; for now, focus on what a good sample does: it represents the population well enough that statistics computed from the sample are informative about the population.</p>
+<p>A special case is a <blank>census</blank>, where you attempt to measure every unit in the population. Censuses are rare in practice due to cost, time, and logistics—sampling is our workhorse.</p>
+</section>
+<section id="parameters-and-statistics-the-bridge-between-the-two" class="level3">
+<h3 class="anchored" data-anchor-id="parameters-and-statistics-the-bridge-between-the-two">Parameters and statistics (the bridge between the two)</h3>
+<p>A <blank>parameter</blank> is a number that describes the population (usually unknown). A <blank>statistic</blank> is a number computed from a sample. We use statistics as estimates of parameters.</p>
+<p>Because samples vary, statistics vary too. That natural fluctuation is <blank>sampling error</blank>. We’ll learn how to quantify it with margins of error and confidence intervals in later chapters.</p>
+</section>
+<section id="observational-units-vs.-sampling-units" class="level3">
+<h3 class="anchored" data-anchor-id="observational-units-vs.-sampling-units">Observational units vs.&nbsp;sampling units</h3>
+<p>Two related terms often get mixed:</p>
+<ul>
+<li>The <blank>observational unit</blank> is “one row of data” (one person, one battery, one game).</li>
+<li>The <blank>sampling unit</blank> is “the thing you sample” (could be the same as the observational unit, but in cluster designs it might be a school or a household).</li>
+</ul>
+<p>Being explicit about units guards against design mistakes and double-counting.</p>
+</section>
+<section id="why-sampling-works-and-when-it-doesnt" class="level3">
+<h3 class="anchored" data-anchor-id="why-sampling-works-and-when-it-doesnt">Why sampling works (and when it doesn’t)</h3>
+<p>Sampling works when your sample is representative of the population and your measurement is trustworthy. It struggles when parts of the population are systematically excluded (coverage problems), when participation differs by outcome (nonresponse), or when the way you select units is related to the outcome (selection effects). We’ll study these threats—and how to reduce them—next chapter.</p>
+</section>
+<section id="a-quick-illustration-samples-differ-the-goal-doesnt" class="level3">
+<h3 class="anchored" data-anchor-id="a-quick-illustration-samples-differ-the-goal-doesnt">A quick illustration: samples differ, the goal doesn’t</h3>
+<p>Below is a simple simulation that shows how sample means wiggle from sample to sample even when we know the “true” population. As sample size grows, the wiggle shrinks.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Even though each sample tells a slightly different story, they all tend to cluster around the true mean of 10. That’s the intuition behind using a statistic to learn about a parameter.</p>
+</section>
+<section id="connecting-to-jmp-pro-17" class="level3">
+<h3 class="anchored" data-anchor-id="connecting-to-jmp-pro-17">Connecting to JMP Pro 17</h3>
+<p>In JMP you won’t “declare” the population, but you should always write it down in words before you analyze. Practically:</p>
+<ul>
+<li><p>Use Tables → Subset or randomization tools to create a sample when you have a large file standing in for a population.</p></li>
+<li><p>Use Analyze → Distribution to summarize your sample (means, proportions).</p></li>
+<li><p>Keep notes in the Data Table (Table panel → Notes) to record what your population and sampling frame are supposed to be.</p></li>
+</ul>
+</section>
+<section id="recap-1" class="level3">
+<h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 71%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Population</strong></td>
+<td>The full group or process you want to understand.</td>
+</tr>
+<tr class="even">
+<td><strong>Target population</strong></td>
+<td>The group you truly care about answering a question for.</td>
+</tr>
+<tr class="odd">
+<td><strong>Accessible population</strong></td>
+<td>The portion of the target population you can practically reach.</td>
+</tr>
+<tr class="even">
+<td><strong>Sampling frame</strong></td>
+<td>The list or mechanism from which the sample is drawn.</td>
+</tr>
+<tr class="odd">
+<td><strong>Sample</strong></td>
+<td>The subset of units you actually observe and measure.</td>
+</tr>
+<tr class="even">
+<td><strong>Census</strong></td>
+<td>An attempt to measure every unit in the population.</td>
+</tr>
+<tr class="odd">
+<td><strong>Parameter</strong></td>
+<td>A numerical characteristic of a population (e.g., <span class="math inline">\(\mu, p\)</span>).</td>
+</tr>
+<tr class="even">
+<td><strong>Statistic</strong></td>
+<td>A numerical summary from a sample (e.g., <span class="math inline">\(\bar{x}, \hat{p}\)</span>) used to estimate a parameter.</td>
+</tr>
+<tr class="odd">
+<td><strong>Sampling error</strong></td>
+<td>Natural variation in a statistic from sample to sample.</td>
+</tr>
+<tr class="even">
+<td><strong>Bias</strong></td>
+<td>Systematic deviation caused by design, coverage, or selection issues.</td>
+</tr>
+<tr class="odd">
+<td><strong>Observational unit</strong></td>
+<td>The “one case” a single row of data represents.</td>
+</tr>
+<tr class="even">
+<td><strong>Sampling unit</strong></td>
+<td>The entity selected during sampling (may differ from the observational unit).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-1" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
+<ol type="1">
+<li><p>A battery plant tests 80 batteries from today’s production line and finds an average life of 7.8 hours. Identify the population, sample, parameter, and statistic.</p></li>
+<li><p>Your target is “all Baylor first-year students this fall.” You gather data from an email list of students who signed up for an early-interest program. What is the sampling frame? Name a potential source of bias.</p></li>
+<li><p>In a household survey, you sample addresses, then interview every adult living there. What are the sampling units? What are the observational units?</p></li>
+<li><p>A marketing team uses comments on their Instagram post to judge product satisfaction among all customers. Explain why this may not represent the population.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Population: all batteries produced today. Sample: the 80 tested batteries. Parameter: the true mean life of all batteries produced today. Statistic: the sample mean of 7.8 hours.</p></li>
+<li><p>Sampling frame: students on the early-interest email list. Potential bias: students who didn’t sign up (e.g., commuters, late enrollees) may be under-represented, creating coverage/selection bias.</p></li>
+<li><p>Sampling units: addresses (households) selected. Observational units: adults within each sampled household.</p></li>
+<li><p>Instagram commenters are a self-selected subset; satisfied or dissatisfied users may be more likely to comment, and customers not on Instagram are excluded—both threaten representativeness.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="variables-and-types-of-data" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="variables-and-types-of-data"><span class="header-section-number">1.3</span> Variables and Types of Data</h2>
+<blockquote class="blockquote">
+<p>“Not everything that can be counted counts, and not everything that counts can be counted.” - Albert Einstein</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>What kinds of data exist, and how do we recognize them?</em></p>
+<p>Every data table is built from two ingredients: cases (the <em>rows</em>) and variables (the <em>columns</em>). A variable is any characteristic we record on each case. Choosing good analyses—and even drawing the right graph—depends on knowing what <em>type</em> of variable you’re working with.</p>
+<section id="what-is-a-variable" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-variable">What is a variable?</h3>
+<p>A variable can take different values across cases. “Resting heart rate,” “major,” “state of residence,” and “did the patient improve?” are all variables. Variables live in context: we should always be able to say <em>what one row represents</em> (the <blank>observational unit</blank>) and <em>what each column means and how it was measured</em> (the <blank>unit of measurement</blank> when relevant).</p>
+</section>
+<section id="the-two-big-families" class="level3">
+<h3 class="anchored" data-anchor-id="the-two-big-families">The two big families</h3>
+<p>Most variables fall into two broad families. The names vary by textbook, but the ideas are stable.</p>
+<section id="categorical-variables" class="level4">
+<h4 class="anchored" data-anchor-id="categorical-variables">Categorical variables</h4>
+<p>A <blank>categorical variable</blank> places each case into a group or label. Arithmetic on the labels doesn’t make sense.</p>
+<ul>
+<li><blank>Nominal</blank>: categories with no natural order (e.g., blood type, home state, device brand).</li>
+<li><blank>Ordinal</blank>: categories with a meaningful order but uneven or unknown spacing (e.g., Likert ratings from “Strongly disagree” to “Strongly agree”; race finish places: 1st, 2nd, 3rd).</li>
+<li><blank>Binary</blank>: exactly two categories (e.g., success/failure, disease/no disease).</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Likert Scale
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A <strong>Likert Scale</strong> is a common psychometric scale used in questionnaires to measure attitudes, opinions, or behaviors. It presents a statement and asks respondents to indicate their level of agreement or frequency on a symmetric, typically 5- or 7-point scale. The options range from one extreme (e.g., “Strongly Disagree”) to the opposite extreme (e.g., “Strongly Agree”), often including a neutral or middle point.</p>
+<p>Example: “How satisfied are you with our service?”</p>
+<ul>
+<li>Strongly Disagree</li>
+<li>Disagree</li>
+<li>Neutral</li>
+<li>Agree</li>
+<li>Strongly Agree</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="quantitative-variables" class="level4">
+<h4 class="anchored" data-anchor-id="quantitative-variables">Quantitative variables</h4>
+<p>A <blank>quantitative variable</blank> records a number where arithmetic is meaningful.</p>
+<ul>
+<li><blank>Discrete</blank>: counts that jump in whole steps (e.g., number of ER visits, defects per unit).</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For those who want to see the math:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In math, the possible values of discrete data form what is known as countable set. This means the values form a collection (set) of values that can be put into a one-to-one correspondence with the natural numbers. In other words, a set is countable if you can list its elements in a sequence, even if the list is infinitely long.</p>
+<p>There are two type of countable sets:</p>
+<ol type="1">
+<li><p>Finite Countable Set</p>
+<ul>
+<li><p>The set has a limited number of elements.</p></li>
+<li><p>Example: <span class="math inline">\(\{2, 4, 6, 8\}\)</span> — there are exactly 4 elements.</p></li>
+</ul></li>
+<li><p>Countably Infinite Set</p>
+<ul>
+<li><p>The set has infinitely many elements, but you can still list them in an ordered sequence.</p></li>
+<li><p>Example: The set of natural numbers <span class="math inline">\(\{1, 2, 3, 4, ...\}\)</span></p></li>
+<li><p>Even the set of all integers <span class="math inline">\(\{..., -2, -1, 0, 1, 2, ...\}\)</span> is countable — you can reorder them as <span class="math inline">\(0, 1, -1, 2, -2, 3, -3, ..\)</span> and still list them one by one.</p></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<ul>
+<li><blank>Continuous</blank>: measurements that, in principle, vary on a smooth scale (e.g., blood pressure, time to failure, height).</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For those who want to see the math:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The possible values of continuous data form an uncountable set. A set is uncountable if there’s no way to list all its elements in a sequence, even infinitely.</p>
+<ul>
+<li><p>Example: Real numbers between 0 and 1 — there are infinitely more of these than there are natural numbers.</p></li>
+<li><p>In set notation, an example of an uncountable set is <span class="math inline">\(\{x: x\ge 3\}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>To decide if a variable is discrete or continuous, first think of an interval of possible values of the variable<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Can you count how many values are in that interval? If so, then it is <blank>discrete</blank>, if not, then it is <blank>continuous</blank>. In practice, we can simplify this further: counts are discrete, measurements are usually continuous.</p>
+</section>
+</section>
+<section id="measurement-scales-youll-hear-about" class="level3">
+<h3 class="anchored" data-anchor-id="measurement-scales-youll-hear-about">Measurement scales you’ll hear about</h3>
+<p>You’ll occasionally see <blank>measurement scales</blank>—nominal, ordinal, interval, and ratio—used to describe variables.</p>
+<ul>
+<li><blank>Interval</blank>: numeric scales where differences make sense but zero is arbitrary (°F, °C). Ratios aren’t meaningful (“40°F isn’t twice as hot as 20°F”).</li>
+<li><blank>Ratio</blank>: numeric scales with a true zero where ratios do make sense (Kelvin, length, mass, time). “10 minutes is twice 5 minutes” <em>does</em> make sense.</li>
+</ul>
+<p>You don’t need to memorize the taxonomy; the practical takeaway is to be cautious about ratios on interval scales and to think about what operations make sense for each variable.</p>
+</section>
+<section id="identifier-and-datetime-variables" class="level3">
+<h3 class="anchored" data-anchor-id="identifier-and-datetime-variables">“Identifier” and date/time variables</h3>
+<p>Some columns are crucial for tracking rows but aren’t meant for analysis:</p>
+<ul>
+<li><blank>Identifier (ID)</blank> variables (e.g., student ID, order number, ZIP code) are labels, not quantities—even when they’re made of digits.</li>
+<li><blank>Date/time</blank> variables carry timestamps that can be treated as either categorical (e.g., day of week) or quantitative (e.g., time since start). Be explicit about which role you intend.</li>
+</ul>
+</section>
+<section id="why-types-matter-graphs-and-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="why-types-matter-graphs-and-analyses">Why types matter (graphs and analyses)</h3>
+<ul>
+<li>Categorical → bar chart or pie chart; proportions/percents; chi-square-type tools later.</li>
+<li>Quantitative → dotplot, histogram, boxplot; means/medians/standard deviations; t-tools and regression later.</li>
+<li>Ordinal often behaves like categorical for display, but its order lets you use medians or ordered models.</li>
+<li>Discrete vs.&nbsp;continuous matters for how the plot should look (bars separated vs.&nbsp;bins on a continuum) and for certain modeling choices.</li>
+</ul>
+</section>
+<section id="working-in-jmp-pro-17" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17">Working in JMP Pro 17</h3>
+<p>JMP keeps two concepts straight for each column:</p>
+<ul>
+<li><strong>Data Type</strong> (what the values <em>are</em>): <strong>Numeric</strong>, <strong>Character</strong>, or <strong>Date/Time</strong>.</li>
+<li><strong>Modeling Type</strong> (how you plan to <em>analyze</em> them): <strong>Continuous</strong>, <strong>Nominal</strong>, or <strong>Ordinal</strong>.</li>
+</ul>
+<p>Double-click a column header (or right-click → <em>Column Info</em>) to set these. Typical mappings:</p>
+<ul>
+<li>Character + Nominal → categorical labels (e.g., “TX”, “CA”).</li>
+<li>Numeric + Continuous → quantitative measures (e.g., weight, time).</li>
+<li>Numeric + Nominal → numeric codes that are actually categories (e.g., 0/1 flags, ZIP codes, jersey numbers).</li>
+<li>Numeric + Ordinal → ordered categories encoded as 1–5 (Likert items).</li>
+</ul>
+<p>If a graph or analysis looks odd in JMP, check these settings first—they control which menu options and displays you’ll see in <em>Graph Builder</em> and <em>Analyze</em>.</p>
+</section>
+<section id="a-quick-illustration-discrete-vs.-continuous" class="level3">
+<h3 class="anchored" data-anchor-id="a-quick-illustration-discrete-vs.-continuous">A quick illustration (discrete vs.&nbsp;continuous)</h3>
+<p>The displays below look different because one variable is discrete (counts) and the other is continuous (measurements).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you tried to “average” home states, you’d get nonsense; if you treated blood pressure as a category, you’d throw away useful information. Getting types right keeps your analysis honest and effective.</p>
+</section>
+<section id="common-pitfalls-and-quick-fixes" class="level3">
+<h3 class="anchored" data-anchor-id="common-pitfalls-and-quick-fixes">Common pitfalls (and quick fixes)</h3>
+<ul>
+<li>Digits don’t guarantee “quantitative.” ZIP codes, part numbers, and jersey numbers are <blank>identifiers</blank>; set them to <strong>Character + Nominal</strong> in JMP.</li>
+<li>Collapsing a continuous variable into categories (“high/medium/low”) can simplify communication but often loses power. Keep the original too.</li>
+<li>Treating an ordinal scale as if equal steps are guaranteed can be misleading. Consider medians or nonparametric tools—or justify the approximation.</li>
+</ul>
+</section>
+<section id="recap-2" class="level3">
+<h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Categorical variable</strong></td>
+<td>Places a case into a group/label; arithmetic on labels is not meaningful.</td>
+</tr>
+<tr class="even">
+<td><strong>Nominal</strong></td>
+<td>Categorical with no natural order.</td>
+</tr>
+<tr class="odd">
+<td><strong>Ordinal</strong></td>
+<td>Categorical with a natural order but uneven/unknown spacing.</td>
+</tr>
+<tr class="even">
+<td><strong>Binary</strong></td>
+<td>A categorical variable with exactly two categories.</td>
+</tr>
+<tr class="odd">
+<td><strong>Quantitative variable</strong></td>
+<td>Numeric values where arithmetic is meaningful.</td>
+</tr>
+<tr class="even">
+<td><strong>Discrete</strong></td>
+<td>Quantitative counts that change in whole steps.</td>
+</tr>
+<tr class="odd">
+<td><strong>Continuous</strong></td>
+<td>Quantitative measurements on a (nearly) continuous scale.</td>
+</tr>
+<tr class="even">
+<td><strong>Identifier (ID)</strong></td>
+<td>A label used to distinguish cases; not for numerical analysis.</td>
+</tr>
+<tr class="odd">
+<td><strong>Date/time</strong></td>
+<td>A timestamped variable that can be treated as categorical or quantitative depending on the question.</td>
+</tr>
+<tr class="even">
+<td><strong>Measurement scale</strong></td>
+<td>Describes how numbers relate to the thing measured (nominal, ordinal, interval, ratio).</td>
+</tr>
+<tr class="odd">
+<td><strong>Interval</strong></td>
+<td>Numeric scale with arbitrary zero; differences meaningful, ratios not.</td>
+</tr>
+<tr class="even">
+<td><strong>Ratio</strong></td>
+<td>Numeric scale with a true zero; differences and ratios meaningful.</td>
+</tr>
+<tr class="odd">
+<td><strong>Unit of measurement</strong></td>
+<td>The physical unit used to record a quantitative variable (e.g., mmHg, seconds).</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+<ol type="1">
+<li><p>Classify each variable as categorical nominal, categorical ordinal, binary, quantitative discrete, or quantitative continuous:</p>
+<ol type="a">
+<li>Number of missed classes this semester</li>
+<li>Pain rating on a 0–10 scale</li>
+<li>Whether a chip passes final inspection</li>
+<li>ZIP code</li>
+<li>Body temperature (°F)</li>
+</ol></li>
+<li><p>A researcher converts systolic blood pressure into “Low” (&lt;110), “Normal” (110–139), and “High” (≥140). Name one advantage and one drawback of this recoding.</p></li>
+<li><p>Give an example where a date/time variable should be treated as (a) categorical and (b) quantitative.</p></li>
+<li><p>For each of the following, say whether ratios are meaningful and explain briefly:</p>
+<ol type="a">
+<li>Temperatures in °C</li>
+<li>Hours of weekly exercise</li>
+<li>IQ scores</li>
+</ol></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>(a)<em>Quantitative discrete</em> (counts). (b) <em>Categorical ordinal</em> (ordered scale with uneven spacing)—often treated as numeric for convenience, but it’s ordinal by design. (c) <em>Binary</em> (pass/fail). (d) <em>Identifier</em> (categorical nominal label; not a quantitative variable). (e) <em>Quantitative continuous</em>.</p></li>
+<li><p><em>Advantage:</em> simplifies communication and enables comparisons across broad groups. <em>Drawback:</em> throws away information; analyses lose power and can depend on arbitrary cutpoints.</p></li>
+<li><p>(a)Categorical: day of week when a call was received (Mon–Sun). (b) Quantitative: minutes since admission, time to recovery, or days from treatment to follow-up.</p></li>
+<li><p>(a)°C is an <em>interval</em> scale: ratios aren’t meaningful (20°C isn’t “twice as hot” as 10°C). (b) Hours of exercise is a <em>ratio</em> scale with a true zero: ratios <em>are</em> meaningful (4 hours is twice 2 hours). (c) IQ is typically treated as an <em>interval</em> scale: differences are interpretable; ratios are not.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-role-of-statistics-in-research" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="the-role-of-statistics-in-research"><span class="header-section-number">1.4</span> The Role of Statistics in Research</h2>
+<p><strong>Guiding question:</strong> <em>How does the statistical process turn questions into answers?</em></p>
+<p>Research isn’t just “run a test and see what comes out.” It’s a disciplined loop that starts with a clear research question, moves through careful study design and data collection, and ends with reasoned conclusions—always with honesty about uncertainty. Statistics is the glue in this loop: it helps you plan how to learn, summarizes what you saw, and quantifies what you can responsibly claim.</p>
+<section id="from-question-to-estimand-to-design" class="level3">
+<h3 class="anchored" data-anchor-id="from-question-to-estimand-to-design">From question to estimand to design</h3>
+<p>Every project should name three things up front:</p>
+<ul>
+<li>The <blank>research question</blank>: a plain-language statement of what you want to learn (“Does the new tutoring program improve exam scores for Calculus I students?”).</li>
+<li>The <blank>target parameter</blank>: the specific quantity in the population you want to know (e.g., the difference in mean exam scores between students who receive tutoring and those who don’t).</li>
+<li>The <blank>study design</blank>: how you’ll collect data that speak to the target parameter (sampling plan, measures, and whether you’ll assign treatments).</li>
+</ul>
+<p>Two broad design families appear everywhere:</p>
+<ul>
+<li>An <blank>observational study</blank> records what already happens without assigning treatments. It’s great for describing associations but vulnerable to <blank>confounding</blank> (other factors moving with your variable of interest).</li>
+<li>An <blank>experiment</blank> assigns a <blank>treatment</blank> and compares outcomes. With good randomization and control, experiments support stronger causal claims.</li>
+</ul>
+<p>Your choice should match the target parameter and the practical constraints.</p>
+</section>
+<section id="the-statistical-process-a-workable-blueprint" class="level3">
+<h3 class="anchored" data-anchor-id="the-statistical-process-a-workable-blueprint">The statistical process: a workable blueprint</h3>
+<p>Here’s a simple, reusable workflow:</p>
+<ol type="1">
+<li><strong>Specify the problem clearly.</strong> Name the population, observational units, and variables.</li>
+<li><strong>Design the study.</strong> Choose an observational or experimental approach, plan the sample, and anticipate sources of <blank>bias</blank>.</li>
+<li><strong>Collect data with quality in mind.</strong> Strive for reliable measurement and good documentation.</li>
+<li><strong>Explore first.</strong> Use <blank>exploratory data analysis (EDA)</blank>—graphs and summaries—to understand patterns, errors, and context before modeling.</li>
+<li><strong>Model and infer.</strong> Pick a tool that matches the question and data type (comparison of means, relationships, predictions).</li>
+<li><strong>Quantify uncertainty.</strong> Report estimates with confidence intervals and, when appropriate, p-values (confidence intervals and p-values will be covered in Chapters 9 and 10, respectively). Distinguish statistical significance from practical significance.</li>
+<li><strong>Decide and communicate.</strong> Put results back in context: what do they mean, what they don’t, and what action (if any) follows.</li>
+<li><strong>Make it reproducible.</strong> Ensure someone else could re-create your steps and numbers from the same data.</li>
+</ol>
+<p>You won’t always march in a perfect line—often you loop back after EDA to refine the question or design. That’s good science.</p>
+</section>
+<section id="working-in-jmp-pro-17-1" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-1">Working in JMP Pro 17</h3>
+<p>JMP is built for this process:</p>
+<ul>
+<li><strong>Document the plan and steps.</strong> Use <strong>File → New → Journal</strong> to create a running research notebook. Paste screenshots, notes, and output as you go.</li>
+<li><strong>Save scripts to reproduce output.</strong> In most reports, click the red triangle ► <strong>Save Script → To Data Table</strong> (or <strong>To Journal</strong>). This stores a runnable recipe with the data.</li>
+<li><strong>Explore first.</strong> Start with <strong>Graph → Graph Builder</strong> and <strong>Analyze → Distribution</strong> to profile variables and check data quality.</li>
+<li><strong>Fit models with assumptions in view.</strong> Use <strong>Analyze → Fit Y by X</strong> for two-variable comparisons and <strong>Analyze → Fit Model</strong> for multiple predictors. Residual and diagnostic tools are right there in the platform menus.</li>
+<li><strong>Share and rerun.</strong> Bundle data, scripts, and notes with <strong>Projects</strong> or send a Journal so collaborators can reproduce your analysis.</li>
+</ul>
+</section>
+<section id="recap-3" class="level3">
+<h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Research question</strong></td>
+<td>The plain-language question your study seeks to answer.</td>
+</tr>
+<tr class="even">
+<td><strong>Target parameter</strong></td>
+<td>The specific population quantity you aim to learn (e.g., mean difference, proportion).</td>
+</tr>
+<tr class="odd">
+<td><strong>Study design</strong></td>
+<td>The plan for collecting data (sampling, measurement, assignment) to answer the question.</td>
+</tr>
+<tr class="even">
+<td><strong>Observational study</strong></td>
+<td>A design that observes existing groups without assigning treatments.</td>
+</tr>
+<tr class="odd">
+<td><strong>Experiment</strong></td>
+<td>A design that assigns treatments (often at random) and compares outcomes.</td>
+</tr>
+<tr class="even">
+<td><strong>Treatment</strong></td>
+<td>The condition or intervention applied in an experiment.</td>
+</tr>
+<tr class="odd">
+<td><strong>Confounding</strong></td>
+<td>A third factor related to both treatment and outcome that distorts comparisons.</td>
+</tr>
+<tr class="even">
+<td><strong>Exploratory data analysis (EDA)</strong></td>
+<td>Early summaries/graphs used to understand data and spot issues.</td>
+</tr>
+<tr class="odd">
+<td><strong>Reproducibility</strong></td>
+<td>The ability for someone else to re-create your results from the same data and documented steps.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-3" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+<ol type="1">
+<li><p>A hospital asks: “Does a new scheduling system reduce ER wait times compared to the current system?”</p>
+<ol type="a">
+<li>State a suitable target parameter.</li>
+<li>Name a design choice (observational vs.&nbsp;experimental) and one reason for your choice.</li>
+</ol></li>
+<li><p>A university compares GPA between students who use tutoring and those who don’t, with no assignment or randomization. Name a potential confounder and how an experiment would address it.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>(a)<em>Target parameter:</em> the mean difference in ER wait time (new minus current) for all eligible ER visits. (b) <em>Design:</em> a randomized experiment (e.g., randomize days or shifts to “new” vs.&nbsp;“current”), so groups differ only by scheduling system on average, improving causal interpretation.</p></li>
+<li><p><em>Potential confounder:</em> prior academic preparation (e.g., incoming math placement). Students who seek tutoring might differ systematically. An experiment could randomly assign eligible students to tutoring or control (or randomize access), balancing confounders by design.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-statistical-process" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="the-statistical-process"><span class="header-section-number">1.5</span> The Statistical Process</h2>
+<blockquote class="blockquote">
+<p>“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” -John Tukey</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>Why does context matter as much as calculation?</em></p>
+<p>Two analysts can compute the same number and reach very different conclusions—because numbers live inside stories. The <blank>context</blank> of your data—who and what were measured, when and where, and under what conditions—determines which comparisons are fair, which models fit, and what your results mean. In short: good statistics is not just calculation; it’s thoughtful interpretation anchored in how the data were produced.</p>
+<section id="what-context-actually-includes" class="level3">
+<h3 class="anchored" data-anchor-id="what-context-actually-includes">What “context” actually includes</h3>
+<p>When we say “use context,” we mean four concrete ingredients:</p>
+<ul>
+<li><strong>Data context.</strong> What are the <em>observational units</em>? What do the <em>variables</em> represent, and what are their <em>units of measurement</em>?</li>
+<li><strong>Design context.</strong> How were cases selected or assigned? Is this an <em>observational study</em> or an <em>experiment</em>? Where could <em>bias</em> or <em>confounding</em> sneak in?</li>
+<li><strong>Measurement context.</strong> What is the precise operational definition of each variable? Are instruments calibrated? Is the measurement <em>reliable</em> and <em>valid</em> for the construct?</li>
+<li><strong>Analysis context.</strong> What <blank>assumptions</blank> do your methods make, and are they plausible here? What domain constraints or conventions matter?</li>
+</ul>
+<p>Together, these pieces describe the <blank>data-generating process (DGP)</blank>—the mechanism by which the numbers in your table came to be. We make better choices when we reason about the DGP, not just the dataset.</p>
+</section>
+<section id="same-numbers-different-stories-why-stratification-matters" class="level3">
+<h3 class="anchored" data-anchor-id="same-numbers-different-stories-why-stratification-matters">Same numbers, different stories: why stratification matters</h3>
+<p>Comparisons can flip when you ignore a meaningful background factor—a classic “wait, what?” known as <blank>Simpson’s paradox</blank>. Below is a toy illustration with a medical “success” outcome, two treatments (A, B), and a background factor “severity” with two levels (Easy/Hard). Within each severity group, A does slightly better. But because B is given more often to Easy cases, B looks better overall.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Success rates by severity (within-group)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">severity</th>
+<th style="text-align: left;">treatment</th>
+<th style="text-align: right;">successes</th>
+<th style="text-align: right;">total</th>
+<th style="text-align: right;">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Easy</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0.93</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Easy</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">828</td>
+<td style="text-align: right;">900</td>
+<td style="text-align: right;">0.92</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hard</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">657</td>
+<td style="text-align: right;">900</td>
+<td style="text-align: right;">0.73</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hard</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0.72</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Overall success rates (ignoring severity)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">treatment</th>
+<th style="text-align: right;">successes</th>
+<th style="text-align: right;">total</th>
+<th style="text-align: right;">rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">750</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: right;">0.75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">900</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: right;">0.90</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Ignoring context (severity) leads to a different recommendation than comparing like with like. The fix is simple in principle: compare within relevant strata or adjust for them in a model.</p>
+</section>
+<section id="a-practical-context-checklist-before-you-compute" class="level3">
+<h3 class="anchored" data-anchor-id="a-practical-context-checklist-before-you-compute">A practical context checklist (before you compute)</h3>
+<p>Slow down—ask and answer these, in writing:</p>
+<ul>
+<li><strong>Who/what is a row?</strong> Name the observational unit.</li>
+<li><strong>How were data obtained?</strong> Sampling plan? Assignment? Time window? Inclusion/exclusion rules?</li>
+<li><strong>What exactly was measured?</strong> Give operational definitions and units.</li>
+<li><strong>Which comparisons are fair?</strong> Identify potential confounders and plan to <blank>stratify</blank> or adjust.</li>
+<li><strong>What assumptions will you need?</strong> Independence? Linearity? Constant variance? Distributional shape? (We will discuss these assumptions in later chapters)</li>
+<li><strong>What will your claim be?</strong> Descriptive statement, association, or causal effect? Match your language to your design.</li>
+</ul>
+</section>
+<section id="working-in-jmp-pro-17-making-context-visible" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-making-context-visible">Working in JMP Pro 17: making context visible</h3>
+<p>JMP gives you several context-friendly tools:</p>
+<ul>
+<li><strong>Document units and roles.</strong> Right-click a column → <em>Column Info</em> to set <strong>Units</strong>, <strong>Modeling Type</strong> (Nominal/Ordinal/Continuous), and notes. This prevents accidental “numeric” analysis of IDs.</li>
+<li><strong>Compare like with like.</strong> Use <strong>Graph → Graph Builder</strong> with <em>Group X/Y</em> or <em>Wrap</em> to make side-by-side comparisons within levels of a context variable (e.g., severity, grade level).</li>
+<li><strong>Stratify or filter.</strong> Turn on <strong>Local Data Filter</strong> (from the report’s red triangle) to subset or facet analyses without touching the source table.</li>
+<li><strong>Adjust in a model.</strong> In <strong>Analyze → Fit Model</strong>, include the context variable(s) as effects and consider an interaction to check for effect modification (i.e., whether the effect changes with context).</li>
+<li><strong>Use “By” wisely.</strong> Many platforms allow a <strong>By</strong> variable to run the same analysis separately within each level—great for quick stratified summaries.</li>
+</ul>
+</section>
+<section id="language-that-respects-context" class="level3">
+<h3 class="anchored" data-anchor-id="language-that-respects-context">Language that respects context</h3>
+<p>Be precise. In observational data, prefer “<blank>associated with</blank>,” not “<blank>caused by</blank>.” Reserve causal language for designs (or assumptions) that justify it. Match conclusions to the population actually studied to protect external validity (generalizability), and avoid threats to internal validity (biases that distort the effect).</p>
+</section>
+<section id="recap-4" class="level3">
+<h3 class="anchored" data-anchor-id="recap-4">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Context</strong></td>
+<td>The who/what/when/where/how surrounding the data that shapes fair comparisons and interpretation.</td>
+</tr>
+<tr class="even">
+<td><strong>Data-generating process (DGP)</strong></td>
+<td>The mechanism or process by which the observed data were produced.</td>
+</tr>
+<tr class="odd">
+<td><strong>Stratification</strong></td>
+<td>Comparing groups within levels of a context variable to reduce confounding.</td>
+</tr>
+<tr class="even">
+<td><strong>Simpson’s paradox</strong></td>
+<td>A reversal of an association when data are aggregated versus when compared within relevant strata.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-4" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-4">Check your understanding</h3>
+<ol type="1">
+<li><p>A hospital reports that Treatment B has a higher overall recovery rate than Treatment A. After stratifying by initial severity, A has a higher recovery rate in each severity group. Name the phenomenon.</p></li>
+<li><p>A university analyzes GPA vs.&nbsp;tutoring usage from administrative records (no random assignment). What language should they use to describe the relationship? Name one likely confounder.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>(a)<em>Simpson’s paradox.</em></p></li>
+<li><p>Use association language: “Tutoring use is <strong>associated with</strong> higher GPA,” not causal. Likely confounders include prior preparation (placement scores), motivation, or course load.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>In real world applications, you are usually limited by how you measure. For instance, you may be measuring the length of insects and you measure to the nearest millimeter. This limitation should not play a role in determining continuous RVs. So in theory, insects could measure between 10 and 20 millimeters. You only measure in millimeters but an insect could be 10.1, 10.114, 10.675, 10.000004, etc. Since there are infinite number of values in 10 to 20 that insects could measure in theory, we say the length is continuous.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
