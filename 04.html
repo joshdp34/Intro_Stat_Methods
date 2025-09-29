@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
-
+<meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>4&nbsp; Describing Data with Numbers – STA 2381 Introductory Statistical Methods</title>
+<title>STA 2381 Introductory Statistical Methods - 4&nbsp; Describing Data with Numbers</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -35,23 +31,16 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -60,13 +49,11 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<style type="text/css">
+}</script><style type="text/css">
 .sidebar .chapter-number {
 color: #FFB81c;
 }
@@ -108,63 +95,26 @@ document.addEventListener('click', (event) => {
     event.target.classList.add('clicked');
   }
 });
-</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
+</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
-
 <body class="nav-sidebar docked">
 
+
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./"></a> 
         <div class="sidebar-tools-main">
@@ -183,7 +133,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
@@ -225,66 +175,78 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
+  </div>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#measures-of-center-mean-median-mode" id="toc-measures-of-center-mean-median-mode" class="nav-link active" data-scroll-target="#measures-of-center-mean-median-mode"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</a>
+<li>
+<a href="#measures-of-center-mean-median-mode" id="toc-measures-of-center-mean-median-mode" class="nav-link active" data-scroll-target="#measures-of-center-mean-median-mode"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</a>
   <ul class="collapse">
-  <li><a href="#what-do-we-mean-by-typical" id="toc-what-do-we-mean-by-typical" class="nav-link" data-scroll-target="#what-do-we-mean-by-typical">What do we mean by “typical”?</a></li>
+<li><a href="#what-do-we-mean-by-typical" id="toc-what-do-we-mean-by-typical" class="nav-link" data-scroll-target="#what-do-we-mean-by-typical">What do we mean by “typical”?</a></li>
   <li><a href="#the-shape-of-a-distribution" id="toc-the-shape-of-a-distribution" class="nav-link" data-scroll-target="#the-shape-of-a-distribution">The shape of a distribution</a></li>
   <li><a href="#choosing-the-right-measure" id="toc-choosing-the-right-measure" class="nav-link" data-scroll-target="#choosing-the-right-measure">Choosing the right measure</a></li>
   <li><a href="#working-in-jmp-pro-17" id="toc-working-in-jmp-pro-17" class="nav-link" data-scroll-target="#working-in-jmp-pro-17">Working in JMP Pro 17</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
-  </ul></li>
-  <li><a href="#measures-of-variability-range-iqr-standard-deviation" id="toc-measures-of-variability-range-iqr-standard-deviation" class="nav-link" data-scroll-target="#measures-of-variability-range-iqr-standard-deviation"><span class="header-section-number">4.2</span> Measures of Variability (Range, IQR, Standard Deviation)</a>
+  </ul>
+</li>
+  <li>
+<a href="#measures-of-variability-range-iqr-standard-deviation" id="toc-measures-of-variability-range-iqr-standard-deviation" class="nav-link" data-scroll-target="#measures-of-variability-range-iqr-standard-deviation"><span class="header-section-number">4.2</span> Measures of Variability (Range, IQR, Standard Deviation)</a>
   <ul class="collapse">
-  <li><a href="#why-variability-matters" id="toc-why-variability-matters" class="nav-link" data-scroll-target="#why-variability-matters">Why variability matters</a></li>
+<li><a href="#why-variability-matters" id="toc-why-variability-matters" class="nav-link" data-scroll-target="#why-variability-matters">Why variability matters</a></li>
   <li><a href="#working-in-jmp-pro-17-1" id="toc-working-in-jmp-pro-17-1" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-1">Working in JMP Pro 17</a></li>
   <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
   <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
-  </ul></li>
-  <li><a href="#identifying-outliers" id="toc-identifying-outliers" class="nav-link" data-scroll-target="#identifying-outliers"><span class="header-section-number">4.3</span> Identifying Outliers</a>
+  </ul>
+</li>
+  <li>
+<a href="#identifying-outliers" id="toc-identifying-outliers" class="nav-link" data-scroll-target="#identifying-outliers"><span class="header-section-number">4.3</span> Identifying Outliers</a>
   <ul class="collapse">
-  <li><a href="#what-counts-as-an-outlier" id="toc-what-counts-as-an-outlier" class="nav-link" data-scroll-target="#what-counts-as-an-outlier">What counts as an outlier?</a></li>
+<li><a href="#what-counts-as-an-outlier" id="toc-what-counts-as-an-outlier" class="nav-link" data-scroll-target="#what-counts-as-an-outlier">What counts as an outlier?</a></li>
   <li><a href="#what-to-do-with-outliers" id="toc-what-to-do-with-outliers" class="nav-link" data-scroll-target="#what-to-do-with-outliers">What to do with outliers</a></li>
   <li><a href="#working-in-jmp-pro-17-2" id="toc-working-in-jmp-pro-17-2" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-2">Working in JMP Pro 17</a></li>
   <li><a href="#recap-2" id="toc-recap-2" class="nav-link" data-scroll-target="#recap-2">Recap</a></li>
   <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
-  </ul></li>
-  <li><a href="#the-fivenumber-summary-and-boxplots" id="toc-the-fivenumber-summary-and-boxplots" class="nav-link" data-scroll-target="#the-fivenumber-summary-and-boxplots"><span class="header-section-number">4.4</span> The Five‑Number Summary and Boxplots</a>
+  </ul>
+</li>
+  <li>
+<a href="#the-fivenumber-summary-and-boxplots" id="toc-the-fivenumber-summary-and-boxplots" class="nav-link" data-scroll-target="#the-fivenumber-summary-and-boxplots"><span class="header-section-number">4.4</span> The Five‑Number Summary and Boxplots</a>
   <ul class="collapse">
-  <li><a href="#the-five-numbers" id="toc-the-five-numbers" class="nav-link" data-scroll-target="#the-five-numbers">The five numbers</a></li>
+<li><a href="#the-five-numbers" id="toc-the-five-numbers" class="nav-link" data-scroll-target="#the-five-numbers">The five numbers</a></li>
   <li><a href="#the-boxplot-a-visual-summary" id="toc-the-boxplot-a-visual-summary" class="nav-link" data-scroll-target="#the-boxplot-a-visual-summary">The boxplot: a visual summary</a></li>
   <li><a href="#outlier-identification" id="toc-outlier-identification" class="nav-link" data-scroll-target="#outlier-identification">Outlier identification</a></li>
   <li><a href="#working-in-jmp-pro-17-3" id="toc-working-in-jmp-pro-17-3" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-3">Working in JMP Pro 17</a></li>
   <li><a href="#recap-3" id="toc-recap-3" class="nav-link" data-scroll-target="#recap-3">Recap</a></li>
   <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
-  </ul></li>
-  <li><a href="#choosing-appropriate-summary-statistics" id="toc-choosing-appropriate-summary-statistics" class="nav-link" data-scroll-target="#choosing-appropriate-summary-statistics"><span class="header-section-number">4.5</span> Choosing Appropriate Summary Statistics</a>
+  </ul>
+</li>
+  <li>
+<a href="#choosing-appropriate-summary-statistics" id="toc-choosing-appropriate-summary-statistics" class="nav-link" data-scroll-target="#choosing-appropriate-summary-statistics"><span class="header-section-number">4.5</span> Choosing Appropriate Summary Statistics</a>
   <ul class="collapse">
-  <li><a href="#categorical-and-binary-data" id="toc-categorical-and-binary-data" class="nav-link" data-scroll-target="#categorical-and-binary-data">Categorical and binary data</a></li>
+<li><a href="#categorical-and-binary-data" id="toc-categorical-and-binary-data" class="nav-link" data-scroll-target="#categorical-and-binary-data">Categorical and binary data</a></li>
   <li><a href="#ordinal-data" id="toc-ordinal-data" class="nav-link" data-scroll-target="#ordinal-data">Ordinal data</a></li>
   <li><a href="#quantitative-data-symmetric-vs.-skewed" id="toc-quantitative-data-symmetric-vs.-skewed" class="nav-link" data-scroll-target="#quantitative-data-symmetric-vs.-skewed">Quantitative data: symmetric vs.&nbsp;skewed</a></li>
   <li><a href="#working-in-jmp-pro-17-4" id="toc-working-in-jmp-pro-17-4" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-4">Working in JMP Pro 17</a></li>
   <li><a href="#check-your-understanding-4" id="toc-check-your-understanding-4" class="nav-link" data-scroll-target="#check-your-understanding-4">Check your understanding</a></li>
-  </ul></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span>
+</h1>
 </div>
 
 
@@ -297,22 +259,16 @@ window.Quarto = {
   </div>
   
 
-
-</header>
-
-
-<section id="measures-of-center-mean-median-mode" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="measures-of-center-mean-median-mode"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</h2>
+</header><section id="measures-of-center-mean-median-mode" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="measures-of-center-mean-median-mode">
+<span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</h2>
 <blockquote class="blockquote">
 <p>“You keep using that word. I do not think it means what you think it means.” - Inigo Montoya</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>What’s the “typical” value in a dataset?</em></p>
 <p>One of the first things we usually want to know about a numeric variable is where it “centers.” When we say “typical,” we’re asking: if we had to pick one number to represent the group, what would it be? In this section we’ll explore three common answers—mean, median, and mode—and think about when each one makes sense.</p>
-<section id="what-do-we-mean-by-typical" class="level3">
-<h3 class="anchored" data-anchor-id="what-do-we-mean-by-typical">What do we mean by “typical”?</h3>
+<section id="what-do-we-mean-by-typical" class="level3"><h3 class="anchored" data-anchor-id="what-do-we-mean-by-typical">What do we mean by “typical”?</h3>
 <p>A good summary of the center should capture the central tendency of the data without being too distracted by the extremes. Depending on how the data are shaped, different summaries will feel more or less representative. Here are the big three:</p>
-<section id="the-mean-arithmetic-average" class="level4">
-<h4 class="anchored" data-anchor-id="the-mean-arithmetic-average">The mean (arithmetic average)</h4>
+<section id="the-mean-arithmetic-average" class="level4"><h4 class="anchored" data-anchor-id="the-mean-arithmetic-average">The mean (arithmetic average)</h4>
 <p>The <blank>mean</blank> of a sample, often denoted <span class="math inline">\(\bar{x}\)</span>, is the sum of all observations divided by the number of observations. If you place each data point as a weight on a number line, the mean is the balance point. Formally, for sample values <span class="math inline">\(x_1, x_2,\dots,x_n\)</span>, the mean is</p>
 <p><span class="math display">\[
 \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.
@@ -323,17 +279,13 @@ window.Quarto = {
 <p>Let’s examine only the number of soldiers who died in Scutari for the first five regiments in the dataset. These values are</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<tbody>
-<tr class="odd">
+<table class="table table-sm table-striped small"><tbody><tr class="odd">
 <td style="text-align: right;">93</td>
 <td style="text-align: right;">96</td>
 <td style="text-align: right;">42</td>
 <td style="text-align: right;">155</td>
 <td style="text-align: right;">94</td>
-</tr>
-</tbody>
-</table>
+</tr></tbody></table>
 </div>
 </div>
 <p>To find the mean we have <span class="math display">\[
@@ -346,18 +298,14 @@ window.Quarto = {
 <p>Now, suppose we had another value added to this data, 500. We now have the data values</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<tbody>
-<tr class="odd">
+<table class="table table-sm table-striped small"><tbody><tr class="odd">
 <td style="text-align: right;">93</td>
 <td style="text-align: right;">96</td>
 <td style="text-align: right;">42</td>
 <td style="text-align: right;">155</td>
 <td style="text-align: right;">94</td>
 <td style="text-align: right;">500</td>
-</tr>
-</tbody>
-</table>
+</tr></tbody></table>
 </div>
 </div>
 <p>The mean is now <span class="math display">\[
@@ -368,45 +316,32 @@ window.Quarto = {
 \]</span></p>
 <p>Does 163.3 feel “typical” for this group? Not at all—the single outlier drags the mean upward. This is a case where the mean alone can be misleading.</p>
 <p>Sometimes we adjust the mean to reduce the influence of extremes. A <em>trimmed mean</em> drops a certain percentage of the smallest and largest values before averaging; this can provide a compromise between mean and median. In a 10% trimmed mean, for example, you remove the lowest 10% and the highest 10% of observations, then compute the mean of what remains.</p>
-</section>
-<section id="the-median-middle-value" class="level4">
-<h4 class="anchored" data-anchor-id="the-median-middle-value">The median (middle value)</h4>
+</section><section id="the-median-middle-value" class="level4"><h4 class="anchored" data-anchor-id="the-median-middle-value">The median (middle value)</h4>
 <p>The <blank>median</blank> is the midpoint of the data when they are ordered from smallest to largest. Half the observations are at or below the median and half are at or above. For an odd number of observations, the median is the middle value; for an even number, it is the average of the two middle values.</p>
 <p>Because it depends only on order, the median is <em>resistant</em> to extreme values. In the Scutari example above, ordering the values gives</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<tbody>
-<tr class="odd">
+<table class="table table-sm table-striped small"><tbody><tr class="odd">
 <td style="text-align: right;">42</td>
 <td style="text-align: right;">93</td>
 <td style="text-align: right;">94</td>
 <td style="text-align: right;">96</td>
 <td style="text-align: right;">155</td>
 <td style="text-align: right;">500</td>
-</tr>
-</tbody>
-</table>
+</tr></tbody></table>
 </div>
 </div>
 <p>The median (the average of the third and fourth values) is 95—much more representative of the number of deaths the regiments had in Scutari. This robustness is why medians are often reported for skewed data such as incomes or home prices.</p>
-</section>
-<section id="the-mode-most-frequent-value" class="level4">
-<h4 class="anchored" data-anchor-id="the-mode-most-frequent-value">The mode (most frequent value)</h4>
+</section><section id="the-mode-most-frequent-value" class="level4"><h4 class="anchored" data-anchor-id="the-mode-most-frequent-value">The mode (most frequent value)</h4>
 <p>The <blank>mode</blank> is the value that occurs most often. A dataset can be <em>unimodal</em> (one most common value), <em>bimodal</em> (two peaks), or <em>multimodal</em>. The mode is particularly useful for categorical or discrete data where the “most common category” is informative. For continuous variables measured with fine precision, exact ties are rare, so we often look at histogram peaks as the mode rather than a single numerical mode.</p>
-</section>
-</section>
-<section id="the-shape-of-a-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="the-shape-of-a-distribution">The shape of a distribution</h3>
+</section></section><section id="the-shape-of-a-distribution" class="level3"><h3 class="anchored" data-anchor-id="the-shape-of-a-distribution">The shape of a distribution</h3>
 <p>When examining a data distribution of a quantitative variable, whether portrayed by a frequency table or by a graph such as a histogram, we should look for clear peaks. Does the distribution have a single mound? A distribution of such data is called <em>unimodal</em>.</p>
 <p>A distribution with two distinct mounds is called <em>bimodal</em>. A bimodal distribution can result, for example, when a population is polarized on a controversial issue. Suppose each subject is presented with ten scenarios in which a person found guilty of murder may be given the death penalty. If we count the number of those scenarios in which subjects feel the death penalty would be just, many responses would be close to 0 (for subjects who oppose the death penalty generally) and many would be close to 10 (for subjects who think it’s always or usually warranted for murder).</p>
 <p>A bimodal distribution can also result when the observations come from two different groups. For instance, a histogram of the height of students at a university might show two peaks, one for females and one for males.</p>
 <p>What is the <strong>shape</strong> of the distribution? The shape of the distribution is often described as <blank>symmetric</blank> or <blank>skewed</blank>.</p>
 <p>A distribution is symmetric if the side of the distribution below a central value is a mirror image of the side above that central value. The distribution is skewed if one side of the distribution stretches out longer than the other side.</p>
 <p>To <em>skew</em> means to stretch in one direction. A distribution is skewed to the <strong>left</strong> if the left tail<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is longer than the right tail. A distribution is skewed to the <strong>right</strong> if the right tail is longer than the left tail.</p>
-</section>
-<section id="choosing-the-right-measure" class="level3">
-<h3 class="anchored" data-anchor-id="choosing-the-right-measure">Choosing the right measure</h3>
+</section><section id="choosing-the-right-measure" class="level3"><h3 class="anchored" data-anchor-id="choosing-the-right-measure">Choosing the right measure</h3>
 <p>How do you decide which summary to use? A few guidelines can help:</p>
 <ul>
 <li>Use the <strong>mean</strong> when the distribution is roughly symmetric without outliers. The mean connects nicely to many statistical models and formulas.</li>
@@ -414,43 +349,30 @@ window.Quarto = {
 <li>Use the <strong>mode</strong> when describing the most common category or when the data are naturally discrete. For continuous variables, speak of the “modal class” (the bin with the highest frequency).</li>
 </ul>
 <p>You can also look at the relationship among mean, median, and mode to diagnose shape. In a symmetric distribution these summaries coincide. In a right‑skewed distribution the mean typically lies to the right of the median, and the mode is the smallest of the three; in a left‑skewed distribution the order reverses.</p>
-<section id="illustration-skewness-and-the-meanmedian-comparison" class="level4">
-<h4 class="anchored" data-anchor-id="illustration-skewness-and-the-meanmedian-comparison">Illustration: skewness and the mean–median comparison</h4>
+<section id="illustration-skewness-and-the-meanmedian-comparison" class="level4"><h4 class="anchored" data-anchor-id="illustration-skewness-and-the-meanmedian-comparison">Illustration: skewness and the mean–median comparison</h4>
 <p>The following simulates data from a right‑skewed distribution and a symmetric distribution and plots them side by side. Notice how the mean and median behave.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="04_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="04_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>In the right‑skewed distribution, the mean lies to the right of the median, reflecting the pull of larger values. In the nearly symmetric distribution, the mean and median are close together.</p>
-</section>
-</section>
-<section id="working-in-jmp-pro-17" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17">Working in JMP Pro 17</h3>
+</section></section><section id="working-in-jmp-pro-17" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17">Working in JMP Pro 17</h3>
 <p>JMP makes it easy to compute and compare these summaries.</p>
 <ul>
 <li>Use <strong>Analyze→Distribution</strong> on a single numeric column. The report shows the <strong>Mean</strong> and <strong>Median</strong> under the “Summary Statistics” section, and a “Quantiles” table lists the median explicitly. The bar under the histogram marks the median with a vertical line.</li>
 <li>To find the <strong>mode</strong>, examine the histogram (bins with the highest bars) or create a <strong>Tabulate</strong> table. Because continuous measurements rarely tie exactly, the notion of a mode is approximate.</li>
 <li>For a <strong>trimmed mean</strong>, click the red triangle ▶ next to the variable name in the Distribution platform, choose <strong>Nonparametric→TrimmedMean</strong>, and select the trimming proportion.</li>
-</ul>
-</section>
-<section id="recap" class="level3">
-<h3 class="anchored" data-anchor-id="recap">Recap</h3>
-<table class="caption-top table">
+</ul></section><section id="recap" class="level3"><h3 class="anchored" data-anchor-id="recap">Recap</h3>
+<table class="table">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 84%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><strong>Keyword</strong></th>
 <th><strong>Definition</strong></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>Mean</strong></td>
@@ -473,25 +395,26 @@ window.Quarto = {
 <td>A distribution where the tail extends to the left; typically mean&lt;median&lt;mode.</td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="check-your-understanding" class="level3">
-<h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+</table></section><section id="check-your-understanding" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
 <ol type="1">
-<li><p>A sample of commuting times (in minutes) for twelve workers is <span class="math display">\[
+<li>
+<p>A sample of commuting times (in minutes) for twelve workers is <span class="math display">\[
 10,\ 12,\ 12,\ 15,\ 16,\ 17,\ 18,\ 18,\ 18,\ 20,\ 22,\ 90.
 \]</span> Use these value for the following:</p>
 <ol type="a">
 <li><p>Find the median commuting time.</p></li>
 <li><p>Find the mean commuting time. How does the outlier affect the mean?</p></li>
 <li><p>If you were advising a city planner about what most commuters experience, which summary (mean or median) would you report? Why?</p></li>
-</ol></li>
-<li><p>For which of the following situations would the <strong>mode</strong> be a more informative summary than the mean or median? Explain your reasoning.</p>
+</ol>
+</li>
+<li>
+<p>For which of the following situations would the <strong>mode</strong> be a more informative summary than the mean or median? Explain your reasoning.</p>
 <ol type="a">
 <li><p>The test scores (0–100) from a class of 200 students.</p></li>
 <li><p>The favorite ice-cream flavors (chocolate, vanilla, strawberry, etc.) of 150 customers.</p></li>
 <li><p>The heights of 30 professional basketball players.</p></li>
-</ol></li>
+</ol>
+</li>
 <li><p>The median of five numbers is 8 and the mean is 10. If four of the numbers are 3,7,8, and 20, what is the fifth number? (Hint: Use the definitions of median and mean.)</p></li>
 <li><p>Describe a situation in which the <strong>trimmed mean</strong> would be preferred over both the mean and the median.</p></li>
 </ol>
@@ -516,21 +439,17 @@ Solutions
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="measures-of-variability-range-iqr-standard-deviation" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="measures-of-variability-range-iqr-standard-deviation"><span class="header-section-number">4.2</span> Measures of Variability (Range, IQR, Standard Deviation)</h2>
+</section></section><section id="measures-of-variability-range-iqr-standard-deviation" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="measures-of-variability-range-iqr-standard-deviation">
+<span class="header-section-number">4.2</span> Measures of Variability (Range, IQR, Standard Deviation)</h2>
 <blockquote class="blockquote">
 <p>“In statistics, variation is the name of the game – without it there would be nothing to explain.” – David Salsburg</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>How do we measure variability?</em></p>
 <p>If the center tells us what’s typical, measures of variability tell us how spread out the data are around that typical value. Two datasets can share the same mean yet be very different if one is tightly clustered and the other is widely scattered. We need tools to describe that spread and to compare it across groups.</p>
-<section id="why-variability-matters" class="level3">
-<h3 class="anchored" data-anchor-id="why-variability-matters">Why variability matters</h3>
+<section id="why-variability-matters" class="level3"><h3 class="anchored" data-anchor-id="why-variability-matters">Why variability matters</h3>
 <p>Understanding variability helps us judge reliability. If commute times vary widely from day to day, a typical time doesn’t provide much certainty. In manufacturing, small variability in part dimensions indicates a stable process; large variability suggests something is wrong. In inferential statistics, measures of variability (especially variance and standard deviation) play a central role in quantifying uncertainty.</p>
 <p>We’ll look at four common summaries: the <em>range</em>, the <em>interquartile range</em> (IQR), the <em>variance</em>, and the <em>standard deviation</em>. Each captures spread in a slightly different way.</p>
-<section id="the-range" class="level4">
-<h4 class="anchored" data-anchor-id="the-range">The range</h4>
+<section id="the-range" class="level4"><h4 class="anchored" data-anchor-id="the-range">The range</h4>
 <p>The <blank>range</blank> is the simplest measure of spread: it’s the difference between the largest and smallest values.</p>
 <p><span class="math display">\[
 \text{Range} = \max(x) - \min(x).
@@ -539,24 +458,18 @@ Solutions
 <p>Two data sets can have the same range and be vastly different with respect to data variation.</p>
 <p>For Example, Consider the data set A: <span class="math display">\[1, 3, 5, 6, 8, 9, 10, 15\]</span> and data set B: <span class="math display">\[1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 15\]</span></p>
 <p>Both data sets have the same range but are very different in how the data are spread out.</p>
-</section>
-<section id="quartiles-and-the-interquartile-range-iqr" class="level4">
-<h4 class="anchored" data-anchor-id="quartiles-and-the-interquartile-range-iqr">Quartiles and the interquartile range (IQR)</h4>
+</section><section id="quartiles-and-the-interquartile-range-iqr" class="level4"><h4 class="anchored" data-anchor-id="quartiles-and-the-interquartile-range-iqr">Quartiles and the interquartile range (IQR)</h4>
 <p>To get a sense of spread that isn’t distorted by extremes, we can look at quantiles. The <blank>first quartile</blank> (<span class="math inline">\(Q_1\)</span>) is the value such that about 25% of the data are below it; the <blank>third quartile</blank> (<span class="math inline">\(Q_3\)</span>) has about 75% below it. The <blank>interquartile range (IQR)</blank> is the difference between these two quartiles:</p>
 <p><span class="math display">\[
 \text{IQR} = Q_3 - Q_1.
 \]</span></p>
 <p>Because it uses the middle half of the data, the IQR is a <em>resistant</em> measure of spread. It tells us how wide the “middle 50%” is, ignoring the tails. The IQR is central to boxplots and to identifying outliers (as we’ll see in the next section).</p>
-</section>
-<section id="variance-and-standard-deviation" class="level4">
-<h4 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and standard deviation</h4>
+</section><section id="variance-and-standard-deviation" class="level4"><h4 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and standard deviation</h4>
 <p>For a different measure of variability, we can calculate the distance and direction from the mean for each individual measurement. This is known as the <em>deviation</em> of the measurement. <span class="math display">\[
 \text{deviation} = x - \bar x
 \]</span></p>
 <p>Using these deviations, we can construct a more sensitive (as compared to the range) measure of variation.</p>
-</section>
-<section id="example" class="level4">
-<h4 class="anchored" data-anchor-id="example">Example:</h4>
+</section><section id="example" class="level4"><h4 class="anchored" data-anchor-id="example">Example:</h4>
 <p>Data set 1:<br>
 1, 2, 3, 4, 5</p>
 <p>Data set 2:<br>
@@ -613,13 +526,11 @@ s =&amp; \sqrt{s^2}\\
 \end{align*}
 \]</span></p>
 <p>Squaring the deviations ensures that positive and negative deviations don’t cancel out and gives more weight to larger deviations. Taking the square root returns the measure to the original units of the data. Standard deviation answers the question: on average, how far do observations fall from the mean? Unlike the IQR, the standard deviation is <em>sensitive to outliers</em>, because every deviation is squared. F</p>
-</section>
-<section id="illustration-comparing-spreads" class="level4">
-<h4 class="anchored" data-anchor-id="illustration-comparing-spreads">Illustration: comparing spreads</h4>
+</section><section id="illustration-comparing-spreads" class="level4"><h4 class="anchored" data-anchor-id="illustration-comparing-spreads">Illustration: comparing spreads</h4>
 <p>Consider two small sets of exam scores. GroupA scores are tightly clustered, and GroupB scores vary widely even though their means are similar.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <caption>Exam scores for the two groups</caption>
 <tbody>
 <tr class="odd">
@@ -649,17 +560,15 @@ s =&amp; \sqrt{s^2}\\
 <p>We’ll compute the range, IQR, and standard deviation for each group.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <caption>Comparing measures of spread for two groups</caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;"></th>
 <th style="text-align: right;">mean</th>
 <th style="text-align: right;">range</th>
 <th style="text-align: right;">IQR</th>
 <th style="text-align: right;">sd</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Group_A</td>
@@ -680,30 +589,25 @@ s =&amp; \sqrt{s^2}\\
 </div>
 </div>
 <p>In this example, both groups have means around the mid‑70s (mean≈74). However, GroupA’s range is 8 points and its IQR is 3 points, while GroupB’s range is 30 points and its IQR is 15 points. The standard deviation for GroupB is more than triple that of GroupA. Even without a graph you can see that GroupB’s scores are much more spread out.</p>
-</section>
-</section>
-<section id="working-in-jmp-pro-17-1" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-1">Working in JMP Pro 17</h3>
+</section></section><section id="working-in-jmp-pro-17-1" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-1">Working in JMP Pro 17</h3>
 <p>To examine variability in JMP:</p>
 <ul>
-<li><strong>Range and IQR.</strong> In the <strong>Distribution</strong> platform, click the red triangle ▶ next to the variable name and select <strong>Save Quantiles</strong> or <strong>Quantiles</strong> to see <span class="math inline">\(Q_1\)</span>, <span class="math inline">\(Q_2\)</span>, <span class="math inline">\(Q_3\)</span> and compute the IQR (<span class="math inline">\(Q_3 - Q_1\)</span>). The range is visible from the minimum and maximum shown in the summary.</li>
-<li><strong>Variance and standard deviation.</strong> These appear automatically in the “Summary Statistics” section of the Distribution report. Standard deviation is labeled “Std Dev,” and variance is its square.</li>
-<li><strong>Multiple groups.</strong> To compare groups, use <strong>Analyze→Fit Y by X</strong> with a continuous response and a categorical factor. The side‑by‑side boxplots display medians, quartiles, and potential outliers, and the “Means and Std Dev” table summarizes each group’s mean and standard deviation.</li>
-</ul>
-</section>
-<section id="recap-1" class="level3">
-<h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
-<table class="caption-top table">
+<li>
+<strong>Range and IQR.</strong> In the <strong>Distribution</strong> platform, click the red triangle ▶ next to the variable name and select <strong>Save Quantiles</strong> or <strong>Quantiles</strong> to see <span class="math inline">\(Q_1\)</span>, <span class="math inline">\(Q_2\)</span>, <span class="math inline">\(Q_3\)</span> and compute the IQR (<span class="math inline">\(Q_3 - Q_1\)</span>). The range is visible from the minimum and maximum shown in the summary.</li>
+<li>
+<strong>Variance and standard deviation.</strong> These appear automatically in the “Summary Statistics” section of the Distribution report. Standard deviation is labeled “Std Dev,” and variance is its square.</li>
+<li>
+<strong>Multiple groups.</strong> To compare groups, use <strong>Analyze→Fit Y by X</strong> with a continuous response and a categorical factor. The side‑by‑side boxplots display medians, quartiles, and potential outliers, and the “Means and Std Dev” table summarizes each group’s mean and standard deviation.</li>
+</ul></section><section id="recap-1" class="level3"><h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
+<table class="table">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 81%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><strong>Keyword</strong></th>
 <th><strong>Definition</strong></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>Range</strong></td>
@@ -726,18 +630,17 @@ s =&amp; \sqrt{s^2}\\
 <td>The square root of variance; a typical distance from the mean; sensitive to outliers but commonly used in many statistical formulas.</td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="check-your-understanding-1" class="level3">
-<h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
+</table></section><section id="check-your-understanding-1" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
 <ol type="1">
 <li><p>For the exam score data above (GroupA and GroupB), interpret the differences in standard deviation. Which group has more variability and why?</p></li>
-<li><p>A dataset of weekly hours spent exercising (in hours) for eight people is 2, 3, 3, 4, 4, 4, 5, 15.</p>
+<li>
+<p>A dataset of weekly hours spent exercising (in hours) for eight people is 2, 3, 3, 4, 4, 4, 5, 15.</p>
 <ol type="a">
 <li><p>Compute the range, IQR, and standard deviation.</p></li>
 <li><p>How does the outlier of 15 hours affect each measure of variability?</p></li>
 <li><p>If you wanted to describe the spread for most people in this group, which measure would you report? Explain.</p></li>
-</ol></li>
+</ol>
+</li>
 <li><p>Explain in your own words why we square deviations when computing variance. What would go wrong if we didn’t square them?</p></li>
 <li><p>Two companies have average delivery times of 3 days. Company A has a standard deviation of 0.5 days, while Company B has a standard deviation of 2 days. Describe what this tells you about customer experiences with each company.</p></li>
 </ol>
@@ -762,29 +665,27 @@ Solutions
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="identifying-outliers" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="identifying-outliers"><span class="header-section-number">4.3</span> Identifying Outliers</h2>
+</section></section><section id="identifying-outliers" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="identifying-outliers">
+<span class="header-section-number">4.3</span> Identifying Outliers</h2>
 <blockquote class="blockquote">
 <p>“Would I rather be feared or loved? Easy, both. I want people to be afraid of how much they love me.” – Michael Scott</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>How do we detect and handle outliers?</em></p>
 <p>Outliers are observations that lie far away from the rest of the data. They can arise from data entry mistakes, instrument malfunctions, rare but real variation, or genuinely interesting cases. Outliers deserve attention: sometimes they reveal important phenomena; other times they signal problems. Our goal is to detect outliers systematically and decide how to treat them thoughtfully.</p>
-<section id="what-counts-as-an-outlier" class="level3">
-<h3 class="anchored" data-anchor-id="what-counts-as-an-outlier">What counts as an outlier?</h3>
+<section id="what-counts-as-an-outlier" class="level3"><h3 class="anchored" data-anchor-id="what-counts-as-an-outlier">What counts as an outlier?</h3>
 <p>Two common approaches to flag potential outliers are the <strong>IQR rule</strong> and the <strong>z‑score rule</strong>.</p>
-<section id="the-1.5iqr-rule" class="level4">
-<h4 class="anchored" data-anchor-id="the-1.5iqr-rule">The 1.5×IQR rule</h4>
+<section id="the-1.5iqr-rule" class="level4"><h4 class="anchored" data-anchor-id="the-1.5iqr-rule">The 1.5×IQR rule</h4>
 <p>For a dataset with quartiles <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span>, the <em>interquartile range</em> is <span class="math inline">\(\text{IQR} = Q_3 - Q_1\)</span>. Points are considered potential outliers if they fall beyond <span class="math inline">\(1.5\times \text{IQR}\)</span> from the quartiles. These boundaries are sometimes referred to as the <blank>fences</blank></p>
 <ul>
-<li><em>Lower fence</em>: <span class="math inline">\(Q_1 - 1.5 \times \text{IQR}\)</span></li>
-<li><em>Upper fence</em>: <span class="math inline">\(Q_3 + 1.5 \times \text{IQR}\)</span></li>
+<li>
+<em>Lower fence</em>: <span class="math inline">\(Q_1 - 1.5 \times \text{IQR}\)</span>
+</li>
+<li>
+<em>Upper fence</em>: <span class="math inline">\(Q_3 + 1.5 \times \text{IQR}\)</span>
+</li>
 </ul>
 <p>Any observation below the lower fence or above the upper fence is flagged as a potential outlier. Because the IQR ignores the tails of the distribution, this rule is <em>resistant</em>—it’s less affected by the very points it’s trying to find.</p>
-</section>
-<section id="the-zscore-rule" class="level4">
-<h4 class="anchored" data-anchor-id="the-zscore-rule">The z‑score rule</h4>
+</section><section id="the-zscore-rule" class="level4"><h4 class="anchored" data-anchor-id="the-zscore-rule">The z‑score rule</h4>
 <p>We can standardize each value of a dataset using the sample mean <span class="math inline">\(\bar{x}\)</span> and standard deviation <span class="math inline">\(s\)</span> to compute a <blank>z‑score</blank></p>
 <p><span class="math display">\[
 z = \frac{x_i - \bar{x}}{s}
@@ -826,36 +727,32 @@ z = \frac{x_i - \bar{x}}{s}
 <li>258 observations, <blank>99%</blank>, fall within (56.3, 74.3).</li>
 </ul>
 <p>In summary, the percentages predicted by the empirical rule are near the actual ones.</p>
-</section>
-<section id="using-the-empirical-rule-to-find-outliers" class="level4">
-<h4 class="anchored" data-anchor-id="using-the-empirical-rule-to-find-outliers">Using the Empirical Rule to find outliers</h4>
+</section><section id="using-the-empirical-rule-to-find-outliers" class="level4"><h4 class="anchored" data-anchor-id="using-the-empirical-rule-to-find-outliers">Using the Empirical Rule to find outliers</h4>
 <p>Based on the Empirical Rule, an observation with <span class="math inline">\(|z| &gt; 3\)</span> might be considered an outlier. However, this method is <em>not resistant</em>—outliers inflate <span class="math inline">\(s\)</span>, which can mask their own detection—and it should be used only when the distribution is close to bell-shaped.</p>
-</section>
-</section>
-<section id="what-to-do-with-outliers" class="level3">
-<h3 class="anchored" data-anchor-id="what-to-do-with-outliers">What to do with outliers</h3>
+</section></section><section id="what-to-do-with-outliers" class="level3"><h3 class="anchored" data-anchor-id="what-to-do-with-outliers">What to do with outliers</h3>
 <p>Identifying an outlier is not the same as discarding it. Consider these steps:</p>
 <ol type="1">
-<li><strong>Investigate.</strong> Check the raw data entry, measurement units, and collection context. Could the value be a typo or a mis-recorded unit? Is there an instrument calibration issue?</li>
-<li><strong>Understand context.</strong> Sometimes extreme values are genuine and carry important information (e.g., rare species sightings, extreme weather events). Domain knowledge helps decide whether to keep them.</li>
-<li><strong>Report and compare.</strong> It’s often useful to perform analyses both with and without the outlier to see how much it influences results. If conclusions change dramatically, acknowledge this in reporting.</li>
-<li><strong>Use robust methods.</strong> When outliers are present and valid, robust statistics like the median, IQR, trimmed mean, or non‑parametric tests help mitigate their influence.</li>
+<li>
+<strong>Investigate.</strong> Check the raw data entry, measurement units, and collection context. Could the value be a typo or a mis-recorded unit? Is there an instrument calibration issue?</li>
+<li>
+<strong>Understand context.</strong> Sometimes extreme values are genuine and carry important information (e.g., rare species sightings, extreme weather events). Domain knowledge helps decide whether to keep them.</li>
+<li>
+<strong>Report and compare.</strong> It’s often useful to perform analyses both with and without the outlier to see how much it influences results. If conclusions change dramatically, acknowledge this in reporting.</li>
+<li>
+<strong>Use robust methods.</strong> When outliers are present and valid, robust statistics like the median, IQR, trimmed mean, or non‑parametric tests help mitigate their influence.</li>
 </ol>
-<section id="illustration-detecting-outliers-with-both-rules" class="level4">
-<h4 class="anchored" data-anchor-id="illustration-detecting-outliers-with-both-rules">Illustration: detecting outliers with both rules</h4>
+<section id="illustration-detecting-outliers-with-both-rules" class="level4"><h4 class="anchored" data-anchor-id="illustration-detecting-outliers-with-both-rules">Illustration: detecting outliers with both rules</h4>
 <p>Consider a small dataset of reaction times (in milliseconds): 240, 250, 255, 260, 265, 270, 275, 280, 450. One value appears much larger than the others. We’ll compute the IQR fences, z‑scores, and use a boxplot to visualize.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <caption>Outlier detection using IQR fences and z-scores</caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: right;">Value</th>
 <th style="text-align: right;">z_score</th>
 <th style="text-align: left;">Outlier_IQR</th>
 <th style="text-align: left;">Outlier_z_score</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">240</td>
@@ -916,29 +813,24 @@ z = \frac{x_i - \bar{x}}{s}
 </div>
 </div>
 <p>In this example, the quartiles are <span class="math inline">\(Q_1\)</span>≈255 and <span class="math inline">\(Q_3\)</span>≈275, so <span class="math inline">\(\text{IQR} =\)</span> 20. The fences are 225 and 305. The value 450 is above the upper fence and is flagged as an outlier by the IQR rule. Its z‑score is about 2.62, which does not exceed 3, thus it is not marked an outlier by the z‑score rule. Because the sample is small and clearly skewed by the outlier, the IQR rule is the more reliable of the two.</p>
-</section>
-</section>
-<section id="working-in-jmp-pro-17-2" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-2">Working in JMP Pro 17</h3>
+</section></section><section id="working-in-jmp-pro-17-2" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-2">Working in JMP Pro 17</h3>
 <ul>
-<li><strong>Boxplots and outliers.</strong> Use <strong>Graph→GraphBuilder</strong> to create a boxplot. JMP plots points beyond 1.5×IQR as small circles by default. Hover over a point to see its value; right‑click to exclude or include it.</li>
-<li><strong>Distribution platform.</strong> In <strong>Analyze→Distribution</strong>, the boxplot includes the fences and outlier points. You can click the red triangle ▶ and choose <strong>Nonparametric→Outlier Box Plot</strong> for additional options.</li>
-<li><strong>Exploring z‑scores.</strong> To compute z‑scores in JMP, create a new column and use <strong>Formula→Standardize</strong>. Then filter rows with |z|&gt;3 to flag potential outliers.</li>
-</ul>
-</section>
-<section id="recap-2" class="level3">
-<h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
-<table class="caption-top table">
+<li>
+<strong>Boxplots and outliers.</strong> Use <strong>Graph→GraphBuilder</strong> to create a boxplot. JMP plots points beyond 1.5×IQR as small circles by default. Hover over a point to see its value; right‑click to exclude or include it.</li>
+<li>
+<strong>Distribution platform.</strong> In <strong>Analyze→Distribution</strong>, the boxplot includes the fences and outlier points. You can click the red triangle ▶ and choose <strong>Nonparametric→Outlier Box Plot</strong> for additional options.</li>
+<li>
+<strong>Exploring z‑scores.</strong> To compute z‑scores in JMP, create a new column and use <strong>Formula→Standardize</strong>. Then filter rows with |z|&gt;3 to flag potential outliers.</li>
+</ul></section><section id="recap-2" class="level3"><h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
+<table class="table">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 83%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><strong>Keyword</strong></th>
 <th><strong>Definition</strong></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>IQR rule</strong></td>
@@ -946,7 +838,8 @@ z = \frac{x_i - \bar{x}}{s}
 </tr>
 <tr class="even">
 <td><strong>Lower/Upper fence</strong></td>
-<td>Thresholds used in the IQR rule: <span class="math inline">\(Q_1 - 1.5 \times \text{IQR}\)</span></td>
+<td>Thresholds used in the IQR rule: <span class="math inline">\(Q_1 - 1.5 \times \text{IQR}\)</span>
+</td>
 </tr>
 <tr class="odd">
 <td><strong>z‑score</strong></td>
@@ -957,17 +850,16 @@ z = \frac{x_i - \bar{x}}{s}
 <td>In a normal distribution, about 68% of values lie within 1 standard deviation of the mean, 95% within 2 standard deviations, and 99.7% within 3 standard deviations.</td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="check-your-understanding-2" class="level3">
-<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+</table></section><section id="check-your-understanding-2" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
 <ol type="1">
-<li><p>For the dataset <span class="math inline">\(3, 4, 5, 6, 7, 8, 9, 100\)</span>:</p>
+<li>
+<p>For the dataset <span class="math inline">\(3, 4, 5, 6, 7, 8, 9, 100\)</span>:</p>
 <ol type="a">
 <li><p>Compute the quartiles, IQR, and the 1.5×IQR fences.</p></li>
 <li><p>Identify any outliers using the IQR rule.</p></li>
 <li><p>Compute z‑scores for each observation. Which values, if any, have |z|&gt;3?</p></li>
-</ol></li>
+</ol>
+</li>
 <li><p>Using GroupB’s exam scores from earlier (60, 65, 70, 75, 80, 85, 90), apply the IQR rule to determine whether any scores are outliers. Explain why or why not.</p></li>
 <li><p>Suppose heights of adult men follow a normal distribution with mean 70 inches and standard deviation 3 inches. Using z‑scores, what heights would be considered extreme outliers (|z|&gt;3)?</p></li>
 <li><p>Describe two different actions you might take after flagging an outlier in a dataset. When would each be appropriate?</p></li>
@@ -995,10 +887,8 @@ Solutions
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="the-fivenumber-summary-and-boxplots" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="the-fivenumber-summary-and-boxplots"><span class="header-section-number">4.4</span> The Five‑Number Summary and Boxplots</h2>
+</section></section><section id="the-fivenumber-summary-and-boxplots" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="the-fivenumber-summary-and-boxplots">
+<span class="header-section-number">4.4</span> The Five‑Number Summary and Boxplots</h2>
 <blockquote class="blockquote">
 <p>“If it’s green or wriggles, it’s biology. If it stinks, it’s chemistry. If it doesn’t work, it’s physics or engineering. If it’s green and wiggles and stinks and still doesn’t work, it’s psychology. If it’s incomprehensible, it’s mathematics. If it puts you to sleep, it’s statistics.” - Anonymous (in Journal of the South African Institute of Mining and Metallurgy (1978))</p>
 </blockquote>
@@ -1012,33 +902,28 @@ Solutions
 <li>the maximum.</li>
 </ul>
 <p>These five numbers give you a sense of where the data begin, where most of them lie, and how far they stretch. A <blank>boxplot</blank> (also called a box‑and‑whisker plot) is a graphical display of the five‑number summary that makes comparisons across groups quick and intuitive.</p>
-<section id="the-five-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="the-five-numbers">The five numbers</h3>
+<section id="the-five-numbers" class="level3"><h3 class="anchored" data-anchor-id="the-five-numbers">The five numbers</h3>
 <p>There are slightly different conventions for how to find the median, <span class="math inline">\(Q_1\)</span>, and <span class="math inline">\(Q_3\)</span>, especially when working with even number of observations.However, most software (including JMP) uses consistent algorithms. The main idea is that about 25% of observations fall below <span class="math inline">\(Q_1\)</span>, about 50% fall below the median, and about 75% fall below <span class="math inline">\(Q_3\)</span>. We will let JMP determine these values for use instead of determining them by hand.</p>
-</section>
-<section id="the-boxplot-a-visual-summary" class="level3">
-<h3 class="anchored" data-anchor-id="the-boxplot-a-visual-summary">The boxplot: a visual summary</h3>
+</section><section id="the-boxplot-a-visual-summary" class="level3"><h3 class="anchored" data-anchor-id="the-boxplot-a-visual-summary">The boxplot: a visual summary</h3>
 <p>A boxplot displays the five‑number summary in a simple diagram:</p>
 <ul>
 <li>The <strong>box</strong> spans from <span class="math inline">\(Q_1\)</span> to <span class="math inline">\(Q_3\)</span>; its length is the interquartile range (IQR). A line inside the box marks the <strong>median</strong>.</li>
-<li><strong>Whiskers</strong> extend from the box to the smallest and largest data points that are not considered outliers. One common convention draws whiskers out to the last observation that is within 1.5×IQR below <span class="math inline">\(Q_1\)</span> or above <span class="math inline">\(Q_3\)</span>. Points beyond these whiskers are plotted individually (usually as points) as potential <strong>outliers</strong>.</li>
+<li>
+<strong>Whiskers</strong> extend from the box to the smallest and largest data points that are not considered outliers. One common convention draws whiskers out to the last observation that is within 1.5×IQR below <span class="math inline">\(Q_1\)</span> or above <span class="math inline">\(Q_3\)</span>. Points beyond these whiskers are plotted individually (usually as points) as potential <strong>outliers</strong>.</li>
 </ul>
 <p>Because a boxplot is based on quartiles, it is a <strong>resistant</strong> summary: the box and median are not unduly affected by a handful of extremes. At a glance you can see the central 50% of the data (the box), the typical range (the whiskers), whether the distribution is symmetric or skewed (by looking at the position of the median and the lengths of the whiskers), and whether there are any unusual points.</p>
 <p>Boxplots shine when comparing distributions across several groups; you can line up multiple boxes in one plot and quickly judge differences in center, spread, and skewness.</p>
-<section id="illustration-boxplots-for-two-groups" class="level4">
-<h4 class="anchored" data-anchor-id="illustration-boxplots-for-two-groups">Illustration: boxplots for two groups</h4>
+<section id="illustration-boxplots-for-two-groups" class="level4"><h4 class="anchored" data-anchor-id="illustration-boxplots-for-two-groups">Illustration: boxplots for two groups</h4>
 <p>Let’s revisit the exam score groups from the previous section. We’ll compute their five‑number summaries and draw side‑by‑side boxplots.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <caption>Five-number summaries for Groups A and B</caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">Statistic</th>
 <th style="text-align: right;">Group_A</th>
 <th style="text-align: right;">Group_B</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Min</td>
@@ -1069,42 +954,28 @@ Solutions
 </table>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="04_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="04_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>From the table you can see that Group A’s scores run from 70 to 78 with a median of 74, while Group B’s scores run from 60 to 90 with a median of 75. The much longer whiskers and broader box of Group B reveal its greater variability.</p>
-</section>
-</section>
-<section id="outlier-identification" class="level3">
-<h3 class="anchored" data-anchor-id="outlier-identification">Outlier identification</h3>
+</section></section><section id="outlier-identification" class="level3"><h3 class="anchored" data-anchor-id="outlier-identification">Outlier identification</h3>
 <p>A data point is often flagged as a potential <em>outlier</em> if it falls more than 1.5×IQR below <span class="math inline">\(Q_1\)</span> or above <span class="math inline">\(Q_3\)</span>. These points warrant a closer look: they could be genuine but rare observations or mistakes in data entry or measurement.</p>
-</section>
-<section id="working-in-jmp-pro-17-3" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-3">Working in JMP Pro 17</h3>
+</section><section id="working-in-jmp-pro-17-3" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-3">Working in JMP Pro 17</h3>
 <p>You can build boxplots quickly in JMP:</p>
 <ul>
 <li>Open <strong>Graph→Graph Builder</strong> and drag your variable to the <strong>Y</strong> axis. Drag a grouping variable (if any) to the <strong>X</strong> axis. From the gallery of plots, select the boxplot icon (a box with whiskers) to overlay a boxplot on the graph. JMP uses the 1.5×IQR rule to draw whiskers and will display outliers as separate points.</li>
 <li>The five‑number summary is visible in the <strong>Analyze→Distribution</strong> output. Click the red triangle ▶ next to the variable and choose <strong>Nonparametric→Quantiles</strong> to list the quartiles. JMP labels the minimum and maximum directly in the summary.</li>
 <li>Right‑click on the boxplot to toggle “Show Outliers” or adjust the whisker definition if needed.</li>
-</ul>
-</section>
-<section id="recap-3" class="level3">
-<h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
-<table class="caption-top table">
+</ul></section><section id="recap-3" class="level3"><h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
+<table class="table">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 83%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th><strong>Keyword</strong></th>
 <th><strong>Definition</strong></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><strong>Five‑number summary</strong></td>
@@ -1123,27 +994,30 @@ Solutions
 <td></td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="check-your-understanding-3" class="level3">
-<h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+</table></section><section id="check-your-understanding-3" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
 <ol type="1">
-<li><p>Consider the dataset <span class="math inline">\(5, 7, 8, 10, 12, 15, 18, 20, 25\)</span>.</p>
+<li>
+<p>Consider the dataset <span class="math inline">\(5, 7, 8, 10, 12, 15, 18, 20, 25\)</span>.</p>
 <ol type="a">
 <li><p>Compute the five‑number summary (min, <span class="math inline">\(Q_1\)</span>, median, <span class="math inline">\(Q_3\)</span>, max).</p></li>
 <li><p>Construct the corresponding boxplot. Describe its shape. Is the distribution symmetric or skewed?</p></li>
-</ol></li>
-<li><p>A boxplot shows <span class="math inline">\(Q_1 = 60\)</span>, <span class="math inline">\(Q_2 = 75\)</span>, <span class="math inline">\(Q_3 = 90\)</span> with minimum 50 and maximum 120. The right whisker is much longer than the left whisker, and there are several points plotted individually above 105.</p>
+</ol>
+</li>
+<li>
+<p>A boxplot shows <span class="math inline">\(Q_1 = 60\)</span>, <span class="math inline">\(Q_2 = 75\)</span>, <span class="math inline">\(Q_3 = 90\)</span> with minimum 50 and maximum 120. The right whisker is much longer than the left whisker, and there are several points plotted individually above 105.</p>
 <ol type="a">
 <li><p>What does the long right whisker indicate about the distribution’s skewness?</p></li>
 <li><p>Using the 1.5×IQR rule, which observations (approximately) would be considered outliers?</p></li>
-</ol></li>
-<li><p>For the dataset <span class="math inline">\(40, 42, 44, 45, 48, 50, 51, 52, 90\)</span>:</p>
+</ol>
+</li>
+<li>
+<p>For the dataset <span class="math inline">\(40, 42, 44, 45, 48, 50, 51, 52, 90\)</span>:</p>
 <ol type="a">
 <li><p>Compute the five‑number summary.</p></li>
 <li><p>Calculate the IQR and determine the lower and upper fences for outliers (using 1.5×IQR).</p></li>
 <li><p>Identify any outliers and explain how they would appear on a boxplot.</p></li>
-</ol></li>
+</ol>
+</li>
 <li><p>Explain why boxplots are particularly useful for comparing multiple groups on the same scale. What aspects of the distributions can you quickly compare?</p></li>
 <li><p>Describe at least one limitation of boxplots. When might they hide important features of the data?</p></li>
 </ol>
@@ -1169,39 +1043,33 @@ Solutions
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="choosing-appropriate-summary-statistics" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="choosing-appropriate-summary-statistics"><span class="header-section-number">4.5</span> Choosing Appropriate Summary Statistics</h2>
+</section></section><section id="choosing-appropriate-summary-statistics" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="choosing-appropriate-summary-statistics">
+<span class="header-section-number">4.5</span> Choosing Appropriate Summary Statistics</h2>
 <blockquote class="blockquote">
 <p>“It is not known how many office robberies occur every second because there is no Wikipedia entry for office robbery statistics.” -Michael Scott</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>Which summary statistics fit different data types?</em></p>
 <p>Not all variables are created equal, and not all summaries make sense for every variable. The right summary statistic depends on both the <em>type of variable</em> (categorical, ordinal, or quantitative) and the <em>shape of its distribution</em> (symmetric, skewed, or subject to outliers). In this section we review guidelines for matching variables to appropriate measures of center and spread.</p>
-<section id="categorical-and-binary-data" class="level3">
-<h3 class="anchored" data-anchor-id="categorical-and-binary-data">Categorical and binary data</h3>
+<section id="categorical-and-binary-data" class="level3"><h3 class="anchored" data-anchor-id="categorical-and-binary-data">Categorical and binary data</h3>
 <p>For <strong>categorical</strong> variables (nominal or qualitative), arithmetic operations have no meaning. The appropriate summaries are <em>counts</em>, <em>proportions</em>, and the <em>mode</em> (most common category). For example, summarizing people’s favorite ice‑cream flavors would involve tallying how many chose chocolate, vanilla, strawberry, and so on. Reporting the “mean flavor” makes no sense.</p>
 <p>A <strong>binary</strong> variable is a categorical variable with exactly two categories (e.g., pass/fail, disease/no disease). We often code the categories as 1 and 0. In that case, the <em>proportion</em> of 1’s is simply the <em>mean</em> of the coded variable. For example, if 30 out of 100 students pass an exam, the pass rate is 0.30; the mean of the 0/1 indicator is also 0.30.</p>
-</section>
-<section id="ordinal-data" class="level3">
-<h3 class="anchored" data-anchor-id="ordinal-data">Ordinal data</h3>
+</section><section id="ordinal-data" class="level3"><h3 class="anchored" data-anchor-id="ordinal-data">Ordinal data</h3>
 <p><strong>Ordinal</strong> variables have ordered categories (e.g., Likert ratings such as “Strongly disagree,” “Disagree,” “Neutral,” “Agree,” “Strongly agree”). Differences between levels are not necessarily equal, so computing a mean can be misleading—does “Agree” minus “Neutral” equal “Neutral” minus “Disagree”? A safer approach is to report <em>mode</em>, perhaps along with distribution of responses (a bar chart or counts).</p>
-</section>
-<section id="quantitative-data-symmetric-vs.-skewed" class="level3">
-<h3 class="anchored" data-anchor-id="quantitative-data-symmetric-vs.-skewed">Quantitative data: symmetric vs.&nbsp;skewed</h3>
+</section><section id="quantitative-data-symmetric-vs.-skewed" class="level3"><h3 class="anchored" data-anchor-id="quantitative-data-symmetric-vs.-skewed">Quantitative data: symmetric vs.&nbsp;skewed</h3>
 <p>For <strong>quantitative</strong> variables, we choose summaries based on the shape of the distribution and the presence of outliers:</p>
 <ul>
-<li><strong>Symmetric, no outliers.</strong> When the distribution is approximately symmetric and free of extreme values, the <em>mean</em> and <em>standard deviation</em> (or variance) are informative. They convey the central value and typical deviation. Example: exam scores on a test where most students scored near the middle.</li>
-<li><strong>Skewed or with outliers.</strong> When the distribution is skewed or contains outliers, the <em>median</em> and <em>IQR</em> are better descriptors of the typical value and spread. The <em>trimmed mean</em> (e.g., a 10% trimmed mean) can also be used to down weight extremes while still reflecting most of the data. Example: household incomes, which often have a long right tail; the mean income is much larger than the median, whereas the median better represents what most households earn.</li>
+<li>
+<strong>Symmetric, no outliers.</strong> When the distribution is approximately symmetric and free of extreme values, the <em>mean</em> and <em>standard deviation</em> (or variance) are informative. They convey the central value and typical deviation. Example: exam scores on a test where most students scored near the middle.</li>
+<li>
+<strong>Skewed or with outliers.</strong> When the distribution is skewed or contains outliers, the <em>median</em> and <em>IQR</em> are better descriptors of the typical value and spread. The <em>trimmed mean</em> (e.g., a 10% trimmed mean) can also be used to down weight extremes while still reflecting most of the data. Example: household incomes, which often have a long right tail; the mean income is much larger than the median, whereas the median better represents what most households earn.</li>
 </ul>
 <p>Quantitative <em>counts</em> (discrete variables) can be summarized with means or medians, but because counts often have skewed distributions (e.g., number of doctor visits), it’s wise to check shape and consider medians.</p>
-<section id="illustration-incomes-vs.-test-scores-vs.-likert-responses" class="level4">
-<h4 class="anchored" data-anchor-id="illustration-incomes-vs.-test-scores-vs.-likert-responses">Illustration: incomes vs.&nbsp;test scores vs.&nbsp;Likert responses</h4>
+<section id="illustration-incomes-vs.-test-scores-vs.-likert-responses" class="level4"><h4 class="anchored" data-anchor-id="illustration-incomes-vs.-test-scores-vs.-likert-responses">Illustration: incomes vs.&nbsp;test scores vs.&nbsp;Likert responses</h4>
 <p>The following compares summary statistics for three small datasets: incomes (right‑skewed), test scores (symmetric), and Likert ratings (ordinal on a 1–5 scale). We compute the mean, median, IQR, standard deviation, and mode where appropriate.</p>
 <p>Here are the values:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 14%">
 <col style="width: 17%">
@@ -1257,18 +1125,16 @@ Solutions
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <caption>Summary statistics for different data types</caption>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">Dataset</th>
 <th style="text-align: right;">Mean</th>
 <th style="text-align: right;">Median</th>
 <th style="text-align: right;">IQR</th>
 <th style="text-align: right;">SD</th>
 <th style="text-align: left;">Mode</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Incomes</td>
@@ -1300,32 +1166,34 @@ Solutions
 </div>
 <p>Interpretation:</p>
 <ul>
-<li><strong>Incomes.</strong> The mean income ($45k) is much higher than the median ($35k) because of the 120k outlier. The IQR (15k) shows that the middle half of incomes lies between $30k and $45k. For skewed data like this, report the median and IQR rather than the mean and standard deviation.</li>
-<li><strong>Test scores.</strong> The mean (75.89) and median (76) are similar, and the distribution is narrow (SD = 4.03). Here, the mean and standard deviation are appropriate summaries.</li>
-<li><strong>Likert ratings.</strong> The mode is 3. Reporting the distribution of responses conveys the typical sentiment without implying equal spacing.</li>
-</ul>
-</section>
-</section>
-<section id="working-in-jmp-pro-17-4" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-4">Working in JMP Pro 17</h3>
+<li>
+<strong>Incomes.</strong> The mean income ($45k) is much higher than the median ($35k) because of the 120k outlier. The IQR (15k) shows that the middle half of incomes lies between $30k and $45k. For skewed data like this, report the median and IQR rather than the mean and standard deviation.</li>
+<li>
+<strong>Test scores.</strong> The mean (75.89) and median (76) are similar, and the distribution is narrow (SD = 4.03). Here, the mean and standard deviation are appropriate summaries.</li>
+<li>
+<strong>Likert ratings.</strong> The mode is 3. Reporting the distribution of responses conveys the typical sentiment without implying equal spacing.</li>
+</ul></section></section><section id="working-in-jmp-pro-17-4" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-4">Working in JMP Pro 17</h3>
 <p>JMP encourages choosing appropriate summaries by making you specify each column’s <strong>modeling type</strong> (Continuous, Nominal, Ordinal):</p>
 <ul>
-<li><strong>Nominal variables</strong> are summarized with counts and proportions. The Distribution platform shows frequency tables and bar charts; the mode is evident from the highest bar. Means are not computed.</li>
-<li><strong>Ordinal variables</strong> can display medians and quartiles. In the Distribution platform, the <strong>Quantiles</strong> option lists <span class="math inline">\(Q_1\)</span>, median, and <span class="math inline">\(Q_3\)</span>. A <em>Box Plot</em> shows the spread without relying on means.</li>
-<li><strong>Continuous variables</strong> get means and standard deviations by default. If the distribution is skewed, use the red triangle ▶ <strong>Transform</strong> options (e.g., <strong>Log</strong>) or the <strong>Nonparametric</strong> menu to request median and IQR. You can also save robust statistics using <strong>Save Summaries</strong>.</li>
+<li>
+<strong>Nominal variables</strong> are summarized with counts and proportions. The Distribution platform shows frequency tables and bar charts; the mode is evident from the highest bar. Means are not computed.</li>
+<li>
+<strong>Ordinal variables</strong> can display medians and quartiles. In the Distribution platform, the <strong>Quantiles</strong> option lists <span class="math inline">\(Q_1\)</span>, median, and <span class="math inline">\(Q_3\)</span>. A <em>Box Plot</em> shows the spread without relying on means.</li>
+<li>
+<strong>Continuous variables</strong> get means and standard deviations by default. If the distribution is skewed, use the red triangle ▶ <strong>Transform</strong> options (e.g., <strong>Log</strong>) or the <strong>Nonparametric</strong> menu to request median and IQR. You can also save robust statistics using <strong>Save Summaries</strong>.</li>
 </ul>
 <p>In JMP’s Graph Builder, dragging a categorical variable to the X axis and a continuous variable to Y will create boxplots by default, highlighting medians and quartiles rather than means.</p>
-</section>
-<section id="check-your-understanding-4" class="level3">
-<h3 class="anchored" data-anchor-id="check-your-understanding-4">Check your understanding</h3>
+</section><section id="check-your-understanding-4" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding-4">Check your understanding</h3>
 <ol type="1">
 <li><p>A health‑care researcher records the number of emergency room visits last year for 50 individuals. The data are right‑skewed, with most people having 0–2 visits and a few having 5 or more. Which measure of center and spread would you report? Explain why.</p></li>
 <li><p>A survey asks respondents to rate their satisfaction on a 1–5 Likert scale (1 = Very dissatisfied, 5 = Very satisfied). For 300 respondents, the sample mean is 3.9, the median is 4, and the mode is 4. Which statistic(s) would you use to describe typical satisfaction? Why might the mean be misleading?</p></li>
-<li><p>For a dataset of annual household incomes in a city, the mean is $65,000, the median is $45,000, the standard deviation is $40,000, and the IQR is $20,000.</p>
+<li>
+<p>For a dataset of annual household incomes in a city, the mean is $65,000, the median is $45,000, the standard deviation is $40,000, and the IQR is $20,000.</p>
 <ol type="a">
 <li><p>What does the large gap between the mean and the median tell you about the distribution?</p></li>
 <li><p>Which measure(s) of center and spread would you report? Justify your choice.</p></li>
-</ol></li>
+</ol>
+</li>
 <li><p>A manufacturer tracks the number of defective items per batch (a count variable). The mean number of defects per batch is 2.3 and the median is 1. What does this tell you about the distribution? Which summary statistic is more informative here?</p></li>
 <li><p>Explain why it doesn’t make sense to compute a mean for ZIP codes or product serial numbers. How would you summarize such data instead?</p></li>
 </ol>
@@ -1353,20 +1221,13 @@ Solutions
 </div>
 
 
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1"><p>Small, H. (2020). Nightingale’s overlooked Scutari statistics. <em>Significance</em>, 17(6), 28-33.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Some regiments have been combined.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>The tails of a distribution are the parts that are for the lowest values and the highest values.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Why do we divide by <span class="math inline">\(n-1\)</span> in the variance and standard deviation instead of <span class="math inline">\(n\)</span>? We said that the variance was an average of the <span class="math inline">\(n\)</span> squared deviations, so should we not divide by <span class="math inline">\(n\)</span>? Basically it is because the deviations have only <span class="math inline">\(n - 1\)</span> pieces of information about variability: That is, <span class="math inline">\(n - 1\)</span> of the deviations determine the last one, because the deviations sum to 0. For example, suppose we haven <span class="math inline">\(n= 2\)</span> observations and the first observation has deviation <span class="math inline">\((x - \bar x) = 5\)</span>. Then the second observation must have deviation <span class="math inline">\((x - \bar x) = -5\)</span> because the deviations must add to 0. With <span class="math inline">\(n = 2\)</span>, there’s only <span class="math inline">\(n - 1 = 1\)</span> nonredundant piece of information about variability. And with <span class="math inline">\(n = 1\)</span>, the standard deviation is undefined because with only one observation, it’s impossible to get a sense of how much the data vary.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1401,7 +1262,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1433,48 +1305,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1484,17 +1319,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1506,129 +1332,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1672,7 +1376,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1698,32 +1401,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1784,7 +1461,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
