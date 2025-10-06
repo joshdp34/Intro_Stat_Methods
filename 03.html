@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.42">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>STA 2381 Introductory Statistical Methods - 3&nbsp; Describing Data with Tables and Graphs</title>
+
+
+<title>3&nbsp; Describing Data with Tables and Graphs – STA 2381 Introductory Statistical Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -31,16 +35,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -49,11 +60,13 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><style type="text/css">
+}</script>
+<style type="text/css">
 .sidebar .chapter-number {
 color: #FFB81c;
 }
@@ -95,26 +108,63 @@ document.addEventListener('click', (event) => {
     event.target.classList.add('clicked');
   }
 });
-</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
+
 <body class="nav-sidebar docked">
 
-
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./"></a> 
         <div class="sidebar-tools-main">
@@ -133,7 +183,7 @@ document.addEventListener('click', (event) => {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
@@ -181,67 +231,69 @@ document.addEventListener('click', (event) => {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
+  </div>
+</li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#sec-03_01" id="toc-sec-03_01" class="nav-link active" data-scroll-target="#sec-03_01"><span class="header-section-number">3.1</span> Organizing Categorical Data</a>
+  <li><a href="#sec-03_01" id="toc-sec-03_01" class="nav-link active" data-scroll-target="#sec-03_01"><span class="header-section-number">3.1</span> Organizing Categorical Data</a>
   <ul class="collapse">
-<li><a href="#frequency-and-relative-frequency-tables" id="toc-frequency-and-relative-frequency-tables" class="nav-link" data-scroll-target="#frequency-and-relative-frequency-tables">Frequency and relative frequency tables</a></li>
+  <li><a href="#frequency-and-relative-frequency-tables" id="toc-frequency-and-relative-frequency-tables" class="nav-link" data-scroll-target="#frequency-and-relative-frequency-tables">Frequency and relative frequency tables</a></li>
   <li><a href="#twoway-contingency-tables" id="toc-twoway-contingency-tables" class="nav-link" data-scroll-target="#twoway-contingency-tables">Two‑way (contingency) tables</a></li>
   <li><a href="#why-percentages-matter" id="toc-why-percentages-matter" class="nav-link" data-scroll-target="#why-percentages-matter">Why percentages matter</a></li>
   <li><a href="#working-in-jmp-pro-17" id="toc-working-in-jmp-pro-17" class="nav-link" data-scroll-target="#working-in-jmp-pro-17">Working in JMP Pro 17</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#sec-03_02" id="toc-sec-03_02" class="nav-link" data-scroll-target="#sec-03_02"><span class="header-section-number">3.2</span> Bar Charts and Pie Charts</a>
+  </ul></li>
+  <li><a href="#sec-03_02" id="toc-sec-03_02" class="nav-link" data-scroll-target="#sec-03_02"><span class="header-section-number">3.2</span> Bar Charts and Pie Charts</a>
   <ul class="collapse">
-<li><a href="#what-is-a-bar-chart" id="toc-what-is-a-bar-chart" class="nav-link" data-scroll-target="#what-is-a-bar-chart">What is a bar chart?</a></li>
+  <li><a href="#what-is-a-bar-chart" id="toc-what-is-a-bar-chart" class="nav-link" data-scroll-target="#what-is-a-bar-chart">What is a bar chart?</a></li>
   <li><a href="#what-is-a-pie-chart" id="toc-what-is-a-pie-chart" class="nav-link" data-scroll-target="#what-is-a-pie-chart">What is a pie chart?</a></li>
   <li><a href="#when-to-use-bar-charts-vs.-pie-charts" id="toc-when-to-use-bar-charts-vs.-pie-charts" class="nav-link" data-scroll-target="#when-to-use-bar-charts-vs.-pie-charts">When to use bar charts vs.&nbsp;pie charts</a></li>
   <li><a href="#clustered-and-stacked-bar-charts" id="toc-clustered-and-stacked-bar-charts" class="nav-link" data-scroll-target="#clustered-and-stacked-bar-charts">Clustered and stacked bar charts</a></li>
   <li><a href="#working-in-jmp-pro-17-1" id="toc-working-in-jmp-pro-17-1" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-1">Working in JMP Pro 17</a></li>
   <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
   <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#sec-03_03" id="toc-sec-03_03" class="nav-link" data-scroll-target="#sec-03_03"><span class="header-section-number">3.3</span> Organizing Quantitative Data</a>
+  </ul></li>
+  <li><a href="#sec-03_03" id="toc-sec-03_03" class="nav-link" data-scroll-target="#sec-03_03"><span class="header-section-number">3.3</span> Organizing Quantitative Data</a>
   <ul class="collapse">
-<li><a href="#constructing-frequency-distributions" id="toc-constructing-frequency-distributions" class="nav-link" data-scroll-target="#constructing-frequency-distributions">Constructing frequency distributions</a></li>
+  <li><a href="#constructing-frequency-distributions" id="toc-constructing-frequency-distributions" class="nav-link" data-scroll-target="#constructing-frequency-distributions">Constructing frequency distributions</a></li>
   <li><a href="#relative-and-cumulative-frequencies" id="toc-relative-and-cumulative-frequencies" class="nav-link" data-scroll-target="#relative-and-cumulative-frequencies">Relative and cumulative frequencies</a></li>
   <li><a href="#choosing-the-number-of-classes" id="toc-choosing-the-number-of-classes" class="nav-link" data-scroll-target="#choosing-the-number-of-classes">Choosing the number of classes</a></li>
   <li><a href="#working-in-jmp-pro-17-2" id="toc-working-in-jmp-pro-17-2" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-2">Working in JMP Pro 17</a></li>
   <li><a href="#recap-2" id="toc-recap-2" class="nav-link" data-scroll-target="#recap-2">Recap</a></li>
   <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#sec-03_4" id="toc-sec-03_4" class="nav-link" data-scroll-target="#sec-03_4"><span class="header-section-number">3.4</span> Histograms, Stem‑and‑Leaf Plots, and Dotplots</a>
+  </ul></li>
+  <li><a href="#sec-03_4" id="toc-sec-03_4" class="nav-link" data-scroll-target="#sec-03_4"><span class="header-section-number">3.4</span> Histograms, Stem‑and‑Leaf Plots, and Dotplots</a>
   <ul class="collapse">
-<li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms">Histograms</a></li>
   <li><a href="#stemandleaf-plots" id="toc-stemandleaf-plots" class="nav-link" data-scroll-target="#stemandleaf-plots">Stem‑and‑leaf plots</a></li>
   <li><a href="#dotplots" id="toc-dotplots" class="nav-link" data-scroll-target="#dotplots">Dotplots</a></li>
   <li><a href="#choosing-the-right-display" id="toc-choosing-the-right-display" class="nav-link" data-scroll-target="#choosing-the-right-display">Choosing the right display</a></li>
   <li><a href="#working-in-jmp-pro-17-3" id="toc-working-in-jmp-pro-17-3" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-3">Working in JMP Pro 17</a></li>
   <li><a href="#recap-3" id="toc-recap-3" class="nav-link" data-scroll-target="#recap-3">Recap</a></li>
   <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul></nav>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></h1>
 </div>
 
 
@@ -254,26 +306,34 @@ document.addEventListener('click', (event) => {
   </div>
   
 
-</header><section id="sec-03_01" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="sec-03_01">
-<span class="header-section-number">3.1</span> Organizing Categorical Data</h2>
+
+</header>
+
+
+<section id="sec-03_01" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-03_01"><span class="header-section-number">3.1</span> Organizing Categorical Data</h2>
 <blockquote class="blockquote">
 <p>“The greatest value of a picture is when it forces us to notice what we never expected to see.” – John Tukey</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>Which graphs work best for categorical data?</em></p>
-<p>When you collect data that fall into groups—like preferred streaming service, political affiliation, or type of pet—the first step is to count how many observations fall into each category. Those counts form the backbone of both tables and graphs for categorical data. In this section we’ll learn how to build simple frequency tables, translate them into proportions or percentages, and organize two categorical variables together in a two‑way table. Along the way we’ll see when different visual summaries make sense and preview bar and pie charts (covered in detail in <a href="#sec-03_02"><span>Section&nbsp;3.2</span></a>).</p>
-<section id="frequency-and-relative-frequency-tables" class="level3"><h3 class="anchored" data-anchor-id="frequency-and-relative-frequency-tables">Frequency and relative frequency tables</h3>
+<p>When you collect data that fall into groups—like preferred streaming service, political affiliation, or type of pet—the first step is to count how many observations fall into each category. Those counts form the backbone of both tables and graphs for categorical data. In this section we’ll learn how to build simple frequency tables, translate them into proportions or percentages, and organize two categorical variables together in a two‑way table. Along the way we’ll see when different visual summaries make sense and preview bar and pie charts (covered in detail in <a href="#sec-03_02" class="quarto-xref"><span>Section 3.2</span></a>).</p>
+<section id="frequency-and-relative-frequency-tables" class="level3">
+<h3 class="anchored" data-anchor-id="frequency-and-relative-frequency-tables">Frequency and relative frequency tables</h3>
 <p>A <blank>frequency table</blank> lists the possible values of a categorical variable and the number of times each value occurs. It’s one of the simplest ways to summarize data, but it packs a punch. Such tables usually have two columns: one for the categories and one for their counts. Creating one involves listing the distinct categories and tallying how many observations fall into each category.</p>
 <p>Sometimes absolute counts aren’t enough—especially when comparing samples of different sizes. A <blank>relative frequency</blank> expresses each category’s count as a proportion of the total. When we add a column of proportions (or percentages) to a frequency table we get a <em>relative frequency table</em>. To compute the relative frequencies, divide each count by the total number of observations. Relative frequencies always add up to 1 (or 100% when expressed as percentages), which makes them handy for comparing distributions across different sample sizes.</p>
-<section id="an-example-common-symptoms-in-a-clinic" class="level4"><h4 class="anchored" data-anchor-id="an-example-common-symptoms-in-a-clinic">An example: common symptoms in a clinic</h4>
+<section id="an-example-common-symptoms-in-a-clinic" class="level4">
+<h4 class="anchored" data-anchor-id="an-example-common-symptoms-in-a-clinic">An example: common symptoms in a clinic</h4>
 <p>Imagine you survey 30 patients at a local clinic about the primary symptom that brought them in. You record four categories: “Headache,” “Back pain,” “Fatigue,” and “Nausea.” We can organize the responses in a simple table of counts and proportions. Below we simulate such a survey and display the results.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead><tr class="header">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
 <th style="text-align: left;">response</th>
 <th style="text-align: right;">frequency</th>
 <th style="text-align: right;">relative_frequency</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Back pain</td>
@@ -299,7 +359,11 @@ document.addEventListener('click', (event) => {
 </table>
 </div>
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The table lists the four categories in alphabetical order with their counts and relative frequencies. For instance, if 8 of the 30 patients reported “Headache,” the relative frequency of “Headache” is <span class="math inline">\(8/30 \approx 0.27\)</span>. The accompanying bar chart gives a visual sense of the same information: each bar’s height corresponds to a category’s frequency, and the bars are separated to emphasize that the categories have no inherent order. In practice you might reorder the bars to make the graph easier to read—perhaps putting the largest category first.</p>
@@ -335,20 +399,26 @@ Tip:
 </div>
 </div>
 </div>
-</section></section><section id="twoway-contingency-tables" class="level3"><h3 class="anchored" data-anchor-id="twoway-contingency-tables">Two‑way (contingency) tables</h3>
+</section>
+</section>
+<section id="twoway-contingency-tables" class="level3">
+<h3 class="anchored" data-anchor-id="twoway-contingency-tables">Two‑way (contingency) tables</h3>
 <p>What if you have two categorical variables and want to see how they interact? A <blank>contingency table</blank> (also called a two-way table) displays the counts for each combination of levels of the two variables. One variable defines the rows and the other defines the columns. Such tables are the starting point for examining associations and will underlie chi‑square tests in later chapters.</p>
-<section id="an-example-symptom-by-age-group" class="level4"><h4 class="anchored" data-anchor-id="an-example-symptom-by-age-group">An example: symptom by age group</h4>
+<section id="an-example-symptom-by-age-group" class="level4">
+<h4 class="anchored" data-anchor-id="an-example-symptom-by-age-group">An example: symptom by age group</h4>
 <p>Suppose we collect data on the same symptom question but also record each patient’s age group: “Under 30,” “30–50,” or “Over 50.” We can summarize the joint distribution in a two‑way table.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead><tr class="header">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
 <th style="text-align: left;">age_group</th>
 <th style="text-align: right;">Back pain</th>
 <th style="text-align: right;">Fatigue</th>
 <th style="text-align: right;">Headache</th>
 <th style="text-align: right;">Nausea</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">30–50</td>
@@ -376,25 +446,35 @@ Tip:
 </div>
 </div>
 <p>Each cell in the table shows the number of patients who fall into the corresponding combination of age group and symptom. We can also compute row or column relative frequencies to see percentages within each group; for example, dividing each row by its total gives the distribution of symptoms within each age group. Contingency tables allow us to see whether symptom patterns differ across age groups and serve as input for clustered or stacked bar charts (discussed in Section 3.2).</p>
-</section></section><section id="why-percentages-matter" class="level3"><h3 class="anchored" data-anchor-id="why-percentages-matter">Why percentages matter</h3>
+</section>
+</section>
+<section id="why-percentages-matter" class="level3">
+<h3 class="anchored" data-anchor-id="why-percentages-matter">Why percentages matter</h3>
 <p>Because categorical variables can have different numbers of levels and sample sizes can vary, relative frequencies are essential for fair comparisons. Reporting only counts can be misleading: 20 supporters of a movie genre in a survey of 50 people represent a large fraction, while 20 supporters in a survey of 500 people represent a much smaller fraction. Percentages standardize the scale.</p>
 <p>When displaying percentages, make sure they add to 100%. In a pie chart (a circular graph we’ll describe in the next section), each slice represents a category’s percentage of the whole. Pie charts are useful for showing how the total is divided among categories, but they become cluttered with too many slices. Bar charts are more flexible: you can reorder the bars, show counts or percentages, and compare multiple groups using side‑by‑side or stacked bars.</p>
-</section><section id="working-in-jmp-pro-17" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17">Working in JMP Pro 17</h3>
+</section>
+<section id="working-in-jmp-pro-17" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17">Working in JMP Pro 17</h3>
 <p>In JMP, tables and graphs for categorical variables are straightforward:</p>
 <ul>
 <li>To create a frequency table, go to <strong>Analyze → Distribution</strong>, assign your categorical variable to <strong>X</strong>, and click <strong>OK</strong>. The report shows counts and percentages; use the red triangle (▸) menu to toggle percentages, counts, or both.</li>
 <li>For two categorical variables, use <strong>Analyze → Fit Y by X</strong> and assign one variable to Y and the other to X. Choose <strong>Contingency Table</strong> from the platform to see the two‑way counts and associated statistics.</li>
 <li>To visualize categorical distributions, open <strong>Graph Builder</strong>, drag the categorical variable to the X‑axis, and drop the <strong>N</strong> summary statistic onto the Y‑axis. You can change the chart type to “Bar” or “Pie.” Dragging a second categorical variable onto the <strong>Group</strong> drop zone will create clustered or stacked bars.</li>
-</ul></section><section id="recap" class="level3"><h3 class="anchored" data-anchor-id="recap">Recap</h3>
-<table class="table">
+</ul>
+</section>
+<section id="recap" class="level3">
+<h3 class="anchored" data-anchor-id="recap">Recap</h3>
+<table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 81%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th><strong>Keyword</strong></th>
 <th><strong>Definition</strong></th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><strong>Frequency table</strong></td>
@@ -413,7 +493,10 @@ Tip:
 <td>A table that displays the counts for each combination of levels of two categorical variable.</td>
 </tr>
 </tbody>
-</table></section><section id="check-your-understanding" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+</table>
+</section>
+<section id="check-your-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
 <ol type="1">
 <li><p>In a survey of 80 households, 32 own a dog, 20 own a cat, 12 own both, and the remainder own no pets. Construct a frequency table that shows the number and percentage of households in each pet ownership category (Dog only, Cat only, Both, None). Which visualization—a bar chart or a pie chart—would you choose, and why?</p></li>
 <li><p>Explain the difference between a frequency table and a relative frequency table. In what situations is it more informative to look at relative frequencies rather than absolute frequencies?</p></li>
@@ -441,24 +524,29 @@ Solutions
 </div>
 </div>
 </div>
-</section></section><section id="sec-03_02" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="sec-03_02">
-<span class="header-section-number">3.2</span> Bar Charts and Pie Charts</h2>
+</section>
+</section>
+<section id="sec-03_02" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-03_02"><span class="header-section-number">3.2</span> Bar Charts and Pie Charts</h2>
 <blockquote class="blockquote">
 <p>“`Normally if given a choice between doing something and nothing, I’d choose to do nothing. But I would do something if it helps someone do nothing. I’d work all night if it meant nothing got done.” – Ron Swanson</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>How do we make clear, truthful bar charts and pie charts?</em></p>
 <p>When you’ve tallied the counts of a categorical variable, your next job is to turn those numbers into a picture. Two of the simplest pictures—<em>bar charts</em> and <em>pie charts</em>—seem deceptively alike: each shows categories and their sizes. But as we’ll see, they serve different purposes and come with different design rules.</p>
-<section id="what-is-a-bar-chart" class="level3"><h3 class="anchored" data-anchor-id="what-is-a-bar-chart">What is a bar chart?</h3>
-<p>As we have already seen in <a href="#sec-03_01"><span>Section&nbsp;3.1</span></a>, <blank>bar chart</blank> displays categories along one axis and uses the length of a bar on the other axis to represent a numerical value. Bars can be vertical (a “column” chart) or horizontal, and they are separated by gaps to emphasise that the categories are discrete. Because humans are good at comparing lengths that share a common baseline, bar charts are our go‑to tool for comparing counts, percentages or other statistics across categories.</p>
+<section id="what-is-a-bar-chart" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-bar-chart">What is a bar chart?</h3>
+<p>As we have already seen in <a href="#sec-03_01" class="quarto-xref"><span>Section 3.1</span></a>, <blank>bar chart</blank> displays categories along one axis and uses the length of a bar on the other axis to represent a numerical value. Bars can be vertical (a “column” chart) or horizontal, and they are separated by gaps to emphasise that the categories are discrete. Because humans are good at comparing lengths that share a common baseline, bar charts are our go‑to tool for comparing counts, percentages or other statistics across categories.</p>
 <p><strong>Example: distribution of blood types.</strong> Suppose a hospital records the blood type (A, B, AB or O) of 200 randomly chosen donors. The counts are shown in the table below along with a bar chart. Notice that the bars are separated and can be reordered to make patterns easy to see.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead><tr class="header">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
 <th style="text-align: left;">type</th>
 <th style="text-align: right;">count</th>
 <th style="text-align: right;">prop</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">A</td>
@@ -484,30 +572,39 @@ Solutions
 </table>
 </div>
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The vertical bar chart emphasizes how common type O is relative to the others. You could flip the axes to make a horizontal bar chart if your category names are long or if you prefer to read labels on the y‑axis.</p>
 <p><strong>Design tips for bar charts.</strong> A few simple rules help make bar charts honest and clear:</p>
 <ul>
-<li>
-<em>Start the axis at zero.</em> Because bar length encodes value, truncating the axis exaggerates differences.</li>
-<li>
-<em>Keep consistent spacing.</em> Leave a gap between bars—about half the width of a bar is a good rule of thumb.</li>
-<li>
-<em>Sort deliberately.</em> Arrange bars in a logical order (alphabetical, chronological, or by size) to help the reader scan.</li>
-<li>
-<em>Avoid clutter and gimmicks.</em> Skip 3‑D effects and decorative icons; they distort perception and add no information.</li>
-</ul></section><section id="what-is-a-pie-chart" class="level3"><h3 class="anchored" data-anchor-id="what-is-a-pie-chart">What is a pie chart?</h3>
+<li><em>Start the axis at zero.</em> Because bar length encodes value, truncating the axis exaggerates differences.</li>
+<li><em>Keep consistent spacing.</em> Leave a gap between bars—about half the width of a bar is a good rule of thumb.</li>
+<li><em>Sort deliberately.</em> Arrange bars in a logical order (alphabetical, chronological, or by size) to help the reader scan.</li>
+<li><em>Avoid clutter and gimmicks.</em> Skip 3‑D effects and decorative icons; they distort perception and add no information.</li>
+</ul>
+</section>
+<section id="what-is-a-pie-chart" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-pie-chart">What is a pie chart?</h3>
 <p>A <blank>pie chart</blank> shows how a total is divided among categories. A circle is divided into slices; each slice represents a category and its angle corresponds to the category’s proportion of the whole. Pie charts are familiar and immediately signal a “part of a whole” story.</p>
 <p><strong>Example: reasons for missing an appointment.</strong> A dental clinic tracks why patients miss scheduled cleanings. Out of 100 missed appointments, 50 were due to forgetfulness, 20 to fear, 15 to cost, and 15 to other reasons. A pie chart makes the share of each reason obvious.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The slices emphasize that half of the missed appointments were simply forgotten. However, imagine adding three more reasons of similar size. The slices would become crowded and hard to compare. Pie charts work only when the categories sum to a meaningful whole and there are no more than a few slices.</p>
-</section><section id="when-to-use-bar-charts-vs.-pie-charts" class="level3"><h3 class="anchored" data-anchor-id="when-to-use-bar-charts-vs.-pie-charts">When to use bar charts vs.&nbsp;pie charts</h3>
+</section>
+<section id="when-to-use-bar-charts-vs.-pie-charts" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-bar-charts-vs.-pie-charts">When to use bar charts vs.&nbsp;pie charts</h3>
 <p>Although you can plot the same data with either chart, they are not interchangeable. Use a bar chart when you want to:</p>
 <ul>
 <li>Compare values across categories or between groups.</li>
@@ -521,37 +618,59 @@ Solutions
 <li>You care more about conveying the big picture of how the whole is divided than about exact comparisons.</li>
 </ul>
 <p>When you find yourself squinting at a pie chart to see which slice is bigger, switch to a bar chart; our brains judge lengths more accurately than angles.</p>
-</section><section id="clustered-and-stacked-bar-charts" class="level3"><h3 class="anchored" data-anchor-id="clustered-and-stacked-bar-charts">Clustered and stacked bar charts</h3>
-<p>Sometimes you have two categorical variables and want to see how their categories interact. We introduced two‑way tables in <a href="#sec-03_01"><span>Section&nbsp;3.1</span></a>; here’s how to graph them.</p>
+</section>
+<section id="clustered-and-stacked-bar-charts" class="level3">
+<h3 class="anchored" data-anchor-id="clustered-and-stacked-bar-charts">Clustered and stacked bar charts</h3>
+<p>Sometimes you have two categorical variables and want to see how their categories interact. We introduced two‑way tables in <a href="#sec-03_01" class="quarto-xref"><span>Section 3.1</span></a>; here’s how to graph them.</p>
 <p>A <blank>clustered (side‑by‑side) bar chart</blank> groups bars for each level of a second variable next to each other so you can compare across groups. For example, imagine you survey 120 patients about how satisfied they were with a new physical therapy program (satisfied, neutral, dissatisfied) and record whether they were in the treatment or control group. A clustered bar chart shows differences in satisfaction between the two groups.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>In a <blank>stacked bar chart</blank>, bars for each category are stacked atop one another. This emphasizes the total size of each category but makes it harder to compare the segments across stacks. You might use a stacked chart to show how types of injuries (sprain, fracture, other) contribute to emergency visits across departments; if you convert each bar to 100% of its height, you get a <em>100% stacked bar chart</em> that highlights composition within each group.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="576"></p>
+</figure>
 </div>
 </div>
-<section id="cautions-with-stacked-bars" class="level4"><h4 class="anchored" data-anchor-id="cautions-with-stacked-bars">Cautions with stacked bars</h4>
+</div>
+<section id="cautions-with-stacked-bars" class="level4">
+<h4 class="anchored" data-anchor-id="cautions-with-stacked-bars">Cautions with stacked bars</h4>
 <p>Stacked bars are useful when you care about the total across categories, but they hide patterns in the middle segments. In the last plot, you can easily compare the overall emergency visits across departments and the share of fractures, but it’s harder to compare the “other” injuries across departments because their segments float at different heights. If your goal is to compare subgroups, a clustered bar chart is usually better.</p>
-</section></section><section id="working-in-jmp-pro-17-1" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-1">Working in JMP Pro 17</h3>
+</section>
+</section>
+<section id="working-in-jmp-pro-17-1" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-1">Working in JMP Pro 17</h3>
 <p>In JMP, bar and pie charts live in the <strong>Graph Builder</strong>. Drag your categorical variable to the X‑axis and drop the <strong>N</strong> or <strong>%</strong> statistic onto the Y‑axis to create a bar chart. To cluster by a second categorical variable, drop it in the <strong>Group</strong> or <strong>Overlay</strong> zone, and choose <em>Bar (Horizontal)</em> or <em>Bar (Vertical)</em> from the chart palette. To stack, use the <strong>Stack</strong> option in the legend. To make a pie chart, drag the categorical variable to a blank canvas and choose <em>Pie</em>; JMP will automatically convert counts to percentages and label the slices. Use the red triangle (▸) menu to display data labels, reorder slices, or combine small categories into an “Other” slice.</p>
-</section><section id="recap-1" class="level3"><h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
-<table class="table">
+</section>
+<section id="recap-1" class="level3">
+<h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
+<table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 88%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th><strong>Keyword/Concept</strong></th>
 <th><strong>Definition or note</strong></th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><strong>Bar chart</strong></td>
@@ -574,7 +693,10 @@ Solutions
 <td></td>
 </tr>
 </tbody>
-</table></section><section id="check-your-understanding-1" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
+</table>
+</section>
+<section id="check-your-understanding-1" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
 <ol type="1">
 <li><p>A clinical trial reports the average pain score (on a 0–10 scale) for three physical therapy programs. Should you use a bar chart or a pie chart? Explain your reasoning.</p></li>
 <li><p>A nutritionist surveys 500 patients about their preferred breakfast type: cereal, fruit, eggs, or none. The counts are 150, 120, 80, and 150. Sketch how you would display this information with a pie chart. When might a bar chart be preferable?</p></li>
@@ -604,34 +726,35 @@ Solutions
 </div>
 </div>
 </div>
-</section></section><section id="sec-03_03" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="sec-03_03">
-<span class="header-section-number">3.3</span> Organizing Quantitative Data</h2>
+</section>
+</section>
+<section id="sec-03_03" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-03_03"><span class="header-section-number">3.3</span> Organizing Quantitative Data</h2>
 <blockquote class="blockquote">
 <p>“It’s not what you look at that matters, it’s what you see.” - Henry David Thoreau</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>How should we organize quantitative data?</em></p>
 <p>Categorical variables live in their own world of discrete groups, but numerical variables—such as heights, blood pressures, cholesterol levels, or reaction times—can take on a continuum of values. To make sense of a list of numbers, we need to group them in a sensible way. In this section we learn how to organize quantitative data into tables that lay the foundation for graphs like histograms, stem‑and‑leaf plots, and dotplots. These tables help us see where the data concentrate, how spread out they are, and how the numbers accumulate.</p>
-<section id="constructing-frequency-distributions" class="level3"><h3 class="anchored" data-anchor-id="constructing-frequency-distributions">Constructing frequency distributions</h3>
+<section id="constructing-frequency-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="constructing-frequency-distributions">Constructing frequency distributions</h3>
 <p>A <blank>frequency distribution</blank> for quantitative data is a table that divides the range of the data into non‑overlapping intervals (called <blank>classes</blank>) and lists the number of observations (the frequency) falling into each class. Each class has a lower limit and an upper limit, the class width is the difference between consecutive lower limits, and the range of the dataset is the difference between the maximum and minimum values. The goal is to choose enough classes to reveal the shape of the distribution without obscuring details.</p>
 <p>To build a frequency distribution:</p>
 <ol type="1">
-<li>
-<strong>Decide on the number of classes.</strong> A common guideline is to use between 5 and 20 classes; fewer classes oversimplify the data, while too many classes produce a noisy table.</li>
-<li>
-<strong>Compute the class width.</strong> Subtract the minimum value from the maximum value to obtain the range, divide by the chosen number of classes, and round up to a convenient number. This ensures all data points fit into a class without overlap.</li>
-<li>
-<strong>Determine class limits.</strong> Begin at or slightly below the minimum value and add the class width repeatedly to set the lower and upper limits of each class.</li>
-<li>
-<strong>Tally the frequencies.</strong> Count how many observations fall into each class.</li>
+<li><strong>Decide on the number of classes.</strong> A common guideline is to use between 5 and 20 classes; fewer classes oversimplify the data, while too many classes produce a noisy table.</li>
+<li><strong>Compute the class width.</strong> Subtract the minimum value from the maximum value to obtain the range, divide by the chosen number of classes, and round up to a convenient number. This ensures all data points fit into a class without overlap.</li>
+<li><strong>Determine class limits.</strong> Begin at or slightly below the minimum value and add the class width repeatedly to set the lower and upper limits of each class.</li>
+<li><strong>Tally the frequencies.</strong> Count how many observations fall into each class.</li>
 </ol>
 <p>Let’s see these steps with an example from dentistry. Suppose a dental researcher records the number of cavities filled for 40 patients in a clinic over the past month. We want to summarize the distribution of cavities per patient.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead><tr class="header">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
 <th style="text-align: left;">class</th>
 <th style="text-align: right;">frequency</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(-0.5,0.5]</td>
@@ -666,18 +789,22 @@ Solutions
 </div>
 </div>
 <p>The table lists each class of cavities (0, 1, 2, 3, …) along with the number of patients in that class. For example, if 13 patients had exactly two cavities, the class “(1.5, 2.5]” (interpreted as 2 cavities) would have a frequency of 13. When the data are counts like this, classes of width 1 make sense; for continuous measurements like blood pressure, you would choose wider classes to group the data into ranges.</p>
-</section><section id="relative-and-cumulative-frequencies" class="level3"><h3 class="anchored" data-anchor-id="relative-and-cumulative-frequencies">Relative and cumulative frequencies</h3>
+</section>
+<section id="relative-and-cumulative-frequencies" class="level3">
+<h3 class="anchored" data-anchor-id="relative-and-cumulative-frequencies">Relative and cumulative frequencies</h3>
 <p>Raw counts are helpful, but sometimes we want to know what proportion of observations fall into each class. The <blank>relative frequency</blank> of a class is the class frequency divided by the total number of observations. If you add successive relative frequencies as you move across the classes, you get the <blank>cumulative frequency</blank>, which tells you the proportion of observations less than or equal to a given class boundary.</p>
 <p>We can extend our cavities example to compute relative and cumulative frequencies:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<thead><tr class="header">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
 <th style="text-align: left;">class</th>
 <th style="text-align: right;">frequency</th>
 <th style="text-align: right;">relative_frequency</th>
 <th style="text-align: right;">cumulative_frequency</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(-0.5,0.5]</td>
@@ -725,27 +852,40 @@ Solutions
 </table>
 </div>
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The cumulative frequency column increases steadily and reaches 1 at the end of the table. A graph of cumulative frequencies, called an <blank>ogive</blank> (pronounced “O-jive”), plots the cumulative proportion versus the class.</p>
-</section><section id="choosing-the-number-of-classes" class="level3"><h3 class="anchored" data-anchor-id="choosing-the-number-of-classes">Choosing the number of classes</h3>
+</section>
+<section id="choosing-the-number-of-classes" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-the-number-of-classes">Choosing the number of classes</h3>
 <p>Selecting an appropriate number of classes is more art than science, but a few guidelines help. Many textbooks suggest between 5 and 20 classes; an alternative rule of thumb for histograms is to use 5 to 15 bars. As the sample size grows, more classes allow finer detail, but too many classes produce a sparse table. In practice, try several class widths and see which one provides a clear picture of the data. Software like JMP and R will automatically suggest class widths, but you can adjust them manually.</p>
-</section><section id="working-in-jmp-pro-17-2" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-2">Working in JMP Pro 17</h3>
+</section>
+<section id="working-in-jmp-pro-17-2" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-2">Working in JMP Pro 17</h3>
 <p>To organize quantitative data in JMP:</p>
 <ul>
 <li>Use <strong>Analyze → Distribution</strong> and assign your quantitative variable to the Y‑axis. JMP will display a histogram along with a frequency table showing counts, percentages, and cumulative percentages. The red triangle (▸) menu lets you change the number of bins or show the cumulative distribution.</li>
 <li>To extract a frequency table without a histogram, go to <strong>Analyze → Tabulate</strong>, drag your quantitative variable to the <strong>Drop Zone for columns</strong>, and select a statistic such as <strong>N</strong> or <strong>Percent</strong>. JMP’s Tabulate platform can create grouped summaries by another variable (e.g., cavities by gender).</li>
-</ul></section><section id="recap-2" class="level3"><h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
-<table class="table">
+</ul>
+</section>
+<section id="recap-2" class="level3">
+<h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
+<table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 86%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th><strong>Keyword</strong></th>
 <th><strong>Definition</strong></th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><strong>Class</strong></td>
@@ -772,7 +912,10 @@ Solutions
 <td>A graph of cumulative frequencies or cumulative relative frequencies versus the upper class boundary, useful for identifying percentiles.</td>
 </tr>
 </tbody>
-</table></section><section id="check-your-understanding-2" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+</table>
+</section>
+<section id="check-your-understanding-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
 <ol type="1">
 <li><p>The heights (in centimeters) of 50 adolescents undergoing orthodontic treatment are recorded. Explain how you would construct a frequency distribution for these heights. How might your choice of the number of classes affect your ability to see the shape of the distribution?</p></li>
 <li><p>Differentiate between a relative frequency distribution and a cumulative frequency distribution. In what situations would you prefer to look at cumulative frequencies instead of simple frequencies?</p></li>
@@ -800,28 +943,39 @@ Solutions
 </div>
 </div>
 </div>
-</section></section><section id="sec-03_4" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="sec-03_4">
-<span class="header-section-number">3.4</span> Histograms, Stem‑and‑Leaf Plots, and Dotplots</h2>
+</section>
+</section>
+<section id="sec-03_4" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-03_4"><span class="header-section-number">3.4</span> Histograms, Stem‑and‑Leaf Plots, and Dotplots</h2>
 <p><strong>Guiding question:</strong> <em>What’s the right way to visualize quantitative data?</em></p>
 <p>Once quantitative data are grouped into classes, we can visualize the distribution using several complementary plots. Histograms show how the data are distributed across intervals; stem‑and‑leaf plots preserve individual values while offering a quick visual summary; and dotplots display each observation as a dot. Choosing the right tool depends on your sample size, measurement scale, and the story you want to tell.</p>
-<section id="histograms" class="level3"><h3 class="anchored" data-anchor-id="histograms">Histograms</h3>
+<section id="histograms" class="level3">
+<h3 class="anchored" data-anchor-id="histograms">Histograms</h3>
 <p>A <blank>histogram</blank> is a bar‑like graph in which adjacent rectangles represent the classes of a quantitative variable. The horizontal axis is measured in the units of the data, and the vertical axis shows the frequency or relative frequency in each class. Unlike bar charts for categorical data, the bars in a histogram touch to indicate that the underlying scale is continuous. Histograms are excellent for revealing the shape, center, and spread of a distribution.</p>
 <p>To construct a histogram:</p>
 <ol type="1">
-<li>Create a frequency distribution with classes of equal width (see <a href="#sec-03_03"><span>Section&nbsp;3.3</span></a>).</li>
+<li>Create a frequency distribution with classes of equal width (see <a href="#sec-03_03" class="quarto-xref"><span>Section 3.3</span></a>).</li>
 <li>On the horizontal axis, draw the class boundaries; on the vertical axis, mark the frequencies or relative frequencies.</li>
 <li>Draw adjacent rectangles whose widths correspond to the class widths and whose heights correspond to the class frequencies. For a <blank>density histogram</blank>, scale the heights so that the area of each rectangle equals the class’s relative frequency; the total area of the histogram equals one】.</li>
 </ol>
 <p>The number of bins (rectangles) influences the appearance of the histogram. A rule of thumb is to choose between 5 and 15 bins; using more bins adds detail but may create spiky plots. Avoid decorative 3‑D effects and keep the bars aligned on a common baseline.</p>
-<section id="example-resting-heart-rates" class="level4"><h4 class="anchored" data-anchor-id="example-resting-heart-rates">Example: Resting heart rates</h4>
+<section id="example-resting-heart-rates" class="level4">
+<h4 class="anchored" data-anchor-id="example-resting-heart-rates">Example: Resting heart rates</h4>
 <p>Consider a study of the resting heart rates (in beats per minute) of 100 individuals undergoing physical therapy.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The histogram reveals the overall shape, identifies any outliers, and helps us decide whether certain distribution assumptions might be reasonable. In JMP, you can create a histogram by assigning the variable to Y in the <strong>Distribution</strong> platform; use the red triangle (▸) menu to adjust the binning.</p>
-</section></section><section id="stemandleaf-plots" class="level3"><h3 class="anchored" data-anchor-id="stemandleaf-plots">Stem‑and‑leaf plots</h3>
+</section>
+</section>
+<section id="stemandleaf-plots" class="level3">
+<h3 class="anchored" data-anchor-id="stemandleaf-plots">Stem‑and‑leaf plots</h3>
 <p>A <blank>stem‑and‑leaf plot</blank> divides each observation into a “stem” (the leading digits) and a “leaf” (the last digit. You list the possible stems in order and write the leaves next to their stems. This simple display retains the actual data values while giving a visual impression of the distribution. It’s particularly useful for small to moderate sample sizes (roughly under 100 observations). Unlike histograms, a stem‑and‑leaf plot shows every data point, so you can reconstruct the original dataset if needed.</p>
 <p>For example, suppose an orthopedic clinic records the times (in days) for 20 patients to regain full range of motion after knee surgery. We can construct a stem‑and‑leaf plot as follows:</p>
 <div class="cell">
@@ -836,38 +990,51 @@ Solutions
 </div>
 </div>
 <p>In a manual stem‑and‑leaf plot, the stems would be 2, 3, 4, … representing tens of days, and the leaves would be the units digit. Many statistical software packages split each stem into two rows—one for leaves 0–4 and one for leaves 5–9—to provide more detail. Reading the plot, you can quickly see that most patients recover in the 10–14 day range and that the longest recovery took about 24 days. Because the stems are ordered, the plot shows the shape of the distribution and highlights extremes.</p>
-</section><section id="dotplots" class="level3"><h3 class="anchored" data-anchor-id="dotplots">Dotplots</h3>
+</section>
+<section id="dotplots" class="level3">
+<h3 class="anchored" data-anchor-id="dotplots">Dotplots</h3>
 <p>A <blank>dotplot</blank> places a dot above a number line for each observation; if multiple observations share the same value, the dots stack vertically. Dotplots are easy to construct and interpret for small datasets and can handle discrete and continuous variables. They show clusters, gaps, and outliers while preserving individual data points.</p>
 <p>Continuing our dental theme, imagine researchers record the number of clinic visits per patient during a year for 25 orthodontic patients. A dotplot can reveal whether most patients require only a few visits or if some need frequent check‑ups.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The plot makes it clear that most patients had between one and three visits, while a few had zero or five visits. Dotplots are an excellent choice when exact values matter, such as showing distribution of test scores or daily step counts.</p>
-</section><section id="choosing-the-right-display" class="level3"><h3 class="anchored" data-anchor-id="choosing-the-right-display">Choosing the right display</h3>
+</section>
+<section id="choosing-the-right-display" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-the-right-display">Choosing the right display</h3>
 <ul>
-<li>
-<strong>Histograms</strong> reveal the overall shape of a distribution and are most useful for moderate to large samples. They sacrifice individual data values to provide a smooth picture of the distribution.</li>
-<li>
-<strong>Stem‑and‑leaf plots</strong> preserve actual data values and work well for small to moderate samples. They quickly show the shape and allow you to recover the raw data.</li>
-<li>
-<strong>Dotplots</strong> also preserve individual values and are easy to interpret for small datasets; they can handle discrete counts and continuous measurements.</li>
-</ul></section><section id="working-in-jmp-pro-17-3" class="level3"><h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-3">Working in JMP Pro 17</h3>
+<li><strong>Histograms</strong> reveal the overall shape of a distribution and are most useful for moderate to large samples. They sacrifice individual data values to provide a smooth picture of the distribution.</li>
+<li><strong>Stem‑and‑leaf plots</strong> preserve actual data values and work well for small to moderate samples. They quickly show the shape and allow you to recover the raw data.</li>
+<li><strong>Dotplots</strong> also preserve individual values and are easy to interpret for small datasets; they can handle discrete counts and continuous measurements.</li>
+</ul>
+</section>
+<section id="working-in-jmp-pro-17-3" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-3">Working in JMP Pro 17</h3>
 <p>In JMP:</p>
 <ul>
 <li>To create a histogram or stem‑and‑leaf plot, use <strong>Analyze → Distribution</strong>. For stem‑and‑leaf plots, JMP automatically splits stems if needed and prints the “leaf unit.” The red triangle (▸) menu lets you toggle between histogram and stem‑and‑leaf views.</li>
 <li>To build a dotplot, open <strong>Graph Builder</strong>, drag your quantitative variable to the X‑axis, and choose “Dot Plot” from the element palette.</li>
-</ul></section><section id="recap-3" class="level3"><h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
-<table class="table">
+</ul>
+</section>
+<section id="recap-3" class="level3">
+<h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
+<table class="caption-top table">
 <colgroup>
 <col style="width: 14%">
 <col style="width: 85%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th><strong>Keyword</strong></th>
 <th><strong>Definition</strong></th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><strong>Histogram</strong></td>
@@ -886,7 +1053,10 @@ Solutions
 <td>A plot that places a dot above each data value on a number line, with stacked dots representing repeated values.</td>
 </tr>
 </tbody>
-</table></section><section id="check-your-understanding-3" class="level3"><h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+</table>
+</section>
+<section id="check-your-understanding-3" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
 <ol type="1">
 <li><p>Explain why a histogram is drawn with adjacent bars touching. How does this design reinforce the type of variable being plotted?</p></li>
 <li><p>For a set of 15 recovery times (in days) after a dental procedure, would you prefer a histogram, a stem‑and‑leaf plot, or a dotplot? Justify your choice.</p></li>
@@ -914,7 +1084,11 @@ Solutions
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -949,18 +1123,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -992,11 +1155,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1006,8 +1206,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1019,7 +1228,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1063,6 +1394,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1088,6 +1420,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1148,6 +1506,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
