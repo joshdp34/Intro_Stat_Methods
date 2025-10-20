@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>10&nbsp; Hypothesis Testing: The Basics – STA 2381 Introductory Statistical Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style type="text/css">
+.sidebar .chapter-number {
+color: #FFB81c;
+}
+freeblank {
+  color: transparent;
+  cursor: pointer;
+}
+freeblank.clicked {
+  color: red;
+}
+blank {
+  display: inline-block; 
+  position: relative;
+  padding: 0 10px;
+  color: transparent;
+  cursor: pointer;
+}
+blank::before {
+  content: ''; /* Creates a custom underline */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px; /* Thickness of the underline */
+  background-color: black; /* Color of the underline */
+}
+blank.clicked {
+  color: red;
+}
+</style>
+<script>
+document.addEventListener('click', (event) => {
+  if (event.target.tagName === 'BLANK') {
+    event.target.classList.add('clicked');
+  }
+});
+document.addEventListener('click', (event) => {
+  if (event.target.tagName === 'FREEBLANK') {
+    event.target.classList.add('clicked');
+  }
+});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesis Testing: The Basics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Collecting Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Estimation and Confidence Intervals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesis Testing: The Basics</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-10_01" id="toc-sec-10_01" class="nav-link active" data-scroll-target="#sec-10_01"><span class="header-section-number">10.1</span> Null and Alternative Hypotheses</a>
+  <ul class="collapse">
+  <li><a href="#defining-the-hypotheses" id="toc-defining-the-hypotheses" class="nav-link" data-scroll-target="#defining-the-hypotheses">Defining the hypotheses</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-10_02" id="toc-sec-10_02" class="nav-link" data-scroll-target="#sec-10_02"><span class="header-section-number">10.2</span> Type I and Type II Errors</a>
+  <ul class="collapse">
+  <li><a href="#examples-and-intuitive-consequences" id="toc-examples-and-intuitive-consequences" class="nav-link" data-scroll-target="#examples-and-intuitive-consequences">Examples and intuitive consequences</a></li>
+  <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-10_03" id="toc-sec-10_03" class="nav-link" data-scroll-target="#sec-10_03"><span class="header-section-number">10.3</span> The p-Value and Significance Level</a>
+  <ul class="collapse">
+  <li><a href="#interpreting-the-p-value" id="toc-interpreting-the-p-value" class="nav-link" data-scroll-target="#interpreting-the-p-value">Interpreting the p-value</a></li>
+  <li><a href="#example-computing-a-p-value" id="toc-example-computing-a-p-value" class="nav-link" data-scroll-target="#example-computing-a-p-value">Example: computing a p-value</a></li>
+  <li><a href="#practical-vs.-statistical-significance" id="toc-practical-vs.-statistical-significance" class="nav-link" data-scroll-target="#practical-vs.-statistical-significance">Practical vs.&nbsp;statistical significance</a></li>
+  <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-10_04" id="toc-sec-10_04" class="nav-link" data-scroll-target="#sec-10_04"><span class="header-section-number">10.4</span> One-Tailed and Two-Tailed Tests</a>
+  <ul class="collapse">
+  <li><a href="#one-tailed-tests" id="toc-one-tailed-tests" class="nav-link" data-scroll-target="#one-tailed-tests">One-tailed tests</a></li>
+  <li><a href="#two-tailed-tests" id="toc-two-tailed-tests" class="nav-link" data-scroll-target="#two-tailed-tests">Two-tailed tests</a></li>
+  <li><a href="#example-comparing-one--and-two-tailed-p-values" id="toc-example-comparing-one--and-two-tailed-p-values" class="nav-link" data-scroll-target="#example-comparing-one--and-two-tailed-p-values">Example: comparing one- and two-tailed p-values</a></li>
+  <li><a href="#choosing-between-one--and-two-tailed-tests" id="toc-choosing-between-one--and-two-tailed-tests" class="nav-link" data-scroll-target="#choosing-between-one--and-two-tailed-tests">Choosing between one- and two-tailed tests</a></li>
+  <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-10_05" id="toc-sec-10_05" class="nav-link" data-scroll-target="#sec-10_05"><span class="header-section-number">10.5</span> The Steps of Hypothesis Testing</a>
+  <ul class="collapse">
+  <li><a href="#step-1-state-the-hypotheses" id="toc-step-1-state-the-hypotheses" class="nav-link" data-scroll-target="#step-1-state-the-hypotheses">Step 1: State the hypotheses</a></li>
+  <li><a href="#step-2-formulate-the-analysis-plan" id="toc-step-2-formulate-the-analysis-plan" class="nav-link" data-scroll-target="#step-2-formulate-the-analysis-plan">Step 2: Formulate the analysis plan</a></li>
+  <li><a href="#step-3-analyze-the-data" id="toc-step-3-analyze-the-data" class="nav-link" data-scroll-target="#step-3-analyze-the-data">Step 3: Analyze the data</a></li>
+  <li><a href="#step-4-interpret-the-results-in-context" id="toc-step-4-interpret-the-results-in-context" class="nav-link" data-scroll-target="#step-4-interpret-the-results-in-context">Step 4: Interpret the results in context</a></li>
+  <li><a href="#example-testing-patient-wait-times" id="toc-example-testing-patient-wait-times" class="nav-link" data-scroll-target="#example-testing-patient-wait-times">Example: testing patient wait times</a></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
+  <li><a href="#check-your-understanding-4" id="toc-check-your-understanding-4" class="nav-link" data-scroll-target="#check-your-understanding-4">Check your understanding</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesis Testing: The Basics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-10_01" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="sec-10_01"><span class="header-section-number">10.1</span> Null and Alternative Hypotheses</h2>
+<blockquote class="blockquote">
+<p>“If you do not know how to ask the right question, you discover nothing.” – W. E. Deming</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>What is a hypothesis, and how do we test it?</em></p>
+<p>Any statistical test begins with a claim about an unknown population parameter. That claim, called a <blank>hypothesis</blank>, describes what you believe might be true about a mean, a proportion, a difference, or some other quantity.</p>
+<p>Hypotheses come in pairs: a <blank>null</blank> hypothesis and an <blank>alternative</blank> hypothesis.</p>
+<p>The null hypothesis (denoted <span class="math inline">\(H_0\)</span>) states that there is <em>no effect, no difference, or no change</em> in the population. It often represents the status quo or “nothing is happening.”</p>
+<p>The alternative hypothesis (<span class="math inline">\(H_a\)</span>) states that there <em>is</em> an effect or difference, typically what the researcher hopes to demonstrate. In a hypothesis test we start by assuming the null hypothesis is true and ask whether our sample provides enough evidence to reject it. Because samples are subject to chance, our decisions are based on probabilities rather than certainties.</p>
+<p>In a legal analogy, the null hypothesis is like the presumption of innocence. A jury does not “prove” innocence; it either convicts (rejects the null) or fails to convict (fails to reject the null). Similarly, in statistics we never <em>accept</em> <span class="math inline">\(H_0\)</span>; we simply fail to reject it when the evidence is weak. This language reminds us that a test can be wrong either way (see the next section).</p>
+<section id="defining-the-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="defining-the-hypotheses">Defining the hypotheses</h3>
+<p>To construct a test, identify the parameter of interest and write down competing statements about it:</p>
+<ul>
+<li><strong>Population parameter vs.&nbsp;sample statistic.</strong> A <em>parameter</em> is a fixed but unknown number that describes a population (e.g., the mean cholesterol level of all patients taking a drug). A <em>statistic</em> is a number computed from a sample and used to estimate the parameter (e.g., the mean cholesterol level of the 30 patients in a trial). Hypotheses are always statements about parameters, not statistics.</li>
+<li><strong>Null hypothesis (<span class="math inline">\(H_0\)</span>).</strong> The null typically asserts that the parameter equals a specific value (e.g., <span class="math inline">\(H_0:\mu=0\)</span> or <span class="math inline">\(H_0:p=0.5\)</span>). It reflects the idea that nothing unusual is happening.</li>
+<li><strong>Alternative hypothesis (<span class="math inline">\(H_a\)</span>).</strong> The alternative expresses the research question (Sometimes, the alternative hypothesis is called the <blank>research</blank> hypothesis). It can be one-sided (greater than or less than the null value) or two-sided (simply “not equal”). Its direction determines the type of test (see Section 10.4).</li>
+</ul>
+</section>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<ul>
+<li><p>Researchers develop a new cholesterol-lowering drug and want to know if it reduces LDL cholesterol more than the current standard. Let <span class="math inline">\(\mu\)</span> be the mean reduction in LDL. The hypotheses are</p>
+<p><span class="math display">\[
+\begin{align*}
+  H_0&amp;: \mu = 0 \quad\text{(no average reduction)}\\\quad H_a&amp;: \mu &gt; 0 \quad\text{(mean reduction is positive)}
+\end{align*}
+\]</span></p>
+<p>Here the alternative is one-sided because the investigators care only about increases in reduction. They will look for evidence that the mean change is greater than zero.</p></li>
+<li><p>A geneticist compares the average expression level of a gene in treated cells versus control cells. Let <span class="math inline">\(\mu_T\)</span> and <span class="math inline">\(\mu_C\)</span> be the mean expression levels. If the goal is simply to detect any difference, the hypotheses are</p>
+<p>$$</p>
+<p>H_0: _T - _C = 0 \ H_a: _T - _C $$</p>
+<p>This is a two-sided alternative: the gene could be up-regulated or down-regulated, and both possibilities matter.</p></li>
+<li><p>A manufacturer packages coffee beans labelled “500 g.” Customers suspect the packages may weigh less than advertised. Let <span class="math inline">\(\mu\)</span> be the true mean weight. The hypotheses become</p>
+<p><span class="math display">\[
+\begin{align*}
+H_0&amp;: \mu = 500 \\
+H_a&amp;: \mu &lt; 500
+\end{align*}
+\]</span></p>
+<p>Notice that <span class="math inline">\(H_a\)</span> is one-sided (<span class="math inline">\(&lt;\)</span>). If sample data show strong evidence that the mean is lower than 500 g, the company may need to adjust its filling process.</p></li>
+</ul>
+<p>In each example we clearly separate the null (no change) from the alternative (change in a specified direction). Remember that a test never <blank>proves</blank> the alternative; it only provides evidence against the null. The next sections discuss the risks associated with rejecting or failing to reject <span class="math inline">\(H_0\)</span> and how we quantify that evidence.</p>
+<section id="recap" class="level4">
+<h4 class="anchored" data-anchor-id="recap">Recap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Hypothesis</strong></td>
+<td>A claim about a population parameter that can be tested using sample data.</td>
+</tr>
+<tr class="even">
+<td><strong>Null hypothesis (<span class="math inline">\(H_0\)</span>)</strong></td>
+<td>A statement of no effect or no difference; the hypothesis assumed true as the starting point of a test.</td>
+</tr>
+<tr class="odd">
+<td><strong>Alternative hypothesis (<span class="math inline">\(H_a\)</span>)</strong></td>
+<td>The statement researchers hope to support; it suggests a parameter is different (greater, less, or not equal) from the null value.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="check-your-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+<ol type="1">
+<li>A pharmaceutical company claims its new drug lowers systolic blood pressure by at least 5 mmHg compared with a placebo. Express the null and alternative hypotheses in symbols.</li>
+<li>A botanist believes two fertilizer treatments yield the same average plant height. What are <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span> for testing this belief? Is the alternative one-sided or two-sided?</li>
+<li>In your own words, explain why we never “accept” the null hypothesis in a statistical test.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Let <span class="math inline">\(\mu_D\)</span> be the mean reduction in systolic blood pressure (drug minus placebo). The company’s claim is that the reduction is at least 5 mmHg, so we test</p>
+<p><span class="math display">\[
+H_0: \mu_D = 5 \quad \text{vs.} \quad H_a: \mu_D &gt; 5.
+\]</span></p>
+<p>Here <span class="math inline">\(H_a\)</span> is one-sided because we care only about reductions <em>greater</em> than 5 mmHg. If sample evidence shows the mean reduction exceeds 5 by more than can be attributed to chance, we will reject <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span> be the mean heights under fertilizers 1 and 2. The botanist’s belief is equality, so the null hypothesis is <span class="math inline">\(H_0:\mu_1 - \mu_2 = 0\)</span>. The alternative is that they differ: <span class="math inline">\(H_a:\mu_1 - \mu_2 \neq 0\)</span>. This is a two-sided alternative because we do not know which treatment might produce taller plants.</p></li>
+<li><p>We do not accept <span class="math inline">\(H_0\)</span> because failing to reject it does not prove it is true. A small sample might lack power to detect a real difference, so we can only say the data do not provide strong evidence against <span class="math inline">\(H_0\)</span>. Using the language “fail to reject” reminds us that all conclusions are tentative and based on limited information.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-10_02" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="sec-10_02"><span class="header-section-number">10.2</span> Type I and Type II Errors</h2>
+<blockquote class="blockquote">
+<p>“I can prove anything by statistics except the truth.” – George Canning</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>What do Type I and Type II errors really mean?</em></p>
+<p>Whenever we base a decision on a sample, there is a chance of making an error. In hypothesis testing there are two kinds of error:</p>
+<ul>
+<li><p>A <blank>Type I error</blank> occurs when we reject the null hypothesis even though it is true. It’s a <em>false positive</em>: concluding that there is an effect when there isn’t.</p>
+<p>For example, in a clinical trial we might incorrectly conclude that a new drug improves symptoms when in reality it does not.</p>
+<p>The probability of a Type I error is denoted by <span class="math inline">\(\alpha\)</span>, the <blank>significance level</blank>. By choosing <span class="math inline">\(\alpha\)</span> (often 0.05 or 0.01), we control how often we are willing to risk a false positive.</p></li>
+<li><p>A <blank>Type II error</blank> happens when we fail to reject the null hypothesis even though the alternative is true. This is a <em>false negative</em>: missing a real effect.</p>
+<p>For instance, we might conclude that a drug doesn’t improve symptoms when in truth it does. The probability of a Type II error is <span class="math inline">\(\beta\)</span>. The test’s <blank>power</blank> is <span class="math inline">\(1-\beta\)</span>: the probability that the test correctly rejects <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_a\)</span> is true.</p></li>
+</ul>
+<p>Controlling <span class="math inline">\(\alpha\)</span> makes Type I errors rare, but it increases the risk of Type II errors (and vice versa). A large sample size, clear alternative hypothesis, and good experimental design can increase power and reduce <span class="math inline">\(\beta\)</span>.</p>
+<section id="examples-and-intuitive-consequences" class="level3">
+<h3 class="anchored" data-anchor-id="examples-and-intuitive-consequences">Examples and intuitive consequences</h3>
+<ul>
+<li><strong>Medical trial.</strong> Suppose we test a new vaccine. A Type I error would mean approving an ineffective vaccine, potentially exposing people to harm without benefit. A Type II error would mean dismissing a vaccine that actually works, delaying protection.</li>
+<li><strong>Business quality control.</strong> In monitoring the mean fill weight of coffee packages, a Type I error might lead us to shut down a production line that is actually meeting specifications (costly downtime), whereas a Type II error might allow underfilled packages to reach customers (leading to complaints and regulatory problems).</li>
+<li><strong>Biology experiment.</strong> When testing whether a gene is differentially expressed, a Type I error corresponds to claiming the gene is regulated when it is not (leading to wasted follow-up experiments), and a Type II error misses a truly regulated gene.</li>
+</ul>
+<section id="recap-1" class="level4">
+<h4 class="anchored" data-anchor-id="recap-1">Recap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Type I error</strong></td>
+<td>Rejecting the null hypothesis when it is actually true; a false positive. Its probability is the significance level <span class="math inline">\(\alpha\)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Type II error</strong></td>
+<td>Failing to reject the null hypothesis when the alternative is true; a false negative. Its probability is denoted <span class="math inline">\(\beta\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Significance level (<span class="math inline">\(\alpha\)</span>)</strong></td>
+<td>The probability of committing a Type I error. It is chosen by the researcher before data are collected (common values are 0.05 or 0.01).</td>
+</tr>
+<tr class="even">
+<td><strong>Power (<span class="math inline">\(1-\beta\)</span>)</strong></td>
+<td>The probability of correctly rejecting the null hypothesis when the alternative is true. Power increases with sample size, effect size, and higher significance level.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="check-your-understanding-1" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
+<ol type="1">
+<li>In a courtroom analogy, a Type I error corresponds to convicting an innocent defendant, and a Type II error corresponds to letting a guilty defendant go free. Explain why society might choose a very small <span class="math inline">\(\alpha\)</span> (e.g., 0.01) in this context.</li>
+<li>A quality control engineer tests whether the mean diameter of machine-produced screws equals 5 mm. Describe what a Type I error and a Type II error mean in this setting. Which error would be more serious for the company?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>In criminal justice we usually prefer to err on the side of not convicting an innocent person. A Type I error (convicting the innocent) is considered worse than a Type II error (acquitting the guilty). Choosing a very small <span class="math inline">\(\alpha\)</span> makes false convictions rare, though it increases the chance that some guilty people go free.</p></li>
+<li><p>A Type I error means concluding that the mean diameter differs from 5 mm when it actually equals 5 mm. This might lead to unnecessary machine adjustments or wasted product. A Type II error means concluding that the mean is 5 mm when it is not; defective screws may reach customers. Depending on regulatory requirements, the latter error could be more costly, so the engineer may accept a slightly higher <span class="math inline">\(\alpha\)</span> to reduce <span class="math inline">\(\beta\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-10_03" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="sec-10_03"><span class="header-section-number">10.3</span> The p-Value and Significance Level</h2>
+<blockquote class="blockquote">
+<p>“A common misconception is that an effect exists only if it is statistically significant and that it does not exist if it is not.” – Jonas Ranstam</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>How do p-values guide our decisions?</em></p>
+<p>Once the hypotheses are set, we quantify the evidence against the null hypothesis using a <blank>test statistic</blank>. The test statistic measures how far the sample data (in the form of sample statistics) are from the hypothesized value assuming <span class="math inline">\(H_0\)</span> is true (e.g., the difference between the sample mean and the hypothesized mean, standardized by variability).</p>
+<p>From this statistic we compute a <blank>p-value</blank>, which is the probability of obtaining a result at least as extreme as the one observed given the null hypothesis is true. The smaller the p-value, the stronger the evidence against <span class="math inline">\(H_0\)</span>.</p>
+<section id="interpreting-the-p-value" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-the-p-value">Interpreting the p-value</h3>
+<p>Suppose we test <span class="math inline">\(H_0:\mu=0\)</span> versus <span class="math inline">\(H_a:\mu&gt;0\)</span> and obtain a p-value of 0.03. This p-value means that if the true mean were zero, there is a 3% chance of obtaining a sample mean as large (or larger) than what we observed. Because such data are unlikely under <span class="math inline">\(H_0\)</span>, we consider rejecting <span class="math inline">\(H_0\)</span>. Importantly, a p-value is <em>not</em> the probability that the null is true; it is conditional on <span class="math inline">\(H_0\)</span> being true. Small p-values provide evidence against <span class="math inline">\(H_0\)</span>, but they do not measure the size or importance of an effect.</p>
+<p>To make a decision, we compare the p-value to the <blank>significance level</blank> <span class="math inline">\(\alpha\)</span>. If the p-value is less than <span class="math inline">\(\alpha\)</span>, we reject <span class="math inline">\(H_0\)</span>; otherwise we fail to reject it. Common significance levels are 0.05, 0.01, and 0.10. The choice should reflect the consequences of Type I and Type II errors in the context of the problem.</p>
+</section>
+<section id="example-computing-a-p-value" class="level3">
+<h3 class="anchored" data-anchor-id="example-computing-a-p-value">Example: computing a p-value</h3>
+<p>Imagine a pharmaceutical company claims its headache medication provides immediate relief. Historically the mean time to relief is 30 minutes. In a sample of 25 patients using the new formulation, the sample mean time is 26 minutes with a standard deviation of 8 minutes. We want to test</p>
+<p><span class="math display">\[
+H_0:\mu = 30\quad\text{versus}\quad H_a:\mu &lt; 30
+\]</span></p>
+<p>at <span class="math inline">\(\alpha=0.05\)</span>. The null hypothesis asserts no improvement; the alternative suggests the new drug works faster. A one-sample t-test provides the test statistic and p-value. The JMP output below shows the results.</p>
+<p><img src="images/pvalue1.png" class="img-fluid"></p>
+<p>The resulting p-value will be compared to 0.05. If it is less than 0.05, we conclude that the data provide significant evidence that the new drug shortens the time to relief. Otherwise we fail to reject <span class="math inline">\(H_0\)</span>. For this example, the p-value is 0.0098. Thus we reject <span class="math inline">\(H_0\)</span> and conclude that there is enough evidence to conclude the mean time to relief is less than 30 minutes.</p>
+</section>
+<section id="practical-vs.-statistical-significance" class="level3">
+<h3 class="anchored" data-anchor-id="practical-vs.-statistical-significance">Practical vs.&nbsp;statistical significance</h3>
+<p>Statistical significance tells us whether the data provide enough evidence to reject a null hypothesis. <blank>Practical significance</blank>, sometimes called clinical or substantive significance, asks whether the size of the effect is large enough to matter in the real world.</p>
+<p>A p-value alone cannot answer this second question. In particular, large samples can produce very small p-values for effects that are trivial in practice, while small samples may yield non-significant p-values despite substantial differences. To assess practical significance you need subject-matter expertise and, often, a pre-defined <em>smallest effect size of interest</em>.</p>
+<p>For example, if an educational program needs to improve test scores by at least 5 points to justify its cost, a statistically significant 3-point increase would not be practically significant. Similarly, in medicine a reduction of 2 mmHg in blood pressure might achieve a tiny p-value when measured in thousands of patients, but clinicians may deem it too small to change practice.</p>
+<p>One way to gauge the magnitude and precision of an effect is to report its <strong>confidence interval</strong>. A confidence interval provides a range of plausible values for the population effect size. Because it incorporates sampling variability, a CI tells us not only whether an effect exists but also how large it might be. When the entire interval lies above (or below) the threshold for practical importance, we can be more confident that the effect is both statistically and practically meaningful. If the interval straddles this threshold, the study’s estimate is imprecise: the true effect may or may not be large enough to matter. In contrast, if the CI includes zero, the data are compatible with no effect at all, and we should not claim practical significance.</p>
+<p>To illustrate, consider two studies evaluating the same training program. Both report a mean improvement of 9 points in test scores and both are statistically significant. Study A has a 95% confidence interval from 3 to 15 points. Since 3 points is below the 5-point threshold, we cannot rule out the possibility that the true effect is too small to be meaningful.</p>
+<p>Study B has a 95% confidence interval from 7 to 11 points. Because the entire interval exceeds 5 points, we conclude that the improvement is both statistically and practically significant.</p>
+<p>Confidence intervals focus attention on effect sizes and their uncertainty rather than just whether the p-value crosses a cutoff.</p>
+<section id="recap-2" class="level4">
+<h4 class="anchored" data-anchor-id="recap-2">Recap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Test statistic</strong></td>
+<td>A numerical summary of the sample that measures how far the data deviate from what is expected under the null hypothesis.</td>
+</tr>
+<tr class="even">
+<td><strong>p-value</strong></td>
+<td>The probability, under the null hypothesis, of obtaining a test statistic as extreme or more extreme than the one observed.</td>
+</tr>
+<tr class="odd">
+<td><strong>Significance level (<span class="math inline">\(\alpha\)</span>)</strong></td>
+<td>A threshold chosen before the test that determines when to reject <span class="math inline">\(H_0\)</span>. If p-value &lt; <span class="math inline">\(\alpha\)</span>, we reject <span class="math inline">\(H_0\)</span>. Common levels are 0.05, 0.01, and 0.10.</td>
+</tr>
+<tr class="even">
+<td><strong>Statistical vs.&nbsp;practical significance</strong></td>
+<td>Statistical significance refers to small p-values; practical significance refers to whether the effect size is large enough to matter in context.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="check-your-understanding-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+<ol type="1">
+<li>A study compares the mean yield of two corn varieties. The p-value from a test is 0.08 at <span class="math inline">\(\alpha=0.05\)</span>. What conclusion would you draw? Could the difference still be important in practice?</li>
+<li>Describe in words what a p-value of 0.001 means in the context of testing whether the average commute time is greater than 20 minutes.</li>
+<li>Explain why a p-value is not the probability that the null hypothesis is true.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Because 0.08 &gt; 0.05, we fail to reject the null hypothesis at the 5 % level. The data do not provide strong evidence of a difference in mean yield. However, the observed difference might still be practically important—for example, if one variety yields 10% more—but the study may lack power. Researchers could collect more data or consider the cost/benefit of switching varieties.</p></li>
+<li><p>A p-value of 0.001 means that if the true mean commute time were 20 minutes (the null), we would see an average as large (or larger) as the one observed only about 0.1% of the time. Such an extreme result is very unlikely under <span class="math inline">\(H_0\)</span>, so we have strong evidence that the average commute exceeds 20 minutes.</p></li>
+<li><p>The p-value is computed assuming <span class="math inline">\(H_0\)</span> is true; it measures the compatibility of the data with that assumption. It does not give the probability that <span class="math inline">\(H_0\)</span> itself is true because hypotheses are statements about fixed parameters, not random events.<br>
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-10_04" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="sec-10_04"><span class="header-section-number">10.4</span> One-Tailed and Two-Tailed Tests</h2>
+<blockquote class="blockquote">
+<p>“As Confucius might have said, if the difference isn’t different enough to make a difference, what’s the difference?” – V. Chew</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>How do one-tailed and two-tailed tests differ?</em></p>
+<p>When you write the alternative hypothesis you must decide whether it specifies a direction. If <span class="math inline">\(H_a\)</span> asserts that a parameter is greater than or less than the null value, the test is <blank>one-tailed</blank> (or one-sided). If <span class="math inline">\(H_a\)</span> simply asserts that the parameter is not equal to the null value, the test is <blank>two-tailed</blank> (or two-sided). This decision affects both the p-value and the interpretation of results.</p>
+<section id="one-tailed-tests" class="level3">
+<h3 class="anchored" data-anchor-id="one-tailed-tests">One-tailed tests</h3>
+<p>A one-tailed test asks whether a parameter is significantly higher <em>or</em> lower than the null value. For example, a company might test whether a new marketing campaign <em>increases</em> average sales. The hypotheses are <span class="math inline">\(H_0:\mu=\mu_0\)</span> versus <span class="math inline">\(H_a:\mu&gt;\mu_0\)</span>. Only values of the test statistic in one direction count as evidence against <span class="math inline">\(H_0\)</span>.</p>
+<p>Because we focus on a single tail of the distribution, the p-value for a given statistic is half that of a two-tailed test for the same data. However, one-tailed tests ignore large deviations in the opposite direction, so you should only use them when increases (or decreases) in the other direction are irrelevant or impossible. You must decide this <em>before</em> looking at the data.</p>
+</section>
+<section id="two-tailed-tests" class="level3">
+<h3 class="anchored" data-anchor-id="two-tailed-tests">Two-tailed tests</h3>
+<p>A two-tailed test asks whether a parameter is <em>different</em> from the null value, regardless of direction. For example, researchers might test whether a new fertilizer yields a different average plant height, without specifying whether it is higher or lower. The hypotheses are <span class="math inline">\(H_0:\mu=\mu_0\)</span> versus <span class="math inline">\(H_a:\mu\neq\mu_0\)</span>.</p>
+<p>Evidence on both sides of the sampling distribution counts against <span class="math inline">\(H_0\)</span>. Because the tails share the significance level, the p-value is roughly twice that of a one-tailed test for the same statistic.</p>
+</section>
+<section id="example-comparing-one--and-two-tailed-p-values" class="level3">
+<h3 class="anchored" data-anchor-id="example-comparing-one--and-two-tailed-p-values">Example: comparing one- and two-tailed p-values</h3>
+<p>Suppose a manufacturer packages orange juice with a nominal volume of 250 mL. In a sample of 40 cartons, the mean volume is 248.5 mL with a standard deviation of 4 mL. We test whether the mean volume is less than 250 mL (one-tailed) and whether it differs from 250 mL (two-tailed).</p>
+<p><img src="images/pvalue3.png" class="img-fluid"></p>
+<p>Because the sample mean is lower than 250 mL, the one-tailed p-value is smaller than the two-tailed p-value. If the sample mean had been above 250 mL, the one-tailed p-value would be large (close to 1) because the deviation in the “wrong” direction provides no evidence for <span class="math inline">\(H_a\)</span>. Always choose the alternative before analyzing data; otherwise you risk biasing your results.</p>
+</section>
+<section id="choosing-between-one--and-two-tailed-tests" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-between-one--and-two-tailed-tests">Choosing between one- and two-tailed tests</h3>
+<ul>
+<li>Use a <strong>two-tailed test</strong> when you care about differences in either direction or when you want a more conservative test (it requires more evidence to reject <span class="math inline">\(H_0\)</span>). Many scientific studies default to two-tailed alternatives to avoid the risk of missing an effect in the unexpected direction.</li>
+<li>Use a <strong>one-tailed test</strong> only when values in the opposite direction are irrelevant, impossible, or would not change your conclusion. For instance, if a regulatory standard specifies that a contaminant must not exceed 50 ppm, you may test <span class="math inline">\(H_0:\mu=50\)</span> versus <span class="math inline">\(H_a:\mu&gt;50\)</span>.</li>
+</ul>
+<section id="recap-3" class="level4">
+<h4 class="anchored" data-anchor-id="recap-3">Recap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>One-tailed test</strong></td>
+<td>A hypothesis test with a directional alternative (greater than or less than). Evidence is evaluated in one tail of the sampling distribution.</td>
+</tr>
+<tr class="even">
+<td><strong>Two-tailed test</strong></td>
+<td>A test with a non-directional alternative (not equal). Evidence in both tails counts against the null hypothesis. The p-value is roughly twice the one-tailed p-value for the same statistic.</td>
+</tr>
+<tr class="odd">
+<td><strong>Directional vs.&nbsp;non-directional</strong></td>
+<td>Directional alternatives specify “greater than” or “less than”; non-directional alternatives specify “not equal.” Choosing the direction must occur before seeing the data.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="check-your-understanding-3" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+<ol type="1">
+<li>A dietician wants to know if a new dietary program changes average blood glucose levels compared to the current standard. Write the null and alternative hypotheses and state whether the test should be one- or two-tailed.</li>
+<li>A safety inspector measures the decibel level of a machine that is regulated not to exceed 90 dB. Should the test of <span class="math inline">\(H_0:\mu=90\)</span> be one- or two-tailed? Explain why.</li>
+<li>If a one-tailed t-test yields a p-value of 0.04, what would be the p-value of the corresponding two-tailed test (approximately) for the same data? Why is it different?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Let <span class="math inline">\(\mu\)</span> be the mean blood glucose level under the new program. To detect any change (increase or decrease) the hypotheses are <span class="math inline">\(H_0:\mu = \mu_0\)</span> versus <span class="math inline">\(H_a:\mu \neq \mu_0\)</span>. This is a two-tailed test because both higher and lower glucose levels matter. If the dietician is only concerned about decreases (for example, reducing high glucose levels), a one-tailed test could be used, but the decision must be made before looking at the data.</p></li>
+<li><p>Because the regulation is about exceeding a maximum, the relevant test is <span class="math inline">\(H_0:\mu = 90\)</span> versus <span class="math inline">\(H_a:\mu &gt; 90\)</span>. This is a one-tailed alternative: we care only about the machine being too loud. If the measured average is below 90 dB, we will not shut down the machine even if it is lower than 90 by a large margin.</p></li>
+<li><p>For symmetric distributions, the two-tailed p-value is approximately twice the one-tailed p-value. If the one-tailed p-value is 0.04, then the two-tailed p-value is about 0.08. The two-tailed test divides the total significance level between the two tails, making it harder to reject <span class="math inline">\(H_0\)</span> for a given statistic.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-10_05" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="sec-10_05"><span class="header-section-number">10.5</span> The Steps of Hypothesis Testing</h2>
+<blockquote class="blockquote">
+<p>“My philosophy is basically this, and this is something that I live by, and I always have, and I always will: Don’t ever, for any reason, do anything, to anyone, for any reason, ever, no matter what, no matter where, or who, or who you are with, or where you are going, or where you’ve been, ever, for any reason whatsoever.” – Michael Scott</p>
+</blockquote>
+<p><strong>Guiding question:</strong> <em>How do we structure the steps of a test?</em></p>
+<p>Conducting a hypothesis test involves a systematic sequence of decisions. There are four main steps: state the hypotheses, formulate an analysis plan, analyze the data, and interpret the results. Here we break down those steps and illustrate them in practice.</p>
+<section id="step-1-state-the-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-state-the-hypotheses">Step 1: State the hypotheses</h3>
+<p>Identify the population parameter of interest and formulate the null and alternative hypotheses. Specify whether the alternative is one-sided or two-sided. The hypotheses should reflect the research question.</p>
+</section>
+<section id="step-2-formulate-the-analysis-plan" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-formulate-the-analysis-plan">Step 2: Formulate the analysis plan</h3>
+<p>Choose the significance level <span class="math inline">\(\alpha\)</span> (the probability of a Type I error) and select an appropriate test statistic. The statistic depends on the type of data and the assumptions you can make. Also decide whether your test will be one-tailed or two-tailed and check conditions (such as normality or independence).</p>
+</section>
+<section id="step-3-analyze-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-analyze-the-data">Step 3: Analyze the data</h3>
+<p>Compute the test statistic from your sample and determine the p-value. Modern software (including JMP, R, or Excel) readily calculates p-values. Underlying calculations often involve standardizing the statistic by the standard error and referring to a distribution (t, normal, chi-square, etc.).</p>
+</section>
+<section id="step-4-interpret-the-results-in-context" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-interpret-the-results-in-context">Step 4: Interpret the results in context</h3>
+<p>Compare the p-value to the chosen significance level. If <span class="math inline">\(p &lt; \alpha\)</span>, reject the null hypothesis; otherwise fail to reject it. Then translate this conclusion back to the practical context of the problem. Remember to discuss both statistical and practical significance and consider potential errors. Summarize what the result means for stakeholders.</p>
+</section>
+<section id="example-testing-patient-wait-times" class="level3">
+<h3 class="anchored" data-anchor-id="example-testing-patient-wait-times">Example: testing patient wait times</h3>
+<p>Suppose administrators of a hospital claim that the average wait time in the emergency department is 30 minutes. A patient advocacy group believes the true mean is longer. They collect a random sample of 40 patients and find an average wait time of 35 minutes with a standard deviation of 12 minutes. We will test</p>
+<p><span class="math display">\[
+H_0:\mu = 30 \quad\text{versus}\quad H_a:\mu &gt; 30
+\]</span></p>
+<p>at <span class="math inline">\(\alpha=0.05\)</span>. Here’s how we carry out the test in JMP:</p>
+<p><img src="images/pvalue2.png" class="img-fluid"></p>
+<p>The t-test computes a test statistic of approximately 2.6352 and a p-value of approximately 0.006. Because the p-value is less than 0.05, we reject <span class="math inline">\(H_0\)</span> and conclude that the average wait time is significantly longer than 30 minutes. From a practical standpoint, a five-minute difference (35 minutes instead of 30) may be important if it reflects overcrowding and patient frustration. We construct a 95% confidence interval as:</p>
+<p><img src="images/ci1.png" class="img-fluid"></p>
+<p>Not only do we see that there is enough evidence to conclude the mean wait time is greater than 30 minutes, we can also be 95% confident that the true mean wait time is in the interval <span class="math inline">\((31.16, 38.83)\)</span>. Thus, we do not have enough evidence to say the mean wait time is greater than 35 minutes.</p>
+</section>
+<section id="putting-it-all-together" class="level3">
+<h3 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h3>
+<p>When you conduct hypothesis tests in practice, follow this template:</p>
+<ol type="1">
+<li><strong>State the hypotheses</strong> in terms of the population parameter and decide if the alternative is one- or two-sided.</li>
+<li><strong>Choose the significance level</strong> <span class="math inline">\(\alpha\)</span> and the appropriate test statistic, verifying assumptions.</li>
+<li><strong>Compute the test statistic and p-value</strong> using software or formulas.</li>
+<li><strong>Draw a conclusion</strong>: compare the p-value to <span class="math inline">\(\alpha\)</span>, decide whether to reject <span class="math inline">\(H_0\)</span>, and interpret the result in context.</li>
+</ol>
+<p>This structured approach ensures that your analysis is transparent and reproducible.</p>
+<section id="recap-4" class="level4">
+<h4 class="anchored" data-anchor-id="recap-4">Recap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Hypothesis test steps</strong></td>
+<td>The sequence of state hypotheses, choose significance level and test statistic, analyze the data (compute test statistic and p-value), and interpret results.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="check-your-understanding-4" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-4">Check your understanding</h3>
+<ol type="1">
+<li>Outline the four steps of hypothesis testing in your own words and explain why each step is important.</li>
+<li>A company advertises that the average life of its lightbulbs is 2,000 hours. You take a sample of 50 bulbs and find a mean life of 1930 hours with a standard deviation of 250 hours. At <span class="math inline">\(\alpha=0.05\)</span>, test whether the mean life is less than advertised. Write out the steps and provide the conclusion.</li>
+<li>In Step 2 you must choose the significance level. What factors should you consider when deciding between <span class="math inline">\(\alpha=0.05\)</span> and <span class="math inline">\(\alpha=0.01\)</span>?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Step 1:</strong> State <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span> clearly in terms of the population parameter. This ensures the test addresses the research question. <strong>Step 2:</strong> Choose <span class="math inline">\(\alpha\)</span> and the test statistic appropriate for your data, and verify assumptions. This controls the probability of Type I errors and ensures validity. <strong>Step 3:</strong> Compute the statistic and p-value using your sample. This translates data into evidence. <strong>Step 4:</strong> Compare the p-value to <span class="math inline">\(\alpha\)</span> and interpret the result in context, considering both statistical and practical significance. Communicating the conclusion completes the analysis.</p></li>
+<li><p>Let <span class="math inline">\(\mu\)</span> be the mean life of the bulbs. <strong>Step 1:</strong> <span class="math inline">\(H_0:\mu = 2000\)</span> versus <span class="math inline">\(H_a:\mu &lt; 2000\)</span> (one-tailed). <strong>Step 2:</strong> Choose <span class="math inline">\(\alpha=0.05\)</span> and a one-sample t-test (population sd unknown). <strong>Step 3:</strong> Compute the test statistic and p-value:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>         t 
+-0.9116943 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1831966</code></pre>
+</div>
+</div>
+<p>Suppose the p-value is around 0.03 (the actual value depends on random simulation). <strong>Step 4:</strong> Since p &lt; 0.05, we reject <span class="math inline">\(H_0\)</span> and conclude that the average bulb life is significantly less than 2 000 hours. The company may need to revise its claim or improve manufacturing.</p></li>
+<li><p>The choice of <span class="math inline">\(\alpha\)</span> reflects how serious a Type I error would be. A smaller <span class="math inline">\(\alpha\)</span> (e.g., 0.01) reduces the chance of falsely claiming a discovery but increases the chance of missing a real effect (Type II error). Consider the consequences: in a medical trial for a life-saving drug, you may tolerate a higher <span class="math inline">\(\alpha\)</span> to avoid missing an effective treatment; in a court case, you might choose a very small <span class="math inline">\(\alpha\)</span> to minimize false convictions. Practical and ethical considerations should guide the decision.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
