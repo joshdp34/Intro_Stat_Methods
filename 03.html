@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Describing Data with Tables and Graphs – STA 2381 Introductory Statistical Methods</title>
+<title>STA 2381 Introductory Statistical Methods - 3&nbsp; Describing Data with Tables and Graphs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,23 +35,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -60,7 +54,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -110,51 +103,25 @@ document.addEventListener('click', (event) => {
 });
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
 <body class="nav-sidebar docked">
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -163,7 +130,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./"></a> 
@@ -249,10 +216,16 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesis Testing: The Basics</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Hypothesis Testing with Categorical Response</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -318,9 +291,7 @@ window.Quarto = {
   </div>
   
 
-
 </header>
-
 
 <section id="sec-03_01" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-03_01"><span class="header-section-number">3.1</span> Organizing Categorical Data</h2>
@@ -328,7 +299,7 @@ window.Quarto = {
 <p>“The greatest value of a picture is when it forces us to notice what we never expected to see.” – John Tukey</p>
 </blockquote>
 <p><strong>Guiding question:</strong> <em>Which graphs work best for categorical data?</em></p>
-<p>When you collect data that fall into groups—like preferred streaming service, political affiliation, or type of pet—the first step is to count how many observations fall into each category. Those counts form the backbone of both tables and graphs for categorical data. In this section we’ll learn how to build simple frequency tables, translate them into proportions or percentages, and organize two categorical variables together in a two‑way table. Along the way we’ll see when different visual summaries make sense and preview bar and pie charts (covered in detail in <a href="#sec-03_02" class="quarto-xref"><span>Section 3.2</span></a>).</p>
+<p>When you collect data that fall into groups—like preferred streaming service, political affiliation, or type of pet—the first step is to count how many observations fall into each category. Those counts form the backbone of both tables and graphs for categorical data. In this section we’ll learn how to build simple frequency tables, translate them into proportions or percentages, and organize two categorical variables together in a two‑way table. Along the way we’ll see when different visual summaries make sense and preview bar and pie charts (covered in detail in <a href="#sec-03_02"><span>Section&nbsp;3.2</span></a>).</p>
 <section id="frequency-and-relative-frequency-tables" class="level3">
 <h3 class="anchored" data-anchor-id="frequency-and-relative-frequency-tables">Frequency and relative frequency tables</h3>
 <p>A <blank>frequency table</blank> lists the possible values of a categorical variable and the number of times each value occurs. It’s one of the simplest ways to summarize data, but it packs a punch. Such tables usually have two columns: one for the categories and one for their counts. Creating one involves listing the distinct categories and tallying how many observations fall into each category.</p>
@@ -338,7 +309,7 @@ window.Quarto = {
 <p>Imagine you survey 30 patients at a local clinic about the primary symptom that brought them in. You record four categories: “Headache,” “Back pain,” “Fatigue,” and “Nausea.” We can organize the responses in a simple table of counts and proportions. Below we simulate such a survey and display the results.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">response</th>
@@ -371,11 +342,7 @@ window.Quarto = {
 </table>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The table lists the four categories in alphabetical order with their counts and relative frequencies. For instance, if 8 of the 30 patients reported “Headache,” the relative frequency of “Headache” is <span class="math inline">\(8/30 \approx 0.27\)</span>. The accompanying bar chart gives a visual sense of the same information: each bar’s height corresponds to a category’s frequency, and the bars are separated to emphasize that the categories have no inherent order. In practice you might reorder the bars to make the graph easier to read—perhaps putting the largest category first.</p>
@@ -421,7 +388,7 @@ Tip:
 <p>Suppose we collect data on the same symptom question but also record each patient’s age group: “Under 30,” “30–50,” or “Over 50.” We can summarize the joint distribution in a two‑way table.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">age_group</th>
@@ -476,7 +443,7 @@ Tip:
 </section>
 <section id="recap" class="level3">
 <h3 class="anchored" data-anchor-id="recap">Recap</h3>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 81%">
@@ -547,11 +514,11 @@ Solutions
 <p>When you’ve tallied the counts of a categorical variable, your next job is to turn those numbers into a picture. Two of the simplest pictures—<em>bar charts</em> and <em>pie charts</em>—seem deceptively alike: each shows categories and their sizes. But as we’ll see, they serve different purposes and come with different design rules.</p>
 <section id="what-is-a-bar-chart" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-a-bar-chart">What is a bar chart?</h3>
-<p>As we have already seen in <a href="#sec-03_01" class="quarto-xref"><span>Section 3.1</span></a>, <blank>bar chart</blank> displays categories along one axis and uses the length of a bar on the other axis to represent a numerical value. Bars can be vertical (a “column” chart) or horizontal, and they are separated by gaps to emphasise that the categories are discrete. Because humans are good at comparing lengths that share a common baseline, bar charts are our go‑to tool for comparing counts, percentages or other statistics across categories.</p>
+<p>As we have already seen in <a href="#sec-03_01"><span>Section&nbsp;3.1</span></a>, <blank>bar chart</blank> displays categories along one axis and uses the length of a bar on the other axis to represent a numerical value. Bars can be vertical (a “column” chart) or horizontal, and they are separated by gaps to emphasise that the categories are discrete. Because humans are good at comparing lengths that share a common baseline, bar charts are our go‑to tool for comparing counts, percentages or other statistics across categories.</p>
 <p><strong>Example: distribution of blood types.</strong> Suppose a hospital records the blood type (A, B, AB or O) of 200 randomly chosen donors. The counts are shown in the table below along with a bar chart. Notice that the bars are separated and can be reordered to make patterns easy to see.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">type</th>
@@ -584,11 +551,7 @@ Solutions
 </table>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The vertical bar chart emphasizes how common type O is relative to the others. You could flip the axes to make a horizontal bar chart if your category names are long or if you prefer to read labels on the y‑axis.</p>
@@ -606,11 +569,7 @@ Solutions
 <p><strong>Example: reasons for missing an appointment.</strong> A dental clinic tracks why patients miss scheduled cleanings. Out of 100 missed appointments, 50 were due to forgetfulness, 20 to fear, 15 to cost, and 15 to other reasons. A pie chart makes the share of each reason obvious.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The slices emphasize that half of the missed appointments were simply forgotten. However, imagine adding three more reasons of similar size. The slices would become crowded and hard to compare. Pie charts work only when the categories sum to a meaningful whole and there are no more than a few slices.</p>
@@ -633,32 +592,20 @@ Solutions
 </section>
 <section id="clustered-and-stacked-bar-charts" class="level3">
 <h3 class="anchored" data-anchor-id="clustered-and-stacked-bar-charts">Clustered and stacked bar charts</h3>
-<p>Sometimes you have two categorical variables and want to see how their categories interact. We introduced two‑way tables in <a href="#sec-03_01" class="quarto-xref"><span>Section 3.1</span></a>; here’s how to graph them.</p>
+<p>Sometimes you have two categorical variables and want to see how their categories interact. We introduced two‑way tables in <a href="#sec-03_01"><span>Section&nbsp;3.1</span></a>; here’s how to graph them.</p>
 <p>A <blank>clustered (side‑by‑side) bar chart</blank> groups bars for each level of a second variable next to each other so you can compare across groups. For example, imagine you survey 120 patients about how satisfied they were with a new physical therapy program (satisfied, neutral, dissatisfied) and record whether they were in the treatment or control group. A clustered bar chart shows differences in satisfaction between the two groups.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>In a <blank>stacked bar chart</blank>, bars for each category are stacked atop one another. This emphasizes the total size of each category but makes it harder to compare the segments across stacks. You might use a stacked chart to show how types of injuries (sprain, fracture, other) contribute to emergency visits across departments; if you convert each bar to 100% of its height, you get a <em>100% stacked bar chart</em> that highlights composition within each group.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="576"></p>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <section id="cautions-with-stacked-bars" class="level4">
@@ -672,7 +619,7 @@ Solutions
 </section>
 <section id="recap-1" class="level3">
 <h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 88%">
@@ -760,7 +707,7 @@ Solutions
 <p>Let’s see these steps with an example from dentistry. Suppose a dental researcher records the number of cavities filled for 40 patients in a clinic over the past month. We want to summarize the distribution of cavities per patient.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">class</th>
@@ -808,7 +755,7 @@ Solutions
 <p>We can extend our cavities example to compute relative and cumulative frequencies:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">class</th>
@@ -864,11 +811,7 @@ Solutions
 </table>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The cumulative frequency column increases steadily and reaches 1 at the end of the table. A graph of cumulative frequencies, called an <blank>ogive</blank> (pronounced “O-jive”), plots the cumulative proportion versus the class.</p>
@@ -887,7 +830,7 @@ Solutions
 </section>
 <section id="recap-2" class="level3">
 <h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 86%">
@@ -966,7 +909,7 @@ Solutions
 <p>A <blank>histogram</blank> is a bar‑like graph in which adjacent rectangles represent the classes of a quantitative variable. The horizontal axis is measured in the units of the data, and the vertical axis shows the frequency or relative frequency in each class. Unlike bar charts for categorical data, the bars in a histogram touch to indicate that the underlying scale is continuous. Histograms are excellent for revealing the shape, center, and spread of a distribution.</p>
 <p>To construct a histogram:</p>
 <ol type="1">
-<li>Create a frequency distribution with classes of equal width (see <a href="#sec-03_03" class="quarto-xref"><span>Section 3.3</span></a>).</li>
+<li>Create a frequency distribution with classes of equal width (see <a href="#sec-03_03"><span>Section&nbsp;3.3</span></a>).</li>
 <li>On the horizontal axis, draw the class boundaries; on the vertical axis, mark the frequencies or relative frequencies.</li>
 <li>Draw adjacent rectangles whose widths correspond to the class widths and whose heights correspond to the class frequencies. For a <blank>density histogram</blank>, scale the heights so that the area of each rectangle equals the class’s relative frequency; the total area of the histogram equals one】.</li>
 </ol>
@@ -976,11 +919,7 @@ Solutions
 <p>Consider a study of the resting heart rates (in beats per minute) of 100 individuals undergoing physical therapy.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The histogram reveals the overall shape, identifies any outliers, and helps us decide whether certain distribution assumptions might be reasonable. In JMP, you can create a histogram by assigning the variable to Y in the <strong>Distribution</strong> platform; use the red triangle (▸) menu to adjust the binning.</p>
@@ -1009,11 +948,7 @@ Solutions
 <p>Continuing our dental theme, imagine researchers record the number of clinic visits per patient during a year for 25 orthodontic patients. A dotplot can reveal whether most patients require only a few visits or if some need frequent check‑ups.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The plot makes it clear that most patients had between one and three visits, while a few had zero or five visits. Dotplots are an excellent choice when exact values matter, such as showing distribution of test scores or daily step counts.</p>
@@ -1036,7 +971,7 @@ Solutions
 </section>
 <section id="recap-3" class="level3">
 <h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 14%">
 <col style="width: 85%">
@@ -1135,7 +1070,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1167,48 +1113,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1218,17 +1127,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1240,129 +1140,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1406,7 +1184,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1432,32 +1209,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1518,7 +1269,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
