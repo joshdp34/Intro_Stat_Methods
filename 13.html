@@ -291,6 +291,23 @@ window.Quarto = {
   <li><a href="#example-plant-growth-under-different-fertilizers" id="toc-example-plant-growth-under-different-fertilizers" class="nav-link" data-scroll-target="#example-plant-growth-under-different-fertilizers">Example: Plant growth under different fertilizers</a></li>
   <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
   </ul></li>
+  <li><a href="#sec-13_03" id="toc-sec-13_03" class="nav-link" data-scroll-target="#sec-13_03"><span class="header-section-number">13.3</span> Two‑way ANOVA and randomized blocks</a>
+  <ul class="collapse">
+  <li><a href="#model-and-hypotheses" id="toc-model-and-hypotheses" class="nav-link" data-scroll-target="#model-and-hypotheses">Model and hypotheses</a></li>
+  <li><a href="#partitioning-variation" id="toc-partitioning-variation" class="nav-link" data-scroll-target="#partitioning-variation">Partitioning variation</a></li>
+  <li><a href="#randomized-block-designs" id="toc-randomized-block-designs" class="nav-link" data-scroll-target="#randomized-block-designs">Randomized block designs</a></li>
+  <li><a href="#example-antidepressants-and-age" id="toc-example-antidepressants-and-age" class="nav-link" data-scroll-target="#example-antidepressants-and-age">Example: Antidepressants and Age</a></li>
+  <li><a href="#performing-twoway-anova-in-jmp-18-student-edition" id="toc-performing-twoway-anova-in-jmp-18-student-edition" class="nav-link" data-scroll-target="#performing-twoway-anova-in-jmp-18-student-edition">Performing two‑way ANOVA in JMP 18 Student Edition</a></li>
+  <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-13_04" id="toc-sec-13_04" class="nav-link" data-scroll-target="#sec-13_04"><span class="header-section-number">13.4</span> Repeated measures ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#model-and-partitioning-variance" id="toc-model-and-partitioning-variance" class="nav-link" data-scroll-target="#model-and-partitioning-variance">Model and partitioning variance</a></li>
+  <li><a href="#assumptions-and-sphericity" id="toc-assumptions-and-sphericity" class="nav-link" data-scroll-target="#assumptions-and-sphericity">Assumptions and sphericity</a></li>
+  <li><a href="#example-pain-scores-over-time" id="toc-example-pain-scores-over-time" class="nav-link" data-scroll-target="#example-pain-scores-over-time">Example: Pain scores over time</a></li>
+  <li><a href="#conducting-repeated-measures-anova-in-jmp-18-student-edition" id="toc-conducting-repeated-measures-anova-in-jmp-18-student-edition" class="nav-link" data-scroll-target="#conducting-repeated-measures-anova-in-jmp-18-student-edition">Conducting repeated measures ANOVA in JMP 18 Student Edition</a></li>
+  <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -654,28 +671,203 @@ Solutions
 </div>
 </div>
 </div>
-<!-- ## Two‑way ANOVA and randomized blocks {#sec-13_03} -->
-<!-- > **Guiding question:** *How do we assess the effects of two explanatory variables on a single quantitative response?* -->
-<!-- When experiments involve two categorical factors—say, **treatment** and **gender**, or **fertilizer type** and **irrigation level**—we can use a **two‑way ANOVA**.  This model allows us to test for **main effects** of each factor and to examine whether the effect of one factor depends on the level of the other (the **interaction**).  In certain designs where a second factor is used only to reduce variability and is not of substantive interest, we call it a **randomized block design**. -->
-<!-- ### Model and hypotheses -->
-<!-- Suppose we have two factors, $A$ with $a$ levels and $B$ with $b$ levels.  Each treatment combination has $n_{ij}$ observations.  Let $\mu_{ij}$ be the mean for combination $(i,j)$.  We write the model as -->
-<!-- $$y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk},$$ -->
-<!-- where $\mu$ is the grand mean, $\alpha_i$ is the effect of level $i$ of factor $A$, $\beta_j$ is the effect of level $j$ of factor $B$, $(\alpha\beta)_{ij}$ is the interaction effect, and $\varepsilon_{ijk}$ are independent normal errors with common variance【982955660959721†L55-L61】.  The hypotheses for each effect are: -->
-<!-- - **Main effect of $A$:** -->
-<!--   \[H_0: \alpha_1 = \alpha_2 = \cdots = \alpha_a = 0\quad \text{vs.}\quad H_a: \text{At least one } \alpha_i \neq 0\] -->
-<!--   This tests whether the mean response differs across levels of factor $A$. -->
-<!-- - **Main effect of $B$:** -->
-<!--   \[H_0: \beta_1 = \beta_2 = \cdots = \beta_b = 0\quad \text{vs.}\quad H_a: \text{At least one } \beta_j \neq 0\] -->
-<!-- - **Interaction:** -->
-<!--   \[H_0: (\alpha\beta)_{ij} = 0\ \text{for all } i,j\quad \text{vs.}\quad H_a: \text{At least one } (\alpha\beta)_{ij} \neq 0.\] -->
-<!-- For each hypothesis, an F statistic is computed by dividing the mean square for that factor or interaction by the mean square error.  Large F values suggest significant effects【982955660959721†L24-L52】. -->
-<!-- ### Partitioning variation -->
-<!-- The two‑way ANOVA partitions the total variability into contributions from factor $A$, factor $B$, their interaction, and random error.  For balanced designs with equal sample sizes $n$ per combination, the sums of squares are -->
-<!-- $$\mathrm{SS}_A = bn\sum_{i=1}^a(\bar{y}_{i\cdot\cdot} - \bar{y}_{\cdot\cdot\cdot})^2,\quad \mathrm{SS}_B = an\sum_{j=1}^b(\bar{y}_{\cdot j\cdot} - \bar{y}_{\cdot\cdot\cdot})^2,$$ -->
-<!-- $$\mathrm{SS}_{AB} = n\sum_{i=1}^a\sum_{j=1}^b (\bar{y}_{ij\cdot} - \bar{y}_{i\cdot\cdot} - \bar{y}_{\cdot j\cdot} + \bar{y}_{\cdot\cdot\cdot})^2,$$ -->
-<!-- and the error sum of squares captures the variability of observations around their cell means【982955660959721†L74-L92】.  Dividing each sum of squares by its degrees of freedom yields mean squares for computing F statistics. -->
-<!-- ### Randomized block designs -->
-<!-- In a randomized block design, one factor is a *blocking factor* used to group similar experimental units and reduce variability.  For example, in a drug trial, patients might be blocked by age group; in agricultural experiments, plots might be blocked by soil type.  The model is the same as the two‑way ANOVA model, but only the treatment factor is of interest; the block factor is included solely to account for variation among blocks.  We typically test the **treatment effect** and ignore the block effect.  When the blocking factor is actually a repeated measurement on the same subject, we instead use a repeated measures ANOVA (see below). -->
+</section>
+</section>
+<section id="sec-13_03" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-13_03"><span class="header-section-number">13.3</span> Two‑way ANOVA and randomized blocks</h2>
+<blockquote class="blockquote">
+<p>“Statistics is the art of stating in precise terms that which one does not know.” - William Kruskal</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Guiding question:</strong> <em>How do we assess the effects of two explanatory variables on a single quantitative response?</em></p>
+</blockquote>
+<p>When experiments involve two categorical factors—say, <em>treatment</em> and <em>gender</em>, or <em>fertilizer type</em> and <em>irrigation level</em>—we can use a <blank>two‑way ANOVA</blank>. This model allows us to test for <blank>main effects</blank> of each factor and to examine whether the effect of one factor depends on the level of the other (the <blank>interaction</blank>). In certain designs where a second factor is used only to reduce variability and is not of substantive interest, we call it a <blank>randomized block design</blank>.</p>
+<section id="model-and-hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="model-and-hypotheses">Model and hypotheses</h3>
+<p>Suppose we have two factors, <span class="math inline">\(A\)</span> with <span class="math inline">\(a\)</span> levels and <span class="math inline">\(B\)</span> with <span class="math inline">\(b\)</span> levels. Each treatment combination has <span class="math inline">\(n_{ij}\)</span> observations. Let <span class="math inline">\(\mu_{ij}\)</span> be the mean for combination <span class="math inline">\((i,j)\)</span>. We write the model as</p>
+<p><span class="math display">\[y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk},\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the grand mean, <span class="math inline">\(\alpha_i\)</span> is the effect of level <span class="math inline">\(i\)</span> of factor <span class="math inline">\(A\)</span>, <span class="math inline">\(\beta_j\)</span> is the effect of level <span class="math inline">\(j\)</span> of factor <span class="math inline">\(B\)</span>, <span class="math inline">\((\alpha\beta)_{ij}\)</span> is the interaction effect, and <span class="math inline">\(\varepsilon_{ijk}\)</span> are independent normal errors with common variance. The hypotheses for each effect are:</p>
+<ul>
+<li><p><strong>Main effect of <span class="math inline">\(A\)</span>:</strong> <span class="math display">\[
+H_0: \alpha_1 = \alpha_2 = \cdots = \alpha_a = 0\quad \text{vs.}\quad H_a: \text{At least one } \alpha_i \neq 0
+\]</span> This tests whether the mean response differs across levels of factor <span class="math inline">\(A\)</span>. This is equivalent to testing <span class="math display">\[
+H_0: \mu_1 = \mu_2 = \cdots = \mu_a\quad \text{vs.}\quad H_a: \text{At least one differs}
+\]</span> For all levels of factor <span class="math inline">\(B\)</span>.</p></li>
+<li><p><strong>Main effect of <span class="math inline">\(B\)</span>:</strong> <span class="math display">\[
+H_0: \beta_1 = \beta_2 = \cdots = \beta_b = 0\quad \text{vs.}\quad H_a: \text{At least one } \beta_j \neq 0
+\]</span> This is equivalent to testing <span class="math display">\[
+H_0: \mu_1 = \mu_2 = \cdots = \mu_b\quad \text{vs.}\quad H_a: \text{At least one differs}
+\]</span> for all levels of factor <span class="math inline">\(A\)</span>.</p></li>
+<li><p><strong>Interaction:</strong> <span class="math display">\[
+H_0: (\alpha\beta)_{ij} = 0\ \text{for all } i,j\quad \text{vs.}\quad H_a: \text{At least one } (\alpha\beta)_{ij} \neq 0
+\]</span> We can write this hypothesis without the math symbols as <span class="math display">\[
+\begin{align*}
+&amp;H_0: \text{There is no interaction between the two factors}\\
+&amp;H_a: \text{There is interaction between the two factors}
+\end{align*}
+\]</span></p></li>
+</ul>
+<p>For each hypothesis, an F statistic is computed by dividing the mean square for that factor or interaction by the mean square error. Large F values suggest significant effects.</p>
+</section>
+<section id="partitioning-variation" class="level3">
+<h3 class="anchored" data-anchor-id="partitioning-variation">Partitioning variation</h3>
+<p>The two‑way ANOVA partitions the total variability into contributions from factor <span class="math inline">\(A\)</span>, factor <span class="math inline">\(B\)</span>, their interaction, and random error. For balanced designs with equal sample sizes <span class="math inline">\(n\)</span> per combination, the sums of squares are</p>
+<p><span class="math display">\[
+\mathrm{SS}_A = bn\sum_{i=1}^a(\bar{y}_{i\cdot\cdot} - \bar{y}_{\cdot\cdot\cdot})^2,\quad \mathrm{SS}_B = an\sum_{j=1}^b(\bar{y}_{\cdot j\cdot} - \bar{y}_{\cdot\cdot\cdot})^2
+\]</span></p>
+<p><span class="math display">\[
+\mathrm{SS}_{AB} = n\sum_{i=1}^a\sum_{j=1}^b (\bar{y}_{ij\cdot} - \bar{y}_{i\cdot\cdot} - \bar{y}_{\cdot j\cdot} + \bar{y}_{\cdot\cdot\cdot})^2,
+\]</span></p>
+<p>and the error sum of squares captures the variability of observations around their cell means. Dividing each sum of squares by its degrees of freedom yields mean squares for computing F statistics.</p>
+</section>
+<section id="randomized-block-designs" class="level3">
+<h3 class="anchored" data-anchor-id="randomized-block-designs">Randomized block designs</h3>
+<p>In a randomized block design, one factor is a <blank>blocking factor</blank> used to group similar experimental units and reduce variability. For example, in a drug trial, patients might be blocked by age group; in agricultural experiments, plots might be blocked by soil type. The model is the same as the two‑way ANOVA model, but only the treatment factor is of interest; the block factor is included solely to account for variation among blocks.</p>
+<p>We typically test the <blank>treatment effect</blank> and ignore the block effect. When the blocking factor is actually a repeated measurement on the same subject, we instead use a repeated measures ANOVA (see next section).</p>
+</section>
+<section id="example-antidepressants-and-age" class="level3">
+<h3 class="anchored" data-anchor-id="example-antidepressants-and-age">Example: Antidepressants and Age</h3>
+<p>A psychiatrist wants to study the effects of three antidepressants on subjects in three different age groups. There were 12 subjects in each age group who were then randomly assigned one of the three antidepressants. Each subject was rated on a scale of 0 to 100, with higher numbers indicating greater relief from depression. The data is presented in the following table (and can be found in the file <code>antidepressantrating.jmp</code>):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"><strong>18–30</strong></th>
+<th style="text-align: left;"><strong>31–50</strong></th>
+<th style="text-align: left;"><strong>51–80</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Drug A</strong></td>
+<td style="text-align: left;">43, 43, 41, 42</td>
+<td style="text-align: left;">53, 51, 53, 52</td>
+<td style="text-align: left;">57, 55, 58, 56</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Drug B</strong></td>
+<td style="text-align: left;">52, 51, 51, 50</td>
+<td style="text-align: left;">62, 61, 60, 61</td>
+<td style="text-align: left;">65, 66, 66, 67</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Drug C</strong></td>
+<td style="text-align: left;">71, 72, 70, 71</td>
+<td style="text-align: left;">81, 83, 82, 82</td>
+<td style="text-align: left;">86, 84, 87, 86</td>
+</tr>
+</tbody>
+</table>
+<p>In two-way ANOVA, a null hypothesis states that the population means are the same in each category of one factor, at each fixed level of the other factor.</p>
+<p>For example, we could test <span class="math display">\[
+\begin{align*}
+H_0: \text{Mean rating is equal for all three drugs for each age group}
+\end{align*}
+\]</span> We could also test <span class="math display">\[
+\begin{align*}
+H_0: \text{Mean rating is equal for all age groups for each drug }
+\end{align*}
+\]</span></p>
+<p>Suppose the population means for each of the cells were displayed in table (a) below. Since the means are the same for all three drugs in each age group, our first null hypothesis above would be true. If the means were as displayed in table (b), then the means would be the same for all three age groups in each drug group. So, our second null hypothesis above would be correct.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 2%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>(a)</strong></th>
+<th style="text-align: left;"><strong>Drug</strong></th>
+<th style="text-align: center;"><strong>18–30</strong></th>
+<th style="text-align: center;"><strong>31–50</strong></th>
+<th style="text-align: center;"><strong>51–80</strong></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>(b)</strong></th>
+<th style="text-align: left;"><strong>Drug</strong></th>
+<th style="text-align: center;"><strong>18–30</strong></th>
+<th style="text-align: center;"><strong>31–50</strong></th>
+<th style="text-align: center;"><strong>51–80</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">Drug A</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">Drug A</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">50</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">Drug B</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">Drug B</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: left;">Drug C</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left;">Drug C</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">70</td>
+</tr>
+</tbody>
+</table>
+<section id="exploring-interaction-between-factors-in-two-way-anova" class="level4">
+<h4 class="anchored" data-anchor-id="exploring-interaction-between-factors-in-two-way-anova">Exploring Interaction Between Factors in Two-Way ANOVA</h4>
+<p>Investigating whether <blank>interaction</blank> occurs is important whenever we analyze multivariate relationships.</p>
+<p>No interaction between two factors means that the effect of either factor on the response variable is the same at each category of the other factor.</p>
+<p>The ANOVA tests of main effects assume there is no interaction between the factors. What does this mean in this context?</p>
+<p>Let’s plot the means for the three drugs, within each age group.</p>
+<p>The figure below shows a plot in which the y-axis gives estimated mean ratings, and points are shown for the nine drug / age group combinations.</p>
+<p><img src="images/14_interaction_plot.png" class="img-fluid"></p>
+<p>The horizontal axis is not a numerical scale but merely lists the three drugs. The drawn lines connect the means for the three drugs, for a given age group. The absence of interaction is indicated by the (approximate) parallel lines.</p>
+<p>The parallel lines occur because the difference in the estimated mean rating between the three drugs is the <blank>same</blank> for each age group.</p>
+<p>By contrast, the figure below shows a set of means for which there is interaction. <img src="images/14_interaction_2.png" class="img-fluid"></p>
+<p>Here, the difference in means depends on the age group: According to these means, drug A is better for the 51-80 age group, drug B is better for the 31-50 age group, and drug C is better for the 18-30 age group.</p>
+<p>The lines in the previous figure are not parallel.</p>
+<p><em>It is not meaningful to test the main effects hypotheses when there is interaction</em>.</p>
+<p>Below is the JMP output for the two-way ANOVA for this example.</p>
+<p><img src="images/14_antidepressant_anova_interaction.png" class="img-fluid"></p>
+<p>At the 5% significance level, there is not enough evidence to conclude that there is interaction between Drug and Age Group. Because there is no significant interaction, we can test the main effects.</p>
+<p>At the 5% significance level there is enough evidence to conclude that at least one of the drugs differs in mean for each Age Group.</p>
+<p>At the 5% significance level there is enough evidence to conclude that at least one of the Age Group differs in mean for each Drug.</p>
+<p>We can also do Tukey’s HSD method to determine which of the groups are different for each main effect.</p>
+<p><img src="images/anova2waytukey1.png" class="img-fluid"></p>
+<p><img src="images/anova2waytukey2.png" class="img-fluid"></p>
 <!-- ### Example: Sales training and incentive programs -->
 <!-- Imagine a business study examining whether a sales training program (online vs. in‑person) and incentive type (commission vs. salary) affect monthly sales (in $10^3$ dollars).  Each combination is assigned to ten sales representatives, and monthly sales are recorded.  A two‑way ANOVA allows us to test whether the training method has a main effect, whether the incentive type has a main effect, and whether there is an interaction—that is, whether the effectiveness of training depends on the incentive scheme.  The code below simulates such a dataset and fits the model. -->
 <!-- ```{r} -->
@@ -695,75 +887,184 @@ Solutions
 <!-- summary(model) -->
 <!-- ``` -->
 <!-- The ANOVA table shows F statistics for the main effects and interaction.  A significant interaction term would suggest that the effect of training depends on the incentive type.  If the interaction is not significant, we interpret the main effects. -->
-<!-- ### Performing two‑way ANOVA in JMP 18 Student Edition -->
-<!-- To carry out a two‑way ANOVA or a randomized block design in JMP, choose **Analyze > Fit Model**.  Select your response variable for *Y* and add both factors to the *Construct Model Effects* box.  If you have a complete factorial design, click *Macros > Full Factorial* to include the main effects and interaction【747786214165839†L64-L69】.  Click *Run* to produce the ANOVA table.  JMP will display an *Effect Tests* table with F statistics for each effect.  Use the prediction profiler to visualize interactions, and check residual plots to assess model assumptions. -->
-<!-- #### Recap -->
-<!-- | **Keyword/Concept** | **Definition** | -->
-<!-- |--------------------|----------------| -->
-<!-- | <blank>Two‑way ANOVA</blank> | A model with two categorical explanatory variables (factors) that tests for main effects and interactions【982955660959721†L55-L61】. | -->
-<!-- | <blank>Main effect</blank> | The effect of a factor averaged over the levels of the other factor; tested by comparing $\mathrm{MS}_{\text{factor}}$ to $\mathrm{MS}_{\mathrm{Error}}$. | -->
-<!-- | <blank>Interaction</blank> | Occurs when the effect of one factor depends on the level of the other; tested via an F ratio using $\mathrm{MS}_{AB}$【982955660959721†L24-L52】. | -->
-<!-- | <blank>Randomized block design</blank> | A special two‑way ANOVA where one factor (the block) is used to control variability; only the treatment factor is of interest and the block factor accounts for nuisance variation. | -->
-<!-- | <blank>Balanced design</blank> | A design with the same number of observations per treatment combination; simplifies calculations and ensures equal weighting. | -->
-<!-- ### Check your understanding -->
-<!-- 1. Describe the difference between a main effect and an interaction effect in a two‑way ANOVA. -->
-<!-- 2. In a randomized block design with five treatments and four blocks, how many degrees of freedom are associated with the treatment, block and error sums of squares? -->
-<!-- 3. Why is it important to include the blocking factor in the model when analyzing a randomized block design? -->
-<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
-<!-- 1. A main effect measures the average difference in the response across the levels of a factor, ignoring (averaging over) the other factor.  An interaction effect tests whether the effect of one factor varies depending on the level of the other factor; if significant, the factors do not act independently【982955660959721†L24-L52】. -->
-<!-- 2. The treatment factor has $a-1$ degrees of freedom and the block factor has $b-1$, where $a$ is the number of treatments and $b$ the number of blocks.  The error degrees of freedom are $(a-1)(b-1)$ for a balanced design with one observation per cell.  In this case, $a=5$ and $b=4$, so the treatment, block and error degrees of freedom are $4$, $3$ and $12$, respectively. -->
-<!-- 3. The block factor captures variation among blocks.  Omitting it would inflate the error term, reducing power to detect treatment differences.  Including the blocking factor removes block‑to‑block variability from the error and improves precision. -->
-<!-- ::: -->
-<!-- --- -->
-<!-- ## Repeated measures ANOVA {#sec-13_04} -->
-<!-- > **Guiding question:** *How do we compare means when the same subjects are measured repeatedly over time or under several conditions?* -->
-<!-- In many experiments the same experimental units are observed under multiple conditions—for example, measuring patients’ blood pressure at baseline, 1 month and 3 months after starting medication.  Because measurements on the same subject are correlated, we cannot treat them as independent.  A **repeated measures ANOVA** compares the means of three or more related measurements on the same subjects, taking into account this correlation【971689909474161†L131-L150】. -->
-<!-- ### Model and partitioning variance -->
-<!-- For a one‑factor repeated measures design with $m$ time points or conditions, we have $n$ subjects each observed under all $m$ conditions.  Let $y_{ij}$ denote the response of subject $j$ at time $i$.  The model can be written as -->
-<!-- $$y_{ij} = \mu + \tau_i + s_j + \varepsilon_{ij},$$ -->
-<!-- where $\mu$ is the grand mean, $\tau_i$ is the effect of condition $i$, $s_j$ is the effect of subject $j$ (a random subject effect), and $\varepsilon_{ij}$ are error terms.  The ANOVA partitions the total variation into **between‑treatments** (conditions), **between‑subjects**, and **error (within‑subjects)** components【971689909474161†L160-L173】.  The F statistic for testing $H_0: \tau_1=\cdots=\tau_m=0$ uses the mean square for treatments divided by the mean square error: -->
-<!-- $$F = \frac{\mathrm{MS}_{\text{Treatments}}}{\mathrm{MS}_{\text{Error}}}.$$ -->
-<!-- The error term is derived by subtracting the between‑subjects variation from the within‑subjects variation, leading to a smaller denominator and increased power compared with ordinary one‑way ANOVA【971689909474161†L131-L150】. -->
-<!-- ### Assumptions and sphericity -->
-<!-- Repeated measures ANOVA requires that the differences between all pairs of conditions have equal variances—a property known as **sphericity**【230420679333879†L130-L156】.  If sphericity is violated (common when measurements are taken at closely spaced time points), the F statistics may be too liberal.  Solutions include applying a **Huynh–Feldt** or **Greenhouse–Geisser** correction to the degrees of freedom or using a multivariate approach such as MANOVA.  Another assumption is that the subjects are independent; repeated measures should not be confused with randomized block designs in which treatments are assigned to different units within a block【230420679333879†L174-L181】. -->
-<!-- ### Example: Pain scores over time -->
-<!-- Suppose researchers collect pain scores on 12 patients after a surgical procedure at baseline, 2 hours, 6 hours, and 24 hours post‑surgery.  The goal is to determine whether mean pain changes over time.  The repeated measures ANOVA compares mean pain at the four time points.  The code below simulates such data and conducts the analysis using R’s `aov` with an `Error` term to account for subjects. -->
-<!-- ```{r} -->
-<!-- set.seed(101) -->
-<!-- library(tidyverse) -->
-<!-- dat <- tibble( -->
-<!--   subject = factor(rep(1:12, each = 4)), -->
-<!--   time = factor(rep(c("Baseline", "2 hr", "6 hr", "24 hr"), times = 12), -->
-<!--                 levels = c("Baseline","2 hr","6 hr","24 hr")), -->
-<!--   pain = rep(c(6,5,3,2), each = 12) + rep(rnorm(12,0,1), each = 4) + rnorm(48,0,0.5) -->
-<!-- ) -->
-<!-- model <- aov(pain ~ time + Error(subject/time), data = dat) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- The output shows an F test for the main effect of time.  If the test is significant, post‑hoc comparisons (with corrections for repeated measures) can identify which time points differ.  Always examine residuals to assess normality and constant variance. -->
-<!-- ### Conducting repeated measures ANOVA in JMP 18 Student Edition -->
-<!-- JMP offers two approaches for repeated measures: the **MANOVA** personality and the **Split‑Plot** (univariate) approach.   -->
-<!-- 1. **MANOVA personality:** Organize your dataset with one column per measurement occasion.  Choose **Analyze > Fit Model**, select all measurement variables as responses (*Y*), and assign the subject identifier as a random effect under *Random Effects*.  Click the drop‑down arrow next to *Model Personality* and choose *MANOVA*.  In the *Repeated* field, specify the repeated factor (e.g., time) and its order.  JMP will produce multivariate tests (Wilks’ Lambda, Pillai’s trace) and univariate tests with sphericity corrections【50728968798965†L210-L224】. -->
-<!-- 2. **Split‑Plot (univariate) approach:** Stack the repeated measurements into a single column with a factor column indicating the measurement occasion.  Then use **Analyze > Fit Model** with the response variable as *Y* and include the repeated factor, the subject identifier, and their interaction.  Select *Random Effects* for the subject term to specify the correlation structure.  This approach yields the usual ANOVA table and F tests with appropriate degrees of freedom【50728968798965†L240-L259】. -->
-<!-- In both approaches, you can request post‑hoc comparisons and check the assumption of sphericity. -->
-<!-- #### Recap -->
-<!-- | **Keyword/Concept** | **Definition** | -->
-<!-- |--------------------|----------------| -->
-<!-- | <blank>Repeated measures ANOVA</blank> | A method for comparing means of three or more measurements on the same subjects, accounting for correlation among repeated observations【971689909474161†L131-L150】. | -->
-<!-- | <blank>Sphericity</blank> | The assumption that the variances of differences between all pairs of conditions are equal【230420679333879†L130-L156】. | -->
-<!-- | <blank>Between‑subjects variation</blank> | Variability due to differences among subjects; removed from the error term in repeated measures ANOVA to increase sensitivity【971689909474161†L131-L150】. | -->
-<!-- | <blank>Huynh–Feldt/Greenhouse–Geisser correction</blank> | Adjustments applied when sphericity is violated to obtain more accurate F tests. | -->
-<!-- | <blank>MANOVA personality</blank> | JMP’s multivariate approach for repeated measures data, providing multivariate and univariate tests【50728968798965†L210-L224】. | -->
-<!-- ### Check your understanding -->
-<!-- 1. Why can’t we treat repeated measurements on the same subject as independent observations? -->
-<!-- 2. What is the purpose of the sphericity assumption, and what adjustments can be made when it is violated? -->
-<!-- 3. Describe one advantage of the repeated measures design over a completely randomized design when the same subjects are measured multiple times. -->
-<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
-<!-- 1. Measurements taken on the same subject are correlated; they share subject‑specific variability that violates the independence assumption of one‑way ANOVA.  Repeated measures ANOVA models this correlation by separating between‑subjects and within‑subjects variation【971689909474161†L131-L150】. -->
-<!-- 2. Sphericity ensures equal variances of pairwise differences between conditions【230420679333879†L130-L156】.  When sphericity is violated, F statistics can be adjusted using the Greenhouse–Geisser or Huynh–Feldt correction, or one can use a multivariate approach such as MANOVA. -->
-<!-- 3. Because each subject serves as their own control, repeated measures designs reduce the impact of between‑subject variability.  This typically increases statistical power and requires fewer subjects to detect a given effect【971689909474161†L131-L150】. -->
-<!-- ::: -->
-<!-- --- -->
+</section>
+</section>
+<section id="performing-twoway-anova-in-jmp-18-student-edition" class="level3">
+<h3 class="anchored" data-anchor-id="performing-twoway-anova-in-jmp-18-student-edition">Performing two‑way ANOVA in JMP 18 Student Edition</h3>
+<p>To carry out a two‑way ANOVA or a randomized block design in JMP, choose <strong>Analyze &gt; Fit Model</strong>. Select your response variable for <em>Y</em> and add both factors to the <em>Construct Model Effects</em> box. If you have a complete factorial design, click <em>Macros &gt; Full Factorial</em> to include the main effects and interaction. Click <em>Run</em> to produce the ANOVA table. JMP will display an <em>Effect Tests</em> table with F statistics for each effect. Use the prediction profiler to visualize interactions, and check residual plots to assess model assumptions.</p>
+<section id="recap-2" class="level4">
+<h4 class="anchored" data-anchor-id="recap-2">Recap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Two‑way ANOVA</strong></td>
+<td>A model with two categorical explanatory variables (factors) that tests for main effects and interactions.</td>
+</tr>
+<tr class="even">
+<td><strong>Main effect</strong></td>
+<td>The effect of a factor averaged over the levels of the other factor; tested by comparing <span class="math inline">\(\mathrm{MS}_{\text{factor}}\)</span> to <span class="math inline">\(\mathrm{MS}_{\mathrm{Error}}\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Interaction</strong></td>
+<td>Occurs when the effect of one factor depends on the level of the other; tested via an F ratio using <span class="math inline">\(\mathrm{MS}_{AB}\)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Randomized block design</strong></td>
+<td>A special two‑way ANOVA where one factor (the block) is used to control variability; only the treatment factor is of interest and the block factor accounts for nuisance variation.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="check-your-understanding-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+<ol type="1">
+<li>Describe the difference between a main effect and an interaction effect in a two‑way ANOVA.</li>
+<li>In a randomized block design with five treatments and four blocks, how many degrees of freedom are associated with the treatment, block and error sums of squares?</li>
+<li>Why is it important to include the blocking factor in the model when analyzing a randomized block design?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>A main effect measures the average difference in the response across the levels of a factor, ignoring (averaging over) the other factor. An interaction effect tests whether the effect of one factor varies depending on the level of the other factor; if significant, the factors do not act independently.</li>
+<li>The treatment factor has <span class="math inline">\(a-1\)</span> degrees of freedom and the block factor has <span class="math inline">\(b-1\)</span>, where <span class="math inline">\(a\)</span> is the number of treatments and <span class="math inline">\(b\)</span> the number of blocks. The error degrees of freedom are <span class="math inline">\((a-1)(b-1)\)</span> for a balanced design with one observation per cell. In this case, <span class="math inline">\(a=5\)</span> and <span class="math inline">\(b=4\)</span>, so the treatment, block and error degrees of freedom are <span class="math inline">\(4\)</span>, <span class="math inline">\(3\)</span> and <span class="math inline">\(12\)</span>, respectively.</li>
+<li>The block factor captures variation among blocks. Omitting it would inflate the error term, reducing power to detect treatment differences. Including the blocking factor removes block‑to‑block variability from the error and improves precision.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-13_04" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="sec-13_04"><span class="header-section-number">13.4</span> Repeated measures ANOVA</h2>
+<blockquote class="blockquote">
+<p>“Beware of the problem of testing too many hypotheses; the more you torture the data, the more likely they are to confess, but confessions obtained under duress may not be admissible in the court of scientific opinion.” - Stephen Stigler</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Guiding question:</strong> <em>How do we compare means when the same subjects are measured repeatedly over time or under several conditions?</em></p>
+</blockquote>
+<p>In many experiments the same experimental units are observed under multiple conditions—for example, measuring patients’ blood pressure at baseline, 1 month and 3 months after starting medication. Because measurements on the same subject are correlated, we cannot treat them as independent. A <blank>repeated measures ANOVA</blank> compares the means of three or more related measurements on the same subjects, taking into account this correlation.</p>
+<section id="model-and-partitioning-variance" class="level3">
+<h3 class="anchored" data-anchor-id="model-and-partitioning-variance">Model and partitioning variance</h3>
+<p>For a one‑factor repeated measures design with <span class="math inline">\(m\)</span> time points or conditions, we have <span class="math inline">\(n\)</span> subjects each observed under all <span class="math inline">\(m\)</span> conditions. Let <span class="math inline">\(y_{ij}\)</span> denote the response of subject <span class="math inline">\(j\)</span> at time <span class="math inline">\(i\)</span>. The model can be written as</p>
+<p><span class="math display">\[
+y_{ij} = \mu + \tau_i + s_j + \varepsilon_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the grand mean, <span class="math inline">\(\tau_i\)</span> is the effect of condition <span class="math inline">\(i\)</span>, <span class="math inline">\(s_j\)</span> is the effect of subject <span class="math inline">\(j\)</span> (a random subject effect), and <span class="math inline">\(\varepsilon_{ij}\)</span> are error terms.</p>
+<p>The ANOVA partitions the total variation into <em>between‑treatments</em> (conditions), <em>between‑subjects</em>, and <em>error (within‑subjects)</em> components. The F statistic for testing <span class="math inline">\(H_0: \tau_1=\cdots=\tau_m=0\)</span> uses the mean square for treatments divided by the mean square error:</p>
+<p><span class="math display">\[
+F = \frac{\mathrm{MS}_{\text{Treatments}}}{\mathrm{MS}_{\text{Error}}}
+\]</span></p>
+<p>The error term is derived by subtracting the between‑subjects variation from the within‑subjects variation, leading to a smaller denominator and increased power compared with ordinary one‑way ANOVA.</p>
+</section>
+<section id="assumptions-and-sphericity" class="level3">
+<h3 class="anchored" data-anchor-id="assumptions-and-sphericity">Assumptions and sphericity</h3>
+<p>Repeated measures ANOVA requires that the differences between all pairs of conditions have equal variances—a property known as <em>sphericity</em>. If sphericity is violated (common when measurements are taken at closely spaced time points), the F statistics may be too liberal. Solutions include applying a <em>Huynh–Feldt</em> or <em>Greenhouse–Geisser</em> correction to the degrees of freedom or using a multivariate approach such as MANOVA. Another assumption is that the subjects are independent; repeated measures should not be confused with randomized block designs in which treatments are assigned to different units within a block.</p>
+</section>
+<section id="example-pain-scores-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="example-pain-scores-over-time">Example: Pain scores over time</h3>
+<p>Suppose researchers collect pain scores on 12 patients after a surgical procedure at baseline, 2 hours, 6 hours, and 24 hours post‑surgery. The goal is to determine whether mean pain changes over time. The repeated measures ANOVA compares mean pain at the four time points.</p>
+<p>JMP output for the repeated measures ANOVA is shown below:</p>
+<p><img src="images/repeated measures1.png" class="img-fluid"></p>
+<p>At the 5% significance level, there is not enough evidence to conclude the mean pain levels differs over time. We can also construct Tukey HSD confidence intervals as we have done before. Since we did not find the mean pain levels differ over any of the time points, we expect these intervals to all include zero.</p>
+<p><img src="images/repeated measures2.png" class="img-fluid"></p>
+<!-- # ```{r} -->
+<!-- # # set.seed(101) -->
+<!-- # # library(tidyverse) -->
+<!-- # #  -->
+<!-- # # dat <- tibble( -->
+<!-- # #   subject = factor(rep(1:12, each = 4)), -->
+<!-- # #   time = factor(rep(c("Baseline", "2 hr", "6 hr", "24 hr"), times = 12), -->
+<!-- # #                 levels = c("Baseline","2 hr","6 hr","24 hr")), -->
+<!-- # #   pain = rep(c(6,5,3,2), each = 12) + rep(round(rnorm(12,0,1),2), each = 4) + round(rnorm(48,0,0.5),2) -->
+<!-- # # ) -->
+<!-- # #  -->
+<!-- # # # write_csv(dat, "pain and time.csv") -->
+<!-- # #  -->
+<!-- # # model <- aov(pain ~ time + Error(subject/time), data = dat) -->
+<!-- # # summary(model) -->
+<!-- # ``` -->
+</section>
+<section id="conducting-repeated-measures-anova-in-jmp-18-student-edition" class="level3">
+<h3 class="anchored" data-anchor-id="conducting-repeated-measures-anova-in-jmp-18-student-edition">Conducting repeated measures ANOVA in JMP 18 Student Edition</h3>
+<p>Stack the repeated measurements into a single column with a factor column indicating the measurement occasion. Then use <strong>Analyze &gt; Fit Model</strong> with the response variable as <em>Y</em> and include the repeated factor, the subject identifier, and their interaction. Select <em>Random Effects</em> for the subject term to specify the correlation structure. This approach yields the usual ANOVA table and F tests with appropriate degrees of freedom.</p>
+<section id="recap-3" class="level4">
+<h4 class="anchored" data-anchor-id="recap-3">Recap</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Repeated measures ANOVA</strong></td>
+<td>A method for comparing means of three or more measurements on the same subjects, accounting for correlation among repeated observations.</td>
+</tr>
+<tr class="even">
+<td><strong>Sphericity</strong></td>
+<td>The assumption that the variances of differences between all pairs of conditions are equal.</td>
+</tr>
+<tr class="odd">
+<td><strong>Between‑subjects variation</strong></td>
+<td>Variability due to differences among subjects; removed from the error term in repeated measures ANOVA to increase sensitivity.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="check-your-understanding-3" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+<ol type="1">
+<li>Why can’t we treat repeated measurements on the same subject as independent observations?</li>
+<li>What is the purpose of the sphericity assumption, and what adjustments can be made when it is violated?</li>
+<li>Describe one advantage of the repeated measures design over a completely randomized design when the same subjects are measured multiple times.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Measurements taken on the same subject are correlated; they share subject‑specific variability that violates the independence assumption of one‑way ANOVA. Repeated measures ANOVA models this correlation by separating between‑subjects and within‑subjects variation.</li>
+<li>Sphericity ensures equal variances of pairwise differences between conditions. When sphericity is violated, F statistics can be adjusted using the Greenhouse–Geisser or Huynh–Feldt correction, or one can use a multivariate approach such as MANOVA.</li>
+<li>Because each subject serves as their own control, repeated measures designs reduce the impact of between‑subject variability. This typically increases statistical power and requires fewer subjects to detect a given effect.</li>
+</ol>
+</div>
+</div>
+</div>
 
 
 </section>
