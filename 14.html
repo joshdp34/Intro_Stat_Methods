@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Correlation and Simple Linear Regression – STA 2381 Introductory Statistical Methods</title>
+<title>STA 2381 Introductory Statistical Methods - 14&nbsp; Correlation and Simple Linear Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,23 +35,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -60,7 +54,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -110,51 +103,25 @@ document.addEventListener('click', (event) => {
 });
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
 <body class="nav-sidebar docked">
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./14.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./14.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -163,7 +130,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./"></a> 
@@ -276,7 +243,7 @@ window.Quarto = {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -303,6 +270,34 @@ window.Quarto = {
   <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
   <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
   </ul></li>
+  <li><a href="#sec-14_03" id="toc-sec-14_03" class="nav-link" data-scroll-target="#sec-14_03"><span class="header-section-number">14.3</span> Interpreting the Slope and Intercept</a>
+  <ul class="collapse">
+  <li><a href="#examples-across-fields" id="toc-examples-across-fields" class="nav-link" data-scroll-target="#examples-across-fields">Examples across fields</a></li>
+  <li><a href="#inference-for-the-regression-slope" id="toc-inference-for-the-regression-slope" class="nav-link" data-scroll-target="#inference-for-the-regression-slope">Inference for the Regression Slope</a></li>
+  <li><a href="#recap-2" id="toc-recap-2" class="nav-link" data-scroll-target="#recap-2">Recap</a></li>
+  <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-14_04" id="toc-sec-14_04" class="nav-link" data-scroll-target="#sec-14_04"><span class="header-section-number">14.4</span> Assessing the Fit</a>
+  <ul class="collapse">
+  <li><a href="#proportion-of-variation-explained" id="toc-proportion-of-variation-explained" class="nav-link" data-scroll-target="#proportion-of-variation-explained">Proportion of Variation Explained</a></li>
+  <li><a href="#interpreting-r2" id="toc-interpreting-r2" class="nav-link" data-scroll-target="#interpreting-r2">Interpreting <span class="math inline">\(R^2\)</span></a></li>
+  <li><a href="#getting-r2-in-jmp" id="toc-getting-r2-in-jmp" class="nav-link" data-scroll-target="#getting-r2-in-jmp">Getting <span class="math inline">\(R^2\)</span> in JMP</a></li>
+  <li><a href="#recap-3" id="toc-recap-3" class="nav-link" data-scroll-target="#recap-3">Recap</a></li>
+  <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-14_05" id="toc-sec-14_05" class="nav-link" data-scroll-target="#sec-14_05"><span class="header-section-number">14.5</span> Residual Analysis</a>
+  <ul class="collapse">
+  <li><a href="#residual-plots" id="toc-residual-plots" class="nav-link" data-scroll-target="#residual-plots">Residual plots</a></li>
+  <li><a href="#conducting-residual-analysis-in-jmp" id="toc-conducting-residual-analysis-in-jmp" class="nav-link" data-scroll-target="#conducting-residual-analysis-in-jmp">Conducting residual analysis in JMP</a></li>
+  <li><a href="#recap-4" id="toc-recap-4" class="nav-link" data-scroll-target="#recap-4">Recap</a></li>
+  <li><a href="#check-your-understanding-4" id="toc-check-your-understanding-4" class="nav-link" data-scroll-target="#check-your-understanding-4">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-14_06" id="toc-sec-14_06" class="nav-link" data-scroll-target="#sec-14_06"><span class="header-section-number">14.6</span> Prediction Intervals and Confidence Intervals</a>
+  <ul class="collapse">
+  <li><a href="#the-residual-standard-deviation" id="toc-the-residual-standard-deviation" class="nav-link" data-scroll-target="#the-residual-standard-deviation">The Residual Standard Deviation</a></li>
+  <li><a href="#confidence-and-prediction-intervals" id="toc-confidence-and-prediction-intervals" class="nav-link" data-scroll-target="#confidence-and-prediction-intervals">Confidence and Prediction Intervals</a></li>
+  <li><a href="#sampling-errors-for-the-estimator-of-the-mean-of-y-and-the-predictor-of-an-individual-new-value-of-y" id="toc-sampling-errors-for-the-estimator-of-the-mean-of-y-and-the-predictor-of-an-individual-new-value-of-y" class="nav-link" data-scroll-target="#sampling-errors-for-the-estimator-of-the-mean-of-y-and-the-predictor-of-an-individual-new-value-of-y">Sampling Errors for the Estimator of the Mean of <span class="math inline">\(y\)</span> and the Predictor of an Individual New Value of <span class="math inline">\(y\)</span></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -324,9 +319,7 @@ window.Quarto = {
   </div>
   
 
-
 </header>
-
 
 <section id="sec-14_01" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="sec-14_01"><span class="header-section-number">14.1</span> Scatterplots and the Correlation Coefficient</h2>
@@ -357,17 +350,13 @@ SS_{yy} =&amp; \sum \left(y_i-\bar{y}\right)^2
 <p>For example, consider the data in the scatterplot below. The two red lines represent the mean of the <span class="math inline">\(x\)</span> variable (the vertical red line is for <span class="math inline">\(\bar{x}\)</span>) and the mean of the <span class="math inline">\(y\)</span> variable (the horizontal red line is for <span class="math inline">\(\bar{y}\)</span>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="14_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="14_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>Let’s find <span class="math inline">\(SS_{xx}\)</span>, <span class="math inline">\(SS_{yy}\)</span>, and <span class="math inline">\(SS_{xy}\)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 7%">
 <col style="width: 6%">
@@ -463,16 +452,12 @@ SS_{xy} =&amp; \sum \left(y_i-\bar{y}\right)\left(x_i-\bar{x}\right)\\
 <p>Again, we plot the data with red lines representing <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(\bar{y}\)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="14_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="14_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 6%">
@@ -738,77 +723,53 @@ SS_{xy} =&amp; \sum \left(y_i-\bar{y}\right)\left(x_i-\bar{x}\right)\\
 <p>To see how scatterplots and correlation work in practice, consider a small study of 20 adults ranging in age from 30 to 80 years. The response variable is systolic blood pressure (measured in mm Hg). The scatterplot below shows the relationship.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="14_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="14_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The cloud of points slopes upward, indicating a positive relationship: older participants tend to have higher systolic blood pressure. The correlation coefficient for this dataset is about 0.93, suggesting a strong positive linear association.</p>
 </section>
 <section id="some-examples-of-r" class="level3">
 <h3 class="anchored" data-anchor-id="some-examples-of-r">Some Examples of <span class="math inline">\(r\)</span></h3>
-<p>The best way to grasp correlation is to see examples. In <a href="#fig-05_01" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>, scatterplots of 200 observations are shown with a least squares line.</p>
+<p>The best way to grasp correlation is to see examples. In <a href="#fig-05_01">Figure&nbsp;<span>14.1</span></a>, scatterplots of 200 observations are shown with a least squares line.</p>
 <div id="fig-05_01" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-05_01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-05_01" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-05_01a" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-05_01a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/fig_02_04_01a.png" class="img-fluid figure-img" data-ref-parent="fig-05_01">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-05_01a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) <span class="math inline">\(r=-0.079\)</span>
-</figcaption>
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-05_01a" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig_02_04_01a.png" class="img-fluid figure-img" data-ref-parent="fig-05_01"></p>
+<figcaption class="figure-caption">(a) <span class="math inline">\(r=-0.079\)</span></figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-05_01" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-05_01b" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-05_01b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/fig_02_04_01b.png" class="img-fluid figure-img" data-ref-parent="fig-05_01">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-05_01b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) <span class="math inline">\(r=-0.672\)</span>
-</figcaption>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-05_01b" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig_02_04_01b.png" class="img-fluid figure-img" data-ref-parent="fig-05_01"></p>
+<figcaption class="figure-caption">(b) <span class="math inline">\(r=-0.672\)</span></figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-05_01" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-05_01c" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-05_01c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/fig_02_04_01c.png" class="img-fluid figure-img" data-ref-parent="fig-05_01">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-05_01c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(c) <span class="math inline">\(r=0.723\)</span>
-</figcaption>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-05_01c" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig_02_04_01c.png" class="img-fluid figure-img" data-ref-parent="fig-05_01"></p>
+<figcaption class="figure-caption">(c) <span class="math inline">\(r=0.723\)</span></figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-05_01" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-05_01d" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-05_01d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/fig_02_04_01d.png" class="img-fluid figure-img" data-ref-parent="fig-05_01">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-05_01d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(d) <span class="math inline">\(r=0.524\)</span>
-</figcaption>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-05_01d" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/fig_02_04_01d.png" class="img-fluid figure-img" data-ref-parent="fig-05_01"></p>
+<figcaption class="figure-caption">(d) <span class="math inline">\(r=0.524\)</span></figcaption>
 </figure>
 </div>
 </div>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-05_01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.1: Examples of correlation
-</figcaption>
+<p></p><figcaption class="figure-caption">Figure&nbsp;14.1: Examples of correlation</figcaption><p></p>
 </figure>
 </div>
 <p>Note how the value of <span class="math inline">\(r\)</span> relates to how spread out the points are from the line as well as to the slope of the line.</p>
@@ -839,7 +800,7 @@ t &amp; =\frac{r\sqrt{\left(n-2\right)}}{\sqrt{1-r^{2}}}
 </section>
 <section id="recap" class="level3">
 <h3 class="anchored" data-anchor-id="recap">Recap</h3>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -925,14 +886,10 @@ Review: Greek Letters in Notation
 </div>
 <section id="fitting-the-model-the-method-of-least-squares" class="level3">
 <h3 class="anchored" data-anchor-id="fitting-the-model-the-method-of-least-squares">Fitting the Model: The Method of Least Squares</h3>
-<p>Suppose we have the data shown in <a href="#tbl-table2_1" class="quarto-xref">Table&nbsp;<span>14.1</span></a> below and plotted in the scatterplot in <a href="#fig-2_1" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>.</p>
-<div id="tbl-table2_1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table2_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;14.1: Data for Scatterplot
-</figcaption>
-<div aria-describedby="tbl-table2_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
+<p>Suppose we have the data shown in <a href="#tbl-table2_1">Table&nbsp;<span>14.1</span></a> below and plotted in the scatterplot in <a href="#fig-2_1">Figure&nbsp;<span>14.2</span></a>.</p>
+<div id="tbl-table2_1" class="anchored">
+<table class="table">
+<caption>Table&nbsp;14.1: Data for Scatterplot</caption>
 <thead>
 <tr class="header">
 <th>x</th>
@@ -975,18 +932,12 @@ Table&nbsp;14.1: Data for Scatterplot
 </tbody>
 </table>
 </div>
-</figure>
-</div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-2_1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-2_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="14_files/figure-html/fig-2_1-1.png" class="img-fluid figure-img" width="576">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.2: Scatterplot of the data in <a href="#tbl-table2_1" class="quarto-xref">Table&nbsp;<span>14.1</span></a>
-</figcaption>
+<div id="fig-2_1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="14_files/figure-html/fig-2_1-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.2: Scatterplot of the data in <a href="#tbl-table2_1">Table&nbsp;<span>14.1</span></a></figcaption>
 </figure>
 </div>
 </div>
@@ -995,7 +946,7 @@ Figure&nbsp;14.2: Scatterplot of the data in <a href="#tbl-table2_1" class="quar
 <p><span class="math display">\[
 y = \beta_0 + \beta_1 x + \varepsilon
 \]</span></p>
-<p>How can we use the data from the eight observations in <a href="#tbl-table2_1" class="quarto-xref">Table&nbsp;<span>14.1</span></a> to estimate the unknown y-intercept (<span class="math inline">\(\beta_0\)</span>) and slope (<span class="math inline">\(\beta_1\)</span>)?</p>
+<p>How can we use the data from the eight observations in <a href="#tbl-table2_1">Table&nbsp;<span>14.1</span></a> to estimate the unknown y-intercept (<span class="math inline">\(\beta_0\)</span>) and slope (<span class="math inline">\(\beta_1\)</span>)?</p>
 <p>We can start by trying some lines and see how well they fit the data. But how do we measure how well a line <em>fits</em> the data?</p>
 <p>A quantitative method to evaluate how well a straight line fits a set of data is by measuring the deviations of the data points from the line.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1016,29 +967,21 @@ Review: Deviations of Response Variable
 <p>Suppose we try to fit the line <span id="eq-02_01"><span class="math display">\[
     \hat{y} =2-.2x
 \tag{14.1}\]</span></span></p>
-<p>This line can be seen in <a href="#fig-2_2" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>.</p>
+<p>This line can be seen in <a href="#fig-2_2">Figure&nbsp;<span>14.3</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-2_2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-2_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="14_files/figure-html/fig-2_2-1.png" class="img-fluid figure-img" width="576">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.3: Scatterplot of data in <a href="#tbl-table2_1" class="quarto-xref">Table&nbsp;<span>14.1</span></a> with the red line representing the line in <a href="#eq-02_01" class="quarto-xref">Equation&nbsp;<span>14.1</span></a>
-</figcaption>
+<div id="fig-2_2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="14_files/figure-html/fig-2_2-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.3: Scatterplot of data in <a href="#tbl-table2_1">Table&nbsp;<span>14.1</span></a> with the red line representing the line in <a href="#eq-02_01">Equation&nbsp;<span>14.1</span></a></figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>The observed and predicted values of <span class="math inline">\(y\)</span>, their differences, and their squared differences are shown in the table below.</p>
-<div id="tbl-table2_2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table2_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;14.2: Deviations and squared deviations of the line in <a href="#eq-02_01" class="quarto-xref">Equation&nbsp;<span>14.1</span></a> and the data in <a href="#tbl-table2_1" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.
-</figcaption>
-<div aria-describedby="tbl-table2_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
+<div id="tbl-table2_2" class="anchored">
+<table class="table">
+<caption>Table&nbsp;14.2: Deviations and squared deviations of the line in <a href="#eq-02_01">Equation&nbsp;<span>14.1</span></a> and the data in <a href="#tbl-table2_1">Table&nbsp;<span>14.1</span></a>.</caption>
 <thead>
 <tr class="header">
 <th><span class="math inline">\(x\)</span></th>
@@ -1108,36 +1051,26 @@ Table&nbsp;14.2: Deviations and squared deviations of the line in <a href="#eq-0
 </tbody>
 </table>
 </div>
-</figure>
-</div>
 <p>Note that the sum of the errors (SE) is 0.8, and the <em>sum</em> of <em>squares</em> of the <em>errors</em> (SSE), which emphasizes larger deviations from the line, is 0.325.</p>
 <p>We can try another line to see if we do better at predicting <span class="math inline">\(y\)</span> (that is, have smaller SSE).</p>
 <p>Let’s try the line <span id="eq-02_02"><span class="math display">\[
     \hat{y} =1.8-.15x
 \tag{14.2}\]</span></span></p>
-<p>This line can be seen in <a href="#fig-2_3" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>.</p>
+<p>This line can be seen in <a href="#fig-2_3">Figure&nbsp;<span>14.4</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-2_3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-2_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="14_files/figure-html/fig-2_3-1.png" class="img-fluid figure-img" width="576">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.4: Scatterplot of data in <a href="#tbl-table2_1" class="quarto-xref">Table&nbsp;<span>14.1</span></a> with the red line representing the line in <a href="#eq-02_02" class="quarto-xref">Equation&nbsp;<span>14.2</span></a>
-</figcaption>
+<div id="fig-2_3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="14_files/figure-html/fig-2_3-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;14.4: Scatterplot of data in <a href="#tbl-table2_1">Table&nbsp;<span>14.1</span></a> with the red line representing the line in <a href="#eq-02_02">Equation&nbsp;<span>14.2</span></a></figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The fit results are shown in <a href="#tbl-table2_3" class="quarto-xref">Table&nbsp;<span>14.3</span></a>.</p>
-<div id="tbl-table2_3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table2_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;14.3: Deviations and squared deviations of the line in <a href="#eq-02_02" class="quarto-xref">Equation&nbsp;<span>14.2</span></a> and the data in <a href="#tbl-table2_1" class="quarto-xref">Table&nbsp;<span>14.1</span></a>.
-</figcaption>
-<div aria-describedby="tbl-table2_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
+<p>The fit results are shown in <a href="#tbl-table2_3">Table&nbsp;<span>14.3</span></a>.</p>
+<div id="tbl-table2_3" class="anchored">
+<table class="table">
+<caption>Table&nbsp;14.3: Deviations and squared deviations of the line in <a href="#eq-02_02">Equation&nbsp;<span>14.2</span></a> and the data in <a href="#tbl-table2_1">Table&nbsp;<span>14.1</span></a>.</caption>
 <thead>
 <tr class="header">
 <th><span class="math inline">\(x\)</span></th>
@@ -1207,8 +1140,6 @@ Table&nbsp;14.3: Deviations and squared deviations of the line in <a href="#eq-0
 </tbody>
 </table>
 </div>
-</figure>
-</div>
 <p>The SSE for this line is 0.2727, which is lower than the SSE for the previous line, indicating a better fit.</p>
 <p>While we could try additional lines to achieve a lower SSE, there are infinitely many possibilities since <em><span class="math inline">\(\beta_0\)</span></em> and <em><span class="math inline">\(\beta_1\)</span></em> can take any real value.</p>
 <p>Using Calculus, we can attempt to minimize the SSE for the generic line <span class="math display">\[\begin{align*}
@@ -1259,7 +1190,7 @@ For those who want to see the math:
 b_0 &amp; =\frac{1}{n}\left(\sum y_{i}-b_1\sum x_{i}\right)\\
 &amp; =\bar{y}-b_1\bar{x}.
 \end{align*}\]</span></p>
-<p>We now substitute this into the second equation in <a href="#eq-w1_3" class="quarto-xref">Equation&nbsp;<span>14.4</span></a>. Solving this for <span class="math inline">\(b_1\)</span> gives us <span class="math display">\[\begin{align*}
+<p>We now substitute this into the second equation in <a href="#eq-w1_3">Equation&nbsp;<span>14.4</span></a>. Solving this for <span class="math inline">\(b_1\)</span> gives us <span class="math display">\[\begin{align*}
 &amp; \sum x_{i}y_{i}=b_0\sum x_{i}+b_1\sum x_{i}^{2}\\
 &amp; \quad\Longrightarrow\sum x_{i}y_{i}=\left(\bar{y}-b_1\bar{x}\right)\sum x_{i}+b_1\sum x_{i}^{2}\\
 &amp;\quad\Longrightarrow b_1=\frac{\sum \left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sum \left(x_{i}-\bar{x}\right)^{2}}.
@@ -1278,7 +1209,7 @@ b_1 &amp; =\frac{\sum \left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sum
 \end{align}
 \tag{14.5}\]</span></span></p>
 <p>These equations are called the <blank>least squares</blank> estimators.</p>
-<p>The least squares estimators in <a href="#eq-w1_4" class="quarto-xref">Equation&nbsp;<span>14.5</span></a> can be expressed in simpler terms if we let <span class="math display">\[\begin{align*}
+<p>The least squares estimators in <a href="#eq-w1_4">Equation&nbsp;<span>14.5</span></a> can be expressed in simpler terms if we let <span class="math display">\[\begin{align*}
 SS_{xx} &amp;= \sum \left(x_i-\bar x\right)^2 \\
 SS_{xy} &amp;= \sum \left(x_i-\bar x\right)\left(y_i - \bar y\right)
 \end{align*}\]</span></p>
@@ -1314,11 +1245,7 @@ SSE = \sum_{i=1}^n \left(y_i-\hat{y}_i\right)^2
 <p>Below is the scatterplot with the fitted regression line.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="14_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
-</div>
+<p><img src="14_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>The slope 1.74 tells us that for each thousand‑dollar increase in advertising, sales increase by about 1.71 thousand dollars. The intercept 12.47 suggests that if a store spent nothing on advertising, the model predicts $12,470 in weekly sales. In reality, such an extrapolation may not be reasonable; always interpret the intercept within the range of your data.</p>
@@ -1333,7 +1260,7 @@ SSE = \sum_{i=1}^n \left(y_i-\hat{y}_i\right)^2
 </section>
 <section id="recap-1" class="level3">
 <h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -1393,101 +1320,428 @@ Solutions
 </div>
 </div>
 </div>
-<!-- ## Interpreting the Slope and Intercept {#sec-14_03} -->
-<!-- > *Guiding question:* *What do the coefficients of a regression line tell us in context?* -->
-<!-- While the previous section introduced the regression line, here we dig deeper into interpreting its coefficients.  The **slope** $b_1$ tells us how the predicted response changes when the predictor increases by one unit【667853646116998†L14-L21】.  If $b_1$ is positive, the regression line rises from left to right; if negative, it falls.  The magnitude of $b_1$ indicates how steep the line is.  A small slope (close to zero) implies that large changes in $x$ lead to small changes in the predicted $y$; a large slope indicates a stronger effect. -->
-<!-- The **intercept** $b_0$ is the predicted value of $y$ when $x=0$.  In some situations it has a natural interpretation.  For instance, in the business example above, $b_0\approx 20.0$ means that a store with zero advertising dollars is predicted to sell about $20,000 per week (perhaps due to walk‑in customers).  In other contexts the intercept may be outside the range of observed $x$ values.  The height–weight example from earlier features an intercept of −150.9 pounds【667853646116998†L62-L67】, which is clearly not meaningful because nobody has a height of zero inches.  In such cases the slope is often the focus and the intercept is treated as a mathematical artifact. -->
-<!-- ### Examples across fields -->
-<!-- - **Medicine:** In pharmacokinetics, the relationship between drug dose ($x$) and concentration in blood ($y$) is often modeled linearly over a therapeutic range.  A slope of 0.2 means that each additional milligram of drug increases the concentration by 0.2 units.  The intercept might represent baseline concentration (e.g., residual drug from a previous dose). -->
-<!-- - **Biology:** When studying growth, you might relate nutrient concentration to plant height.  A slope of 1.5 cm per nutrient unit indicates that increasing fertilizer by one unit yields plants 1.5 cm taller on average.  If the intercept is negative, it signals that the linear model is extrapolated below the smallest nutrient level and should not be taken literally. -->
-<!-- - **Business:** In cost analysis, the total cost $y$ can often be written as a fixed cost ($b_0$) plus a variable cost per unit ($b_1$).  If a company has a fixed cost of $10,000 and spends $5 per unit produced, the regression equation would be $\widehat{\text{cost}} = 10{,}000 + 5x$.  Here both slope and intercept have clear interpretations. -->
-<!-- ### Recap -->
-<!-- | **Coefficient** | **Interpretation** | -->
-<!-- |---|---| -->
-<!-- | **Slope ($b_1$)** | Change in the predicted response for a one‑unit increase in the predictor; its sign indicates direction and its magnitude indicates steepness【667853646116998†L14-L21】. | -->
-<!-- | **Intercept ($b_0$)** | Predicted response when the predictor is zero; meaningful only if zero is within or near the observed range【667853646116998†L62-L67】. | -->
-<!-- ### Check your understanding -->
-<!-- 1. A researcher models the relationship between body mass index (BMI) and blood cholesterol as $\widehat{\text{cholesterol}} = 110 + 2.5 \times \text{BMI}$.  Interpret the slope and intercept.  Why might the intercept be less meaningful than the slope? -->
-<!-- 2. If the slope of a regression line is 0, what does this tell you about the relationship between the variables?  What would the scatterplot look like? -->
-<!-- 3. Explain why the slope often has a more interpretable meaning than the intercept in regression models. -->
-<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
-<!-- 1. The slope 2.5 means that for each one‑unit increase in BMI, the predicted cholesterol level increases by 2.5 units.  The intercept 110 represents the predicted cholesterol level for a person with a BMI of 0.  Because BMI values near zero are unrealistic for humans, the intercept has little practical meaning; the slope better captures the relationship. -->
-<!-- 2. A slope of 0 implies that predicted $y$ does not change with $x$; the regression line is horizontal.  The scatterplot would show no linear trend, and the correlation would be zero or near zero. -->
-<!-- 3. The slope describes how changes in the predictor affect the response and is directly tied to the research question.  The intercept often corresponds to an extrapolation outside the data range and may not correspond to a real scenario, so its interpretation is less meaningful. -->
-<!-- ::: -->
-<!-- ## Assessing the Fit (R²) {#sec-14_04} -->
-<!-- > *Guiding question:* *How much of the variability in the response is explained by our regression model?* -->
-<!-- Once we have fit a regression line, we need a summary statistic that tells us how well the model captures the observed variation.  The **coefficient of determination**, denoted $R^2$, fulfills this role.  For simple linear regression, $R^2$ is simply the square of the correlation coefficient【564409152601504†L144-L145】.  It represents the proportion of the variability in $y$ that can be attributed to its linear relationship with $x$【564409152601504†L144-L146】.  By definition $0\le R^2\le 1$.  An $R^2$ close to 1 means the regression line explains most of the variability in the response; an $R^2$ near 0 means that the line explains little. -->
-<!-- ### Interpreting R² -->
-<!-- Suppose $r=0.93$ in our blood‑pressure example.  Then $R^2 = 0.93^2 \approx 0.86$.  This means that about 86% of the variability in systolic blood pressure is explained by age through a linear relationship.  The remaining 14% represents variability due to other factors and random noise.  In the advertising example with $r=0.98$, $R^2\approx 0.96$, suggesting that advertising spending explains 96% of the variation in sales.  High values of $R^2$ do not prove causation, and an excessively large $R^2$ can sometimes signal overfitting or the influence of an outlier.  Always inspect the scatterplot and residuals. -->
-<!-- ### Getting R² in JMP -->
-<!-- After fitting a regression line in JMP (via **Fit Y by X** and **Fit Line**), the **Summary of Fit** table shows several statistics.  The row labeled **R Square** gives $R^2$.  The **Root Mean Square Error** (RMSE) is the square root of the mean squared residuals and provides a measure of typical prediction error in the units of the response. -->
-<!-- ### Recap -->
-<!-- | **Statistic** | **Meaning** | -->
-<!-- |---|---| -->
-<!-- | **Coefficient of determination ($R^2$)** | The fraction of the variation in the response that can be explained by its linear relationship with the predictor【564409152601504†L144-L146】.  For simple linear regression, $R^2 = r^2$. | -->
-<!-- | **Root mean square error (RMSE)** | The square root of the average squared residuals; provides a typical size of prediction error in the response variable’s units. | -->
-<!-- ### Check your understanding -->
-<!-- 1. If $r=0.50$ for a pair of variables, what is $R^2$?  Interpret this value in context. -->
-<!-- 2. In the enzyme concentration example, the correlation was roughly 0.94.  What proportion of the variability in reaction rate does the linear model explain?  What percentage remains unexplained? -->
-<!-- 3. Can an $R^2$ value ever be negative?  Explain why or why not. -->
-<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
-<!-- 1. Since $R^2 = r^2$, with $r=0.50$ we get $R^2 = 0.25$.  This means that about 25% of the variation in the response is explained by its linear relationship with the predictor.  The remaining 75% is due to other factors or random variation. -->
-<!-- 2. $R^2 = 0.94^2 \approx 0.88$, so about 88% of the variability in reaction rate is explained by enzyme concentration.  Roughly 12% remains unexplained by this simple linear model. -->
-<!-- 3. No.  $R^2$ is defined as the square of the correlation coefficient (or equivalently, as 1 minus the ratio of the residual sum of squares to the total sum of squares) and therefore must lie between 0 and 1.  A negative value would have no interpretation in this context. -->
-<!-- ::: -->
-<!-- ## Residual Analysis {#sec-14_05} -->
-<!-- > *Guiding question:* *How do we check whether our regression model is appropriate?* -->
-<!-- A regression line is a simplification of reality.  **Residuals**—the differences between observed and predicted values—tell us how well the model fits each observation【667853646116998†L120-L143】.  By plotting and analyzing residuals we can assess the validity of our linear model and its underlying assumptions. -->
-<!-- ### Residual plots -->
-<!-- The four main assumptions of simple linear regression are: -->
-<!-- 1. **Linearity:** The relationship between $x$ and $y$ is linear【667853646116998†L215-L219】.  We assess this by examining the scatterplot and the residuals; a residual plot (residuals vs. fitted values) should show no systematic pattern. -->
-<!-- 2. **Independence of errors:** Residuals are independent of each other【667853646116998†L219-L221】.  This is mainly a study‑design issue, but a residual plot with no obvious patterns supports independence. -->
-<!-- 3. **Normality of errors:** Residuals are approximately normally distributed【667853646116998†L221-L225】.  Check this assumption with a normal probability plot or a histogram of the residuals. -->
-<!-- 4. **Equal variances (homoscedasticity):** The spread of residuals is roughly constant across all fitted values【667853646116998†L228-L232】.  On a residual plot, the vertical spread should be similar across the range of $x$; funnels or megaphone shapes indicate heteroscedasticity. -->
-<!-- Violations of these assumptions can invalidate inference.  For example, a curved pattern in the residual plot suggests that the relationship is nonlinear, calling for a transformation or a different model.  Non‑constant variance may require weighted regression or a transformation of the response. -->
-<!-- ### Example: Checking assumptions -->
-<!-- Consider the enzyme concentration data again.  After fitting the regression line, we compute the residuals and plot them against the fitted values. -->
-<!-- ```{r} -->
-<!-- # continuing from the biology example -->
-<!-- enzyme <- tibble( -->
-<!--   conc = seq(1, 10, length.out = 15), -->
-<!--   rate = 2 + 0.5 * conc + rnorm(15, 0, 0.5) -->
-<!-- ) -->
-<!-- model_bio <- lm(rate ~ conc, data = enzyme) -->
-<!-- enzyme$residuals <- residuals(model_bio) -->
-<!-- enzyme$fit       <- fitted(model_bio) -->
-<!-- ggplot(enzyme, aes(x = fit, y = residuals)) + -->
-<!--   geom_point(color = "#af8dc3") + -->
-<!--   geom_hline(yintercept = 0, linetype = "dashed") + -->
-<!--   labs(x = "Fitted values", y = "Residuals", -->
-<!--        title = "Residuals vs fitted values (biology example)") + -->
-<!--   theme_minimal() -->
-<!-- ``` -->
-<!-- If the linear model is appropriate, the residuals should be randomly scattered around zero with constant variance.  You can also create a normal probability plot of the residuals.  In R, use `qqnorm(enzyme$residuals)` and `qqline(enzyme$residuals)`; in JMP, select **Save Residuals** in the regression output and then use **Graph → Distribution** or **Analyze → Fit Y by X** to examine the residuals. -->
-<!-- ### Conducting residual analysis in JMP -->
-<!-- 1. **Save residuals.**  In the **Fit Y by X** output window, click the red triangle ► and choose **Save Residuals**.  A new column of residuals appears in your data table. -->
-<!-- 2. **Plot residuals vs. fitted values.**  Choose **Graph → Graph Builder**, drag the fitted values (predicted $y$) to the X‑axis and residuals to the Y‑axis, and select the *Scatter Plot* element.  The plot should show no obvious pattern if the linearity and equal‑variance assumptions are satisfied. -->
-<!-- 3. **Check normality.**  Use **Analyze → Distribution** on the residuals column.  Inspect the histogram and normal quantile plot.  If the residuals deviate greatly from normality, consider transformations or nonparametric methods. -->
-<!-- ### Recap -->
-<!-- | **Concept** | **Description** | -->
-<!-- |---|---| -->
-<!-- | **Residual (error)** | The difference between an observed response and the value predicted by the regression line【667853646116998†L120-L143】. | -->
-<!-- | **Residual plot** | Scatterplot of residuals vs. fitted values; used to check linearity and constant variance assumptions【667853646116998†L215-L232】. | -->
-<!-- | **Normal probability plot** | Plot comparing the distribution of residuals to a theoretical normal distribution; helps assess the normality assumption【667853646116998†L221-L225】. | -->
-<!-- | **Equal variance (homoscedasticity)** | Assumption that residuals have constant variance across levels of the predictor; checked by looking for uniform spread in residual plots【667853646116998†L228-L232】. | -->
-<!-- ### Check your understanding -->
-<!-- 1. Describe what you would look for in a residual vs. fitted plot to decide whether the linearity assumption is satisfied. -->
-<!-- 2. Why is it important that residuals have constant variance?  What problems arise if this assumption is violated? -->
-<!-- 3. Explain how you would check the normality of residuals in JMP. -->
-<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
-<!-- 1. A residual vs. fitted plot should show residuals randomly scattered around zero with no systematic pattern.  If you see a curve, clusters or a funnel shape, the linearity assumption may be violated【667853646116998†L215-L232】. -->
-<!-- 2. Constant variance ensures that the model’s prediction errors are equally reliable across all values of the predictor.  If the variance increases or decreases with the fitted values (heteroscedasticity), the standard errors of the coefficients may be biased, leading to misleading inference.  In such cases you might transform the response or use weighted least squares. -->
-<!-- 3. After saving residuals in JMP, use **Analyze → Distribution** to generate a histogram and normal quantile plot.  If the histogram is roughly bell‑shaped and the points in the quantile plot lie close to the reference line, the normality assumption is reasonable.  Significant departures (skewness or heavy tails) suggest that a transformation or a different model may be needed. -->
-<!-- ::: -->
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="sec-14_03" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="sec-14_03"><span class="header-section-number">14.3</span> Interpreting the Slope and Intercept</h2>
+<blockquote class="blockquote">
+<p>“Essentially, all models are wrong, but some are useful.” - George Box</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>Guiding question:</em> <em>What do the coefficients of a regression line tell us in context?</em></p>
+</blockquote>
+<p>While the previous section introduced the regression line, here we dig deeper into interpreting its coefficients. The <em>slope</em> <span class="math inline">\(b_1\)</span> tells us how the predicted response changes when the predictor increases by one unit. If <span class="math inline">\(b_1\)</span> is positive, the regression line rises from left to right; if negative, it falls. The magnitude of <span class="math inline">\(b_1\)</span> indicates how steep the line is.</p>
+<p>The <em>intercept</em> <span class="math inline">\(b_0\)</span> is the predicted value of <span class="math inline">\(y\)</span> when <span class="math inline">\(x=0\)</span>. In some situations it has a natural interpretation. For instance, in the business example above, <span class="math inline">\(b_0\approx 12.47\)</span> means that a store with zero advertising dollars is predicted to sell about $12,470 per week (perhaps due to walk‑in customers). In other contexts the intercept may be outside the range of observed <span class="math inline">\(x\)</span> values. In an example of height–weight, an intercept of any value would not be meaningful because nobody has a height of zero inches. In such cases the slope is often the focus and the intercept is treated as a mathematical artifact.</p>
+<section id="examples-across-fields" class="level3">
+<h3 class="anchored" data-anchor-id="examples-across-fields">Examples across fields</h3>
+<ul>
+<li><strong>Medicine:</strong> In pharmacokinetics, the relationship between drug dose (<span class="math inline">\(x\)</span>) and concentration in blood (<span class="math inline">\(y\)</span>) is often modeled linearly over a therapeutic range. A slope of 0.2 means that each additional milligram of drug increases the mean concentration by 0.2 units. The intercept might represent baseline concentration (e.g., residual drug from a previous dose).</li>
+<li><strong>Biology:</strong> When studying growth, you might relate nutrient concentration to plant height. A slope of 1.5 cm per nutrient unit indicates that increasing fertilizer by one unit yields plants 1.5 cm taller on average. If the intercept is negative, it signals that the linear model is extrapolated below the smallest nutrient level and should not be taken literally.</li>
+<li><strong>Business:</strong> In cost analysis, the total cost <span class="math inline">\(y\)</span> can often be written as a fixed cost (<span class="math inline">\(b_0\)</span>) plus a variable cost per unit (<span class="math inline">\(b_1\)</span>). If a company has a fixed cost of $10,000 and spends $5 per unit produced, the regression equation would be <span class="math inline">\(\widehat{y} = 10{,}000 + 5x\)</span>. Here both slope and intercept have clear interpretations.</li>
+</ul>
+</section>
+<section id="inference-for-the-regression-slope" class="level3">
+<h3 class="anchored" data-anchor-id="inference-for-the-regression-slope">Inference for the Regression Slope</h3>
+<blockquote class="blockquote">
+<p><em>Guiding question:</em> <em>How can we quantify uncertainty in our estimate of the slope and test whether the relationship is statistically significant?</em></p>
+</blockquote>
+<p>Estimating the slope from a sample gives us a point estimate, but due to sampling variability we need to quantify its uncertainty. Under the usual regression assumptions (discussed in a later section) the estimated slope <span class="math inline">\(b_1\)</span> follows a t‑distribution centered at the true population slope <span class="math inline">\(\beta_1\)</span>. The spread of this distribution is governed by the <blank>standard error of the slope</blank>, denoted <span class="math inline">\(\mathrm{SE}_{b_1}\)</span>. Software computes this value for us, but it can be expressed in terms of the residuals and the variability of the predictor:</p>
+<p><span class="math display">\[
+\mathrm{SE}_{b_1} = \sqrt{\frac{SSE}{\sum (x_i - \overline{x})^2}}.
+\]</span></p>
+<p>The denominator is the spread of the <span class="math inline">\(x\)</span>-values about their mean, and the numerator is the root mean squared error of the regression (the residual standard deviation).</p>
+<section id="hypothesis-testing-for-the-slope" class="level4">
+<h4 class="anchored" data-anchor-id="hypothesis-testing-for-the-slope">Hypothesis testing for the slope</h4>
+<p>To test whether there is a linear relationship in the population, we set up the hypotheses</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0 &amp;: \beta_1 = 0 \quad \text{(no linear association)},\\
+H_a &amp;: \beta_1 \ne 0 \quad \text{(some linear association)}.
+\end{aligned}
+\]</span></p>
+<p>The test statistic is the ratio of the estimated slope to its standard error:</p>
+<p><span class="math display">\[
+t = \frac{b_1}{\mathrm{SE}_{b_1}},
+\]</span></p>
+<p>which follows a t‑distribution with <span class="math inline">\(n-2\)</span> degrees of freedom under the null hypothesis. A large positive or negative <span class="math inline">\(t\)</span>-value provides evidence against <span class="math inline">\(H_0\)</span>. The P‑value is the probability of observing a <span class="math inline">\(t\)</span>-value as extreme as the computed value if <span class="math inline">\(H_0\)</span> were true. A small P‑value (e.g., less than 0.05) leads us to reject <span class="math inline">\(H_0\)</span>, concluding that the slope is significantly different from zero.</p>
+</section>
+<section id="confidence-interval-for-the-slope" class="level4">
+<h4 class="anchored" data-anchor-id="confidence-interval-for-the-slope">Confidence interval for the slope</h4>
+<p>A <em>confidence interval</em> for <span class="math inline">\(\beta_1\)</span> provides a range of plausible values. A <span class="math inline">\((1-\alpha)100\%\)</span> confidence interval is given by</p>
+<p><span class="math display">\[
+b_1 \,\pm\, t_{(\alpha/2,\,n-2)} \times \mathrm{SE}_{b_1},
+\]</span></p>
+<p>where <span class="math inline">\(t_{(\alpha/2,n-2)}\)</span> is the critical value from the t‑distribution with <span class="math inline">\(n-2\)</span> degrees of freedom. If the interval does not include zero, the sample provides evidence of a non‑zero slope.</p>
+</section>
+<section id="example-age-and-systolic-blood-pressure-1" class="level4">
+<h4 class="anchored" data-anchor-id="example-age-and-systolic-blood-pressure-1">Example: Age and systolic blood pressure</h4>
+<p>Consider again the dataset relating age to systolic blood pressure for 20 adults. Fitting a regression line yields an estimated slope of roughly 0.95 mmHg per year and a standard error of about 0.09. The test statistic <span class="math inline">\(t = 0.95/0.09 \approx 10.8\)</span> is large in magnitude, and the P‑value is less than 0.0001, indicating strong evidence that systolic blood pressure increases with age. A 95% confidence interval for the slope is approximately <span class="math inline">\((0.77,\,1.14)\)</span>, meaning that we are 95% confident that each additional year of age increases mean systolic blood pressure by between 0.77 and 1.14 mmHg.</p>
+<p>In JMP, after selecting <strong>Fit Y by X</strong> and choosing <strong>Fit Line</strong>, the <strong>Parameter Estimates</strong> table lists the slope estimate, its standard error, the <span class="math inline">\(t\)</span>-ratio, the P‑value, and a 95% confidence interval. To perform a slope test, check whether the P‑value for the predictor is below your significance threshold. To report a confidence interval, use the “Lower 95%” and “Upper 95%” entries for the slope.</p>
+</section>
+<section id="example-enzyme-concentration-and-reaction-rate" class="level4">
+<h4 class="anchored" data-anchor-id="example-enzyme-concentration-and-reaction-rate">Example: Enzyme concentration and reaction rate</h4>
+<p>Biologists fit a simple linear regression model relating reaction rate to enzyme concentration. In our earlier sample of 15 observations, the estimated slope was about 0.42 with a standard error of 0.05. The resulting test statistic <span class="math inline">\((0.42/0.05\approx 7.7)\)</span> yields a tiny P‑value (&lt;0.001), indicating a significant positive association. The 95% confidence interval for the slope is roughly <span class="math inline">\((0.30,\,0.53)\)</span>. We therefore estimate that increasing the enzyme concentration by one unit raises the reaction rate by between 0.30 and 0.53 units on average.</p>
+</section>
+<section id="performing-inference-in-jmp-18" class="level4">
+<h4 class="anchored" data-anchor-id="performing-inference-in-jmp-18">Performing inference in JMP 18</h4>
+<p>To obtain confidence intervals and hypothesis tests for the slope in JMP:</p>
+<ol type="1">
+<li><strong>Fit the regression.</strong> Use <strong>Analyze → Fit Y by X</strong>, assign the response variable to <strong>Y</strong> and the predictor to <strong>X</strong>, and click <strong>Fit Line</strong>.</li>
+<li><strong>Examine the Parameter Estimates table.</strong> This table displays the estimate (<span class="math inline">\(b_1\)</span>), its standard error, the <span class="math inline">\(t\)</span>-ratio and P‑value, and 95% confidence limits for each coefficient. A small P‑value for the predictor indicates a significant slope.</li>
+<li><strong>Report the confidence interval.</strong> Use the lower and upper 95% bounds provided for the slope. For different confidence levels, click the red triangle beside <strong>Parameter Estimates</strong>, choose <strong>Confidence Intervals</strong>, and specify the desired level.</li>
+</ol>
+</section>
+</section>
+<section id="recap-2" class="level3">
+<h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Concept/Statistic</strong></th>
+<th><strong>Interpretation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Sample Slope (<span class="math inline">\(b_1\)</span>)</strong></td>
+<td>Change in the predicted response for a one‑unit increase in the predictor; sign indicates direction and magnitude indicates steepness.</td>
+</tr>
+<tr class="even">
+<td><strong>Sample Intercept (<span class="math inline">\(b_0\)</span>)</strong></td>
+<td>Predicted response when the predictor is zero; meaningful only if zero is within or near the observed range.</td>
+</tr>
+<tr class="odd">
+<td><strong><span class="math inline">\(t\)</span>-test for slope</strong></td>
+<td>Test statistic <span class="math inline">\(t=b_1/\mathrm{SE}_{b_1}\)</span> follows a t‑distribution with <span class="math inline">\(n-2\)</span> degrees of freedom under <span class="math inline">\(H_0:\beta_1=0\)</span>; a small P‑value indicates a non‑zero slope.</td>
+</tr>
+<tr class="even">
+<td><strong>Confidence interval for slope</strong></td>
+<td>Interval of the form <span class="math inline">\(b_1 \pm t \times \mathrm{SE}_{b_1}\)</span>; provides a range of plausible values for the population slope. If the interval excludes zero, it suggests a significant linear association.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+<ol type="1">
+<li>In a study of lung function, researchers regress forced expiratory volume (FEV) on patient age using a sample of 25 participants. The estimated slope is 0.12 L/year with a standard error of 0.03. Test <span class="math inline">\(H_0:\beta_1=0\)</span> versus <span class="math inline">\(H_a:\beta_1\ne 0\)</span> at the 0.05 significance level. Construct a 95% confidence interval for the slope and interpret it.</li>
+<li>A nutritionist models the relationship between daily vitamin D intake (mg) and bone density. The estimated slope is −0.05 with a standard error of 0.07 (<span class="math inline">\(n=30\)</span>). What can you conclude about the effect of vitamin D on bone density? Explain.</li>
+<li>For the advertising data, the slope estimate is 1.45 and the 95% confidence interval is approximately <span class="math inline">\((1.28,1.61)\)</span>. How would you interpret this interval in the business context? Would you conclude that advertising has no effect? Why or why not?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The test statistic is <span class="math inline">\(t=0.12/0.03=4\)</span> with <span class="math inline">\(df=25-2=23\)</span>. A <span class="math inline">\(t\)</span>-ratio of 4 yields a P‑value much less than 0.05, so we reject <span class="math inline">\(H_0\)</span> and conclude that age is positively associated with FEV. A 95% confidence interval is <span class="math inline">\(0.12 \pm t_{0.025,\,23}\times 0.03 \approx 0.12 \pm 2.07 \times 0.03\)</span>, or <span class="math inline">\((0.06,\,0.18)\)</span>. We are 95% confident that each additional year of age increases FEV by between 0.06 and 0.18 liters, on average.</li>
+<li>Compute <span class="math inline">\(t = -0.05/0.07 \approx -0.71\)</span> with <span class="math inline">\(df = 30-2=28\)</span>. This value is small in magnitude, and the corresponding P‑value is greater than 0.05. We fail to reject <span class="math inline">\(H_0\)</span>; there is no evidence of a linear relationship between vitamin D intake and bone density in this sample. The 95% confidence interval (not requested) would include zero, reinforcing this conclusion.</li>
+<li>The interval <span class="math inline">\((1.28,1.61)\)</span> means that for every additional $1{,}000 spent on advertising, weekly sales are estimated to increase by between about $1.28k and $1.61k. Because the interval is entirely above zero, we conclude that advertising has a positive effect on sales. There is strong evidence against the null hypothesis of no effect, so it would be incorrect to claim that advertising has no impact.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-14_04" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="sec-14_04"><span class="header-section-number">14.4</span> Assessing the Fit</h2>
+<blockquote class="blockquote">
+<p>“If we did all the things we are capable of, we would literally astound ourselves.” - Thomas Edison</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>Guiding question:</em> <em>How much of the variability in the response is explained by our regression model?</em></p>
+</blockquote>
+<p>We have already discussed a measure of how well a linear model explains the association between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>.</p>
+<p>A second measure of how well the model fits the data involves measuring the amount of <em>variability</em> in <span class="math inline">\(y\)</span> that is explained by the model using <span class="math inline">\(x\)</span>.</p>
+<p>We start by examining the variability of the variable we want to learn about. We want to learn about the response variable <span class="math inline">\(y\)</span>. One way to measure the variability of <span class="math inline">\(y\)</span> is with <span class="math display">\[
+SS_{yy} = \sum\left(y_i-\bar{y}\right)^2
+\]</span></p>
+<p>Note that <span class="math inline">\(SS_{yy}\)</span> does not include the model or <span class="math inline">\(x\)</span>. It is just a measure of how <span class="math inline">\(y\)</span> deviates from its mean <span class="math inline">\(\bar{y}\)</span>.</p>
+<p>We also have the variability of the points about the <blank>line</blank>. We can measure this with the sum of squares error <span class="math display">\[
+SSE = \sum \left(y_i - \hat{y}_i\right)^2
+\]</span></p>
+<p>Note that SSE does include <span class="math inline">\(x\)</span>. This is because the fitted line <span class="math inline">\(\hat{y}\)</span> is a function of <span class="math inline">\(x\)</span>.</p>
+<p>Here are a couple of key points regarding sums of squares:</p>
+<ul>
+<li>If <span class="math inline">\(x\)</span> provides little to no useful information for predicting <span class="math inline">\(y\)</span>, then <span class="math inline">\(SS_{yy}\)</span> and <span class="math inline">\(SSE\)</span> will be nearly <blank>equal</blank>.</li>
+<li>If <span class="math inline">\(x\)</span> does provide valuable information for predicting <span class="math inline">\(y\)</span>, then <span class="math inline">\(SSE\)</span> will be <blank>smaller</blank> than <span class="math inline">\(SS_{yy}\)</span>.</li>
+<li>In the extreme case where all points lie exactly on the least squares line, <span class="math inline">\(SSE = 0\)</span>.</li>
+</ul>
+<p>Here’s an example to illustrate:</p>
+<p>Suppose we have data for two variables, hours studied (x) and test scores (y). If studying time doesn’t help predict the test score, the variation in test scores (measured by <span class="math inline">\(SS_{yy}\)</span>) will be similar to the error in the prediction (measured by <span class="math inline">\(SSE\)</span>). However, if studying time is a good predictor, the prediction errors will be much smaller, making <span class="math inline">\(SSE\)</span> significantly smaller than <span class="math inline">\(SS_{yy}\)</span>. If the relationship between study time and test scores is perfect, then the error would be zero, resulting in <span class="math inline">\(SSE = 0\)</span>.</p>
+<section id="proportion-of-variation-explained" class="level3">
+<h3 class="anchored" data-anchor-id="proportion-of-variation-explained">Proportion of Variation Explained</h3>
+<p>We want to explain as much of the variation of <span class="math inline">\(y\)</span> as possible. So we want to know just how much of that variation is explained by using linear regression model with <span class="math inline">\(x\)</span>. We can quantify this variation explained by taking the difference <span id="eq-w2_17"><span class="math display">\[
+\begin{align}
+    SSR = SS_{yy}-SSE
+\end{align}
+\tag{14.6}\]</span></span></p>
+<p>SSR is called the sum of squares <blank>regression</blank>.</p>
+<p>We calculate the <em>proportion</em> of the variation of <span class="math inline">\(y\)</span> explained by the regression model using <span class="math inline">\(x\)</span> by calculating<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span id="eq-w2_18"><span class="math display">\[
+\begin{align}
+    r^2 = \frac{SSR}{SS_{yy}}
+\end{align}
+\tag{14.7}\]</span></span></p>
+<p><span class="math inline">\(r^2\)</span> is called the coefficient of <em>determination</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="interpreting-r2" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-r2">Interpreting <span class="math inline">\(R^2\)</span></h3>
+<p>Suppose <span class="math inline">\(r=0.93\)</span> in our blood‑pressure example. Then <span class="math inline">\(R^2 = 0.93^2 \approx 0.86\)</span>. This means that about 86% of the variability in systolic blood pressure is explained by age through a linear relationship. The remaining 14% represents variability due to other factors and random noise.</p>
+<p>In the advertising example with <span class="math inline">\(r=0.98\)</span>, <span class="math inline">\(R^2\approx 0.96\)</span>, suggesting that advertising spending explains 96% of the variation in sales. High values of <span class="math inline">\(R^2\)</span> do not prove causation, and an excessively large <span class="math inline">\(R^2\)</span> can sometimes signal overfitting or the influence of an outlier. Always inspect the scatterplot and residuals.</p>
+</section>
+<section id="getting-r2-in-jmp" class="level3">
+<h3 class="anchored" data-anchor-id="getting-r2-in-jmp">Getting <span class="math inline">\(R^2\)</span> in JMP</h3>
+<p>After fitting a regression line in JMP (via <strong>Fit Y by X</strong> and <strong>Fit Line</strong>), the <strong>Summary of Fit</strong> table shows several statistics. The row labeled <strong>R Square</strong> gives <span class="math inline">\(R^2\)</span>. The <strong>Root Mean Square Error</strong> (RMSE) is the square root of the mean squared residuals and provides a measure of typical prediction error in the units of the response.</p>
+</section>
+<section id="recap-3" class="level3">
+<h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Statistic</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Coefficient of determination (<span class="math inline">\(R^2\)</span>)</strong></td>
+<td>The fraction of the variation in the response that can be explained by its linear relationship with the predictor.</td>
+</tr>
+<tr class="even">
+<td><strong>Root mean square error (RMSE)</strong></td>
+<td>The square root of the average squared residuals; provides a typical size of prediction error in the response variable’s units.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-3" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+<ol type="1">
+<li>If <span class="math inline">\(r=0.50\)</span> for a pair of variables, what is <span class="math inline">\(R^2\)</span>? Interpret this value in context.</li>
+<li>In the enzyme concentration example, the correlation was roughly 0.94. What proportion of the variability in reaction rate does the linear model explain? What percentage remains unexplained?</li>
+<li>Can an <span class="math inline">\(R^2\)</span> value ever be negative? Explain why or why not.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Since <span class="math inline">\(R^2 = r^2\)</span>, with <span class="math inline">\(r=0.50\)</span> we get <span class="math inline">\(R^2 = 0.25\)</span>. This means that about 25% of the variation in the response is explained by its linear relationship with the predictor. The remaining 75% is due to other factors or random variation.</li>
+<li><span class="math inline">\(R^2 = 0.94^2 \approx 0.88\)</span>, so about 88% of the variability in reaction rate is explained by enzyme concentration. Roughly 12% remains unexplained by this simple linear model.</li>
+<li>No.&nbsp;<span class="math inline">\(R^2\)</span> is defined as the square of the correlation coefficient (or equivalently, as 1 minus the ratio of the residual sum of squares to the total sum of squares) and therefore must lie between 0 and 1. A negative value would have no interpretation in this context.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-14_05" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="sec-14_05"><span class="header-section-number">14.5</span> Residual Analysis</h2>
+<blockquote class="blockquote">
+<p>“`…the statistician knows…that in nature there never was a normal distribution, there never was a straight line, yet with normal and linear assumptions, known to be false, he can often derive results which match, to a useful approximation, those found in the real world.” - George Box</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><em>Guiding question:</em> <em>How do we check whether our regression model is appropriate?</em></p>
+</blockquote>
+<p>A regression line is a simplification of reality. <strong>Residuals</strong>—the differences between observed and predicted values—tell us how well the model fits each observation. By plotting and analyzing residuals we can assess the validity of our linear model and its underlying assumptions.</p>
+<section id="residual-plots" class="level3">
+<h3 class="anchored" data-anchor-id="residual-plots">Residual plots</h3>
+<p>The four main assumptions of simple linear regression are:</p>
+<ol type="1">
+<li><strong>Linearity:</strong> The relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is linear. We assess this by examining the scatterplot and the residuals; a residual plot (residuals vs.&nbsp;fitted values) should show no systematic pattern.</li>
+<li><strong>Independence of errors:</strong> Residuals are independent of each other. This is mainly a study‑design issue, but a residual plot with no obvious patterns supports independence.</li>
+<li><strong>Normality of errors:</strong> Residuals are approximately normally distributed. Check this assumption with a normal probability plot or a histogram of the residuals.</li>
+<li><strong>Equal variances (homoscedasticity):</strong> The spread of residuals is roughly constant across all fitted values. On a residual plot, the vertical spread should be similar across the range of <span class="math inline">\(x\)</span>; funnels or megaphone shapes indicate heteroscedasticity.</li>
+</ol>
+<p>Violations of these assumptions can invalidate inference. For example, a curved pattern in the residual plot suggests that the relationship is nonlinear, calling for a transformation or a different model. Non‑constant variance may require weighted regression or a transformation of the response.</p>
+<p>If the linear model is appropriate, the residuals should be randomly scattered around zero with constant variance. You can also create a normal probability plot of the residuals. In JMP, select <strong>Save Residuals</strong> in the regression output and then use <strong>Graph → Distribution</strong> or <strong>Analyze → Fit Y by X</strong> to examine the residuals.</p>
+</section>
+<section id="conducting-residual-analysis-in-jmp" class="level3">
+<h3 class="anchored" data-anchor-id="conducting-residual-analysis-in-jmp">Conducting residual analysis in JMP</h3>
+<ol type="1">
+<li><strong>Save residuals.</strong> In the <strong>Fit Y by X</strong> output window, click the red triangle ► and choose <strong>Save Residuals</strong>. A new column of residuals appears in your data table.</li>
+<li><strong>Plot residuals vs.&nbsp;fitted values.</strong> Choose <strong>Graph → Graph Builder</strong>, drag the fitted values (predicted <span class="math inline">\(y\)</span>) to the X‑axis and residuals to the Y‑axis, and select the <em>Scatter Plot</em> element. The plot should show no obvious pattern if the linearity and equal‑variance assumptions are satisfied.</li>
+<li><strong>Check normality.</strong> Use <strong>Analyze → Distribution</strong> on the residuals column. Inspect the histogram and normal quantile plot. If the residuals deviate greatly from normality, consider transformations or nonparametric methods.</li>
+</ol>
+</section>
+<section id="recap-4" class="level3">
+<h3 class="anchored" data-anchor-id="recap-4">Recap</h3>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Concept</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Residual (error)</strong></td>
+<td>The difference between an observed response and the value predicted by the regression line.</td>
+</tr>
+<tr class="even">
+<td><strong>Residual plot</strong></td>
+<td>Scatterplot of residuals vs.&nbsp;fitted values; used to check linearity and constant variance assumptions.</td>
+</tr>
+<tr class="odd">
+<td><strong>Equal variance (homoscedasticity)</strong></td>
+<td>Assumption that residuals have constant variance across levels of the predictor; checked by looking for uniform spread in residual plots.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-4" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-4">Check your understanding</h3>
+<ol type="1">
+<li>Describe what you would look for in a residual vs.&nbsp;fitted plot to decide whether the linearity assumption is satisfied.</li>
+<li>Why is it important that residuals have constant variance? What problems arise if this assumption is violated?</li>
+<li>Explain how you would check the normality of residuals in JMP.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>A residual vs.&nbsp;fitted plot should show residuals randomly scattered around zero with no systematic pattern. If you see a curve, clusters or a funnel shape, the linearity assumption may be violated.</li>
+<li>Constant variance ensures that the model’s prediction errors are equally reliable across all values of the predictor. If the variance increases or decreases with the fitted values (heteroscedasticity), the standard errors of the coefficients may be biased, leading to misleading inference. In such cases you might transform the response or use weighted least squares.</li>
+<li>After saving residuals in JMP, use <strong>Analyze → Distribution</strong> to generate a histogram and normal quantile plot. If the histogram is roughly bell‑shaped and the points in the quantile plot lie close to the reference line, the normality assumption is reasonable. Significant departures (skewness or heavy tails) suggest that a transformation or a different model may be needed.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-14_06" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="sec-14_06"><span class="header-section-number">14.6</span> Prediction Intervals and Confidence Intervals</h2>
+<blockquote class="blockquote">
+<p>“Our greatest fear should not be of failure, but of succeeding at something that doesn’t really matter.” - D.L. Moody</p>
+</blockquote>
+<section id="the-residual-standard-deviation" class="level3">
+<h3 class="anchored" data-anchor-id="the-residual-standard-deviation">The Residual Standard Deviation</h3>
+<p>Recall that the sample prediction equation <span class="math display">\[
+\begin{align*}
+    { \hat y = b_0 + b_1 x }
+\end{align*}
+\]</span> estimates a population regression equation, <span class="math display">\[
+\begin{align*}
+{ y = \beta_0 + \beta_1 x +\varepsilon}
+\end{align*}
+\]</span></p>
+<p>For statistical inference, the regression model also assumes that the conditional distribution of <span class="math inline">\(y\)</span> at a fixed value of <span class="math inline">\(x\)</span> is normal, with the same standard deviation at each <span class="math inline">\(x\)</span> (the homoscedasticity assumption discussed in the previous section).</p>
+<p>This standard deviation, denoted by <span class="math inline">\(\sigma\)</span>, refers to the variability of <span class="math inline">\(y\)</span> values for all subjects with the same value of <span class="math inline">\(x\)</span>.</p>
+<p>This is a parameter that can be estimated from the data.</p>
+<p>The estimate of <span class="math inline">\(\sigma\)</span> uses <span class="math display">\[
+\begin{align*}
+    { \sum \left(y-\hat y\right)^2}
+\end{align*}
+\]</span> the residual sum of squares, which summarizes sample variability about the regression line.</p>
+<p>The estimate, called the residual standard deviation, is <span class="math display">\[
+\begin{align*}
+    {s = \sqrt{\frac{\sum \left(y-\hat y\right)^2}{n-2}} }
+\end{align*}
+\]</span></p>
+<p>It describes the typical size of the residuals. The <span class="math inline">\(n - 2\)</span> term in the denominator is the df value of the <span class="math inline">\(t\)</span> distribution used for inference about <span class="math inline">\(\beta_1\)</span> in the previous section.</p>
+</section>
+<section id="confidence-and-prediction-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-and-prediction-intervals">Confidence and Prediction Intervals</h3>
+<p>If we are satisfied that a useful model has been found, we are ready to use the model for estimation and prediction.</p>
+<p>We have already seen how to estimate the mean value of <span class="math inline">\(y\)</span> given some value of <span class="math inline">\(x\)</span>. For example, if <span class="math inline">\(\hat{y}=-9.2+0.4x\)</span>, then an estimate for the mean value of <span class="math inline">\(y\)</span> at <span class="math inline">\(x=65\)</span> is <span class="math display">\[
+\begin{align*}
+    { \hat{y}=-9.2+0.4(65) = 16.8  }
+\end{align*}
+\]</span></p>
+<p>If we want to predict a new value of <span class="math inline">\(y\)</span> for some value of <span class="math inline">\(x\)</span>, then again we can use the regression line. For the same example: <span class="math display">\[
+\begin{align*}
+    { \hat{y}=-9.2+0.4(65) = 16.8  }
+\end{align*}
+\]</span></p>
+<p>So we estimate the mean and predict for an individual value in the same way. What is different in the two uses of regression involves the variability.</p>
+<p>What has greater variability, the mean of <span class="math inline">\(y\)</span> or a single value of <span class="math inline">\(y\)</span>?</p>
+<p>The mean will have <blank>less</blank> variability than an individual value.</p>
+</section>
+<section id="sampling-errors-for-the-estimator-of-the-mean-of-y-and-the-predictor-of-an-individual-new-value-of-y" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-errors-for-the-estimator-of-the-mean-of-y-and-the-predictor-of-an-individual-new-value-of-y">Sampling Errors for the Estimator of the Mean of <span class="math inline">\(y\)</span> and the Predictor of an Individual New Value of <span class="math inline">\(y\)</span></h3>
+<p>The standard deviation of the sampling distribution of the estimator <span class="math inline">\(\hat y\)</span> of the mean value of <span class="math inline">\(y\)</span> at a specific value of <span class="math inline">\(x\)</span> , say <span class="math inline">\(x_p\)</span>, is <span class="math display">\[
+\begin{align*}
+\sigma_{\hat{y}} &amp; =\sigma\sqrt{\frac{1}{n}+\frac{\left(x_{p}-\bar{x}\right)^{2}}{SS_{xx}}}
+\end{align*}
+\]</span></p>
+<p>We refer to <span class="math inline">\(\sigma_{\hat y}\)</span> as the standard deviation of <span class="math inline">\(\hat y\)</span>.</p>
+<p>The standard deviation of the prediction error for the predictor <span class="math inline">\(\hat y\)</span> of an individual new <span class="math inline">\(y\)</span> value at a specific value of <span class="math inline">\(x\)</span> is <span class="math display">\[
+\begin{align*}
+\sigma_{\left(y-\hat{y}\right)} &amp; =\sigma\sqrt{1+\frac{1}{n}+\frac{\left(x_{p}-\bar{x}\right)^{2}}{SS_{xx}}}
+\end{align*}
+\]</span></p>
+<p>We refer to <span class="math inline">\(\sigma_{(y-\hat y)}\)</span> as the standard deviation of prediction.</p>
+<p>The true value of <span class="math inline">\(\sigma\)</span> is rarely known, so we estimate <span class="math inline">\(\sigma\)</span> by <span class="math inline">\(s\)</span>.</p>
+<p>We can then construct the <blank>confidence interval</blank> for the <blank>mean</blank> value of <span class="math inline">\(y\)</span> at <span class="math inline">\(x=x_p\)</span> as <span class="math display">\[
+\begin{align*}
+\hat{y} &amp; \pm t_{\alpha/2}s\sqrt{\frac{1}{n}+\frac{\left(x_{p}-\bar{x}\right)^{2}}{SS_{xx}}}
+\end{align*}
+\]</span></p>
+<p>The <blank>prediction interval</blank> for an <blank>individual</blank> new value of <span class="math inline">\(y\)</span> at <span class="math inline">\(x=x_p\)</span> is <span class="math display">\[
+\begin{align*}
+\hat{y} &amp; \pm t_{\alpha/2}s\sqrt{1+\frac{1}{n}+\frac{\left(x_{p}-\bar{x}\right)^{2}}{SS_{xx}}}
+\end{align*}
+\]</span></p>
+<p>Note that the prediction interval for an individual new value of <span class="math inline">\(y\)</span> is always <blank>wider</blank> than the corresponding confidence interval for the mean value of <span class="math inline">\(y\)</span>.</p>
+<p>The data for female athlete on the bench press can be found in the file .</p>
+<p>The response variable is the maximum bench press and the explanatory variable is the number of bench press reps of 60 lbs.</p>
+<p>JMP output:</p>
+<p><img src="images/12_07_female_benchpress_regression.png" class="img-fluid"></p>
+<p>Suppose we want to make a confidence interval for the mean bench press for all those who can do 11 reps at 60 lbs. Also, suppose we want a prediction interval for one athlete who can do 11 reps at 60 lbs.</p>
+<p><img src="images/12_08_female_benchpress_intervals.png" class="img-fluid"></p>
+<p>Caution: We do not want to <blank>extrapolate</blank> when conducting a regression analysis. That is, we do not want to construct confidence intervals or prediction intervals for values of <span class="math inline">\(x\)</span> that are outside the range of the <span class="math inline">\(x\)</span> values we had in our sample.</p>
+<p>For example, below is the scatterplot for the benchpress data.</p>
+<p><img src="images/12_04_female_bench_fit.png" class="img-fluid"></p>
+<p>Note that we do not have any athlete who can do 40 reps or more at 60 lbs. So to use our estimated model to predict at say 50 reps would be extrapolation. We should not do this in regression analysis.</p>
+<hr>
+<p><img src="images/correlation.png" class="img-fluid"></p>
 
 
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>In simple linear regression, it can be shown that this quantity is equal to the square of the simple linear coefficient of correlation <span class="math inline">\(r\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note that some software will denote the coefficient of determination as <span class="math inline">\(R^2\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1526,7 +1780,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1558,48 +1823,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1609,17 +1837,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1631,129 +1850,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1797,7 +1894,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1823,32 +1919,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1909,7 +1979,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
