@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 2381 Introductory Statistical Methods - 2&nbsp; Collecting Data</title>
+<title>2&nbsp; Collecting Data – STA 2381 Introductory Statistical Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,17 +35,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -54,74 +60,75 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<style type="text/css">
-.sidebar .chapter-number {
-color: #FFB81c;
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
 }
-freeblank {
-  color: transparent;
-  cursor: pointer;
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
 }
-freeblank.clicked {
-  color: red;
-}
-blank {
-  display: inline-block; 
-  position: relative;
-  padding: 0 10px;
-  color: transparent;
-  cursor: pointer;
-}
-blank::before {
-  content: ''; /* Creates a custom underline */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px; /* Thickness of the underline */
-  background-color: black; /* Color of the underline */
-}
-blank.clicked {
-  color: red;
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
 }
 </style>
-<script>
-document.addEventListener('click', (event) => {
-  if (event.target.tagName === 'BLANK') {
-    event.target.classList.add('clicked');
-  }
-});
-document.addEventListener('click', (event) => {
-  if (event.target.tagName === 'FREEBLANK') {
-    event.target.classList.add('clicked');
-  }
-});
-</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href=".center-panel.quarto-layout-panel {
+  justify-content: center;
+  column-gap: 1rem;
+}">
 </head>
 
 <body class="nav-sidebar docked">
-
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Collecting Data</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Collecting Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -130,7 +137,7 @@ document.addEventListener('click', (event) => {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./"></a> 
@@ -168,82 +175,10 @@ document.addEventListener('click', (event) => {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Collecting Data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./05.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Discrete Probability Distributions</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Continuous Probability Distributions</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sampling Distributions</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Estimation and Confidence Intervals</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesis Testing: The Basics</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./11.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Hypothesis Testing with Categorical Response</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./12.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Methods for Quantitative Response Variables – One and Two Groups</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./13.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Analysis of Variance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Correlation and Simple Linear Regression</span></span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -252,22 +187,21 @@ document.addEventListener('click', (event) => {
   <ul>
   <li><a href="#sec-sampling_methods" id="toc-sec-sampling_methods" class="nav-link active" data-scroll-target="#sec-sampling_methods"><span class="header-section-number">2.1</span> Sampling Methods</a>
   <ul class="collapse">
-  <li><a href="#probability-vs.-nonprobability-sampling" id="toc-probability-vs.-nonprobability-sampling" class="nav-link" data-scroll-target="#probability-vs.-nonprobability-sampling">Probability vs.&nbsp;non‑probability sampling</a></li>
+  <li><a href="#probability-vs.-non-probability-sampling" id="toc-probability-vs.-non-probability-sampling" class="nav-link" data-scroll-target="#probability-vs.-non-probability-sampling">Probability vs.&nbsp;non-probability sampling</a></li>
   <li><a href="#simple-random-sampling-srs" id="toc-simple-random-sampling-srs" class="nav-link" data-scroll-target="#simple-random-sampling-srs">Simple random sampling (SRS)</a></li>
   <li><a href="#systematic-sampling" id="toc-systematic-sampling" class="nav-link" data-scroll-target="#systematic-sampling">Systematic sampling</a></li>
   <li><a href="#stratified-sampling" id="toc-stratified-sampling" class="nav-link" data-scroll-target="#stratified-sampling">Stratified sampling</a></li>
   <li><a href="#cluster-sampling" id="toc-cluster-sampling" class="nav-link" data-scroll-target="#cluster-sampling">Cluster sampling</a></li>
-  <li><a href="#nonprobability-methods" id="toc-nonprobability-methods" class="nav-link" data-scroll-target="#nonprobability-methods">Non‑probability methods</a></li>
-  <li><a href="#working-in-jmp-pro-17" id="toc-working-in-jmp-pro-17" class="nav-link" data-scroll-target="#working-in-jmp-pro-17">Working in JMP&nbsp;Pro&nbsp;17</a></li>
+  <li><a href="#non-probability-methods" id="toc-non-probability-methods" class="nav-link" data-scroll-target="#non-probability-methods">Non-probability methods</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
   </ul></li>
   <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design"><span class="header-section-number">2.2</span> Experimental Design</a>
   <ul class="collapse">
   <li><a href="#principles-of-good-experimental-design" id="toc-principles-of-good-experimental-design" class="nav-link" data-scroll-target="#principles-of-good-experimental-design">Principles of good experimental design</a></li>
+  <li><a href="#putting-the-principles-together" id="toc-putting-the-principles-together" class="nav-link" data-scroll-target="#putting-the-principles-together">Putting the principles together</a></li>
   <li><a href="#designing-unbiased-survey-questions" id="toc-designing-unbiased-survey-questions" class="nav-link" data-scroll-target="#designing-unbiased-survey-questions">Designing unbiased survey questions</a></li>
-  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together">Putting it all together</a></li>
-  <li><a href="#working-in-jmp-pro-17-1" id="toc-working-in-jmp-pro-17-1" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-1">Working in JMP&nbsp;Pro&nbsp;17</a></li>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link" data-scroll-target="#why-this-matters">Why this matters</a></li>
   <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
   <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
   </ul></li>
@@ -276,7 +210,6 @@ document.addEventListener('click', (event) => {
   <li><a href="#observational-studies-watching-without-intervening" id="toc-observational-studies-watching-without-intervening" class="nav-link" data-scroll-target="#observational-studies-watching-without-intervening">Observational studies: watching without intervening</a></li>
   <li><a href="#experiments-deliberately-changing-something" id="toc-experiments-deliberately-changing-something" class="nav-link" data-scroll-target="#experiments-deliberately-changing-something">Experiments: deliberately changing something</a></li>
   <li><a href="#why-observational-studies-can-mislead" id="toc-why-observational-studies-can-mislead" class="nav-link" data-scroll-target="#why-observational-studies-can-mislead">Why observational studies can mislead</a></li>
-  <li><a href="#working-with-observational-data-in-jmp-pro-17" id="toc-working-with-observational-data-in-jmp-pro-17" class="nav-link" data-scroll-target="#working-with-observational-data-in-jmp-pro-17">Working with observational data in JMP&nbsp;Pro&nbsp;17</a></li>
   <li><a href="#recap-2" id="toc-recap-2" class="nav-link" data-scroll-target="#recap-2">Recap</a></li>
   <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
   </ul></li>
@@ -285,7 +218,6 @@ document.addEventListener('click', (event) => {
   <li><a href="#how-bias-differs-from-sampling-error" id="toc-how-bias-differs-from-sampling-error" class="nav-link" data-scroll-target="#how-bias-differs-from-sampling-error">How bias differs from sampling error</a></li>
   <li><a href="#common-sources-of-bias" id="toc-common-sources-of-bias" class="nav-link" data-scroll-target="#common-sources-of-bias">Common sources of bias</a></li>
   <li><a href="#mitigating-bias" id="toc-mitigating-bias" class="nav-link" data-scroll-target="#mitigating-bias">Mitigating bias</a></li>
-  <li><a href="#working-in-jmp-pro-17-2" id="toc-working-in-jmp-pro-17-2" class="nav-link" data-scroll-target="#working-in-jmp-pro-17-2">Working in JMP&nbsp;Pro&nbsp;17</a></li>
   <li><a href="#recap-3" id="toc-recap-3" class="nav-link" data-scroll-target="#recap-3">Recap</a></li>
   <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
   </ul></li>
@@ -310,75 +242,209 @@ document.addEventListener('click', (event) => {
   </div>
   
 
+
 </header>
+
 
 <section id="sec-sampling_methods" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="sec-sampling_methods"><span class="header-section-number">2.1</span> Sampling Methods</h2>
 <blockquote class="blockquote">
 <p>“And I knew exactly what to do. But in a much more real sense, I had no idea what to do.” - Michael Scott</p>
 </blockquote>
-<p><strong>Guiding question:</strong> <em>What makes a sample “representative”?</em></p>
-<p>A sample is just a subset of your population, but not every subset is equally useful. A <blank>representative sample</blank> matches the important characteristics of the population so well that if you analysed the sample’s data, you would reach the same conclusions you would have by measuring everyone. In other words, it’s a smaller group whose answers reflect those of the larger group. Designing studies that produce representative samples is the heart of statistics: it lets us reduce costs and time without sacrificing credibility.</p>
-<section id="probability-vs.-nonprobability-sampling" class="level3">
-<h3 class="anchored" data-anchor-id="probability-vs.-nonprobability-sampling">Probability vs.&nbsp;non‑probability sampling</h3>
+<p>A sample is a subset of a population, but not every subset is equally informative. A <strong>representative sample</strong> mirrors the key characteristics of the population closely enough that analyzing the sample leads to the same conclusions you would reach by studying the entire population. Put differently, it is a smaller group whose results accurately reflect those of the larger group. Designing studies that produce representative samples lies at the core of statistics-it allows us to save time and resources without compromising the credibility of our conclusions.</p>
+<section id="probability-vs.-non-probability-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="probability-vs.-non-probability-sampling">Probability vs.&nbsp;non-probability sampling</h3>
 <p>There are two big approaches to sampling:</p>
 <ul>
-<li>In <blank>probability sampling</blank>, you use random mechanisms so that every member of the population has a known chance of being selected. This ensures that any differences between the sample and the population are due to random sampling error, not researcher choice, and makes it possible to quantify uncertainty in estimates.</li>
-<li>In <blank>non‑probability sampling</blank>, you choose participants based on convenience, volunteer responses, judgement or quotas. These methods are cheaper and often necessary for exploratory or qualitative work, but they make it hard to know whether the sample really reflects the population. Lack of a representative sample reduces the validity of conclusions and can introduce sampling bias.</li>
+<li>In <strong>probability sampling</strong>, you use random mechanisms so that every member of the population has a known chance of being selected. This ensures that any differences between the sample and the population are due to random sampling error, not researcher choice, and makes it possible to quantify uncertainty in estimates.</li>
+<li>In <strong>non-probability sampling</strong>, you choose participants based on convenience, volunteer responses, judgement or quotas. These methods are cheaper and often necessary for exploratory or qualitative work, but they make it hard to know whether the sample really reflects the population. Lack of a representative sample reduces the validity of conclusions and can introduce sampling bias.</li>
 </ul>
 <p>Whenever you want to generalize, probability sampling is the gold standard.</p>
 </section>
 <section id="simple-random-sampling-srs" class="level3">
 <h3 class="anchored" data-anchor-id="simple-random-sampling-srs">Simple random sampling (SRS)</h3>
-<p>In a <blank>simple random sample</blank> (SRS), each individual in the population has an equal chance of being selected. You start with a complete sampling frame (a list of all units) and use a random number generator to pick your sample. In practice, SRS can be done with or without replacement; without replacement avoids picking the same unit twice. SRS is conceptually simple, but it requires a complete list and may be impractical when populations are spread out or access is difficult.</p>
-<p><em>Example:</em> Suppose you want to survey 100 employees of a social media marketing company out of 1,000. You assign each employee a number from 1 to 1,000 and use a random number generator to select 100 numbers. Those employees become your sample. Because each employee had the same chance of selection, the sample is likely to be representative if the sample size is large enough.</p>
+<p>In a <strong>simple random sample (SRS)</strong>, every individual in the population has an equal probability of being selected, and every possible sample of a given size is equally likely. To carry out an SRS, you must first have a <strong>sampling frame</strong>, which is a complete list of all units in the population. You then use a random mechanism-such as a random number generator or random number table-to choose the sample.</p>
+<p>In practice, simple random sampling can be done <strong>with replacement</strong> or <strong>without replacement</strong>. Sampling without replacement is far more common in real studies, since it prevents the same individual from being selected more than once. Sampling with replacement is sometimes useful in theoretical settings, but it is rarely appropriate when collecting data from people or physical units.</p>
+<p>The main advantage of an SRS is its fairness and transparency: because selection is purely random, it avoids systematic bias in who is included. However, SRS also has limitations. It requires a complete and accurate sampling frame, which may not exist or may be difficult to obtain. In addition, when a population is geographically dispersed or hard to reach, implementing an SRS can be costly or impractical.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose you want to survey 100 employees of a social media marketing company out of 1,000. You assign each employee a number from 1 to 1,000 and use a random number generator to select 100 distinct numbers. The employees corresponding to those numbers form your sample. Because each employee had an equal chance of being selected, the resulting sample is likely to be representative, especially if the sample size is sufficiently large.</p>
+<p>To do this in JMP, suppose you have the list of 1,000 names like you see below.</p>
+<p><img src="images/ex0201_list.png" class="img-fluid"></p>
+<p>If we wanted to get a random sample of 20, we would just click on Tables→Subset.</p>
+<p><img src="images/ex0201_subset.png" class="img-fluid"></p>
+<p>This will open up the following window.</p>
+<p><img src="images/ex0201_window.png" class="img-fluid"></p>
+<p>Selecting ‘Random - sample size’, entering the desired sample size in the box next to it, and then clicking ‘OK’ will make a new data table with 20 of the names selected at random.</p>
+<p>Note the option above labeled ‘Random - sampling rate’ will allow you to choose a proportion of the population to randomly sample instead of choosing a sample size.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A university wants to estimate the average number of hours per week that undergraduates spend studying. The registrar has a list of all 12,000 enrolled undergraduates. Each student is assigned an ID number, and a computer randomly selects 400 unique IDs. Those students are contacted and asked to report their weekly study hours. This procedure produces a simple random sample because every student had the same chance of being included.</p>
+</div>
+</div>
 </section>
 <section id="systematic-sampling" class="level3">
 <h3 class="anchored" data-anchor-id="systematic-sampling">Systematic sampling</h3>
-<p><blank>Systematic sampling</blank> makes SRS easier by selecting every <span class="math inline">\(k\)</span>-th unit from an ordered list. For example, pick a random starting point between 1 and 10, then choose every 10th person. If the list order has no hidden pattern, this approach approximates SRS while being cheaper to implement. However, if the ordering itself is related to the variable of interest (e.g., employees grouped by seniority), systematic sampling can inadvertently oversample or undersample certain groups.</p>
-<p><em>Example:</em> All employees of a company are listed in alphabetical order. You randomly select a starting point among the first ten names—say, the 6th person—and then select every 10th person on the list (6, 16, 26, 36, …) until you have 100 employees. This produces a sample that is easy to implement but may be risky if the list order coincides with job role or seniority.</p>
+<p><strong>Systematic sampling</strong> is a practical alternative to simple random sampling that reduces logistical effort while preserving much of the randomness. Instead of selecting units entirely at random, you begin with an ordered sampling frame and choose every <span class="math inline">\(k\)</span>-th unit, where <span class="math inline">\(k\)</span> is the <em>sampling interval</em>. The value of <span class="math inline">\(k\)</span> is typically determined by dividing the population size (<span class="math inline">\(N\)</span>) by the desired sample size (<span class="math inline">\(n\)</span>) (so <span class="math inline">\(k \approx N/n\)</span>). To introduce randomness, you first select a random starting point between 1 and <span class="math inline">\(k\)</span>, then continue by selecting units at fixed intervals.</p>
+<p>When the ordering of the list is unrelated to the variable being studied, systematic sampling closely approximates a simple random sample. It is often faster, easier to explain, and simpler to implement-especially in field settings or large administrative lists-because it avoids repeated random number generation.</p>
+<p>However, systematic sampling carries an important risk: <strong>periodicity</strong>. If the list has a repeating structure or is sorted in a way that is correlated with the outcome of interest, the method can unintentionally overrepresent some types of units and underrepresent others. For example, if employees are grouped by department, shift, or seniority, selecting every <span class="math inline">\(k\)</span>-th name may systematically favor or exclude certain groups. In such cases, the resulting sample may be biased, even though the selection rule appears objective.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All employees of a company are listed in alphabetical order. You want to sample 100 employees from a list of 1,000, so you set <span class="math inline">\(k = 10\)</span>. You randomly select a starting position among the first ten names-say, the 6th person-and then select every 10th person on the list (6, 16, 26, 36, …) until 100 employees are chosen. This approach is easy to carry out and avoids duplicates, but it may be problematic if the alphabetical ordering aligns with job roles, seniority, or family relationships, which could distort the representativeness of the sample.</p>
+</div>
+</div>
 </section>
 <section id="stratified-sampling" class="level3">
 <h3 class="anchored" data-anchor-id="stratified-sampling">Stratified sampling</h3>
-<p>In <blank>stratified sampling</blank>, you first divide the population into subgroups (<blank>strata</blank>) based on an important characteristic (e.g., gender, age, region). You then sample randomly within each stratum in proportion to its size. Stratification ensures that each subgroup is properly represented and often reduces sampling error, especially when differences between strata are substantial. The trade‑off is increased complexity and cost, since you must track and sample separately within each stratum.</p>
-<p><em>Example:</em> A company has 800 junior employees and 200 senior employees. To ensure the sample reflects the seniority balance, you sort the population into two strata and randomly select 80 junior employees and 20 senior employees. Your 100‑person sample preserves the 80/20 split of the population.</p>
+<p>In <strong>stratified sampling</strong>, the population is first divided into distinct, non-overlapping subgroups called <em>strata</em>, based on a characteristic that is relevant to the study (such as gender, age group, geographic region, or job level). Each individual in the population belongs to exactly one stratum. After forming the strata, a random sample is drawn <em>within each stratum</em>, rather than from the population as a whole.</p>
+<p>The most common approach is <em>proportional stratified sampling</em>, where the number of units sampled from each stratum is proportional to that stratum’s share of the population. This guarantees that the composition of the sample mirrors the composition of the population with respect to the stratifying variable. In some studies, researchers may intentionally oversample smaller or especially important strata (called <em>disproportionate stratified sampling</em>) to ensure enough data for detailed subgroup analysis, adjusting for this later in the analysis.</p>
+<p>Stratified sampling has several advantages. By forcing representation from each stratum, it prevents small but important subgroups from being underrepresented due to random chance. In addition, when individuals within a stratum are relatively similar to one another but different across strata, stratification can substantially <strong>reduce sampling variability</strong>, leading to more precise estimates than a simple random sample of the same size.</p>
+<p>The main drawback is increased complexity. Stratified sampling requires reliable information to classify individuals into strata before sampling begins, as well as separate sampling procedures within each stratum. This can increase administrative effort, cost, and the potential for implementation errors if strata are poorly defined or misclassified.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A company has 800 junior employees and 200 senior employees. Because job seniority is expected to influence workplace satisfaction, the company divides employees into two strata: junior and senior. To draw a sample of 100 employees that reflects the population structure, the company randomly selects 80 junior employees and 20 senior employees. The resulting sample preserves the original 80/20 split, ensuring that both groups are appropriately represented and that comparisons between junior and senior employees are meaningful.</p>
+</div>
+</div>
 </section>
 <section id="cluster-sampling" class="level3">
 <h3 class="anchored" data-anchor-id="cluster-sampling">Cluster sampling</h3>
-<p><blank>Cluster sampling</blank> also divides the population into groups, but here each <blank>cluster</blank> is (ideally) a mini‑population containing a mix of units. Instead of sampling individuals from every cluster, you randomly select a few clusters and include every individual within them or take a sample from them. This method is useful for large, geographically dispersed populations because it reduces travel or administrative costs. The downside is that if clusters differ substantially from one another, estimates may have higher variance than those from an SRS of the same size.</p>
-<p><em>Example:</em> A company operates offices in 10 cities across the country, each with roughly the same number of employees. To conduct an employee survey, you randomly select 3 offices and survey everyone at those offices. This cuts down on travel but only works well if the offices are similar.</p>
+<p><strong>Cluster sampling</strong> also divides the population into groups, but the logic is fundamentally different from stratified sampling. In cluster sampling, each <strong>cluster</strong> is intended to be a small-scale version of the entire population-a <em>mini-population</em> that contains a diverse mix of individuals. Rather than ensuring representation from every group, the goal is to reduce cost by limiting how many groups are studied.</p>
+<p>To implement cluster sampling, the population is first partitioned into clusters, often based on geography, organizational units, or naturally occurring groupings (such as schools, offices, or neighborhoods). A random sample of clusters is then selected, and data are collected from <em>all individuals within the selected clusters</em> (one-stage cluster sampling) or from a random subset of individuals within those clusters (two-stage cluster sampling).</p>
+<p>The primary advantage of cluster sampling is efficiency. When populations are large and geographically dispersed, it is often impractical or prohibitively expensive to reach individuals scattered across many locations. By concentrating data collection within a small number of clusters, researchers can dramatically reduce travel, coordination, and administrative costs. For this reason, cluster sampling is commonly used in large-scale surveys, public health studies, and educational assessments.</p>
+<p>The main drawback is increased variability. If individuals within a cluster tend to be similar to one another-and clusters differ meaningfully from one another-then sampling only a few clusters may fail to capture the full diversity of the population. This <em>intra-cluster similarity</em> reduces the effective amount of information in the sample and can lead to larger sampling variance than a simple random sample of the same size. In practice, this means cluster sampling often requires a larger total sample size to achieve comparable precision.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A company operates offices in 10 cities across the country, each employing roughly the same number of workers and performing similar roles. To conduct an employee satisfaction survey, the company randomly selects 3 offices and surveys every employee in those locations. This approach greatly reduces travel and administrative effort. However, it relies on the assumption that offices are reasonably similar; if workplace culture or management practices vary substantially by city, the survey results may be less precise or even misleading.</p>
+</div>
+</div>
+<p>Here is an expanded, textbook-style treatment that adds clarity, nuance, and pedagogical emphasis while keeping the tone accessible:</p>
+<hr>
 </section>
-<section id="nonprobability-methods" class="level3">
-<h3 class="anchored" data-anchor-id="nonprobability-methods">Non‑probability methods</h3>
-<p>Sometimes you cannot (or choose not to) use random selection. Non‑probability methods are practical for exploratory research or hard‑to‑reach groups, but they cannot guarantee a representative sample.</p>
+<section id="non-probability-methods" class="level3">
+<h3 class="anchored" data-anchor-id="non-probability-methods">Non-probability methods</h3>
+<p>In some research settings, random selection is impossible, impractical, or unnecessary. <strong>Non-probability sampling methods</strong> rely on researcher judgment or participant availability rather than chance. Because individuals do not have known or equal probabilities of selection, these methods cannot guarantee that the sample is representative of the population. As a result, conclusions drawn from non-probability samples should be interpreted cautiously and generally should not be generalized to a broader population.</p>
+<p>Despite this limitation, non-probability methods are widely used in practice. They are common in exploratory studies, pilot research, qualitative work, and studies involving hard-to-reach populations, where constructing a complete sampling frame or implementing random selection is unrealistic. In such cases, the goal is often to generate insights, identify patterns, or refine research questions rather than to make precise population-level estimates.</p>
 <section id="convenience-sampling" class="level4">
 <h4 class="anchored" data-anchor-id="convenience-sampling">Convenience sampling</h4>
-<p>A <blank>convenience sample</blank> includes whoever is easiest to reach. It is inexpensive but cannot produce generalizable results.</p>
-<p><em>Example:</em> You want to learn about student support services, so after each of your classes you ask fellow students to complete a quick survey. Because you only surveyed students in your own classes, the sample is not representative of all students.</p>
+<p>A <strong>convenience sample</strong> consists of individuals who are easiest for the researcher to access. Participants are selected simply because they are readily available, willing, or nearby. This approach is inexpensive, fast, and easy to implement, which makes it appealing for classroom projects, preliminary studies, and early stages of research.</p>
+<p>However, convenience sampling comes with serious limitations. Because selection is driven by accessibility rather than randomness, certain groups may be systematically overrepresented while others are excluded entirely. This can introduce substantial bias, meaning the results may reflect the characteristics of the convenience group rather than those of the population of interest. For this reason, findings from convenience samples should not be treated as broadly generalizable.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You want to learn about student perceptions of campus support services. After each of your classes, you ask students in the room to complete a short survey. While this approach is quick and easy, it only captures the views of students enrolled in your classes. These students may differ from the broader student body in major, year, motivation, or academic engagement, so the resulting sample is not representative of all students at the university.</p>
+</div>
+</div>
 </section>
 <section id="voluntary-response-sampling" class="level4">
 <h4 class="anchored" data-anchor-id="voluntary-response-sampling">Voluntary response sampling</h4>
-<p>A <blank>voluntary response sample</blank> consists of people who opt in on their own. These participants are often those with strong opinions, leading to self‑selection bias.</p>
-<p><em>Example:</em> You email a survey to the entire student body asking for opinions about a new campus policy. Only those who feel strongly (either for or against) are likely to respond, so the results cannot be trusted to reflect the average student’s view.</p>
+<p>A <strong>voluntary response sample</strong> is formed when individuals choose for themselves whether to participate in a study. Invitations are typically broad-such as open surveys, online polls, or public feedback forms-but participation is entirely self-selected. Because respondents are not randomly chosen, the resulting sample often reflects the views of those who feel most strongly about the topic.</p>
+<p>The key issue with voluntary response sampling is <em>self-selection bias</em>. People with intense opinions, strong grievances, or high levels of engagement are much more likely to respond than those who are indifferent or moderately affected. As a result, voluntary response samples tend to exaggerate extremes and provide a distorted picture of average attitudes or behaviors.</p>
+<p>Although voluntary response samples are easy and inexpensive to collect, they are inappropriate for drawing conclusions about a population as a whole. They are best used for gathering feedback, identifying potential concerns, or generating hypotheses rather than for making quantitative estimates.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You email a survey to the entire student body asking for opinions about a new campus policy. Only a small fraction of students respond, and those responses come primarily from students who are either strongly supportive or strongly opposed. Students with neutral or mildly held views are far less likely to participate, so the results cannot be trusted to represent the typical student’s perspective.</p>
+</div>
+</div>
 </section>
 <section id="purposive-sampling" class="level4">
 <h4 class="anchored" data-anchor-id="purposive-sampling">Purposive sampling</h4>
-<p>In <blank>purposive sampling</blank>, you choose participants because they have specific characteristics that are particularly informative.</p>
-<p><em>Example:</em> You want to understand the experiences of disabled students using university services, so you purposefully select students with varied support needs to gather a range of perspectives. This approach is useful for qualitative insight but not for estimating population-level quantities.</p>
+<p>In <strong>purposive sampling</strong>, participants are deliberately selected by the researcher because they possess characteristics, experiences, or knowledge that are especially relevant to the research question. Rather than aiming for representativeness, the goal is to obtain <em>information-rich cases</em> that can provide deep insight into a particular phenomenon.</p>
+<p>This method is common in qualitative research, case studies, and applied settings where understanding <em>how</em> or <em>why</em> something occurs is more important than estimating its prevalence. Researchers often aim for diversity within the purposive sample-such as selecting participants with different backgrounds or experiences-to capture a range of perspectives.</p>
+<p>The main limitation of purposive sampling is that selection is subjective and non-random. While the resulting data can be rich and informative, it cannot support population-level inference or precise numerical claims.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You want to understand how well university services support students with disabilities. You intentionally recruit students with different types of disabilities and varying levels of accommodation needs. This allows you to explore common challenges and contrasts across experiences, but it does not allow you to estimate what proportion of all disabled students share those experiences.</p>
+</div>
+</div>
 </section>
 <section id="snowball-sampling" class="level4">
 <h4 class="anchored" data-anchor-id="snowball-sampling">Snowball sampling</h4>
-<p><blank>Snowball sampling</blank> recruits participants via referrals from initial subjects. It’s used when populations are difficult to identify or contact.</p>
-<p><em>Example:</em> To study experiences of homelessness, you interview one person who agrees to participate; she introduces you to other people she knows who are also homeless. The sample grows like a snowball, but you have little control over how representative it is.</p>
+<p><strong>Snowball sampling</strong> is a recruitment method in which existing participants help identify and recruit additional participants. The process typically begins with a small number of initial subjects, who then refer others they know who meet the study criteria. Over time, the sample grows through these social connections, much like a snowball rolling downhill.</p>
+<p>Snowball sampling is especially useful for studying <em>hidden, stigmatized, or hard-to-reach populations</em>, such as individuals experiencing homelessness, undocumented workers, or members of informal networks. In these cases, traditional sampling frames may not exist, and trust is often essential for participation.</p>
+<p>However, snowball sampling provides little control over who is included. Because referrals occur within social networks, the sample may overrepresent individuals who are more connected or similar to the initial participants. This can introduce substantial bias and limit the generalizability of findings.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To study experiences of homelessness, you begin by interviewing one participant who agrees to take part in the study. She then introduces you to others she knows who are also homeless, and those participants provide additional referrals. While this approach allows you to access a difficult-to-reach population, the resulting sample may reflect a narrow subset of experiences shaped by shared social connections.</p>
+</div>
+</div>
 </section>
-</section>
-<section id="working-in-jmp-pro-17" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17">Working in JMP&nbsp;Pro&nbsp;17</h3>
-<p>Although you won’t implement complex sampling plans in JMP, it’s helpful to know how to create random subsets for practice or model validation. To select a simple random sample from a data table, use <strong>Rows&nbsp;→ Row Selection&nbsp;→ Random Sample</strong> to mark a proportion or number of rows at random, then <strong>Tables&nbsp;→ Subset</strong> to create a new table of just those rows. For stratified sampling, add a column indicating the stratum (e.g., gender) and use <strong>Row Selection&nbsp;→ Stratify</strong> or a script to select random rows within each level. To take a cluster sample from a large data set, you can create a column identifying clusters (e.g., schools) and use <strong>Tables&nbsp;→ Subset</strong> to extract all rows from randomly chosen clusters. While JMP has tools for convenience (e.g., sorting and taking the first <span class="math inline">\(n\)</span> rows), remember that non‑probability sampling cannot support generalizable inference.</p>
 </section>
 <section id="recap" class="level3">
 <h3 class="anchored" data-anchor-id="recap">Recap</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 30%">
 <col style="width: 69%">
@@ -399,7 +465,7 @@ document.addEventListener('click', (event) => {
 <td>Sampling technique using random selection so each unit has a known chance of inclusion.</td>
 </tr>
 <tr class="odd">
-<td><strong>Non‑probability sampling</strong></td>
+<td><strong>Non-probability sampling</strong></td>
 <td>Sampling techniques based on convenience or judgement without randomisation.</td>
 </tr>
 <tr class="even">
@@ -439,8 +505,20 @@ document.addEventListener('click', (event) => {
 </section>
 <section id="check-your-understanding" class="level3">
 <h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>You want to estimate the average GPA of all first‑year students at your university.</p>
+<li><p>You want to estimate the average GPA of all first-year students at your university.</p>
 <ol type="a">
 <li>Name two probability sampling methods you could use.</li>
 <li>Briefly explain why a convenience sample of your friends might mislead you.</li>
@@ -450,8 +528,11 @@ document.addEventListener('click', (event) => {
 <li><p>Explain why voluntary response samples often yield extreme views and cannot be trusted for generalizing to a population.</p></li>
 <li><p>In JMP, how could you create a simple random sample of 150 observations from a data table with 2,000 rows?</p></li>
 </ol>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -460,13 +541,13 @@ Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>(a)<em>Simple random sampling</em> (assign each first‑year student a number and randomly select using a random number generator); <em>stratified sampling</em> (divide students by major or residence hall and sample proportionally within each group). (b) Your friends are likely from similar classes or social circles, so they may have similar study habits; they might not reflect the broader student body.</p></li>
+<li><p>(a)<em>Simple random sampling</em> (assign each first-year student a number and randomly select using a random number generator); <em>stratified sampling</em> (divide students by major or residence hall and sample proportionally within each group). (b) Your friends are likely from similar classes or social circles, so they may have similar study habits; they might not reflect the broader student body.</p></li>
 <li><p>This is <em>systematic sampling</em>. It works well if the list has no pattern related to the outcome. If patients are sorted by appointment time, every 5th patient might always be a morning appointment, which could bias results if morning and afternoon patients differ.</p></li>
 <li><p><em>Stratified sampling</em> divides the population into meaningful groups and samples within each (e.g., sampling men and women separately when studying height). It ensures each subgroup is represented. <em>Cluster sampling</em> selects whole groups (e.g., choosing three hospitals at random and surveying all nurses within them) to save cost when the population is geographically spread out.</p></li>
-<li><p>People with strong positive or negative feelings are more likely to volunteer, while those who are neutral remain silent. This <em>self‑selection</em> skews the sample, so the responses do not reflect the average opinion in the population.</p></li>
+<li><p>People with strong positive or negative feelings are more likely to volunteer, while those who are neutral remain silent. This <em>self-selection</em> skews the sample, so the responses do not reflect the average opinion in the population.</p></li>
 </ol>
 </div>
 </div>
@@ -478,65 +559,149 @@ Solutions
 <blockquote class="blockquote">
 <p>“All life is an experiment. The more experiments you make the better.” -Ralph Waldo Emerson</p>
 </blockquote>
-<p><strong>Guiding question:</strong> <em>How do we design surveys and experiments?</em></p>
-<p>Statistics gives us two complementary ways to gather evidence: <blank>surveys</blank> and <blank>experiments</blank>. In a survey we choose cases from a population, ask questions, and summarize what we learn. In an experiment we assign treatments to units and observe responses. The logic of inference depends on both good sampling and good design. A common confusion is that <em>random sampling</em> (how you pick cases) and <em>random assignment</em> (how you distribute them to treatments) are the same thing. They’re not: random sampling increases <em>external validity</em> (generalizability), while random assignment increases <em>internal validity</em> (causal credibility).</p>
+<p>Statistics provides two complementary approaches for gathering evidence: <strong>surveys</strong> and <strong>experiments</strong>. In a survey, we select individuals from a population, collect information by asking questions, and summarize the resulting data. In an experiment, we actively assign treatments to units and observe their responses. In both cases, sound inference depends on thoughtful sampling and careful study design. While other methods of data collection exist, surveys and experiments are the approaches most people have in mind when they think about gathering data.</p>
 <section id="principles-of-good-experimental-design" class="level3">
 <h3 class="anchored" data-anchor-id="principles-of-good-experimental-design">Principles of good experimental design</h3>
-<p>Experiments aim to isolate the effect of a treatment by controlling other sources of variation. Four key principles help us get there:</p>
-<ul>
-<li><p><strong>Randomization.</strong> Assigning units to conditions by chance ensures that, on average, groups are comparable on both observed and unobserved characteristics. In a <blank>completely randomized</blank> design, every unit is assigned independently—like students randomly given different cell phone use limits in a sleep study. In a <blank>randomized block</blank> design, units are first grouped on a relevant characteristic (e.g., soil plots by rainfall zone) and then randomly assigned within each block. Randomization also applies to order of runs: in a manufacturing experiment, running treatments in random order prevents the effect of ambient conditions (e.g., temperature) from confounding with other variables.</p>
-<p>For example, in a drug study with 20 mice and two test kits (A and B), you might randomly select 10 mice to receive kit&nbsp;A and the remaining 10 to receive kit&nbsp;B. Randomization transforms systematic variation (such as age or weight differences) into random variation, preventing confounding of the treatment effect with extraneous factors.</p></li>
-<li><p><strong>Control and placebo.</strong> Experiments compare a <blank>treatment group</blank> to a <blank>control group</blank>. The control may receive “usual care” or a <blank>placebo</blank> to account for expectations. Placebo-controlled designs are common in medicine because participants may improve simply because they believe they’re being treated. By keeping all other conditions identical and varying only the active ingredient, the researcher can attribute differences in outcomes to the treatment itself rather than to the act of giving the treatment.</p></li>
-<li><p><strong>Replication.</strong> Repeating the same treatment on multiple experimental units lets us estimate natural variability and distinguish real effects from random noise. For example, measuring battery life on several cells under the same charging condition gives a better estimate than using just one battery.</p></li>
-<li><p><strong>Blocking.</strong> If you know a nuisance factor (like soil type or patient age) affects the response, block on it. In a <blank>block design</blank>, you divide units into homogeneous groups and then randomize treatments within each block. In biological experiments, mice are naturally grouped by litter, and chemical samples often come in batches; these natural groupings can serve as blocks. By assigning treatments randomly within each litter or batch, you control for variation due to the block (e.g., genetic or batch differences) and gain more precise estimates of the treatment effect.</p></li>
-</ul>
-<p>A good design often combines these ideas: you might randomize fertilizer treatments within rainfall blocks and measure each plot’s yield multiple times. Designs also come in two broad structures: <strong>between‑subjects</strong> experiments, where each unit receives exactly one condition, and <strong>within‑subjects</strong> (or repeated‑measures) experiments, where each unit experiences all conditions in random order. Within‑subjects designs reduce variability but require care to avoid order effects—randomizing or counterbalancing the order of conditions is essential.</p>
+<p>The goal of an experiment is to <strong>isolate the causal effect of a treatment</strong> by systematically controlling other sources of variation. Experiments give the researcher direct control over how treatments are assigned. To ensure that any observed differences in outcomes can be attributed to the treatment itself-and not to hidden biases or confounding factors-well-designed experiments rely on four core principles.</p>
+<section id="randomization" class="level4">
+<h4 class="anchored" data-anchor-id="randomization">Randomization</h4>
+<p><strong>Randomization</strong> is the foundation of experimental design. Assigning experimental units to treatment conditions by chance ensures that, on average, the groups being compared are similar with respect to both observed characteristics (such as age or prior experience) and unobserved characteristics (such as motivation or genetic differences). This balance allows differences in outcomes to be interpreted as causal effects of the treatment rather than artifacts of preexisting differences.</p>
+<p>In a <strong>completely randomized design</strong>, each unit is assigned to a treatment independently of the others. For example, in a sleep study, students might be randomly assigned to different cell phone usage limits before bedtime. This approach is simple and effective when experimental units are fairly homogeneous.</p>
+<p>In a <strong>randomized block design</strong>, units are first grouped into blocks based on a characteristic known to influence the response, and treatments are then randomly assigned within each block. For instance, agricultural plots might be blocked by rainfall zone before assigning fertilizer types. Blocking removes predictable variation due to the blocking variable, allowing randomization to work more efficiently within each group.</p>
+<p>Randomization also applies beyond treatment assignment. In industrial or laboratory settings, the <em>order of experimental runs</em> should be randomized to prevent time-related factors-such as equipment warming, operator fatigue, or ambient temperature-from becoming confounded with treatment effects.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In a drug study with 20 mice and two test kits (A and B), you might randomly assign 10 mice to kit A and the remaining 10 to kit B. Differences in age, weight, or health are then spread randomly across the two groups, preventing these factors from systematically favoring one treatment over the other.</p>
+</div>
+</div>
+</section>
+<section id="control-and-placebo" class="level4">
+<h4 class="anchored" data-anchor-id="control-and-placebo">Control and placebo</h4>
+<p>A well-designed experiment includes a meaningful comparison, typically between a <strong>treatment group</strong> and a <strong>control group</strong>. The control group provides a baseline against which the treatment effect is measured. Depending on the context, the control may receive no treatment, standard care, or a <strong>placebo</strong>-a treatment designed to mimic the experience of receiving the real intervention without containing the active ingredient.</p>
+<p>Placebo controls are especially important in medical and psychological studies because participants’ expectations alone can influence outcomes. Improvements due to belief, attention, or the act of being treated are known as <strong>placebo effects</strong>. By giving both groups identical experiences except for the active component, researchers can attribute differences in outcomes specifically to the treatment.</p>
+</section>
+<section id="replication" class="level4">
+<h4 class="anchored" data-anchor-id="replication">Replication</h4>
+<p><strong>Replication</strong> refers to applying each treatment to multiple experimental units. Replication is essential because outcomes naturally vary from unit to unit, even under identical conditions. By observing this variability, researchers can estimate the amount of random noise in the data and determine whether observed differences between treatments are larger than would be expected by chance alone.</p>
+<p>Replication increases the <em>precision</em> of estimated treatment effects and provides the information needed for statistical inference. A single observation per treatment cannot distinguish a genuine effect from an unusual outcome.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 2.11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Measuring battery life under a specific charging condition using several batteries gives a far more reliable estimate than testing just one battery, which might be unusually good or unusually poor.</p>
+</div>
+</div>
+</section>
+<section id="blocking" class="level4">
+<h4 class="anchored" data-anchor-id="blocking">Blocking</h4>
+<p><strong>Blocking</strong> is used when a nuisance variable-one that is not of primary interest but is known to affect the response-can be identified in advance. In a <strong>block design</strong>, experimental units are grouped into relatively homogeneous blocks based on this variable, and treatments are randomized within each block.</p>
+<p>Blocking reduces unexplained variability by accounting for known sources of variation. This leads to more precise estimates of treatment effects without increasing sample size.</p>
+<p>Natural blocking structures often arise in practice. In biological experiments, animals may be grouped by litter; in chemical experiments, samples may come from different batches; in education studies, students may be grouped by classroom. Treating these groupings as blocks and randomizing within them prevents block-level differences from obscuring the treatment effect.</p>
+</section>
+</section>
+<section id="putting-the-principles-together" class="level3">
+<h3 class="anchored" data-anchor-id="putting-the-principles-together">Putting the principles together</h3>
+<p>Strong experimental designs typically combine these principles rather than relying on just one. For example, an agricultural study might block plots by rainfall zone, randomly assign fertilizer treatments within each block, and replicate measurements across multiple growing seasons.</p>
+<p>Experiments also differ in structure. In <strong>between-subjects designs</strong>, each unit receives exactly one treatment condition. In <strong>within-subjects</strong> (or <strong>repeated-measures</strong>) designs, each unit experiences all treatment conditions, usually in a randomized or counterbalanced order. Within-subjects designs reduce variability by allowing each unit to serve as its own control, but they require careful attention to <em>order effects</em>, such as learning, fatigue, or carryover. Randomizing or counterbalancing the order of treatments is essential to preserve validity.</p>
+<p>Together, randomization, control, replication, and blocking form the backbone of experimental design, enabling researchers to make credible causal claims from data.</p>
 </section>
 <section id="designing-unbiased-survey-questions" class="level3">
 <h3 class="anchored" data-anchor-id="designing-unbiased-survey-questions">Designing unbiased survey questions</h3>
-<p>Surveys need two kinds of care: how you <strong>select</strong> respondents and how you <strong>ask</strong> questions. For representative sampling methods, see <a href="#sec-sampling_methods"><span>Section&nbsp;2.1</span></a>. Here we focus on <strong>question design</strong>. Well‑written questions are the foundation of trustworthy research. Biased or confusing wording can distort data and mislead decision‑makers. Common pitfalls include:</p>
-<ul>
-<li><p><strong><blank>Leading</blank> questions:</strong> wording that nudges respondents toward a particular answer.<br>
-<em>Biased:</em> “Don’t you agree that our new app is much easier to use?”<br>
-<em>Unbiased:</em> “How would you rate the ease of use of our new app?”</p></li>
-<li><p><strong><blank>Loaded</blank> questions:</strong> questions that assume something controversial is true (e.g., “When did you stop wasting time on your phone?”)</p></li>
-<li><p><strong>Double‑barreled questions:</strong> asking about two things but allowing only one answer. The respondent may have different answers for each part, so the result is uninterpretable. For example, “Do you intend to leave work and return to full‑time study this year?”—someone may be planning to leave work but not to study, or vice versa. Another example: “How would you rate our products and level of service?” Because it blends product quality with service quality, a single rating cannot reveal which aspect the respondent is judging.</p></li>
-<li><p><strong>Ambiguous wording:</strong> vague or multi‑interpretation phrases that lead different respondents to answer different questions. For example, a survey item that asks “How do we compare to our competitors?” leaves respondents guessing whether you mean price, quality, or customer service.</p></li>
-</ul>
-<p>To craft unbiased survey questions:</p>
-<ol type="1">
-<li><strong>Use neutral language.</strong> Avoid emotionally charged words and let respondents choose their own answer.</li>
-<li><strong>Be specific and clear.</strong> Define terms and make sure every respondent interprets the question the same way.</li>
-<li><strong>Ask one thing at a time.</strong> Split double‑barreled questions into separate items.</li>
-<li><strong>Balance response options.</strong> Provide symmetrical, evenly spaced choices (ie. 5-point Likert Scale).</li>
-<li><strong>Pilot test your survey.</strong> Try it on a small group to catch confusing wording or unexpected interpretations.</li>
-</ol>
-<p>These principles help respondents understand your survey and give honest answers.</p>
+<p>High-quality surveys require care in two distinct areas: <strong>how respondents are selected</strong> and <strong>how questions are written</strong>. Sampling determines <em>who</em> provides data (see <a href="#sec-sampling_methods" class="quarto-xref"><span>Section 2.1</span></a>); question design determines <em>what</em> information those respondents actually provide. Even a perfectly representative sample can produce misleading results if the questions themselves are biased, confusing, or poorly structured.</p>
+<p>Well-designed questions are clear, neutral, and interpretable in the same way by all respondents. Poorly designed questions can systematically distort responses, introduce bias, and lead decision-makers to draw incorrect conclusions. Below are several common pitfalls in survey question design, along with examples and revisions.</p>
+<section id="leading-questions" class="level4">
+<h4 class="anchored" data-anchor-id="leading-questions">Leading questions</h4>
+<p><strong>Leading questions</strong> subtly (or not so subtly) push respondents toward a particular answer by framing one response as more reasonable, popular, or desirable than others. This can inflate support for a policy, product, or opinion simply through wording rather than genuine sentiment.</p>
+<p><em>Biased:</em></p>
+<blockquote class="blockquote">
+<p>“Don’t you agree that our new app is much easier to use?”</p>
+</blockquote>
+<p>This wording assumes agreement and pressures respondents to conform.</p>
+<p><em>Unbiased:</em></p>
+<blockquote class="blockquote">
+<p>“How would you rate the ease of use of our new app?”</p>
+</blockquote>
+<p><em>Another example:</em> <em>Biased:</em> “Most students think this course is well organized. Do you agree?” <em>Unbiased:</em> “How would you rate the organization of this course?”</p>
 </section>
-<section id="putting-it-all-together" class="level3">
-<h3 class="anchored" data-anchor-id="putting-it-all-together">Putting it all together</h3>
-<p>In practice, you often combine surveys and experiments. For example, a company might randomly assign new customers to receive one of two onboarding emails (experiment), then survey them about satisfaction. You would:</p>
-<ol type="1">
-<li>Randomly assign customers to email A or B.</li>
-<li>Ensure both groups are comparable (randomization).</li>
-<li>Collect follow‑up satisfaction surveys using neutral, clear questions.</li>
-<li>Replicate across multiple cohorts and possibly block by customer type (e.g., new vs.&nbsp;returning).</li>
-</ol>
+<section id="loaded-questions" class="level4">
+<h4 class="anchored" data-anchor-id="loaded-questions">Loaded questions</h4>
+<p><strong>Loaded questions</strong> embed an assumption-often a controversial or emotionally charged one-into the question itself. Respondents are forced to accept the premise in order to answer, even if they disagree with it.</p>
+<p><em>Biased:</em></p>
+<blockquote class="blockquote">
+<p>“When did you stop wasting time on your phone?”</p>
+</blockquote>
+<p>This question assumes the respondent wastes time on their phone and that they have already stopped.</p>
+<p><em>Unbiased:</em></p>
+<blockquote class="blockquote">
+<p>“How much time do you spend on your phone each day for non-work activities?”</p>
+</blockquote>
+<p><em>Another example:</em> <em>Biased:</em> “Why do you support unfair tuition increases?” <em>Unbiased:</em> “What is your opinion on recent tuition increases?”</p>
 </section>
-<section id="working-in-jmp-pro-17-1" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-1">Working in JMP&nbsp;Pro&nbsp;17</h3>
-<ul>
-<li><strong>Randomize and block.</strong> When running experiments in JMP, create a column for treatment assignments using <strong>Col → Formula → Random</strong> to simulate random assignment. Use <strong>Tables → Sort</strong> to randomize run order, or define blocking factors as separate columns and use <strong>Fit Model</strong> to include them in your analysis.</li>
-<li><strong>Control and replicate.</strong> For experiments with control and treatment conditions, use <strong>Analyze → Fit Y by X</strong> for simple comparisons or <strong>Analyze → Fit Model</strong> for multifactor designs. Replicate treatments by duplicating rows; JMP will treat these as separate experimental units.</li>
-<li><strong>Design surveys.</strong> Use <strong>Rows → Row Selection → Random Sample</strong> to draw pilot samples. Store survey questions in a <strong>Data Table</strong> with labels and notes. To pilot test question wording, subset your sample and collect feedback, then refine the wording before launching the full survey.</li>
-</ul>
+<section id="double-barreled-questions" class="level4">
+<h4 class="anchored" data-anchor-id="double-barreled-questions">Double-barreled questions</h4>
+<p><strong>Double-barreled questions</strong> ask about two (or more) distinct issues but allow only a single response. Because respondents may have different opinions about each component, the resulting data are ambiguous and difficult-or impossible-to interpret.</p>
+<p><em>Biased:</em></p>
+<blockquote class="blockquote">
+<p>“Do you intend to leave work and return to full-time study this year?”</p>
+</blockquote>
+<p>A respondent might plan to leave work but not return to school, or vice versa.</p>
+<p><em>Unbiased:</em></p>
+<blockquote class="blockquote">
+<p>“Do you intend to leave your current job this year?” “Do you intend to return to full-time study this year?”</p>
+</blockquote>
+<p><em>Another example:</em> <em>Biased:</em> “How would you rate our products and level of service?” <em>Unbiased:</em></p>
+<blockquote class="blockquote">
+<p>“How would you rate the quality of our products?” “How would you rate the quality of our customer service?”</p>
+</blockquote>
+</section>
+<section id="ambiguous-wording" class="level4">
+<h4 class="anchored" data-anchor-id="ambiguous-wording">Ambiguous wording</h4>
+<p><strong>Ambiguous wording</strong> occurs when a question uses vague terms or phrases that different respondents may interpret differently. When this happens, people may answer different questions even though they are responding to the same survey item.</p>
+<p><em>Biased:</em></p>
+<blockquote class="blockquote">
+<p>“How do we compare to our competitors?”</p>
+</blockquote>
+<p>Respondents may interpret this as referring to price, quality, customer service, innovation, or brand reputation.</p>
+<p><em>Unbiased:</em></p>
+<blockquote class="blockquote">
+<p>“Compared to our competitors, how would you rate our prices?” “Compared to our competitors, how would you rate our customer service?”</p>
+</blockquote>
+<p><em>Another example:</em> <em>Biased:</em> “How often do you exercise regularly?” <em>Unbiased:</em> “On how many days per week do you engage in at least 30 minutes of physical activity?”</p>
+</section>
+</section>
+<section id="why-this-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-matters">Why this matters</h3>
+<p>Survey questions shape the data you collect. Poorly worded questions can introduce bias just as surely as a flawed sampling method. Clear, neutral, and focused questions help ensure that responses reflect what respondents truly believe or experience, rather than how the question guided them. In practice, careful question design often requires multiple drafts, pilot testing, and revision-but the payoff is data that support credible, defensible conclusions.</p>
+<p>To craft unbiased and effective survey questions, researchers should follow several key principles. These guidelines help ensure that respondents interpret questions consistently and feel free to answer honestly, leading to data that support meaningful conclusions.</p>
+<ol type="1">
+<li><p><strong>Use neutral language.</strong> Questions should be phrased without emotionally charged words, value judgments, or implied “correct” answers. Neutral wording allows respondents to express their true opinions rather than reacting to the tone of the question. Even subtle cues-such as describing a policy as “beneficial” or “harmful”-can influence responses. Replacing evaluative language with descriptive phrasing helps minimize this source of bias.</p></li>
+<li><p><strong>Be specific and clear.</strong> Vague terms can mean different things to different respondents. Whenever possible, define key concepts, specify time frames, and avoid shorthand that assumes shared understanding. For example, instead of asking “How often do you use the library?” a clearer question would be “How many times have you visited the library in the past month?” Specific wording improves consistency and makes responses easier to interpret and analyze.</p></li>
+<li><p><strong>Ask one thing at a time.</strong> Each survey item should measure a single concept. When a question combines multiple ideas, respondents may agree with one part but not the other, producing answers that are difficult to interpret. Splitting complex questions into separate items allows each concept to be measured cleanly and reduces confusion for respondents.</p></li>
+<li><p><strong>Balance response options.</strong> Response scales should be symmetrical and evenly spaced, offering a full range of plausible choices. For example, a 5-point Likert scale ranging from “Strongly disagree” to “Strongly agree” treats positive and negative responses equally and includes a neutral midpoint if appropriate. Unbalanced or uneven scales can push respondents toward certain answers and distort the results.</p></li>
+<li><p><strong>Pilot test your survey.</strong> Even well-intentioned questions can be misunderstood. Pilot testing the survey with a small group of respondents helps identify ambiguous wording, confusing response options, or unintended interpretations. Feedback from pilot tests often reveals issues that are not obvious to the survey designer but can significantly affect data quality if left unaddressed.</p></li>
+</ol>
+<p>Together, these principles promote clarity, neutrality, and fairness in survey design. By reducing confusion and bias, they help respondents provide thoughtful, accurate answers-and help researchers draw conclusions that are trustworthy and defensible.</p>
 </section>
 <section id="recap-1" class="level3">
 <h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -566,11 +731,11 @@ Solutions
 <td>Grouping similar units and randomizing within each group to control a nuisance factor.</td>
 </tr>
 <tr class="even">
-<td><strong>Between‑subjects design</strong></td>
+<td><strong>Between-subjects design</strong></td>
 <td>Each unit experiences only one condition; comparisons are across subjects.</td>
 </tr>
 <tr class="odd">
-<td><strong>Within‑subjects design</strong></td>
+<td><strong>Within-subjects design</strong></td>
 <td>Each unit experiences all conditions in random order.</td>
 </tr>
 <tr class="even">
@@ -582,7 +747,7 @@ Solutions
 <td>A survey question containing an assumption or implication.</td>
 </tr>
 <tr class="even">
-<td><strong>Double‑barreled question</strong></td>
+<td><strong>Double-barreled question</strong></td>
 <td>A single question that asks about two things.</td>
 </tr>
 <tr class="odd">
@@ -594,14 +759,29 @@ Solutions
 </section>
 <section id="check-your-understanding-1" class="level3">
 <h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li>Explain the difference between <strong>random sampling</strong> and <strong>random assignment</strong>. Why are both important, and in what contexts do they apply?</li>
 <li>Name the four principles of good experimental design and give a brief example of each.</li>
 <li>Consider this survey question: “How satisfied are you with the cost and quality of your textbooks?” Identify the problem and rewrite the question.</li>
-<li>In a study of exam performance, 60 students volunteer for tutoring and 60 do not. The volunteer group has a higher average GPA than the non‑volunteer group. Explain why this study may not show that tutoring causes better performance. How could you redesign it?</li>
+<li>In a study of exam performance, 60 students volunteer for tutoring and 60 do not. The volunteer group has a higher average GPA than the non-volunteer group. Explain why this study may not show that tutoring causes better performance. How could you redesign it?</li>
 </ol>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -610,13 +790,13 @@ Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><p><em>Random sampling</em> determines who gets into the study. Every member of the population has a known chance of selection, improving generalizability. <em>Random assignment</em> determines which condition participants experience, creating comparable groups and allowing causal conclusions. Surveys rely on random sampling; experiments rely on random assignment.</p></li>
 <li><p><strong>Randomization:</strong> assign units by chance (e.g., randomize phone use levels to study sleep). <strong>Control/placebo:</strong> include a baseline or placebo condition to isolate the treatment effect. <strong>Replication:</strong> repeat treatments on multiple units, like testing several batteries under the same condition. <strong>Blocking:</strong> group units by a nuisance factor (e.g., soil type) and randomize within blocks.</p></li>
-<li><p>The question is <em>double‑barreled</em>—it asks about cost <em>and</em> quality. Rewrite as two separate questions (e.g., “How satisfied are you with the cost of your textbooks?” and “How satisfied are you with the quality of your textbooks?”).</p></li>
-<li><p>Volunteers may differ systematically from non‑volunteers (e.g., motivation or prior GPA). Random assignment is missing. To infer causality, randomly assign students to tutoring or control groups and compare outcomes, possibly blocking on prior GPA.</p></li>
+<li><p>The question is <em>double-barreled</em>-it asks about cost <em>and</em> quality. Rewrite as two separate questions (e.g., “How satisfied are you with the cost of your textbooks?” and “How satisfied are you with the quality of your textbooks?”).</p></li>
+<li><p>Volunteers may differ systematically from non-volunteers (e.g., motivation or prior GPA). Random assignment is missing. To infer causality, randomly assign students to tutoring or control groups and compare outcomes, possibly blocking on prior GPA.</p></li>
 </ol>
 </div>
 </div>
@@ -628,25 +808,28 @@ Solutions
 <blockquote class="blockquote">
 <p>“You can observe a lot by just watching.” - Yogi Berra</p>
 </blockquote>
-<p><strong>Guiding question:</strong> <em>Why are observational studies sometimes problematic for conclusions?</em></p>
 <p>At first glance, collecting data looks the same whether you’re watching what happens or deliberately changing something. But <em>how</em> you gather the data matters tremendously for what you can conclude.</p>
 <section id="observational-studies-watching-without-intervening" class="level3">
 <h3 class="anchored" data-anchor-id="observational-studies-watching-without-intervening">Observational studies: watching without intervening</h3>
-<p>In an <blank>observational</blank> study, researchers record what happens without actively assigning exposures or treatments. Common types include:</p>
-<ul>
-<li><p><blank>Cohort studies</blank>, where a group of people linked by a characteristic (e.g., birth year) is followed over time. Researchers compare outcomes between those exposed to some factor and those not exposed.</p>
-<p>A classic example of a cohort study is the Framingham Heart Study (FHS), which has been described in detail in the <em>International Journal of Epidemiology</em>. In 1948 the National Heart Institute recruited a community‑based cohort of 5,209 adults aged 30–59 years from Framingham, Massachusetts, to investigate causes of cardiovascular disease (CVD). Two of every three families in the town were randomly sampled and invited; 4,494 (about 69%) agreed to participate, and an additional 715 volunteers joined. This initial <strong>prospective cohort</strong> has been followed every <strong>two to four years</strong> with detailed medical histories, physical examinations, electrocardiograms and laboratory tests. By following participants longitudinally for decades, the FHS identified major risk factors for CVD—such as high blood pressure, cholesterol, and smoking—helping to shape modern cardiovascular prevention guidelines.</p></li>
-<li><p><blank>Case–control studies</blank>, where people with a condition (“cases”) are compared to similar people without it (“controls”) to look for differences in past exposures.</p>
-<p>For example, a German study<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> compared 118 patients with a rare form of eye cancer called uveal melanoma to 475 healthy patients who did not have this eye cancer. The patients’ cell phone use was measured using a questionnaire. On average, the eye cancer patients used cell phones more often. The cases were those who had developed uveal melanoma and the controls were those who did not uveal melanoma. The cell phone use was compared between the two groups.</p></li>
-</ul>
-<p>Because participants choose their own behaviors, observational data reflect the real world and are often the only ethical way to study harmful exposures. For example, you can’t ethically assign people to smoke or not smoke, so the long‑term effects of smoking are studied by tracking smokers and non‑smokers over time.</p>
-<p>Observational studies are usually quicker and cheaper than experiments and have high ecological validity (they mirror everyday life). But they have a critical limitation: you can’t be sure whether differences in outcomes are caused by the exposure or by other factors that differ between groups. For example, a highly publicized 1985 study from Johns Hopkins University linked coffee consumption to an increased risk of heart disease, especially for heavy drinkers. The study’s findings, published in the <em>American Journal of Epidemiology</em>, were later challenged by other research that pointed out the failure to adequately control for the effect of cigarette smoking. Once smoking was controlled for, the link between coffee consumption and increased risk of heart diseas was no longer significant.</p>
+<p>In an <strong>observational</strong> study, researchers record what happens without actively assigning exposures or treatments. Common types include:</p>
+<section id="cohort-studies" class="level4">
+<h4 class="anchored" data-anchor-id="cohort-studies">Cohort Studies</h4>
+<p><strong>Cohort studies</strong>, where a group of people linked by a characteristic (e.g., birth year) is followed over time. Researchers compare outcomes between those exposed to some factor and those not exposed.</p>
+<p>A classic example of a cohort study is the Framingham Heart Study (FHS), which has been described in detail in the <em>International Journal of Epidemiology</em>. In 1948 the National Heart Institute recruited a community-based cohort of 5,209 adults aged 30–59 years from Framingham, Massachusetts, to investigate causes of cardiovascular disease (CVD). Two of every three families in the town were randomly sampled and invited; 4,494 (about 69%) agreed to participate, and an additional 715 volunteers joined. This initial <strong>prospective cohort</strong> has been followed every <strong>two to four years</strong> with detailed medical histories, physical examinations, electrocardiograms and laboratory tests. By following participants longitudinally for decades, the FHS identified major risk factors for CVD-such as high blood pressure, cholesterol, and smoking-helping to shape modern cardiovascular prevention guidelines.</p>
+</section>
+<section id="case-control-studies" class="level4">
+<h4 class="anchored" data-anchor-id="case-control-studies">Case-Control Studies</h4>
+<p><strong>Case–control studies</strong>, where people with a condition (“cases”) are compared to similar people without it (“controls”) to look for differences in past exposures.</p>
+<p>For example, a German study<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> compared 118 patients with a rare form of eye cancer called uveal melanoma to 475 healthy patients who did not have this eye cancer. The patients’ cell phone use was measured using a questionnaire. On average, the eye cancer patients used cell phones more often. The cases were those who had developed uveal melanoma and the controls were those who did not uveal melanoma. The cell phone use was compared between the two groups.</p>
+<p>Because participants choose their own behaviors, observational data reflect the real world and are often the only ethical way to study harmful exposures. For example, you can’t ethically assign people to smoke or not smoke, so the long-term effects of smoking are studied by tracking smokers and non-smokers over time.</p>
+<p>Observational studies are usually quicker and cheaper than experiments and have high ecological validity (they mirror everyday life). But they have a critical limitation: you can’t be sure whether differences in outcomes are caused by the exposure or by other factors that differ between groups. For example, a highly publicized 1985 study from Johns Hopkins University linked coffee consumption to an increased risk of heart disease, especially for heavy drinkers. The study’s findings, published in the <em>American Journal of Epidemiology</em>, were later challenged by other research that pointed out the failure to adequately control for the effect of cigarette smoking. Once smoking was controlled for, the link between coffee consumption and increased risk of heart disease was no longer significant.</p>
+</section>
 </section>
 <section id="experiments-deliberately-changing-something" class="level3">
 <h3 class="anchored" data-anchor-id="experiments-deliberately-changing-something">Experiments: deliberately changing something</h3>
-<p>In an <blank>experiment</blank>, researchers assign treatments or interventions to units and observe the effects. Randomization—assigning units by chance—ensures that, on average, the groups are comparable on both observed and unobserved characteristics. The classic experimental design is the completely randomized design: participants are randomly allocated to receive a new drug, a placebo, or no treatment, and outcomes are compared. Experiments are considered the gold standard for establishing causality because randomization eliminates systematic differences between groups.</p>
+<p>As discussed previously, in an <strong>experiment</strong>, researchers assign treatments or interventions to units and observe the effects. Randomization-assigning units by chance-ensures that, on average, the groups are comparable on both observed and unobserved characteristics. The classic experimental design is the completely randomized design: participants are randomly allocated to receive a new drug, a placebo, or no treatment, and outcomes are compared. Experiments are considered the gold standard for establishing causality because randomization eliminates systematic differences between groups.</p>
 <p>Experiments also offer a controlled environment, making it easier to isolate the effect of a single factor. However, they can be expensive, time-consuming, or unethical to conduct.</p>
-<p>For example, suppose we were interested in the association between eye cancer and smart phone use. Suppse we conduct an experiment, such as the following:</p>
+<p>For example, suppose we were interested in the association between eye cancer and smart phone use. Suppose we conduct an experiment, such as the following:</p>
 <ol type="1">
 <li>Pick half the students from your school at random and tell them to use a smart phone each day for the next 50 years.</li>
 <li>Tell the other half of the student body not to ever use smart phones.</li>
@@ -654,39 +837,34 @@ Solutions
 </ol>
 <p>There are obvious difficulties with such an experiment:</p>
 <ol type="1">
-<li><p>It’s not <blank>ethical</blank> for a study to expose over a long period of time some of the subjects to something (such as smart phone radiation) that we suspect may be harmful.</p></li>
-<li><p>It’s difficult in practice to make sure that the subjects <blank>behave</blank> as told. How can you monitor them to ensure that they adhere to their treatment assignment over the 50-year experimental period?</p></li>
-<li><p>Who wants to <blank>wait</blank> 50 years to get an answer?</p></li>
+<li><p>It’s not <strong>ethical</strong> for a study to expose over a long period of time some of the subjects to something (such as smart phone radiation) that we suspect may be harmful.</p></li>
+<li><p>It’s difficult in practice to make sure that the subjects <strong>behave</strong> as told. How can you monitor them to ensure that they adhere to their treatment assignment over the 50-year experimental period?</p></li>
+<li><p>Who wants to <strong>wait</strong> 50 years to get an answer?</p></li>
 </ol>
 <p>Thus, an observational study would be preferred over an experiment.</p>
 </section>
 <section id="why-observational-studies-can-mislead" class="level3">
 <h3 class="anchored" data-anchor-id="why-observational-studies-can-mislead">Why observational studies can mislead</h3>
-<p>Observational data are susceptible to <blank>confounding</blank>—a situation where a third factor influences both the exposure and the outcome, creating a spurious association. For example, an observational cohort might find that people who meditate have lower rates of heart disease. But meditators may also exercise more and eat healthier diets, making it unclear whether meditation or lifestyle explains the difference. Similarly, people who choose to take daily vitamins might generally have healthier habits, so observed vitamin benefits may reflect those habits rather than the vitamins themselves.</p>
-<p>Randomization is the only method that can eliminate potential confounders by balancing both measured and unmeasured factors across treatment groups. In observational research, statistical methods like stratification, regression adjustment and propensity score matching can reduce bias, but they depend on untestable assumptions: all confounders must be measured correctly and modeled properly. Many important confounders may be unknown or infeasible to measure. Even meticulously controlled observational studies cannot remove all confounding. As a result, observational evidence alone “cannot support conclusions of <blank>causation</blank>”.</p>
+<p>Observational data are susceptible to <strong>confounding</strong>-a situation where a third factor influences both the exposure and the outcome, creating a spurious association. For example, an observational cohort might find that people who meditate have lower rates of heart disease. But meditators may also exercise more and eat healthier diets, making it unclear whether meditation or lifestyle explains the difference. Similarly, people who choose to take daily vitamins might generally have healthier habits, so observed vitamin benefits may reflect those habits rather than the vitamins themselves.</p>
+<p>Randomization is the only method that can eliminate potential confounders by balancing both measured and unmeasured factors across treatment groups. In observational research, statistical methods like stratification, regression adjustment and propensity score matching can reduce bias, but they depend on untestable assumptions: all confounders must be measured correctly and modeled properly. Many important confounders may be unknown or infeasible to measure. Even meticulously controlled observational studies cannot remove all confounding. As a result, observational evidence alone “cannot support conclusions of <strong>causation</strong>”.</p>
 <p>Below is a simple simulation illustrating confounding. Shoe size and reading ability appear positively related, but both are driven by age. When age is not controlled, a misleading association emerges.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The scatterplot shows a strong correlation between shoe size and reading, even though neither directly affects the other. The common cause is age. Observational studies must always consider whether a hidden variable like age could be responsible for an observed association.</p>
 </section>
-<section id="working-with-observational-data-in-jmp-pro-17" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-observational-data-in-jmp-pro-17">Working with observational data in JMP&nbsp;Pro&nbsp;17</h3>
-<p>In JMP you can explore observational data using <strong>Graph&nbsp;→&nbsp;Graph Builder</strong> or <strong>Analyze&nbsp;→&nbsp;Fit&nbsp;Y&nbsp;by&nbsp;X</strong> to visualize associations. Use <strong>Analyze&nbsp;→&nbsp;Fit&nbsp;Model</strong> for regression or ANOVA, including potential confounders as predictors. JMP will happily fit a model and produce p-values, but you must interpret the results cautiously. Remember:</p>
-<ul>
-<li>Including covariates can adjust for measured confounders, but unmeasured confounders remain.</li>
-<li>Associations observed in scatterplots or regression analyses do not imply causation.</li>
-<li>Use notes and metadata fields to document the study design—observational or experimental—and any potential sources of bias.</li>
-</ul>
-</section>
 <section id="recap-2" class="level3">
 <h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 80%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -720,6 +898,18 @@ Solutions
 </section>
 <section id="check-your-understanding-2" class="level3">
 <h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>A nutrition researcher recruits people who already take daily multivitamins and compares their health outcomes to people who do not.</p>
 <ol type="a">
@@ -730,8 +920,11 @@ Solutions
 <li><p>A cohort study finds that people who bike to work have lower rates of depression than those who drive. Suggest two reasons why this association may not reflect a causal effect of biking.</p></li>
 <li><p>Describe a research question that would be unethical or impractical to answer via experiment but could be studied observationally. Explain why.</p></li>
 </ol>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -740,13 +933,13 @@ Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>a)This is an <strong>observational study</strong> because participants choose whether or not to take multivitamins. b) Potential confounders include diet quality, exercise habits, socioeconomic status, access to healthcare, smoking status and other health behaviors.</p></li>
-<li><p>Randomization assigns diets by chance, so, on average, both known and unknown factors (age, lifestyle, genetics) are balanced across the groups. Therefore, differences in cholesterol are likely due to the diet rather than pre‑existing differences.</p></li>
-<li><p>People who bike may have higher baseline fitness and better mental health; they might live in neighborhoods with better infrastructure or community support; they may also have lifestyles that promote well‑being (e.g., more time outdoors). Any of these confounders could explain the observed association.</p></li>
-<li><p>Studying the long‑term effects of smoking is unethical to do experimentally, because you can’t randomly assign people to smoke. Instead, researchers observe smokers and non‑smokers and compare outcomes.</p></li>
+<li><p>Randomization assigns diets by chance, so, on average, both known and unknown factors (age, lifestyle, genetics) are balanced across the groups. Therefore, differences in cholesterol are likely due to the diet rather than pre-existing differences.</p></li>
+<li><p>People who bike may have higher baseline fitness and better mental health; they might live in neighborhoods with better infrastructure or community support; they may also have lifestyles that promote well-being (e.g., more time outdoors). Any of these confounders could explain the observed association.</p></li>
+<li><p>Studying the long-term effects of smoking is unethical to do experimentally, because you can’t randomly assign people to smoke. Instead, researchers observe smokers and non-smokers and compare outcomes.</p></li>
 </ol>
 </div>
 </div>
@@ -758,42 +951,68 @@ Solutions
 <blockquote class="blockquote">
 <p>“Normally if given a choice between doing something and nothing, I’d choose to do nothing. But I would do something if it helps someone do nothing. I’d work all night if it meant nothing got done.” - Ron Swanson</p>
 </blockquote>
-<p><strong>Guiding question:</strong> <em>How can bias creep into data collection?</em></p>
-<p>When we talk about bias in statistics, we mean a <blank>systematic error</blank> built into the way we select or measure our data. Bias is different from random sampling error. Sampling error comes from the natural variability you get when you observe only part of the population and tends to shrink as sample sizes grow. Bias, by contrast, does not go away with bigger samples; a flawed design simply produces more confident wrong answers. That makes it important to understand the different ways bias sneaks into our studies.</p>
+<p>When we talk about bias in statistics, we mean a <strong>systematic error</strong> built into the way we select or measure our data. Bias is different from random sampling error. Sampling error comes from the natural variability you get when you observe only part of the population and tends to shrink as sample sizes grow. Bias, by contrast, does not go away with bigger samples; a flawed design simply produces more confident wrong answers. That makes it important to understand the different ways bias sneaks into our studies.</p>
 <section id="how-bias-differs-from-sampling-error" class="level3">
 <h3 class="anchored" data-anchor-id="how-bias-differs-from-sampling-error">How bias differs from sampling error</h3>
-<p>Whenever we select a sample, the numbers we compute (like the mean or proportion) will vary from one sample to the next. This variability is called <blank>sampling error</blank>. If we repeated our survey many times with different random samples, the average of those sample statistics would be the true population value, and the spread among them would reflect sampling error. Increasing the sample size reduces sampling error, but it <em>does not</em> correct for systematic flaws in how the sample was chosen. When the method of collecting or measuring data systematically favors some outcomes over others, we call it <blank>bias</blank>. A biased sample can be huge and still be wrong because its error is baked into the design.</p>
-<p>To illustrate the difference, imagine a population with a true average income of $8 (in arbitrary units), made up of 70% low earners (income of 5) and 30% high earners (income of 15). Below we simulate two ways of sampling from this population: a fair simple random sample and a biased sample that over‑selects high earners (80% high, 20% low). As the sample size grows, the random sample mean settles near the true average, while the biased sample mean stays high. This shows that increasing the sample size reduces random error but does not fix bias.</p>
+<p>Whenever we select a sample, the numbers we compute (like the mean or proportion) will vary from one sample to the next. This variability is called <strong>sampling error</strong>. If we repeated our survey many times with different random samples, the average of those sample statistics would be the true population value, and the spread among them would reflect sampling error. Increasing the sample size reduces sampling error, but it <em>does not</em> correct for systematic flaws in how the sample was chosen. When the method of collecting or measuring data systematically favors some outcomes over others, we call it <strong>bias</strong>. A biased sample can be huge and still be wrong because its error is baked into the design.</p>
+<p>To illustrate the difference, imagine a population with a true average income of $8 (in arbitrary units), made up of 70% low earners (income of 5) and 30% high earners (income of 15). Below we simulate two ways of sampling from this population: a fair simple random sample and a biased sample that over-selects high earners (80% high, 20% low). As the sample size grows, the random sample mean settles near the true average, while the biased sample mean stays high. This shows that increasing the sample size reduces random error but does not fix bias.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="576"></p>
+<div>
+<figure class="figure">
+<p><img src="02_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="common-sources-of-bias" class="level3">
 <h3 class="anchored" data-anchor-id="common-sources-of-bias">Common sources of bias</h3>
-<p>Bias can enter at many points in the data‑collection process. Here are some of the most common culprits:</p>
-<ul>
-<li><strong>Coverage (undercoverage) bias.</strong> A <blank>coverage bias</blank> occurs when some members of the population are not included in the sampling frame. The Literary Digest’s famous 1936 presidential poll relied on telephone directories and car registration lists, thereby missing less affluent voters who tended to support Franklin&nbsp;Roosevelt. Because those voters were excluded, the sample favored wealthier respondents and overpredicted Alfred&nbsp;Landon’s support.</li>
-</ul>
+<p>Bias can enter at many points in the data-collection process. Here are some of the most common culprits:</p>
+<section id="coverage-undercoverage-bias" class="level4">
+<h4 class="anchored" data-anchor-id="coverage-undercoverage-bias">Coverage (undercoverage) bias</h4>
+<p>A <strong>coverage bias</strong> occurs when some members of the population are not included in the sampling frame. The Literary Digest’s famous 1936 presidential poll relied on telephone directories and car registration lists, thereby missing less affluent voters who tended to support Franklin&nbsp;Roosevelt. Because those voters were excluded, the sample favored wealthier respondents and overpredicted Alfred&nbsp;Landon’s support.</p>
 <div style="text-align: center;">
 <p><img src="images/literary_digest.png" class="img-fluid" style="width:4in"></p>
 </div>
-<ul>
-<li><p><strong>Nonresponse bias.</strong> A <blank>nonresponse bias</blank> arises when selected individuals choose not to participate and the responders differ systematically from nonresponders. In the same 1936 survey only 25&nbsp;% of those sampled returned the mail‑in ballot. Landon supporters were more likely to return the survey, so the results overestimated his popularity.</p></li>
-<li><p><strong>Voluntary response bias.</strong> When people opt into a survey on their own—like call‑in radio polls about controversial topics—the sample disproportionately includes individuals with strong opinions. This <blank>voluntary response bias</blank> can produce extreme results because moderate voices remain silent.</p></li>
-<li><p><strong>Convenience sampling bias.</strong> A <blank>convenience sample</blank> chooses whoever is easiest to reach. If you stand outside a gym to survey “all adults in the city,” your sample will overrepresent health‑conscious people. Convenience sampling often leads to coverage problems.</p></li>
-<li><p><strong>Response (measurement) bias.</strong> Even if we select the right people, the way we ask questions or record data can introduce <blank>response bias</blank>. Response bias occurs when the measurement process influences the answer: leading questions or unbalanced answer choices can nudge respondents toward particular responses. <blank>Social desirability bias</blank> occurs when people underreport socially undesirable behaviors or overreport virtuous ones.</p></li>
-<li><p><strong>Survivorship bias.</strong> When we only observe “survivors” and ignore those that dropped out or failed, we can mistake success for the rule.</p>
+</section>
+<section id="nonresponse-bias" class="level4">
+<h4 class="anchored" data-anchor-id="nonresponse-bias">Nonresponse bias</h4>
+<p>A <strong>nonresponse bias</strong> arises when selected individuals choose not to participate and the responders differ systematically from nonresponders. In the same 1936 survey only 25% of those sampled returned the mail-in ballot. Landon supporters were more likely to return the survey, so the results overestimated his popularity.</p>
+</section>
+<section id="voluntary-response-bias" class="level4">
+<h4 class="anchored" data-anchor-id="voluntary-response-bias">Voluntary response bias</h4>
+<p>When people opt into a survey on their own-like call-in radio polls about controversial topics-the sample disproportionately includes individuals with strong opinions. This <strong>voluntary response bias</strong> can produce extreme results because moderate voices remain silent.</p>
+</section>
+<section id="convenience-sampling-bias" class="level4">
+<h4 class="anchored" data-anchor-id="convenience-sampling-bias">Convenience sampling bias</h4>
+<p>A <strong>convenience sample</strong> chooses whoever is easiest to reach. If you stand outside a gym to survey “all adults in the city,” your sample will overrepresent health-conscious people. Convenience sampling often leads to coverage problems.</p>
+</section>
+<section id="response-measurement-bias" class="level4">
+<h4 class="anchored" data-anchor-id="response-measurement-bias">Response (measurement) bias</h4>
+<p>Even if we select the right people, the way we ask questions or record data can introduce <strong>response bias</strong>. Response bias occurs when the measurement process influences the answer: leading questions or unbalanced answer choices can nudge respondents toward particular responses. <strong>Social desirability bias</strong> occurs when people underreport socially undesirable behaviors or overreport virtuous ones.</p>
+</section>
+<section id="survivorship-bias" class="level4">
+<h4 class="anchored" data-anchor-id="survivorship-bias">Survivorship bias</h4>
+<p>When we only observe “survivors” and ignore those that dropped out or failed, we can mistake success for the rule.</p>
 <div style="float: left; position: relative; top: 0px; padding: 30px;">
-<img src="images/ww2_bomber.png" class="img-fluid" style="width:2in">
+<p><img src="images/ww2_bomber.png" class="img-fluid" style="width:2in"></p>
 </div>
-<p>The most famous example of this is the WWII bomber problem. During WWII, analysts tallied bullet holes on returning Allied bombers and saw clusters on wings and fuselage, with relatively few in engines and cockpit. The intuitive fix was to add armor where the holes were densest. Statistician Abraham Wald pointed out the trap: these data come only from planes that survived. Holes on the survivors mark places a plane can be hit and still make it home. The <em>missing</em> planes—those that didn’t return—are precisely the ones likely hit in the “clean” areas (e.g., engines). So Wald recommended reinforcing the <em>areas with the fewest holes</em> on the survivors, not the most. That’s survivorship bias: drawing conclusions from only the observed “winners” and ignoring the unseen “failures.”</p></li>
-<li><p><strong>Recall bias.</strong> In retrospective studies, participants may not remember past events accurately. People who have developed an illness might recall exposures differently than healthy controls, leading to systematic differences.</p></li>
-<li><p><strong>Interviewer bias.</strong> The interviewer’s tone, appearance or expectations can subtly influence responses. Neutral wording and training can reduce this effect.</p></li>
-<li><p><strong>Healthy‑user bias and attrition bias.</strong> People who choose to participate in certain programs or who remain in a study for its duration often differ from those who do not, leading to biased estimates.</p></li>
-</ul>
+<p>The most famous example of this is the WWII bomber problem. During WWII, analysts tallied bullet holes on returning Allied bombers and saw clusters on wings and fuselage, with relatively few in engines and cockpit. The intuitive fix was to add armor where the holes were densest. Statistician Abraham Wald pointed out the trap: these data come only from planes that survived. Holes on the survivors mark places a plane can be hit and still make it home. The <em>missing</em> planes-those that didn’t return-are precisely the ones likely hit in the “clean” areas (e.g., engines). So Wald recommended reinforcing the <em>areas with the fewest holes</em> on the survivors, not the most. That’s survivorship bias: drawing conclusions from only the observed “winners” and ignoring the unseen “failures.”</p>
+</section>
+<section id="recall-bias" class="level4">
+<h4 class="anchored" data-anchor-id="recall-bias">Recall bias</h4>
+<p>In retrospective studies, participants may not remember past events accurately. People who have developed an illness might recall exposures differently than healthy controls, leading to systematic differences.</p>
+</section>
+<section id="interviewer-bias" class="level4">
+<h4 class="anchored" data-anchor-id="interviewer-bias">Interviewer bias</h4>
+<p>The interviewer’s tone, appearance or expectations can subtly influence responses. Neutral wording and training can reduce this effect.</p>
+</section>
+<section id="healthy-user-bias-and-attrition-bias" class="level4">
+<h4 class="anchored" data-anchor-id="healthy-user-bias-and-attrition-bias">Healthy-user bias and attrition bias</h4>
+<p>People who choose to participate in certain programs or who remain in a study for its duration often differ from those who do not, leading to biased estimates.</p>
 <p>Each of these biases stems from the way participants are chosen or how data are measured; they cannot be “averaged out” by larger samples.</p>
+</section>
 </section>
 <section id="mitigating-bias" class="level3">
 <h3 class="anchored" data-anchor-id="mitigating-bias">Mitigating bias</h3>
@@ -807,22 +1026,12 @@ Solutions
 <li>In observational studies, adjust for measured differences between participants and nonparticipants using weighting or modeling; but remember that unmeasured biases may remain.</li>
 </ul>
 </section>
-<section id="working-in-jmp-pro-17-2" class="level3">
-<h3 class="anchored" data-anchor-id="working-in-jmp-pro-17-2">Working in JMP&nbsp;Pro&nbsp;17</h3>
-<p>JMP cannot magically remove bias, but it can help you detect and address it:</p>
-<ul>
-<li><strong>Explore representativeness.</strong> Use <strong>Distribution</strong> and <strong>Graph&nbsp;Builder</strong> to compare your sample’s demographics to known population benchmarks. If certain groups are underrepresented, consider weighting or stratified analysis.</li>
-<li><strong>Identify nonresponse patterns.</strong> Create an indicator column for nonresponders and use <strong>Fit&nbsp;Y&nbsp;by&nbsp;X</strong> or <strong>Fit&nbsp;Model</strong> to see whether response differs by variables like age or region.</li>
-<li><strong>Design balanced surveys.</strong> Although JMP does not build surveys, you can use scripts or formulas to randomize question order, generate balanced answer scales, and check for item nonresponse.</li>
-<li><strong>Apply weights.</strong> If you oversample some groups, add a weight column and specify it in analyses (under the red triangle menu) so that estimates reflect the target population.</li>
-</ul>
-</section>
 <section id="recap-3" class="level3">
 <h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 87%">
+<col style="width: 19%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -864,6 +1073,18 @@ Solutions
 </section>
 <section id="check-your-understanding-3" class="level3">
 <h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>A tech company sends an email survey to customers using its premium service. Over half of the recipients do not respond. The company concludes that 85&nbsp;% of its customers are satisfied.</p>
 <ol type="a">
@@ -871,12 +1092,15 @@ Solutions
 </li>
 <li>Suggest one way to mitigate each bias.</li>
 </ol></li>
-<li><p>A political action group hosts an online poll on its website asking visitors whether they support a proposed tax increase. Seventy‑five percent say “no.” What type of bias is most likely, and why does this poll not reflect general public opinion?</p></li>
-<li><p>Suppose you draw a simple random sample of 1,000 Baylor students from a roster and send them a questionnaire. Only 200 students respond. How could you use follow‑ups or weighting to reduce bias? Explain your reasoning.</p></li>
+<li><p>A political action group hosts an online poll on its website asking visitors whether they support a proposed tax increase. Seventy-five percent say “no.” What type of bias is most likely, and why does this poll not reflect general public opinion?</p></li>
+<li><p>Suppose you draw a simple random sample of 1,000 Baylor students from a roster and send them a questionnaire. Only 200 students respond. How could you use follow-ups or weighting to reduce bias? Explain your reasoning.</p></li>
 <li><p>Explain the difference between sampling error and bias in your own words. Why can a huge sample still give a wrong answer?</p></li>
 </ol>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -885,12 +1109,12 @@ Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>(a)<strong>Coverage bias</strong> and <strong>nonresponse bias</strong>. The company sampled only premium users (ignoring basic or free users) and most of the sampled customers did not respond, so respondents may differ from nonrespondents. (b) To reduce coverage bias, draw a sample from all customers or weight responses to reflect the full user base. To reduce nonresponse bias, send reminders, offer incentives or provide alternative modes (e.g., phone, mail).</p></li>
-<li><p>This is <strong>voluntary response bias</strong>: only visitors who care enough to vote participate, and they may have strong opinions. A poll embedded on a partisan website cannot be generalized because participants are self‑selected and not representative of the broader population.</p></li>
-<li><p>The low response rate introduces <strong>nonresponse bias</strong>. You could send follow‑up reminders, offer incentives, or contact nonrespondents by phone to increase participation. If demographic data are available for all sampled students, you can apply <strong>weights</strong> so that the 200 responders reflect the distribution of the 1,000 sampled students (and thus the target population).</p></li>
+<li><p>This is <strong>voluntary response bias</strong>: only visitors who care enough to vote participate, and they may have strong opinions. A poll embedded on a partisan website cannot be generalized because participants are self-selected and not representative of the broader population.</p></li>
+<li><p>The low response rate introduces <strong>nonresponse bias</strong>. You could send follow-up reminders, offer incentives, or contact nonrespondents by phone to increase participation. If demographic data are available for all sampled students, you can apply <strong>weights</strong> so that the 200 responders reflect the distribution of the 1,000 sampled students (and thus the target population).</p></li>
 <li><p><em>Sampling error</em> is the random fluctuation you see from one sample to the next; it decreases with larger samples. <em>Bias</em> is a systematic error built into the design or measurement; it doesn’t shrink with bigger samples. A huge convenience or volunteer sample can still give a wrong answer if it systematically excludes part of the population or asks questions in a biased way.<br>
 </p></li>
 </ol>
@@ -944,18 +1168,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -987,11 +1200,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1001,8 +1251,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1014,7 +1273,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1058,6 +1439,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1083,6 +1465,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1143,6 +1551,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
