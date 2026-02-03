@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Describing Data with Numbers – STA 2381 Introductory Statistical Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href=".center-panel.quarto-layout-panel {
+  justify-content: center;
+  column-gap: 1rem;
+}">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Collecting Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#measures-of-center-mean-median-mode" id="toc-measures-of-center-mean-median-mode" class="nav-link active" data-scroll-target="#measures-of-center-mean-median-mode"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</a>
+  <ul class="collapse">
+  <li><a href="#what-do-we-mean-by-typical" id="toc-what-do-we-mean-by-typical" class="nav-link" data-scroll-target="#what-do-we-mean-by-typical">What do we mean by “typical”?</a></li>
+  <li><a href="#the-mean-arithmetic-average" id="toc-the-mean-arithmetic-average" class="nav-link" data-scroll-target="#the-mean-arithmetic-average">The mean (arithmetic average)</a></li>
+  <li><a href="#adjusting-the-mean-trimmed-means" id="toc-adjusting-the-mean-trimmed-means" class="nav-link" data-scroll-target="#adjusting-the-mean-trimmed-means">Adjusting the mean: trimmed means</a></li>
+  <li><a href="#the-median-middle-value" id="toc-the-median-middle-value" class="nav-link" data-scroll-target="#the-median-middle-value">The median (middle value)</a></li>
+  <li><a href="#the-mode-most-frequent-value" id="toc-the-mode-most-frequent-value" class="nav-link" data-scroll-target="#the-mode-most-frequent-value">The mode (most frequent value)</a></li>
+  <li><a href="#key-takeaway-1" id="toc-key-takeaway-1" class="nav-link" data-scroll-target="#key-takeaway-1">Key takeaway</a></li>
+  <li><a href="#the-shape-of-a-distribution" id="toc-the-shape-of-a-distribution" class="nav-link" data-scroll-target="#the-shape-of-a-distribution">The shape of a distribution</a></li>
+  <li><a href="#choosing-the-right-measure" id="toc-choosing-the-right-measure" class="nav-link" data-scroll-target="#choosing-the-right-measure">Choosing the right measure</a></li>
+  <li><a href="#working-in-jmp" id="toc-working-in-jmp" class="nav-link" data-scroll-target="#working-in-jmp">Working in JMP</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="measures-of-center-mean-median-mode" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="measures-of-center-mean-median-mode"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</h2>
+<blockquote class="blockquote">
+<p>“You keep using that word. I do not think it means what you think it means.” - Inigo Montoya</p>
+</blockquote>
+<p>One of the first things we usually want to know about a numerical variable is where it <em>centers</em>. When we describe a value as “typical,” we are really asking a practical question: <em>If we had to summarize this entire group with a single number, which number would best represent it?</em></p>
+<p>In this section, we explore three common measures of center—the <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>—and consider when each provides a sensible description of what is typical.</p>
+<section id="what-do-we-mean-by-typical" class="level3">
+<h3 class="anchored" data-anchor-id="what-do-we-mean-by-typical">What do we mean by “typical”?</h3>
+<p>A good measure of center should capture the <em>central tendency</em> of the data without being overly influenced by extreme values. However, no single summary works best in every situation. The “best” notion of typical depends on the <em>shape of the distribution</em>, the presence of <em>outliers</em>, and the <em>context</em> of the data.</p>
+<p>The three most common measures of center, mean, median, and mode, answer the question of “typical” in different ways.</p>
+</section>
+<section id="the-mean-arithmetic-average" class="level3">
+<h3 class="anchored" data-anchor-id="the-mean-arithmetic-average">The mean (arithmetic average)</h3>
+<p>The <strong>mean</strong> of a sample, often denoted <span class="math inline">\(\bar{x}\)</span>, is the sum of all observations divided by the number of observations. If you imagine placing each data value as a weight on a number line, the mean is the <em>balance point</em>—the location where the line would balance perfectly.</p>
+<p>Formally, for sample values <span class="math inline">\(x_1, x_2, \dots, x_n\)</span>, the mean is <span class="math display">\[
+\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.
+\]</span></p>
+<p>Because the mean uses <em>every observation</em>, it incorporates all available information and is mathematically convenient. However, this same feature makes the mean <em>sensitive to outliers</em>. A single unusually large or small value can pull the mean away from where most of the data lie, making it a poor description of what is typical.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.1: Scutari data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Florence Nightingale is well known for her work in improving hospital conditions for British soldiers during the Crimean War. One dataset she examined recorded outcomes for soldiers treated in hospitals in Crimea and in Scutari, Turkey<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>The file <em>scutari.jmp</em> contains the number of soldiers hospitalized in various regiments and the number who died. Consider the number of soldiers who died in Scutari for the first five regiments:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>93, 96, 42, 155, 94</code></pre>
+</div>
+</div>
+<p>The mean is <span class="math display">\[
+\begin{aligned}
+\bar{x} &amp;= \frac{1}{5}(93 + 96 + 42 + 155 + 94) \\
+&amp;= \frac{480}{5} \\
+&amp;= 96
+\end{aligned}
+\]</span></p>
+<p>At first glance, 96 seems like a reasonable “typical” value for these data.</p>
+<p>Now suppose a sixth regiment is added with 500 deaths. The data become:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>93, 96, 42, 155, 94, 500</code></pre>
+</div>
+</div>
+<p>The new mean is <span class="math display">\[
+\begin{aligned}
+\bar{x} &amp;= \frac{1}{6}(980) \\
+&amp;= 163.3
+\end{aligned}
+\]</span></p>
+<p>Does 163.3 feel typical for this group? Clearly not. Most regiments had death counts well below 200, but the single extreme value dramatically inflates the mean. This example illustrates how <em>outliers can make the mean misleading</em> as a measure of center.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.2: Household income
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider annual household incomes (in thousands of dollars) for a small neighborhood:</p>
+<p><span class="math display">\[
+45,\, 48,\, 50,\, 52,\, 55,\, 58,\, 60,\, 62,\, 65,\, 420
+\]</span></p>
+<p>Most households earn between $45,000 and $65,000 per year, but one household earns $420,000.</p>
+<p>The mean income is <span class="math display">\[
+\bar{x} = \frac{45 + 48 + 50 + 52 + 55 + 58 + 60 + 62 + 65 + 420}{10}
+= 91.5
+\]</span></p>
+<p>A “typical” income of $91,500 does not reflect the reality for most households in this neighborhood. The single high-income household pulls the mean far above where the majority of incomes lie. This is why average income statistics are often criticized.</p>
+</div>
+</div>
+</section>
+<section id="adjusting-the-mean-trimmed-means" class="level3">
+<h3 class="anchored" data-anchor-id="adjusting-the-mean-trimmed-means">Adjusting the mean: trimmed means</h3>
+<p>Because of its sensitivity to extremes, the mean is sometimes modified to reduce the influence of outliers. A <strong>trimmed mean</strong> removes a fixed percentage of the smallest and largest observations before computing the average.</p>
+<p>For example, a <em>10% trimmed mean</em> drops the lowest 10% and highest 10% of values, then averages the remaining data. This approach provides a compromise: it retains much of the information used by the mean while reducing the impact of extreme values.</p>
+<p>Trimmed means are especially useful when data are moderately skewed or when a small number of outliers are present but not of primary interest.</p>
+<section id="key-takeaway" class="level4">
+<h4 class="anchored" data-anchor-id="key-takeaway">Key takeaway</h4>
+<p>The mean is a powerful and widely used measure of center, but it answers the question of “typical” only when extreme values are not overly influential. When outliers are present—or when the distribution is strongly skewed—the mean can give a distorted picture, motivating the use of alternative summaries such as the median or trimmed mean.</p>
+</section>
+</section>
+<section id="the-median-middle-value" class="level3">
+<h3 class="anchored" data-anchor-id="the-median-middle-value">The median (middle value)</h3>
+<p>The <strong>median</strong> is the value that lies at the center of an ordered dataset. When the observations are arranged from smallest to largest, the median divides the data into two equal halves: <em>50% of the observations are at or below the median, and 50% are at or above it</em>.</p>
+<p>How the median is computed depends on whether the number of observations is odd or even:</p>
+<ul>
+<li>For an <strong>odd</strong> number of observations, the median is the single middle value.</li>
+<li>For an <strong>even</strong> number of observations, the median is the average of the two middle values.</li>
+</ul>
+<p>Because the median depends only on the <em>order</em> of the data and not on their numerical magnitudes, it is said to be <em>resistant</em> to extreme values. Large outliers may change the mean substantially, but they have little or no effect on the median unless they alter the ordering of the central observations.</p>
+<p>This resistance makes the median a particularly useful measure of “typical” when distributions are <em>skewed</em> or contain <em>outliers</em>.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.3: Scutari data again
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recall the Scutari death counts after adding an extreme value:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>42, 93, 94, 96, 155, 500</code></pre>
+</div>
+</div>
+<p>There are six observations, so the median is the average of the third and fourth values in the ordered list: <span class="math display">\[
+\text{median} = \frac{94 + 96}{2} = 95.
+\]</span></p>
+<p>Unlike the mean, which was pulled upward by the extreme value of 500, the median remains close to where most of the data lie. This robustness is why medians are often preferred for skewed data such as <em>incomes</em>, <em>house prices</em>, or <em>medical costs</em>, where a small number of unusually large values are common.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.4: Fuel efficiency of cars
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now consider a dataset that contains fuel efficiency (in miles per gallon) for various automobiles tested in the 1970s.</p>
+<p>Suppose we examine the fuel efficiency of the <em>first 11 cars</em> in the dataset (an odd number of observations):</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>14.3, 17.8, 18.1, 18.7, 19.2, 21, 21, 21.4, 22.8, 22.8, 24.4</code></pre>
+</div>
+</div>
+<p>Because there are 11 observations, the median is the <em>6th value</em> in the ordered list:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>21</code></pre>
+</div>
+</div>
+<p>This value represents the fuel efficiency of a “typical” car in this subset. Even if one of the cars had extremely poor or extremely high fuel efficiency, the median would remain stable unless that extreme value crossed the center of the ordered data.</p>
+<p>This example illustrates why the median is often reported for performance measures like fuel economy, commute times, or household expenses—contexts where a few extreme cases should not define what is typical.</p>
+</div>
+</div>
+<p>The median answers the question of “typical” by focusing on <em>position rather than magnitude</em>. Its resistance to extreme values makes it a reliable measure of center for skewed distributions and data sets where outliers are common.</p>
+</section>
+<section id="the-mode-most-frequent-value" class="level3">
+<h3 class="anchored" data-anchor-id="the-mode-most-frequent-value">The mode (most frequent value)</h3>
+<p>The <strong>mode</strong> of a dataset is the value that occurs <em>most frequently</em>. Unlike the mean and median, which describe the numerical center of a distribution, the mode describes what is <em>most common</em>. Because it depends only on frequency, the mode can be used with <em>categorical</em>, <em>ordinal</em>, and <em>quantitative</em> data.</p>
+<p>A dataset may have:</p>
+<ul>
+<li><strong>One mode (unimodal)</strong> — a single most frequent value,</li>
+<li><strong>Two modes (bimodal)</strong> — often indicating two distinct groups,</li>
+<li><strong>More than two modes (multimodal)</strong> — suggesting additional structure or heterogeneity.</li>
+</ul>
+<p>The mode is especially useful for <em>categorical variables</em> (such as favorite color or blood type) and <em>discrete quantitative variables</em> (such as number of visits or number of children), where identifying the most common outcome is meaningful. In these contexts, the mean may not even be defined, and the median may be less informative.</p>
+<p>For <em>continuous variables</em> measured with fine precision, however, exact ties are uncommon. In such cases, the numerical mode may not be meaningful or may not exist at all. Instead, we often identify the mode visually as the <strong>peak of a histogram</strong>, representing the most densely populated region of the data rather than a single repeated value.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.5: Clinic visit counts (discrete data)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose a dental clinic records the number of visits made by each of 30 patients over the course of a year. The variable is a <em>discrete quantitative</em> count.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 5, 5, 8</code></pre>
+</div>
+</div>
+<p>We can find the mode by identifying the most frequently occurring value.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> Value Count
+     0     1
+     1     6
+     2    12
+     3     6
+     4     2
+     5     2
+     8     1</code></pre>
+</div>
+</div>
+<p>In this dataset, the most common number of visits is <em>3</em>, making 3 the mode. Interpreted in context, this tells us that the <em>typical</em> patient visits the clinic about three times per year—not in the sense of an average, but in the sense of what happens most often.</p>
+<p>This is a situation where the mode is particularly informative: patients and administrators may care most about the most common pattern of usage rather than a numerical balance point.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.6: Highway fuel efficiency (continuous data)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now consider a dataset on fuel efficiency measurements for many car models.</p>
+<p>We examine <em>highway miles per gallon</em> (<code>hwy</code>) for a subset of vehicles:</p>
+<p>Because highway fuel efficiency is measured on a continuous scale, exact repeated values are not especially meaningful. Instead, we identify the mode as the <strong>peak of the distribution</strong>, using a histogram.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From the histogram, we see that the highest bar occurs around <em>28-32 mpg</em>, indicating the modal region of the distribution. Rather than a single numerical value, the mode here represents the <em>most common range</em> of highway fuel efficiency among these vehicles.</p>
+<p>This approach is typical for continuous data: the mode is interpreted as a <em>region of highest density</em> rather than a single repeated observation.</p>
+</div>
+</div>
+</section>
+<section id="key-takeaway-1" class="level3">
+<h3 class="anchored" data-anchor-id="key-takeaway-1">Key takeaway</h3>
+<p>The mode answers the question: <em>What value occurs most often?</em> It is indispensable for categorical data, useful for discrete counts, and informative for continuous data when interpreted through histogram peaks. While it does not use all the information in the data the way the mean does, the mode often aligns closely with how people intuitively think about what is “typical.”</p>
+</section>
+<section id="the-shape-of-a-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="the-shape-of-a-distribution">The shape of a distribution</h3>
+<p>When examining a data distribution of a quantitative variable, whether portrayed by a frequency table or by a graph such as a histogram, we should look for clear peaks. Does the distribution have a single mound? A distribution of such data is called <em>unimodal</em>.</p>
+<p>A distribution with two distinct mounds is called <em>bimodal</em>. A bimodal distribution can result, for example, when a population is polarized on a controversial issue. Suppose each subject is presented with ten scenarios in which a person found guilty of murder may be given the death penalty. If we count the number of those scenarios in which subjects feel the death penalty would be just, many responses would be close to 0 (for subjects who oppose the death penalty generally) and many would be close to 10 (for subjects who think it’s always or usually warranted for murder).</p>
+<p>A bimodal distribution can also result when the observations come from two different groups. For instance, a histogram of the height of students at a university might show two peaks, one for females and one for males.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.7: Highway fuel efficiency (bimodal)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Below is another subset of vehicles from the data described in Example 4.6.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We see here that there are two peaks thus we call this distribution <em>bimodal</em>. In Example 4.6, the subset of vehicles were just 4 cylinder (smaller engine) vehicles. The data in this histogram includes vehicles with 4, 6, and 8 cylinders (larger engines). Vehicles with larger engines tend to have less highway miles per gallon than those with smaller engines. The distributions of both of these groups (small and large engines) are mixed together in this histogram giving us the bimodal shape.</p>
+</div>
+</div>
+<section id="distribution-shapes" class="level4">
+<h4 class="anchored" data-anchor-id="distribution-shapes">Distribution Shapes</h4>
+<p>What is the <strong>shape</strong> of the distribution? The shape of the distribution is often described as <strong>symmetric</strong> or <strong>skewed</strong>.</p>
+<p>A distribution is symmetric if the side of the distribution below a central value is a mirror image of the side above that central value. The distribution is skewed if one side of the distribution stretches out longer than the other side.</p>
+<p>To <em>skew</em> means to stretch in one direction. A distribution is skewed to the <strong>left</strong> if the left tail<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> is longer than the right tail. A distribution is skewed to the <strong>right</strong> if the right tail is longer than the left tail.</p>
+</section>
+</section>
+<section id="choosing-the-right-measure" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-the-right-measure">Choosing the right measure</h3>
+<p>How do you decide which summary to use? A few guidelines can help:</p>
+<ul>
+<li>Use the <strong>mean</strong> when the distribution is roughly symmetric without outliers. The mean connects nicely to many statistical models and formulas.</li>
+<li>Use the <strong>median</strong> when the distribution is skewed or contains outliers. The median provides a better sense of the typical case when extremes are present.</li>
+<li>Use the <strong>mode</strong> when describing the most common category or when the data are naturally discrete. For continuous variables, speak of the “modal class” (the bin with the highest frequency).</li>
+</ul>
+<p>You can also look at the relationship among mean, median, and mode to diagnose shape. In a symmetric distribution these summaries coincide. In a right‑skewed distribution the mean typically lies to the right of the median, and the mode is the smallest of the three; in a left‑skewed distribution the order reverses.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.8: Illustration: skewness and the mean–median comparison
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following simulates data from a right‑skewed distribution and a symmetric distribution and plots them side by side. Notice how the mean and median behave.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the right‑skewed distribution, the mean lies to the right of the median, reflecting the pull of larger values. In the nearly symmetric distribution, the mean and median are close together.</p>
+</div>
+</div>
+</section>
+<section id="working-in-jmp" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp">Working in JMP</h3>
+<p>JMP makes it easy to compute and compare these summaries.</p>
+<ul>
+<li>Use <strong>Analyze→Distribution</strong> on a single numeric column. The report shows the <strong>Mean</strong> and <strong>Median</strong> under the “Summary Statistics” section, and a “Quantiles” table lists the median explicitly. The bar under the histogram marks the median with a vertical line.</li>
+<li>To find the <strong>mode</strong>, examine the histogram (bins with the highest bars) or create a <strong>Tabulate</strong> table. Because continuous measurements rarely tie exactly, the notion of a mode is approximate.</li>
+<li>For a <strong>trimmed mean</strong>, click the red triangle ▶ next to the variable name in the Distribution platform, choose <strong>Nonparametric→TrimmedMean</strong>, and select the trimming proportion.</li>
+</ul>
+</section>
+<section id="recap" class="level3">
+<h3 class="anchored" data-anchor-id="recap">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Mean</strong></td>
+<td>The arithmetic average: sum of all observations divided by the number of observations; sensitive to extreme values.</td>
+</tr>
+<tr class="even">
+<td><strong>Median</strong></td>
+<td>The middle value when data are ordered; half the observations are at or below it; resistant to outliers.</td>
+</tr>
+<tr class="odd">
+<td><strong>Mode</strong></td>
+<td>The most frequently occurring value (or class) in the data; useful for categorical or discrete variables.</td>
+</tr>
+<tr class="even">
+<td><strong>Right-skewed</strong></td>
+<td>A distribution where the tail extends to the right; typically mean&gt;median&gt;mode.</td>
+</tr>
+<tr class="odd">
+<td><strong>Left-skewed</strong></td>
+<td>A distribution where the tail extends to the left; typically mean&lt;median&lt;mode.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A sample of commuting times (in minutes) for twelve workers is <span class="math display">\[
+10,\ 12,\ 12,\ 15,\ 16,\ 17,\ 18,\ 18,\ 18,\ 20,\ 22,\ 90.
+\]</span> Use these value for the following:</p>
+<ol type="a">
+<li><p>Find the median commuting time.</p></li>
+<li><p>Find the mean commuting time. How does the outlier affect the mean?</p></li>
+<li><p>If you were advising a city planner about what most commuters experience, which summary (mean or median) would you report? Why?</p></li>
+</ol></li>
+<li><p>For which of the following situations would the <strong>mode</strong> be a more informative summary than the mean or median? Explain your reasoning.</p>
+<ol type="a">
+<li><p>The test scores (0–100) from a class of 200 students.</p></li>
+<li><p>The favorite ice-cream flavors (chocolate, vanilla, strawberry, etc.) of 150 customers.</p></li>
+<li><p>The heights of 30 professional basketball players.</p></li>
+</ol></li>
+<li><p>The median of five numbers is 8 and the mean is 10. If four of the numbers are 3,7,8, and 20, what is the fifth number? (Hint: Use the definitions of median and mean.)</p></li>
+<li><p>Describe a situation in which the <strong>trimmed mean</strong> would be preferred over both the mean and the median.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>a)Ordering the commuting times yields 10,12,12,15,16,17,18,18,18,20,22,90. With 12 observations, the median is the average of the 6th and 7th values: <span class="math inline">\((17 + 18)/2 = 17.5\)</span> minutes. b)The mean is <span class="math inline">\((10 + 12 + 12 + 15 + 16 + 17 + 18 + 18 + 18 + 20 + 22 + 90)/12 = 268/12 \approx 22.33\)</span> minutes. The 90‑minute commute pulls the mean upward by about 5minutes compared to the median. c)For summarizing what most commuters experience, report the <strong>median</strong> (17.5minutes). It better represents the typical commute and is not inflated by the one long commute.</p></li>
+<li><p>a)<strong>Mean or median.</strong> Test scores on a bounded 0–100 scale often form a roughly bell‑shaped distribution; either mean or median can represent typical performance. The mode might be less stable because exact scores can vary. b)<strong>Mode.</strong> Favorite flavors are categorical; reporting the most popular flavor (mode) is more meaningful than attempting to average flavors. c)<strong>Mean or median.</strong> Heights are quantitative; the mean or median conveys typical height. The mode is less useful because exact duplicates are rare and height is nearly continuous.</p></li>
+<li><p>With five numbers, the median is the third when ordered. Because the median is 8, the third value (when the numbers are sorted) must be 8. The numbers we know are 3,7,8,20 and an unknown <span class="math inline">\(x\)</span>. After sorting them, the median (middle value) must be 8, so the sorted list must be 3,7,8,<span class="math inline">\(x\)</span>,20 (if <span class="math inline">\(x \leq 20\)</span>) or 3,7,8,20,<span class="math inline">\(x\)</span> (if <span class="math inline">\(x \geq 20\)</span>). To satisfy a mean of 10, the sum of all five numbers is 5×10=50. The known sum is 3+7+8+20=38, so <span class="math inline">\(x = 12\)</span>. Check the ordering: 3,7,8,12,20 has median 8 and mean 10. Thus the fifth number is <strong>12</strong>.</p></li>
+<li><p>Trimmed means are useful when you expect a few extreme observations in both tails but still want to use most of the data. For example, in judging gymnastics or diving, a panel of judges gives scores; to guard against unusually high or low scores (perhaps due to bias), competitions often drop the highest and lowest score and average the rest. A trimmed mean removes these extremes, producing a fairer overall score.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Small, H. (2020). <em>Nightingale’s overlooked Scutari statistics</em>. <strong>Significance</strong>, 17(6), 28–33.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The tails of a distribution are the parts that are for the lowest values and the highest values.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
