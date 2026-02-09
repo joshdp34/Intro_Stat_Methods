@@ -197,7 +197,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#measures-of-center-mean-median-mode" id="toc-measures-of-center-mean-median-mode" class="nav-link active" data-scroll-target="#measures-of-center-mean-median-mode"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</a>
+  <li><a href="#sec-measures_of_center" id="toc-sec-measures_of_center" class="nav-link active" data-scroll-target="#sec-measures_of_center"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</a>
   <ul class="collapse">
   <li><a href="#what-do-we-mean-by-typical" id="toc-what-do-we-mean-by-typical" class="nav-link" data-scroll-target="#what-do-we-mean-by-typical">What do we mean by “typical”?</a></li>
   <li><a href="#the-mean-arithmetic-average" id="toc-the-mean-arithmetic-average" class="nav-link" data-scroll-target="#the-mean-arithmetic-average">The mean (arithmetic average)</a></li>
@@ -210,6 +210,40 @@ window.Quarto = {
   <li><a href="#working-in-jmp" id="toc-working-in-jmp" class="nav-link" data-scroll-target="#working-in-jmp">Working in JMP</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#measures-of-variability" id="toc-measures-of-variability" class="nav-link" data-scroll-target="#measures-of-variability"><span class="header-section-number">4.2</span> Measures of Variability</a>
+  <ul class="collapse">
+  <li><a href="#why-variability-matters" id="toc-why-variability-matters" class="nav-link" data-scroll-target="#why-variability-matters">Why variability matters</a></li>
+  <li><a href="#the-range" id="toc-the-range" class="nav-link" data-scroll-target="#the-range">The range</a></li>
+  <li><a href="#quartiles-and-the-interquartile-range-iqr" id="toc-quartiles-and-the-interquartile-range-iqr" class="nav-link" data-scroll-target="#quartiles-and-the-interquartile-range-iqr">Quartiles and the interquartile range (IQR)</a></li>
+  <li><a href="#a-note-on-quartile-definitions" id="toc-a-note-on-quartile-definitions" class="nav-link" data-scroll-target="#a-note-on-quartile-definitions">A note on quartile definitions</a></li>
+  <li><a href="#why-the-iqr-matters" id="toc-why-the-iqr-matters" class="nav-link" data-scroll-target="#why-the-iqr-matters">Why the IQR matters</a></li>
+  <li><a href="#working-in-jmp-1" id="toc-working-in-jmp-1" class="nav-link" data-scroll-target="#working-in-jmp-1">Working in JMP</a></li>
+  <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
+  <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#identifying-outliers" id="toc-identifying-outliers" class="nav-link" data-scroll-target="#identifying-outliers"><span class="header-section-number">4.3</span> Identifying Outliers</a>
+  <ul class="collapse">
+  <li><a href="#what-counts-as-an-outlier" id="toc-what-counts-as-an-outlier" class="nav-link" data-scroll-target="#what-counts-as-an-outlier">What counts as an outlier?</a></li>
+  <li><a href="#what-to-do-with-outliers" id="toc-what-to-do-with-outliers" class="nav-link" data-scroll-target="#what-to-do-with-outliers">What to do with outliers</a></li>
+  <li><a href="#working-in-jmp-2" id="toc-working-in-jmp-2" class="nav-link" data-scroll-target="#working-in-jmp-2">Working in JMP</a></li>
+  <li><a href="#recap-2" id="toc-recap-2" class="nav-link" data-scroll-target="#recap-2">Recap</a></li>
+  <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#the-fivenumber-summary-and-boxplots" id="toc-the-fivenumber-summary-and-boxplots" class="nav-link" data-scroll-target="#the-fivenumber-summary-and-boxplots"><span class="header-section-number">4.4</span> The Five‑Number Summary and Boxplots</a>
+  <ul class="collapse">
+  <li><a href="#the-boxplot-a-visual-summary" id="toc-the-boxplot-a-visual-summary" class="nav-link" data-scroll-target="#the-boxplot-a-visual-summary">The Boxplot: A Visual Summary</a></li>
+  <li><a href="#working-in-jmp-3" id="toc-working-in-jmp-3" class="nav-link" data-scroll-target="#working-in-jmp-3">Working in JMP</a></li>
+  <li><a href="#recap-3" id="toc-recap-3" class="nav-link" data-scroll-target="#recap-3">Recap</a></li>
+  <li><a href="#check-your-understanding-3" id="toc-check-your-understanding-3" class="nav-link" data-scroll-target="#check-your-understanding-3">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#choosing-appropriate-summary-statistics" id="toc-choosing-appropriate-summary-statistics" class="nav-link" data-scroll-target="#choosing-appropriate-summary-statistics"><span class="header-section-number">4.5</span> Choosing Appropriate Summary Statistics</a>
+  <ul class="collapse">
+  <li><a href="#categorical-and-binary-data" id="toc-categorical-and-binary-data" class="nav-link" data-scroll-target="#categorical-and-binary-data">Categorical and binary data</a></li>
+  <li><a href="#ordinal-data" id="toc-ordinal-data" class="nav-link" data-scroll-target="#ordinal-data">Ordinal data</a></li>
+  <li><a href="#quantitative-data-symmetric-vs.-skewed" id="toc-quantitative-data-symmetric-vs.-skewed" class="nav-link" data-scroll-target="#quantitative-data-symmetric-vs.-skewed">Quantitative data: symmetric vs.&nbsp;skewed</a></li>
+  <li><a href="#working-in-jmp-4" id="toc-working-in-jmp-4" class="nav-link" data-scroll-target="#working-in-jmp-4">Working in JMP</a></li>
+  <li><a href="#check-your-understanding-4" id="toc-check-your-understanding-4" class="nav-link" data-scroll-target="#check-your-understanding-4">Check your understanding</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -236,13 +270,13 @@ window.Quarto = {
 </header>
 
 
-<section id="measures-of-center-mean-median-mode" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="measures-of-center-mean-median-mode"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</h2>
+<section id="sec-measures_of_center" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-measures_of_center"><span class="header-section-number">4.1</span> Measures of Center (Mean, Median, Mode)</h2>
 <blockquote class="blockquote">
 <p>“You keep using that word. I do not think it means what you think it means.” - Inigo Montoya</p>
 </blockquote>
 <p>One of the first things we usually want to know about a numerical variable is where it <em>centers</em>. When we describe a value as “typical,” we are really asking a practical question: <em>If we had to summarize this entire group with a single number, which number would best represent it?</em></p>
-<p>In this section, we explore three common measures of center—the <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>—and consider when each provides a sensible description of what is typical.</p>
+<p>In this section, we explore three common measures of center -the <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong> -and consider when each provides a sensible description of what is typical.</p>
 <section id="what-do-we-mean-by-typical" class="level3">
 <h3 class="anchored" data-anchor-id="what-do-we-mean-by-typical">What do we mean by “typical”?</h3>
 <p>A good measure of center should capture the <em>central tendency</em> of the data without being overly influenced by extreme values. However, no single summary works best in every situation. The “best” notion of typical depends on the <em>shape of the distribution</em>, the presence of <em>outliers</em>, and the <em>context</em> of the data.</p>
@@ -250,7 +284,7 @@ window.Quarto = {
 </section>
 <section id="the-mean-arithmetic-average" class="level3">
 <h3 class="anchored" data-anchor-id="the-mean-arithmetic-average">The mean (arithmetic average)</h3>
-<p>The <strong>mean</strong> of a sample, often denoted <span class="math inline">\(\bar{x}\)</span>, is the sum of all observations divided by the number of observations. If you imagine placing each data value as a weight on a number line, the mean is the <em>balance point</em>—the location where the line would balance perfectly.</p>
+<p>The <strong>mean</strong> of a sample, often denoted <span class="math inline">\(\bar{x}\)</span>, is the sum of all observations divided by the number of observations. If you imagine placing each data value as a weight on a number line, the mean is the <em>balance point</em> -the location where the line would balance perfectly.</p>
 <p>Formally, for sample values <span class="math inline">\(x_1, x_2, \dots, x_n\)</span>, the mean is <span class="math display">\[
 \bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.
 \]</span></p>
@@ -325,7 +359,7 @@ Example 4.2: Household income
 <p>Trimmed means are especially useful when data are moderately skewed or when a small number of outliers are present but not of primary interest.</p>
 <section id="key-takeaway" class="level4">
 <h4 class="anchored" data-anchor-id="key-takeaway">Key takeaway</h4>
-<p>The mean is a powerful and widely used measure of center, but it answers the question of “typical” only when extreme values are not overly influential. When outliers are present—or when the distribution is strongly skewed—the mean can give a distorted picture, motivating the use of alternative summaries such as the median or trimmed mean.</p>
+<p>The mean is a powerful and widely used measure of center, but it answers the question of “typical” only when extreme values are not overly influential. When outliers are present -or when the distribution is strongly skewed -the mean can give a distorted picture, motivating the use of alternative summaries such as the median or trimmed mean.</p>
 </section>
 </section>
 <section id="the-median-middle-value" class="level3">
@@ -384,7 +418,7 @@ Example 4.4: Fuel efficiency of cars
 </div>
 </div>
 <p>This value represents the fuel efficiency of a “typical” car in this subset. Even if one of the cars had extremely poor or extremely high fuel efficiency, the median would remain stable unless that extreme value crossed the center of the ordered data.</p>
-<p>This example illustrates why the median is often reported for performance measures like fuel economy, commute times, or household expenses—contexts where a few extreme cases should not define what is typical.</p>
+<p>This example illustrates why the median is often reported for performance measures like fuel economy, commute times, or household expenses -contexts where a few extreme cases should not define what is typical.</p>
 </div>
 </div>
 <p>The median answers the question of “typical” by focusing on <em>position rather than magnitude</em>. Its resistance to extreme values makes it a reliable measure of center for skewed distributions and data sets where outliers are common.</p>
@@ -394,9 +428,9 @@ Example 4.4: Fuel efficiency of cars
 <p>The <strong>mode</strong> of a dataset is the value that occurs <em>most frequently</em>. Unlike the mean and median, which describe the numerical center of a distribution, the mode describes what is <em>most common</em>. Because it depends only on frequency, the mode can be used with <em>categorical</em>, <em>ordinal</em>, and <em>quantitative</em> data.</p>
 <p>A dataset may have:</p>
 <ul>
-<li><strong>One mode (unimodal)</strong> — a single most frequent value,</li>
-<li><strong>Two modes (bimodal)</strong> — often indicating two distinct groups,</li>
-<li><strong>More than two modes (multimodal)</strong> — suggesting additional structure or heterogeneity.</li>
+<li><strong>One mode (unimodal)</strong> - a single most frequent value,</li>
+<li><strong>Two modes (bimodal)</strong> - often indicating two distinct groups,</li>
+<li><strong>More than two modes (multimodal)</strong> - suggesting additional structure or heterogeneity.</li>
 </ul>
 <p>The mode is especially useful for <em>categorical variables</em> (such as favorite color or blood type) and <em>discrete quantitative variables</em> (such as number of visits or number of children), where identifying the most common outcome is meaningful. In these contexts, the mean may not even be defined, and the median may be less informative.</p>
 <p>For <em>continuous variables</em> measured with fine precision, however, exact ties are uncommon. In such cases, the numerical mode may not be meaningful or may not exist at all. Instead, we often identify the mode visually as the <strong>peak of a histogram</strong>, representing the most densely populated region of the data rather than a single repeated value.</p>
@@ -429,7 +463,7 @@ Example 4.5: Clinic visit counts (discrete data)
      8     1</code></pre>
 </div>
 </div>
-<p>In this dataset, the most common number of visits is <em>3</em>, making 3 the mode. Interpreted in context, this tells us that the <em>typical</em> patient visits the clinic about three times per year—not in the sense of an average, but in the sense of what happens most often.</p>
+<p>In this dataset, the most common number of visits is <em>3</em>, making 3 the mode. Interpreted in context, this tells us that the <em>typical</em> patient visits the clinic about three times per year -not in the sense of an average, but in the sense of what happens most often.</p>
 <p>This is a situation where the mode is particularly informative: patients and administrators may care most about the most common pattern of usage rather than a numerical balance point.</p>
 </div>
 </div>
@@ -634,6 +668,1140 @@ Solutions
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="measures-of-variability" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="measures-of-variability"><span class="header-section-number">4.2</span> Measures of Variability</h2>
+<blockquote class="blockquote">
+<p>“In statistics, variation is the name of the game – without it there would be nothing to explain.” – David Salsburg</p>
+</blockquote>
+<p>If measures of center describe what is <em>typical</em>, measures of <strong>variability</strong> describe how much the data <em>deviate from that typical value</em>. Two datasets can share the same mean or median yet behave very differently in practice. One may be tightly clustered around the center, while the other is widely scattered, with values far from typical. Without a measure of spread, a measure of center alone can give a misleading sense of consistency or predictability.</p>
+<p>Variability provides essential context. Knowing that the average commute time is 30 minutes is far less informative if commute times regularly range from 10 to 90 minutes than if they typically fall between 25 and 35 minutes. Measures of variability quantify this uncertainty and help us understand how much individual observations are likely to differ from the center.</p>
+<section id="why-variability-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-variability-matters">Why variability matters</h3>
+<p>Understanding variability is critical for assessing <em>reliability</em>, <em>risk</em>, and <em>precision</em>.</p>
+<p>In everyday settings, variability affects decision-making. If daily commute times vary widely, planning becomes difficult and the “typical” commute time offers little reassurance. If test scores in a class are highly variable, a single average score may not accurately reflect most students’ experiences.</p>
+<p>In applied settings, variability is often more important than the center. In manufacturing and quality control, low variability in part dimensions indicates a stable and well-controlled process, even if the average dimension is slightly off target. High variability, on the other hand, signals inconsistency and potential defects. Similarly, in finance, two investments with the same average return may carry very different levels of risk if one fluctuates much more than the other.</p>
+<p>Variability also lies at the heart of <em>inferential statistics</em>. Measures such as variance and standard deviation quantify the natural randomness in data and determine how much confidence we can place in estimates, predictions, and conclusions. Larger variability generally means greater uncertainty, wider confidence intervals, and less precise inferences.</p>
+<section id="measuring-variability" class="level4">
+<h4 class="anchored" data-anchor-id="measuring-variability">Measuring variability</h4>
+<p>There is no single “best” way to describe spread. Different measures emphasize different aspects of variability and are useful in different contexts. In this section, we will examine four commonly used summaries:</p>
+<ul>
+<li>The <strong>range</strong>, which captures the total spread from the smallest to the largest value,</li>
+<li>The <strong>interquartile range (IQR)</strong>, which focuses on the spread of the middle 50% of the data and is resistant to outliers,</li>
+<li>The <strong>variance</strong>, which measures average squared deviation from the mean,</li>
+<li>The <strong>standard deviation</strong>, which expresses typical deviation from the mean in the original units of the data.</li>
+</ul>
+<p>Together, these measures provide a toolkit for describing and comparing variability across datasets and for understanding how much individual observations tend to differ from what is typical.</p>
+</section>
+</section>
+<section id="the-range" class="level3">
+<h3 class="anchored" data-anchor-id="the-range">The range</h3>
+<p>The <em>range</em> is the simplest measure of spread: it’s the difference between the largest and smallest values.</p>
+<p><span class="math display">\[
+\text{Range} = \max(x) - \min(x).
+\]</span></p>
+<p>The range is easy to compute and understand, but it depends only on two data points -making it very sensitive to outliers. If one observation is extreme, the range may exaggerate typical variability.</p>
+<p>Two data sets can have the same range and be vastly different with respect to data variation.</p>
+<p>For Example, Consider the data set A: <span class="math display">\[1, 3, 5, 6, 8, 9, 10, 15\]</span> and data set B: <span class="math display">\[1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 15\]</span></p>
+<p>Both data sets have the same range but are very different in how the data are spread out.</p>
+</section>
+<section id="quartiles-and-the-interquartile-range-iqr" class="level3">
+<h3 class="anchored" data-anchor-id="quartiles-and-the-interquartile-range-iqr">Quartiles and the interquartile range (IQR)</h3>
+<p>When describing variability, we often want a measure of spread that is <em>not overly influenced by extreme values</em>. One way to achieve this is by focusing on <strong>quantiles</strong>, which divide an ordered dataset into portions containing equal fractions of the data.</p>
+<p>The <strong>first quartile</strong> (<span class="math inline">\(Q_1\)</span>) is the value below which approximately <strong>25%</strong> of the observations fall, and the <strong>third quartile</strong> (<span class="math inline">\(Q_3\)</span>) is the value below which approximately <strong>75%</strong> of the observations fall. Recall from <a href="#sec-measures_of_center" class="quarto-xref"><span>Section 4.1</span></a>, the median separates the data into two equal halves. Thus, the median is also the <strong>second quartile</strong> (<span class="math inline">\(Q_2\)</span>).</p>
+<p>The <strong>interquartile range (IQR)</strong> measures the spread of the middle half of the data and is defined as <span class="math display">\[
+\text{IQR} = Q_3 - Q_1.
+\]</span></p>
+<p>Because the IQR depends only on the central 50% of the data, it is a <strong>resistant measure of spread</strong>. Extremely large or small observations in the tails have little effect on it. For this reason, the IQR is especially useful for skewed distributions and data sets that contain outliers.</p>
+<p>The IQR plays a central role in boxplots and in common rules for identifying potential outliers, which we will study in the next section.</p>
+</section>
+<section id="a-note-on-quartile-definitions" class="level3">
+<h3 class="anchored" data-anchor-id="a-note-on-quartile-definitions">A note on quartile definitions</h3>
+<p>Unlike the mean or median, quartiles do not have a single universally accepted method for finding them. Different textbooks, software packages, and statistical traditions use slightly different rules for determining <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span>, particularly when the sample size is not divisible by four.</p>
+<p>Some common approaches include:</p>
+<ul>
+<li>Computing quartiles as specific percentiles using interpolation,</li>
+<li>Defining quartiles as the medians of the lower and upper halves of the data,</li>
+<li>Using weighted averages when the quartile position falls between two observations.</li>
+</ul>
+<p>As a result, you may see small numerical differences in reported quartiles depending on the method used. These differences are usually minor and do not change the overall interpretation, but they are important to be aware of when comparing results across software.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="For those who want to see the math:">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For those who want to see the math:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>JMP determines quartiles based on the following steps:</p>
+<ol type="1">
+<li><p>Sort the <span class="math inline">\(n\)</span> values in ascending order.</p></li>
+<li><p>Compute the location index for the <span class="math inline">\(p\text{th}\)</span> percentile as <span class="math display">\[
+r=(n+1)\frac{p}{100}
+\]</span></p></li>
+<li><p>If <span class="math inline">\(r\ge n\)</span>, then the <span class="math inline">\(p\text{th}\)</span> percentile is the maximum value in the data.</p></li>
+<li><p>If <span class="math inline">\(r\le 1\)</span>, then the <span class="math inline">\(p\text{th}\)</span> percentile is the minimum value in the data.</p></li>
+<li><p>If <span class="math inline">\(r\)</span> is an integer, then the <span class="math inline">\(p\text{th}\)</span> percentile is the <span class="math inline">\(r\text{th}\)</span> value in the ordered data.</p></li>
+<li><p>If <span class="math inline">\(r\)</span> is not an integer, then the <span class="math inline">\(p\text{th}\)</span> percentile is found using the formula <span class="math display">\[
+p\text{th percentile} = (1-f)y_i+(f)y_{i+1}
+\]</span> where <span class="math inline">\(i\)</span> is the integer part of <span class="math inline">\(r\)</span> and <span class="math inline">\(f\)</span> is the fractional (decimal) part of <span class="math inline">\(r\)</span>.</p></li>
+</ol>
+<p>The <a href="https://www.jmp.com/support/help/en/18.2/#page/jmp/statistical-details-for-quantiles.shtml#ww1685306">JMP documentation</a> provides an example where <span class="math inline">\(n\)</span> is 15 and the 75th and 90th percentiles are found. The value of <span class="math inline">\(r\)</span> for each is calculated to be <span class="math display">\[
+\begin{align*}
+r=(15+1)\frac{75}{100}=12\qquad\qquad r=(15+1)\frac{90}{100}=14.4
+\end{align*}
+\]</span></p>
+<p>Since <span class="math inline">\(r\)</span> is an integer, then the 12th value in the sorted dataset is the 75th percentile.</p>
+<p>Suppose the values are</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>11, 86, 33, 77, 5, 16, 52, 42, 50, 6, 89, 82, 100, 31, 64</code></pre>
+</div>
+</div>
+<p>These values are sorted in ascending order:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>5, 6, 11, 16, 31, 33, 42, 50, 52, 64, 77, 82, 86, 89, 100</code></pre>
+</div>
+</div>
+<p>The 12th value in this ordered dataset is 82. Thus the 75th percentile is 82.</p>
+<p>For the 90th percentile, the value of <span class="math inline">\(r\)</span> is not an integer. Therefore, the 95th percentile is found by finding <span class="math inline">\(i=14\)</span> (since 14 is the integer part of 14.4) and <span class="math inline">\(f=0.4\)</span> (since 0.4 is the decimal part of 14.4). The 90 percentile is then calculated as</p>
+<p><span class="math display">\[
+\begin{align*}
+90\text{th percentile} &amp;= (1-0.4)y_{14}+(0.4)y_{14+1}\\
+&amp;= (0.6)89+(0.4)(100)\\
+&amp;=93.4
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.9: Fuel efficiency of cars
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the fuel efficiency (miles per gallon) of cars first examined in Example 4.4. This time, we will use all 32 observations.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>10.4, 10.4, 13.3, 14.3, 14.7, 15, 15.2, 15.2, 15.5, 15.8, 16.4, 17.3, 17.8, 18.1, 18.7, 19.2, 19.2, 19.7, 21, 21, 21.4, 21.4, 21.5, 22.8, 22.8, 24.4, 26, 27.3, 30.4, 30.4, 32.4, 33.9</code></pre>
+</div>
+</div>
+<p>We compute the first quartile, third quartile, and IQR using JMP:</p>
+<p><img src="images/04_mtcars_summary.png" class="img-fluid"></p>
+<p>From the JMP output, we see that <span class="math inline">\(Q_1=15.275\)</span> and <span class="math inline">\(Q_3=22.8\)</span>. This leads to an interquartile range of <span class="math display">\[
+\text{IQR}=22.8-15.275=7.525
+\]</span></p>
+</div>
+</div>
+<!-- :::{.example title="Example 4.7: Waiting times at Old Faithful"} -->
+<!-- Now consider a second real-world example from the built-in R dataset `faithful`, which records the waiting time (in minutes) between eruptions of the Old Faithful geyser in Yellowstone National Park. -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- data(faithful) -->
+<!-- wait_vals <- faithful$waiting -->
+<!-- cat(sort(wait_vals)[1:30], "...,", sep = " ") -->
+<!-- ``` -->
+<!-- We compute the quartiles and IQR: -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- quantile(wait_vals) -->
+<!-- IQR(wait_vals) -->
+<!-- ``` -->
+<!-- The IQR here describes the variability of typical waiting times between eruptions, ignoring unusually short or long intervals. Because the distribution of waiting times is bimodal and somewhat skewed, the IQR provides a stable summary of spread that is not distorted by the extremes. -->
+<!-- This is a setting where the IQR is far more informative than the range, and where small differences in quartile definitions across software have little practical impact. -->
+<!-- ::: -->
+</section>
+<section id="why-the-iqr-matters" class="level3">
+<h3 class="anchored" data-anchor-id="why-the-iqr-matters">Why the IQR matters</h3>
+<p>The interquartile range focuses attention on the <em>core of the distribution</em>, where most observations lie. Its resistance to outliers makes it a natural companion to the median, particularly for skewed data. Together, the median and IQR provide a robust summary of center and spread that remains meaningful even when extreme values are present.</p>
+<p>As we move forward, the IQR will play a key role in graphical summaries and in formal rules for detecting outliers.</p>
+<section id="variance-and-standard-deviation" class="level4">
+<h4 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and standard deviation</h4>
+<p>For a different measure of variability, we can calculate the distance and direction from the mean for each individual measurement. This is known as the <em>deviation</em> of the measurement. <span class="math display">\[
+\text{deviation} = x - \bar x
+\]</span></p>
+<p>Using these deviations, we can construct a more sensitive (as compared to the range) measure of variation.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Data set 1:<br>
+1, 2, 3, 4, 5</p>
+<p>Data set 2:<br>
+2, 3, 3, 3, 4</p>
+<p>Both datasets have a mean of 3.</p>
+<p>The deviations for data set 1 are: <span class="math display">\[
+\begin{align*}
+    (1-3), (2-3), (3-3), (4-3), (5-3) \Longrightarrow -2, -1, 0, 1, 2
+\end{align*}
+\]</span></p>
+<p>The deviations for data set 2 are: <span class="math display">\[
+\begin{align*}
+    (2-3), (3-3), (3-3), (3-3), (4-3) \Longrightarrow -1, 0, 0, 0, 1
+\end{align*}
+\]</span></p>
+</div>
+</div>
+<p>What information do these deviations contain?</p>
+<p>If they tend to be large in magnitude, as in data set 1, the data are spread out, or highly variable.</p>
+<p>If the deviations are mostly small, as in data set 2, the data are clustered around the mean, <span class="math inline">\(\bar x\)</span> , and therefore do not exhibit much variability.</p>
+<p>The next step is to condense the information in these distances into a single numerical measure of variability.</p>
+<p>While not just average these values?</p>
+<p>You see from the two example datasets above that some of the values are below the mean making the deviation negative. Other values are above the mean making the deviation positive. The negative deviations cancel out the positive deviations when you sum them up. In fact, the sum of deviations of values from the mean will always be zero.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="For those who want to see the math:">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For those who want to see the math:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{align*}
+    \frac{1}{n}\sum^n_{i=1}(x_i - \bar x) &amp;= {\frac{1}{n}\sum^n_{i=1}x_i - \frac{1}{n}\sum^n_{i=1}\bar x}\\
+    &amp;{ = \bar x - \frac{1}{n}n\bar x}\\
+    &amp; {= \bar x - \bar x}\\
+    &amp;{ = 0}
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>So this won’t work. What we can do instead is square the deviations. By doing this and averaging<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> them out, we will obtain what is known as the sample <em>variance</em>.</p>
+<p><span class="math display">\[
+s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+\]</span></p>
+<p>Because the variance uses the square of the units of measurement for the original data, its square root is easier to interpret. This is called the sample <em>standard deviation</em>.</p>
+<p><span class="math display">\[
+\begin{align*}
+s =&amp; \sqrt{s^2}\\
+=&amp; \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2}
+\end{align*}
+\]</span></p>
+<p>Squaring the deviations ensures that positive and negative deviations don’t cancel out and gives more weight to larger deviations. Taking the square root returns the measure to the original units of the data. Standard deviation answers the question: on average, how far do observations fall from the mean?</p>
+<p>Unlike the IQR, the standard deviation is <em>sensitive to outliers</em>, because every deviation is squared.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.11: Illustration comparing spreads
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider two small sets of exam scores. Group A scores are tightly clustered, and Group B scores vary widely even though their means are similar.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Exam scores for the two groups</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">GroupA</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">78</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GroupB</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">90</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We’ll compute the range, IQR, and standard deviation for each group.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Comparing measures of spread for two groups</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">range</th>
+<th style="text-align: right;">IQR</th>
+<th style="text-align: right;">sd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Group_A</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2.65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group_B</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">10.80</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In this example, both groups have means around the mid‑70s (<span class="math inline">\(\bar{x}\approx 74\)</span>). However, Group A’s range is 8 points and its IQR is 3 points, while Group B’s range is 30 points and its IQR is 15 points. The standard deviation for Group B is more than triple that of Group A. Even without a graph you can see that Group B’s scores are much more spread out.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="working-in-jmp-1" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-1">Working in JMP</h3>
+<p>To examine variability in JMP:</p>
+<ul>
+<li><strong>Range and IQR.</strong> In the <strong>Distribution</strong> platform, click the red triangle ▶ next to the variable name and select <strong>Save Quantiles</strong> or <strong>Quantiles</strong> to see <span class="math inline">\(Q_1\)</span>, <span class="math inline">\(Q_2\)</span>, <span class="math inline">\(Q_3\)</span> and compute the IQR (<span class="math inline">\(Q_3 - Q_1\)</span>). The range is visible from the minimum and maximum shown in the summary.</li>
+<li><strong>Variance and standard deviation.</strong> These appear automatically in the “Summary Statistics” section of the Distribution report. Standard deviation is labeled “Std Dev,” and variance is its square.</li>
+<li><strong>Multiple groups.</strong> To compare groups, use <strong>Analyze→Fit Y by X</strong> with a continuous response and a categorical factor. The side‑by‑side boxplots display medians, quartiles, and potential outliers, and the “Means and Std Dev” table summarizes each group’s mean and standard deviation.</li>
+</ul>
+</section>
+<section id="recap-1" class="level3">
+<h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Range</strong></td>
+<td>The difference between the maximum and minimum values in a dataset; very sensitive to outliers.</td>
+</tr>
+<tr class="even">
+<td><strong>Quartile</strong></td>
+<td>A value that divides ordered data into four equal parts; <span class="math inline">\(Q_1\)</span> is the first quartile (25% mark) and <span class="math inline">\(Q_3\)</span> is the third quartile (75% mark).</td>
+</tr>
+<tr class="odd">
+<td><strong>Interquartile range (IQR)</strong></td>
+<td>The difference <span class="math inline">\(Q_3 - Q_1\)</span>; measures the spread of the middle half of the data; resistant to outliers.</td>
+</tr>
+<tr class="even">
+<td><strong>Variance</strong></td>
+<td>The average squared deviation from the mean; units are squared.</td>
+</tr>
+<tr class="odd">
+<td><strong>Standard deviation</strong></td>
+<td>The square root of variance; a typical distance from the mean; sensitive to outliers but commonly used in many statistical formulas.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-1" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>For the exam score data above (Group A and Group B), interpret the differences in standard deviation. Which group has more variability and why?</p></li>
+<li><p>A dataset of weekly hours spent exercising (in hours) for eight people is 2, 3, 3, 4, 4, 4, 5, 15.</p>
+<ol type="a">
+<li><p>Compute the range, IQR, and standard deviation.</p></li>
+<li><p>How does the outlier of 15 hours affect each measure of variability?</p></li>
+<li><p>If you wanted to describe the spread for most people in this group, which measure would you report? Explain.</p></li>
+</ol></li>
+<li><p>Explain in your own words why we square deviations when computing variance. What would go wrong if we didn’t square them?</p></li>
+<li><p>Two companies have average delivery times of 3 days. Company A has a standard deviation of 0.5 days, while Company B has a standard deviation of 2 days. Describe what this tells you about customer experiences with each company.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>GroupB has a standard deviation of about 10.808 points, whereas GroupA’s standard deviation is about 2.65 points (as computed in the example). The larger standard deviation means GroupB’s scores are more spread out around the mean -students in GroupB vary widely in performance compared to the tight clustering of GroupA.</p></li>
+<li><p>a)The ordered data are 2,3,3,4,4,4,5,15. The range is 15−2=13. <span class="math inline">\(Q_1\)</span> is halfway between the 2nd and 3rd observations (3 and 3), so <span class="math inline">\(Q_1 = 3\)</span>; <span class="math inline">\(Q_3\)</span> is halfway between the 6th and 7th observations (4 and 5), so <span class="math inline">\(Q_3 = 4.5\)</span>. The IQR is 4.5−3=1.5 hours. The mean is <span class="math inline">\((2+3+3+4+4+4+5+15)/8 = 40/8 = 5\)</span> hours. The standard deviation (using <span class="math inline">\(n-1=7\)</span> in the denominator) is about 4.14 hours. b) The outlier of 15 hours has a huge impact on the range (it becomes 13) and the standard deviation (4.14), both of which rise substantially. The IQR remains 1.5 because quartiles ignore the extreme values -so the IQR is more robust. c) To describe the spread for most people, the <strong>IQR</strong> is most appropriate because it captures the middle 50% of values and is not distorted by the one extreme exerciser.</p></li>
+<li><p>If we summed deviations from the mean without squaring them, positive and negative deviations would cancel out, giving zero. Squaring each deviation ensures that all contributions to variability are positive and that larger deviations are weighted more heavily, which reflects their greater contribution to the overall spread.</p></li>
+<li><p>Although the average delivery time is the same for both companies, Company A’s small standard deviation means most deliveries take close to 3 days -customers can expect consistent service. Company B’s larger standard deviation indicates delivery times vary widely; some packages may arrive much sooner or much later than 3 days. Customers may perceive Company A as more reliable.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="identifying-outliers" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="identifying-outliers"><span class="header-section-number">4.3</span> Identifying Outliers</h2>
+<blockquote class="blockquote">
+<p>“Would I rather be feared or loved? Easy, both. I want people to be afraid of how much they love me.” – Michael Scott</p>
+</blockquote>
+<p>In any real dataset, not all observations behave nicely. Some values sit far away from the bulk of the data-much larger or much smaller than what we would consider typical. These observations are called <strong>outliers</strong>. Identifying outliers is a crucial step in data analysis because they can strongly influence summaries, visualizations, and statistical conclusions.</p>
+<p>Outliers arise for many reasons. Some are the result of <em>errors</em>, such as data entry mistakes (an extra zero added to a value) or instrument malfunctions. Others reflect <em>rare but legitimate variation</em>, such as unusually long hospital stays or extremely high incomes. In some cases, outliers are the most <em>interesting</em> observations in the dataset, pointing to unusual events, special populations, or meaningful departures from expected behavior.</p>
+<p>For these reasons, outliers should never be ignored automatically or removed without justification. Instead, they deserve careful attention. The goal is not simply to label points as “bad,” but to <em>detect them systematically</em>, investigate their source, and decide-based on context-how they should be handled in the analysis.</p>
+<section id="what-counts-as-an-outlier" class="level3">
+<h3 class="anchored" data-anchor-id="what-counts-as-an-outlier">What counts as an outlier?</h3>
+<p>There is no single, absolute definition of an outlier. What counts as “far away” depends on the scale, shape, and purpose of the data. As a result, statisticians rely on <strong>rules of thumb</strong> that flag <em>potential</em> outliers -values that merit closer examination rather than automatic exclusion.</p>
+<p>Two of the most commonly used approaches are:</p>
+<ul>
+<li>The <strong>interquartile range (IQR) rule</strong>, which identifies outliers based on their distance from the middle 50% of the data and is resistant to skewness and extreme values.</li>
+<li>The <strong>z-score rule</strong>, which measures how many standard deviations an observation lies from the mean and is most appropriate for roughly symmetric distributions.</li>
+</ul>
+<p>Both methods provide objective criteria for highlighting unusual observations, but neither replaces judgment. In the sections that follow, we will explore how each rule works, when it is appropriate to use, and how to interpret flagged values responsibly.</p>
+<p>Ultimately, identifying outliers is as much about <em>understanding the data-generating process</em> as it is about applying formulas.</p>
+<section id="the-iqr-rule" class="level4">
+<h4 class="anchored" data-anchor-id="the-iqr-rule">The IQR rule</h4>
+<p>One of the most widely used methods for identifying potential outliers is the <strong>interquartile range (IQR) rule</strong>. This approach is based on the idea that the <em>middle 50%</em> of the data provides a stable reference for what is typical, even when extreme values are present.</p>
+<p>Recall that the <strong>interquartile range</strong> is defined as <span class="math display">\[
+\text{IQR} = Q_3 - Q_1,
+\]</span> where <span class="math inline">\(Q_1\)</span> is the first quartile and <span class="math inline">\(Q_3\)</span> is the third quartile. The IQR measures the spread of the central half of the data and intentionally ignores the tails of the distribution.</p>
+<p>The IQR rule defines two cutoff values, often called <strong>fences</strong>, that mark unusually low or unusually high observations:</p>
+<ul>
+<li>The <strong>lower fence</strong>: <span class="math inline">\(Q_1 - 1.5 \times \text{IQR}\)</span>,</li>
+<li>The <strong>upper fence</strong>: <span class="math inline">\(Q_3 + 1.5 \times \text{IQR}\)</span>.</li>
+</ul>
+<p>Any observation that falls <em>below the lower fence</em> or <em>above the upper fence</em> is flagged as a <strong>potential outlier</strong>. The factor of 1.5 is a convention rather than a strict law; it represents a balance between being too sensitive (flagging many ordinary values) and too conservative (missing truly unusual observations).</p>
+<p>A key advantage of the IQR rule is its resistance. Because <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span> are determined by the ranks of the data rather than their magnitudes, extreme values have little influence on the fences themselves. This makes the IQR rule especially effective for <strong>skewed distributions</strong> or datasets with heavy tails, where methods based on the mean and standard deviation can be distorted.</p>
+<p>It is important to emphasize that observations identified by the IQR rule are <strong>not automatically errors</strong>. They are simply values that merit closer inspection. In some contexts, these points may reflect data entry mistakes or measurement problems; in others, they may represent rare but meaningful cases that are central to the story the data are telling.</p>
+<p>For this reason, the IQR rule is best viewed as a <strong>diagnostic tool</strong>-a systematic way to highlight unusual observations-rather than as a mechanical rule for deleting data.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.12: Identifying outliers in fuel efficiency
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recall in Example 4.9 that we found <span class="math inline">\(Q_1=15.275\)</span>, <span class="math inline">\(Q_3=22.8\)</span>, and <span class="math inline">\(IQR=7.525\)</span> for the fuel efficiency data. We will use the IQR rule to check whether any cars have unusually low or high fuel efficiency compared to the rest.</p>
+<p>We calculate the lower and upper fences as <span class="math display">\[
+\text{Lower fence} = 15.275 - 1.5 \times 7.525=3.9875, \quad
+\text{Upper fence} = 22.8 + 1.5 \times 7.525=26.5625
+\]</span></p>
+<p>Recall the data in ascending order shown in Example 4.9</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>10.4, 10.4, 13.3, 14.3, 14.7, 15, 15.2, 15.2, 15.5, 15.8, 16.4, 17.3, 17.8, 18.1, 18.7, 19.2, 19.2, 19.7, 21, 21, 21.4, 21.4, 21.5, 22.8, 22.8, 24.4, 26, 27.3, 30.4, 30.4, 32.4, 33.9</code></pre>
+</div>
+</div>
+<p>We see there are no vehicles below the lower fence but there are five vehicles above the upper fence. If we were to examine these potential outliers, we would see tht these five vehicles are very light, fuel-efficient cars. These observations are <em>not errors</em>-they reflect genuine differences in vehicle design-but they are unusual relative to the bulk of the cars in the dataset.</p>
+</div>
+</div>
+</section>
+<section id="the-zscore-rule" class="level4">
+<h4 class="anchored" data-anchor-id="the-zscore-rule">The z‑score rule</h4>
+<p>We can place individual observations on a <em>common, unit-free scale</em> by <strong>standardizing</strong> them. Standardization uses the sample mean <span class="math inline">\(\bar{x}\)</span> and sample standard deviation <span class="math inline">\(s\)</span> to convert each observation <span class="math inline">\(x_i\)</span> into a <strong>z-score</strong>: <span class="math display">\[
+z = \frac{x_i - \bar{x}}{s}
+\]</span></p>
+<p>A z-score tells us <em>how far an observation is from the mean</em>, measured in units of <em>standard deviations</em> rather than in the original units of the data. This makes z-scores especially useful for comparing values that come from different scales or contexts.</p>
+</section>
+<section id="interpreting-z-scores" class="level4">
+<h4 class="anchored" data-anchor-id="interpreting-z-scores">Interpreting z-scores</h4>
+<ul>
+<li><p>A <strong>positive</strong> z-score means the observation is <strong>above the mean</strong>.</p></li>
+<li><p>A <strong>negative</strong> z-score means the observation is <strong>below the mean</strong>.</p></li>
+<li><p>A z-score of <strong>0</strong> corresponds exactly to the mean.</p></li>
+<li><p>The <strong>magnitude</strong> of the z-score indicates how unusual the observation is:</p>
+<ul>
+<li><span class="math inline">\(z = 1\)</span> means one standard deviation above the mean,</li>
+<li><span class="math inline">\(z = -2\)</span> means two standard deviations below the mean, and so on.</li>
+</ul></li>
+</ul>
+<p>Because standard deviation reflects typical variability in the data, z-scores provide a natural way to judge whether a value is close to typical or unusually far from the center.</p>
+</section>
+<section id="why-standardization-is-useful" class="level4">
+<h4 class="anchored" data-anchor-id="why-standardization-is-useful">Why standardization is useful</h4>
+<p>Standardization removes the original units of measurement and rescales the data so that the mean becomes 0 and the standard deviation becomes 1. This has several advantages:</p>
+<ul>
+<li>It allows <em>fair comparisons</em> across variables measured on different scales (for example, test scores vs.&nbsp;reaction times).</li>
+<li>It helps identify <em>potential outliers</em>, since values with large absolute z-scores lie far from the mean relative to the overall spread.</li>
+<li>It forms the basis for many methods in <em>inferential statistics</em>, including confidence intervals, hypothesis tests, and normal probability calculations.</li>
+</ul>
+</section>
+<section id="caution" class="level4">
+<h4 class="anchored" data-anchor-id="caution">Caution</h4>
+<p>Z-scores rely on the <em>mean and standard deviation</em>, which are sensitive to outliers. As a result, standardization works best for <em>roughly symmetric distributions</em> without extreme values. In highly skewed datasets, z-scores may give a misleading impression of how unusual an observation truly is. In those cases, resistant measures such as the median and IQR may be more appropriate for assessing extremeness.</p>
+</section>
+<section id="the-empirical-rule" class="level4">
+<h4 class="anchored" data-anchor-id="the-empirical-rule">The Empirical Rule</h4>
+<p>For distributions that area approximately bell-shaped,</p>
+<ul>
+<li><p>about 68% of the observations fall within 1 standard deviation of the mean, that is, between <span class="math inline">\(\bar x -s\)</span> and <span class="math inline">\(\bar x +s\)</span> (denoted <span class="math inline">\(\bar x \pm s\)</span>)</p></li>
+<li><p>about 95% of the observations fall within 2 standard deviations of the mean <span class="math inline">\((\bar x \pm 2s)\)</span></p></li>
+<li><p>All or nearly all (about 99.7%) observations fall within 3 standard deviations of the mean <span class="math inline">\((\bar x \pm 3s)\)</span></p></li>
+</ul>
+<p>These results are known as the <em>Empirical Rule</em>.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.13: Female heights
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many human physical characteristics have bell-shaped distributions. Let’s explore height. The file <em>heights.jmp</em> contains heights of of 261 female students at the University of Georgia. Below is a histogram and summary statistics for these heights. Note that a height of 92 inches was not included below.</p>
+<p><img src="images/02_04_histogram_heights.png" class="img-fluid"><img src="images/02_04_summary_heights.png" class="img-fluid"></p>
+<p>The histogram has approximately a bell shape. From the summary statistics, the mean and median are close, about 65 inches, which reflects an approximately symmetric distribution. The empirical rule is applicable. - About 68% of the observations fall between <span class="math display">\[
+\begin{align*}
+\bar x \pm s &amp;= 65.3 \pm 3.0\\
+&amp; = {(62.3, 68.3)}
+\end{align*}
+\]</span></p>
+<ul>
+<li><p>About 95% of the observations fall between <span class="math display">\[
+\begin{align*}
+\bar x \pm 2s &amp;= 65.3 \pm 2(3.0)\\
+&amp; = {(59.3, 71.3)}
+\end{align*}
+\]</span></p></li>
+<li><p>About 99.7% of the observations fall between <span class="math display">\[
+\begin{align*}
+\bar x \pm 3s &amp;= 65.3 \pm 3(3.0)\\
+&amp; = {(56.3, 74.3)}
+\end{align*}
+\]</span></p></li>
+</ul>
+<p>We can examine the dataset and count how many observations fall in these intervals:</p>
+<ul>
+<li>187 observations, <em>72%</em>, fall within (62.3, 68.3).</li>
+<li>248 observations, <em>95%</em>, fall within (59.3, 71.3).</li>
+<li>258 observations, <em>99%</em>, fall within (56.3, 74.3).</li>
+</ul>
+<p>In summary, the percentages predicted by the empirical rule are near the actual ones.</p>
+</div>
+</div>
+</section>
+<section id="using-the-empirical-rule-to-find-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="using-the-empirical-rule-to-find-outliers">Using the Empirical Rule to find outliers</h4>
+<p>Based on the Empirical Rule, an observation with <span class="math inline">\(|z| &gt; 3\)</span> might be considered an outlier. However, this method is <em>not resistant</em>-outliers inflate <span class="math inline">\(s\)</span>, which can mask their own detection -and it should be used only when the distribution is close to bell-shaped.</p>
+</section>
+</section>
+<section id="what-to-do-with-outliers" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-do-with-outliers">What to do with outliers</h3>
+<p>Identifying an outlier is not the same as discarding it. Consider these steps:</p>
+<ol type="1">
+<li><strong>Investigate.</strong> Check the raw data entry, measurement units, and collection context. Could the value be a typo or a mis-recorded unit? Is there an instrument calibration issue?</li>
+<li><strong>Understand context.</strong> Sometimes extreme values are genuine and carry important information (e.g., rare species sightings, extreme weather events). Domain knowledge helps decide whether to keep them.</li>
+<li><strong>Report and compare.</strong> It’s often useful to perform analyses both with and without the outlier to see how much it influences results. If conclusions change dramatically, acknowledge this in reporting.</li>
+<li><strong>Use robust methods.</strong> When outliers are present and valid, robust statistics like the median, IQR, trimmed mean, or non‑parametric tests help mitigate their influence.</li>
+</ol>
+<!-- :::{.example title="Example 4.14: Illustration: detecting outliers with both rules"} -->
+<!-- Consider a small dataset of reaction times (in milliseconds): 240, 250, 255, 260, 265, 270, 275, 280, 450.  One value appears much larger than the others.  We’ll compute the IQR fences, z‑scores, and use a boxplot to visualize. -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- #| message: false -->
+<!-- #| warning: false -->
+<!-- rt <- c(240, 250, 255, 260, 265, 270, 275, 280, 450) -->
+<!-- # Compute quartiles and IQR -->
+<!-- q1 <- quantile(rt, 0.25) -->
+<!-- q3 <- quantile(rt, 0.75) -->
+<!-- iqr <- IQR(rt) -->
+<!-- lower_fence <- q1 - 1.5 * iqr -->
+<!-- upper_fence <- q3 + 1.5 * iqr -->
+<!-- # Compute z-scores -->
+<!-- z_scores <- (rt - mean(rt)) / sd(rt) -->
+<!-- # Create a table summarizing results -->
+<!-- outlier_table <- data.frame( -->
+<!--   Value = rt, -->
+<!--   z_score = round(z_scores, 2), -->
+<!--   Outlier_IQR = rt < lower_fence | rt > upper_fence, -->
+<!--   Outlier_z_score = abs(z_scores) > 3 -->
+<!-- ) -->
+<!-- knitr::kable(outlier_table, caption = "Outlier detection using IQR fences and z-scores") -->
+<!-- # # Plot boxplot -->
+<!-- # op <- par(mfrow = c(1, 1), mar = c(4, 4, 2, 1)) -->
+<!-- # boxplot(rt, main = "Boxplot of reaction times", ylab = "Milliseconds") -->
+<!-- # par(op) -->
+<!-- ``` -->
+</section>
+<section id="working-in-jmp-2" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-2">Working in JMP</h3>
+<ul>
+<li><strong>Boxplots and outliers.</strong> Use <strong>Graph→GraphBuilder</strong> to create a boxplot. JMP plots points beyond 1.5×IQR as small circles by default. Hover over a point to see its value; right‑click to exclude or include it.</li>
+<li><strong>Distribution platform.</strong> In <strong>Analyze→Distribution</strong>, the boxplot includes the fences and outlier points. You can click the red triangle ▶ and choose <strong>Nonparametric→Outlier Box Plot</strong> for additional options.</li>
+<li><strong>Exploring z‑scores.</strong> To compute z‑scores in JMP, create a new column and use <strong>Formula→Standardize</strong>. Then filter rows with |z|&gt;3 to flag potential outliers.</li>
+</ul>
+</section>
+<section id="recap-2" class="level3">
+<h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>IQR rule</strong></td>
+<td>Points more than 1.5×IQR below <span class="math inline">\(Q_1\)</span> or above <span class="math inline">\(Q_3\)</span> are flagged as potential outliers</td>
+</tr>
+<tr class="even">
+<td><strong>Lower/Upper fence</strong></td>
+<td>Thresholds used in the IQR rule: <span class="math inline">\(Q_1 - 1.5 \times \text{IQR}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>z‑score</strong></td>
+<td>Standardized value <span class="math inline">\(z = (x - \bar{x})/s\)</span>; indicates how many standard deviations a point is from the mean.</td>
+</tr>
+<tr class="even">
+<td><strong>Empirical Rule</strong></td>
+<td>In a normal distribution, about 68% of values lie within 1 standard deviation of the mean, 95% within 2 standard deviations, and 99.7% within 3 standard deviations.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>For the dataset <span class="math inline">\(3, 4, 5, 6, 7, 8, 9, 100\)</span>:</p>
+<ol type="a">
+<li><p>Compute the quartiles, IQR, and the 1.5×IQR fences.</p></li>
+<li><p>Identify any outliers using the IQR rule.</p></li>
+<li><p>Compute z‑scores for each observation. Which values, if any, have |z|&gt;3?</p></li>
+</ol></li>
+<li><p>Using GroupB’s exam scores from earlier (60, 65, 70, 75, 80, 85, 90), apply the IQR rule to determine whether any scores are outliers. Explain why or why not.</p></li>
+<li><p>Suppose heights of adult men follow a normal distribution with mean 70 inches and standard deviation 3 inches. Using z‑scores, what heights would be considered extreme outliers (|z|&gt;3)?</p></li>
+<li><p>Describe two different actions you might take after flagging an outlier in a dataset. When would each be appropriate?</p></li>
+<li><p>Explain why the z‑score rule may fail to detect outliers in skewed distributions.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>a)Ordering the data gives 3, 4, 5, 6, 7, 8, 9, 100. There are 8 values, so the median is the average of the 4th and 5th values: <span class="math inline">\((6 + 7)/2 = 6.5\)</span>. The lower half (3,4,5,6) has median <span class="math inline">\((4 + 5)/2 = 4.5\)</span>, so <span class="math inline">\(Q_1 = 4.5\)</span>. The upper half (7,8,9,100) has median <span class="math inline">\((8 + 9)/2 = 8.5\)</span>, so <span class="math inline">\(Q_3 = 8.5\)</span>. The IQR is 8.5−4.5=4. The fences are <span class="math inline">\(Q_1 - 1.5\times\text{IQR} = 4.5 - 6 = -1.5\)</span> and <span class="math inline">\(Q_3 + 1.5\times\text{IQR} = 8.5 + 6 = 14.5\)</span>. b) Values below −1.5 or above 14.5 would be considered outliers. In this dataset, 100 &gt; 14.5, so 100 is an outlier. No value is below −1.5, so there are no lower outliers. c) The mean is <span class="math inline">\((3+4+5+6+7+8+9+100)/8 = 142/8 = 17.75\)</span> and the standard deviation is about 31.63. The z‑score for 100 is <span class="math inline">\((100 - 17.75)/31.63 \approx 2.59\)</span>. Because |2.59| is less than 3, the z‑score rule does not flag 100 as an outlier. This illustrates how outliers inflate the standard deviation and hide themselves.</p></li>
+<li><p>GroupB’s scores (60, 65, 70, 75, 80, 85, 90) have <span class="math inline">\(Q_1 = 67.5\)</span> and <span class="math inline">\(Q_3 = 82.5\)</span> (see the previous section’s example). The IQR is 15. The fences are 67.5−22.5=45 and 82.5+22.5=105. All scores lie between 45 and 105, so there are <em>no outliers</em> under the IQR rule.</p></li>
+<li><p>Heights more than 3 standard deviations from the mean are below 70−9=61inches or above 70+9=79inches. Thus, heights less than 61inches or greater than 79inches would be considered extreme outliers by the z‑score rule.</p></li>
+<li><p>Possible actions include: (1) <strong>Correcting or removing the outlier</strong> if it is due to a data entry or measurement error. This is appropriate when you have verified the value is incorrect. (2) <strong>Reporting results with and without the outlier</strong> and using robust methods. This is appropriate when the outlier is genuine but influential; you can present both analyses or use methods less sensitive to extreme values.</p></li>
+<li><p>In skewed distributions, the standard deviation can be inflated by the skew, so the threshold of 3 standard deviations may be too high. Outliers can inflate <span class="math inline">\(s\)</span> and thus produce smaller z‑scores than expected. The z‑score rule also assumes symmetry; in a skewed distribution the tail on one side is longer, so using a symmetric cutoff like |z| &gt; 3 may miss unusual observations in the longer tail.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-fivenumber-summary-and-boxplots" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="the-fivenumber-summary-and-boxplots"><span class="header-section-number">4.4</span> The Five‑Number Summary and Boxplots</h2>
+<blockquote class="blockquote">
+<p>“If it’s green or wriggles, it’s biology. If it stinks, it’s chemistry. If it doesn’t work, it’s physics or engineering. If it’s green and wiggles and stinks and still doesn’t work, it’s psychology. If it’s incomprehensible, it’s mathematics. If it puts you to sleep, it’s statistics.” - Anonymous (in Journal of the South African Institute of Mining and Metallurgy (1978))</p>
+</blockquote>
+<p>The <strong>five-number summary</strong> provides a compact yet informative description of a numerical dataset by reducing it to five key values:</p>
+<ul>
+<li>the <strong>minimum</strong>,</li>
+<li>the <strong>first quartile</strong> (<span class="math inline">\(Q_1\)</span>),</li>
+<li>the <strong>median</strong> (<span class="math inline">\(Q_2\)</span>),</li>
+<li>the <strong>third quartile</strong> (<span class="math inline">\(Q_3\)</span>), and</li>
+<li>the <strong>maximum</strong>.</li>
+</ul>
+<p>Together, these values describe the dataset’s <em>location</em>, <em>spread</em>, and <em>extremes</em>. The minimum and maximum indicate the overall range of the data, while <span class="math inline">\(Q_1\)</span>, the median, and <span class="math inline">\(Q_3\)</span> describe how the data are distributed through the middle. In particular, the distance between <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span> (the interquartile range) captures the spread of the central 50% of the observations and is resistant to outliers.</p>
+<p>The five-number summary is especially useful because it does not rely on assumptions about the shape of the distribution. It works well for symmetric data, skewed data, and data containing outliers, making it a robust descriptive tool.</p>
+<section id="the-boxplot-a-visual-summary" class="level3">
+<h3 class="anchored" data-anchor-id="the-boxplot-a-visual-summary">The Boxplot: A Visual Summary</h3>
+<p>A <strong>boxplot</strong>, also called a <strong>box-and-whisker plot</strong>, provides a compact graphical summary of a numerical dataset based on the <strong>five-number summary</strong>. Rather than displaying every data point, a boxplot highlights key features of the distribution—center, spread, skewness, and potential outliers—in a clean and interpretable way.</p>
+<p>At the heart of the boxplot is the <strong>box</strong>, which spans from the first quartile <span class="math inline">\(Q_1\)</span> to the third quartile <span class="math inline">\(Q_3\)</span>. The length of this box is the <strong>interquartile range (IQR)</strong>, representing the spread of the middle 50% of the data. A line drawn inside the box marks the <strong>median</strong>, providing a clear indicator of the dataset’s center.</p>
+<p>Extending outward from the box are the <strong>whiskers</strong>, which summarize the range of typical values. Under a common and widely used convention, the whiskers extend to the smallest and largest observations that are within <span class="math inline">\(1.5 \times \text{IQR}\)</span> of the quartiles. Observations that fall beyond these limits are not included in the whiskers; instead, they are plotted individually, often as dots or small symbols, and labeled as <strong>potential outliers</strong>. This approach keeps extreme values from distorting the visual scale while still drawing attention to them.</p>
+<p>Because a boxplot is built from <em>quartiles</em>, it is a <em>resistant</em> summary. The positions of the box and the median are largely unaffected by a small number of extreme observations, making boxplots especially useful for skewed distributions or data sets with outliers.</p>
+<p>A boxplot also conveys information about the <em>shape</em> of the distribution. If the median lies near the center of the box and the whiskers are of similar length, the distribution is roughly symmetric. If the median is closer to one end of the box or if one whisker is noticeably longer than the other, this suggests skewness. While boxplots do not show fine detail, they provide a quick diagnostic view of distributional features.</p>
+<p>One of the greatest strengths of boxplots is their ability to facilitate <em>comparisons across groups</em>. By placing multiple boxplots side by side on a common scale, you can quickly compare centers, variability, skewness, and the presence of outliers across different populations or experimental conditions. For this reason, boxplots are a staple of exploratory data analysis and an essential tool for comparing numerical data across categories.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.14: Illustration: boxplots for two groups
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s revisit the exam score groups from the previous section. We’ll compute their five‑number summaries and draw side‑by‑side boxplots.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Five-number summaries for Groups A and B</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Statistic</th>
+<th style="text-align: right;">Group_A</th>
+<th style="text-align: right;">Group_B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Min</td>
+<td style="text-align: right;">70.0</td>
+<td style="text-align: right;">60.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q1</td>
+<td style="text-align: right;">72.5</td>
+<td style="text-align: right;">67.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Median</td>
+<td style="text-align: right;">74.0</td>
+<td style="text-align: right;">75.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q3</td>
+<td style="text-align: right;">75.5</td>
+<td style="text-align: right;">82.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Max</td>
+<td style="text-align: right;">78.0</td>
+<td style="text-align: right;">90.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From the table you can see that Group A’s scores run from 70 to 78 with a median of 74, while Group B’s scores run from 60 to 90 with a median of 75. The much longer whiskers and broader box of Group B reveal its greater variability.</p>
+</div>
+</div>
+</section>
+<section id="working-in-jmp-3" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-3">Working in JMP</h3>
+<p>You can build boxplots quickly in JMP:</p>
+<ul>
+<li>Open <strong>Graph→Graph Builder</strong> and drag your variable to the <strong>Y</strong> axis. Drag a grouping variable (if any) to the <strong>X</strong> axis. From the gallery of plots, select the boxplot icon (a box with whiskers) to overlay a boxplot on the graph. JMP uses the 1.5×IQR rule to draw whiskers and will display outliers as separate points.</li>
+<li>The five‑number summary is visible in the <strong>Analyze→Distribution</strong> output. Click the red triangle ▶ next to the variable and choose <strong>Nonparametric→Quantiles</strong> to list the quartiles. JMP labels the minimum and maximum directly in the summary.</li>
+<li>Right‑click on the boxplot to toggle “Show Outliers” or adjust the whisker definition if needed.</li>
+</ul>
+</section>
+<section id="recap-3" class="level3">
+<h3 class="anchored" data-anchor-id="recap-3">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 83%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Five‑number summary</strong></td>
+<td>The five values <span class="math inline">\(\min, Q_1, Q_2, Q_3, \max\)</span> summarizing the distribution’s location and spread.</td>
+</tr>
+<tr class="even">
+<td><strong>Boxplot</strong></td>
+<td>A graphical display of the five‑number summary: a box from <span class="math inline">\(Q_1\)</span> to <span class="math inline">\(Q_3\)</span> with a line at the median, and whiskers extending to the min/max (or to 1.5×IQR).</td>
+</tr>
+<tr class="odd">
+<td><strong>Whisker</strong></td>
+<td>The line segment extending from the box to the smallest or largest non‑outlier value.</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-3" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-3">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Consider the dataset <span class="math inline">\(5, 7, 8, 10, 12, 15, 18, 20, 25\)</span>.</li>
+</ol>
+<ol type="a">
+<li><p>Compute the five‑number summary (min, <span class="math inline">\(Q_1\)</span>, median, <span class="math inline">\(Q_3\)</span>, max).</p></li>
+<li><p>Construct the corresponding boxplot. Describe its shape. Is the distribution symmetric or skewed?</p></li>
+</ol>
+<ol start="2" type="1">
+<li>A boxplot shows <span class="math inline">\(Q_1 = 60\)</span>, <span class="math inline">\(Q_2 = 75\)</span>, <span class="math inline">\(Q_3 = 90\)</span> with minimum 50 and maximum 120. The right whisker is much longer than the left whisker, and there are several points plotted individually above 105.</li>
+</ol>
+<ol type="a">
+<li><p>What does the long right whisker indicate about the distribution’s skewness?</p></li>
+<li><p>Using the 1.5×IQR rule, which observations (approximately) would be considered outliers?</p></li>
+</ol>
+<ol start="3" type="1">
+<li>For the dataset <span class="math inline">\(40, 42, 44, 45, 48, 50, 51, 52, 90\)</span>:</li>
+</ol>
+<ol type="a">
+<li><p>Compute the five‑number summary.</p></li>
+<li><p>Calculate the IQR and determine the lower and upper fences for outliers (using 1.5×IQR).</p></li>
+<li><p>Identify any outliers and explain how they would appear on a boxplot.</p></li>
+</ol>
+<ol start="4" type="1">
+<li><p>Explain why boxplots are particularly useful for comparing multiple groups on the same scale. What aspects of the distributions can you quickly compare?</p></li>
+<li><p>Describe at least one limitation of boxplots. When might they hide important features of the data?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>a)Ordering the data gives 5,7,8,10,12,15,18,20,25. The minimum is 5 and the maximum is 25. The median (the fifth value) is 12. The lower half (5,7,8,10) has median <span class="math inline">\((7 + 8)/2 = 7.5\)</span>, so <span class="math inline">\(Q_1 = 7.5\)</span>. The upper half (15,18,20,25) has median <span class="math inline">\((18 + 20)/2 = 19\)</span>, so <span class="math inline">\(Q_3 = 19\)</span>. The five‑number summary is (5, 7.5, 12, 19, 25). b) The box would span from 7.5 to 19 with a line at 12. The whiskers would extend to 5 and 25. The distribution is slightly right‑skewed because the upper whisker (19→25) is longer than the lower whisker (7.5→5).</p></li>
+<li><p>a)A long right whisker suggests a right‑skewed distribution—there are some relatively high values pulling the upper tail outward. b) The IQR is <span class="math inline">\(Q_3 - Q_1 = 90 - 60 = 30\)</span>. The upper fence is <span class="math inline">\(Q_3 + 1.5\times\text{IQR} = 90 + 45 = 135\)</span>. Any observation above 135 would be considered an outlier. Since the maximum is 120 (below 135), the individual points above 105 are unusual but do not meet the 1.5×IQR rule; they are “mild” outliers by some conventions. If the maximum were above 135, those values would be flagged as outliers.</p></li>
+<li><p>a)The ordered data are 40,42,44,45,48,50,51,52,90. The minimum is 40 and the maximum is 90. The median (the fifth value) is 48. The lower half (40,42,44,45) has median <span class="math inline">\((42 + 44)/2 = 43\)</span>, so <span class="math inline">\(Q_1 = 43\)</span>. The upper half (50,51,52,90) has median <span class="math inline">\((51 + 52)/2 = 51.5\)</span>, so <span class="math inline">\(Q_3 = 51.5\)</span>. The five‑number summary is (40, 43, 48, 51.5, 90). b) The IQR is 51.5−43=8.5. The lower fence is <span class="math inline">\(Q_1 - 1.5 \times \text{IQR} = 43 - 12.75 = 30.25\)</span>. The upper fence is <span class="math inline">\(Q_3 + 1.5 \times \text{IQR} = 51.5 + 12.75 = 64.25\)</span>. c) Any observation below 30.25 or above 64.25 would be flagged as an outlier. In this dataset, only 90 exceeds 64.25, so 90 is an outlier. On a boxplot, the upper whisker would extend to 52 (the largest non‑outlier), and the value 90 would appear as a separate point above the whisker.</p></li>
+<li><p>Boxplots align multiple groups on the same axis, allowing you to compare medians, the spread of the middle half (box length), the overall range (whisker length), and skewness (relative whisker lengths) at a glance. This makes it easy to see which group has a higher central tendency, more variability, or more extreme values.</p></li>
+<li><p>Boxplots summarize distributions succinctly but omit details like multimodality or the exact shape of the tails. Two very different distributions can share the same five‑number summary. When the sample size is small or when you need to see the full distribution (e.g., to spot bimodality), a histogram or dotplot may be more informative.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="choosing-appropriate-summary-statistics" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="choosing-appropriate-summary-statistics"><span class="header-section-number">4.5</span> Choosing Appropriate Summary Statistics</h2>
+<blockquote class="blockquote">
+<p>“It is not known how many office robberies occur every second because there is no Wikipedia entry for office robbery statistics.” -Michael Scott</p>
+</blockquote>
+<p>Not all variables are created equal, and as a result, <em>no single summary statistic is universally appropriate</em>. The usefulness of a summary depends on two key features of the data: the <em>type of variable</em> being measured and the <em>shape of its distribution</em>. Choosing summaries that ignore these features can lead to misleading or meaningless conclusions.</p>
+<section id="categorical-and-binary-data" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-and-binary-data">Categorical and binary data</h3>
+<p>For <em>categorical variables</em> the values represent labels or group membership rather than numerical magnitude. Because the categories have no inherent numerical meaning, arithmetic operations such as addition or averaging are not meaningful. As a result, summaries like the mean or standard deviation do not make sense for categorical data.</p>
+<p>Instead, categorical variables are best summarized using <strong>counts</strong> (frequencies), <strong>proportions</strong> (or percentages), and the <strong>mode</strong>, which identifies the most common category. These summaries answer natural questions such as <em>How many?</em>, <em>What fraction?</em>, and <em>Which category occurs most often?</em></p>
+<p>For example, if we record people’s favorite ice-cream flavors, a sensible summary would list how many respondents chose chocolate, vanilla, strawberry, and other flavors, along with the corresponding percentages. Reporting a “mean flavor” would be meaningless, because the categories do not lie on a numerical scale.</p>
+<p>Graphical displays for categorical data—such as <strong>bar charts</strong> or <strong>pie charts</strong>—are built directly from these counts or proportions and reinforce the idea that categorical data are about group membership rather than numerical measurement.</p>
+<p>A <strong>binary variable</strong> is a special case of a categorical variable with exactly <strong>two categories</strong>, such as yes/no, success/failure, pass/fail, or disease/no disease. Binary variables are common in practice and often arise as outcomes of interest.</p>
+<p>It is common to <strong>code</strong> binary categories numerically, typically using 1 for “yes” or “success” and 0 for “no” or “failure.” While this coding does not turn the variable into a truly quantitative one, it allows for convenient calculation of proportions. In particular, the <em>mean of a 0/1-coded binary variable equals the proportion of observations coded as 1</em>.</p>
+<p>For example, suppose 30 out of 100 students pass an exam. If we code “pass” as 1 and “fail” as 0, the mean of this variable is <span class="math display">\[
+\frac{30 \times 1 + 70 \times 0}{100} = 0.30,
+\]</span> which is exactly the <em>pass rate</em>. In this context, the mean has a clear and useful interpretation—not as an average score, but as a proportion.</p>
+<p>This dual interpretation makes binary variables especially important in statistics. While they are fundamentally categorical, their proportions can be analyzed using tools that resemble those for quantitative data.</p>
+</section>
+<section id="ordinal-data" class="level3">
+<h3 class="anchored" data-anchor-id="ordinal-data">Ordinal data</h3>
+<p><strong>Ordinal variables</strong> consist of categories that have a <em>natural order</em>, but where the <em>distances between categories are not known or not equal</em>. Common examples include Likert-scale responses (such as <em>Strongly disagree</em> to <em>Strongly agree</em>), education levels, class ranks, or satisfaction ratings. The ordering conveys meaningful information—one category is clearly higher or lower than another—but the scale itself does not support precise numerical differences.</p>
+<p>Because the spacing between categories is undefined, arithmetic operations can be problematic. For instance, consider a five-point Likert scale. While <em>Agree</em> is higher than <em>Neutral</em>, it is not clear that the “distance” from <em>Neutral</em> to <em>Agree</em> is the same as from <em>Disagree</em> to <em>Neutral</em>. As a result, computing a <strong>mean</strong> can be misleading, since it implicitly assumes equal spacing between levels.</p>
+<p>A safer and more interpretable approach is to summarize ordinal data using the <em>mode</em>, which identifies the most common response, along with the <em>distribution of responses</em>. Reporting counts or percentages for each category preserves the ordering without imposing questionable numerical assumptions. Bar charts are especially effective for visualizing ordinal data because they clearly show how responses are spread across the ordered categories.</p>
+<p>In some contexts, researchers also report the <em>median</em> for ordinal data, since it depends only on order rather than numerical distance. This can be useful when the categories represent a clear progression. However, even then, the interpretation should remain tied to category labels rather than numerical values.</p>
+<p>In practice, ordinal data require careful handling. Treating them as purely categorical ignores their ordering, while treating them as fully quantitative risks overstating precision. Thoughtful summaries—focused on modes, medians, and response distributions—strike a balance that respects the structure of the data and communicates results honestly.</p>
+</section>
+<section id="quantitative-data-symmetric-vs.-skewed" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative-data-symmetric-vs.-skewed">Quantitative data: symmetric vs.&nbsp;skewed</h3>
+<p>For <strong>quantitative variables</strong>, the choice of summary statistics depends critically on the <em>shape of the distribution</em> and the presence (or absence) of <em>outliers</em>. Unlike categorical or ordinal data, quantitative data support a wide range of numerical summaries—but not all summaries are equally informative in every situation. The same dataset can tell very different stories depending on whether the center and spread are described using non-resistant or resistant measures.</p>
+<p>A good first step is always to <em>examine the distribution</em>—using a histogram, dotplot, or boxplot—before deciding how to summarize it.</p>
+<section id="symmetric-distributions-with-no-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="symmetric-distributions-with-no-outliers">Symmetric distributions with no outliers</h4>
+<p>When a distribution is approximately <em>symmetric</em> and does not contain extreme values, the <em>mean</em> and <em>standard deviation</em> provide an efficient and interpretable summary.</p>
+<ul>
+<li>The <em>mean</em> captures the balance point of the distribution and represents a natural notion of “typical.”</li>
+<li>The <em>standard deviation</em> (or variance) describes the typical distance of observations from the mean.</li>
+</ul>
+<p>In this setting, the mean and median are usually close, and no single observation dominates the summary. Because the standard deviation measures variability relative to the mean, it is most meaningful when the mean itself is representative of the data.</p>
+</section>
+<section id="skewed-distributions-or-data-with-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="skewed-distributions-or-data-with-outliers">Skewed distributions or data with outliers</h4>
+<p>When a distribution is <em>skewed</em> or contains <em>outliers</em>, non-resistant measures like the mean and standard deviation can be misleading. A few extreme values may pull the mean far away from where most observations lie and inflate the standard deviation.</p>
+<p>In these situations, <em>resistant summaries</em> are preferred:</p>
+<ul>
+<li>The <em>median</em> provides a more stable description of a typical value because it depends only on order, not magnitude.</li>
+<li>The <em>interquartile range (IQR)</em> summarizes variability in the middle 50% of the data and is not affected by extreme observations.</li>
+<li>A <em>trimmed mean</em> (such as a 10% trimmed mean) offers a compromise: it removes the most extreme values before averaging, reducing the influence of outliers while still using much of the data.</li>
+</ul>
+</section>
+<section id="quantitative-counts-discrete-variables" class="level4">
+<h4 class="anchored" data-anchor-id="quantitative-counts-discrete-variables">Quantitative counts (discrete variables)</h4>
+<p>Quantitative <em>count data</em>—such as the number of doctor visits, customer complaints, or emails received per day—occupy a middle ground. While counts are numerical and support means, they are often <em>skewed</em>, with many small values and a few large ones.</p>
+<p>For count data, it is especially important to:</p>
+<ul>
+<li>Examine the distribution’s shape,</li>
+<li>Be cautious about relying solely on the mean,</li>
+<li>Consider reporting the <em>median</em> and <em>IQR</em> alongside or instead of the mean.</li>
+</ul>
+</section>
+<section id="a-guiding-principle" class="level4">
+<h4 class="anchored" data-anchor-id="a-guiding-principle">A guiding principle</h4>
+<p>For quantitative data, there is no one-size-fits-all summary.</p>
+<ul>
+<li><em>Symmetric, well-behaved data → mean and standard deviation</em></li>
+<li><em>Skewed data or data with outliers → median and IQR (or trimmed mean)</em></li>
+</ul>
+<p>Choosing summaries that align with the distribution ensures that reported statistics are both meaningful and honest representations of the data.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 4.15: Illustration: incomes vs. test scores vs. Likert responses
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following compares summary statistics for three small datasets: incomes (right‑skewed), test scores (symmetric), and Likert ratings (ordinal on a 1–5 scale). We compute the mean, median, IQR, standard deviation, and mode where appropriate.</p>
+<p>Here are the values:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 17%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 14%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Incomes</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">32</td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">45</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">120</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Test_scores</td>
+<td style="text-align: left;">70</td>
+<td style="text-align: left;">72</td>
+<td style="text-align: left;">73</td>
+<td style="text-align: left;">75</td>
+<td style="text-align: left;">76</td>
+<td style="text-align: left;">77</td>
+<td style="text-align: left;">78</td>
+<td style="text-align: left;">80</td>
+<td style="text-align: left;">82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Likert_ratings</td>
+<td style="text-align: left;">Strongly disagree</td>
+<td style="text-align: left;">Disagree</td>
+<td style="text-align: left;">Disagree</td>
+<td style="text-align: left;">Neutral</td>
+<td style="text-align: left;">Neutral</td>
+<td style="text-align: left;">Neutral</td>
+<td style="text-align: left;">Agree</td>
+<td style="text-align: left;">Agree</td>
+<td style="text-align: left;">Strongly agree</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Summary statistics for different data types</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dataset</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">IQR</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: left;">Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Incomes</td>
+<td style="text-align: right;">45.00</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">29.28</td>
+<td style="text-align: left;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Test Scores</td>
+<td style="text-align: right;">75.89</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3.86</td>
+<td style="text-align: left;">70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Likert Ratings</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Neutral</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Interpretation:</p>
+<ul>
+<li><strong>Incomes.</strong> The mean income ($45k) is much higher than the median ($35k) because of the 120k outlier. The IQR (15k) shows that the middle half of incomes lies between $30k and $45k. For skewed data like this, report the median and IQR rather than the mean and standard deviation.</li>
+<li><strong>Test scores.</strong> The mean (75.89) and median (76) are similar, and the distribution is narrow (SD = 4.03). Here, the mean and standard deviation are appropriate summaries.</li>
+<li><strong>Likert ratings.</strong> The mode is 3. Reporting the distribution of responses conveys the typical sentiment without implying equal spacing.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="working-in-jmp-4" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-4">Working in JMP</h3>
+<p>JMP encourages choosing appropriate summaries by making you specify each column’s <strong>modeling type</strong> (Continuous, Nominal, Ordinal):</p>
+<ul>
+<li><strong>Nominal variables</strong> are summarized with counts and proportions. The Distribution platform shows frequency tables and bar charts; the mode is evident from the highest bar. Means are not computed.</li>
+<li><strong>Ordinal variables</strong> can display medians and quartiles. In the Distribution platform, the <strong>Quantiles</strong> option lists <span class="math inline">\(Q_1\)</span>, median, and <span class="math inline">\(Q_3\)</span>. A <em>Box Plot</em> shows the spread without relying on means.</li>
+<li><strong>Continuous variables</strong> get means and standard deviations by default. If the distribution is skewed, use the red triangle ▶ <strong>Transform</strong> options (e.g., <strong>Log</strong>) or the <strong>Nonparametric</strong> menu to request median and IQR. You can also save robust statistics using <strong>Save Summaries</strong>.</li>
+</ul>
+<p>In JMP’s Graph Builder, dragging a categorical variable to the X axis and a continuous variable to Y will create boxplots by default, highlighting medians and quartiles rather than means.</p>
+</section>
+<section id="check-your-understanding-4" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-4">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A health‑care researcher records the number of emergency room visits last year for 50 individuals. The data are right‑skewed, with most people having 0–2 visits and a few having 5 or more. Which measure of center and spread would you report? Explain why.</p></li>
+<li><p>A survey asks respondents to rate their satisfaction on a 1–5 Likert scale (1 = Very dissatisfied, 5 = Very satisfied). For 300 respondents, the sample mean is 3.9, the median is 4, and the mode is 4. Which statistic(s) would you use to describe typical satisfaction? Why might the mean be misleading?</p></li>
+<li><p>For a dataset of annual household incomes in a city, the mean is $65,000, the median is $45,000, the standard deviation is $40,000, and the IQR is $20,000.</p></li>
+</ol>
+<ol type="a">
+<li><p>What does the large gap between the mean and the median tell you about the distribution?</p></li>
+<li><p>Which measure(s) of center and spread would you report? Justify your choice.</p></li>
+</ol>
+<ol start="4" type="1">
+<li><p>A manufacturer tracks the number of defective items per batch (a count variable). The mean number of defects per batch is 2.3 and the median is 1. What does this tell you about the distribution? Which summary statistic is more informative here?</p></li>
+<li><p>Explain why it doesn’t make sense to compute a mean for ZIP codes or product serial numbers. How would you summarize such data instead?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Counts of emergency room visits are discrete and skewed to the right. The <em>median</em> number of visits and the <em>IQR</em> are appropriate measures. The mean would be pulled upward by a few high counts and would not represent the typical person.</p></li>
+<li><p>For Likert responses, the <em>mode</em> (4) best describe typical satisfaction. A mean of 3.9 suggests “almost 4,” but interpreting fractional satisfaction levels can be misleading because the scale’s steps are not necessarily evenly spaced. Reporting the distribution of responses (e.g., “60% rated 4 or 5”) provides context.</p></li>
+<li><p>a)The mean ($65k) is much higher than the median ($45k), indicating a right‑skewed distribution with some very high incomes. The large standard deviation ($40k) and moderate IQR ($20k) reinforce that incomes vary widely, especially in the upper tail. b) Report the <em>median</em> and <em>IQR</em> as primary summaries because they better reflect the typical household and are less affected by very high incomes. You could also mention the mean and SD to provide a sense of the overall level and variability, but note their sensitivity to outliers.</p></li>
+<li><p>A mean of 2.3 and a median of 1 suggest that most batches have 1 or 2 defects, but some batches have many more, creating a right‑skewed distribution. The <em>median</em> is more informative because it reflects what happens in a typical batch. The mean is inflated by the few batches with many defects.</p></li>
+<li><p>ZIP codes and serial numbers are <em>identifiers</em>, not quantities. Arithmetic on them (like averaging) has no meaning. They should be summarized by <em>counts</em> or <em>modes</em> if you need to know which codes occur most often. Other summaries (like proportions of orders by ZIP code) can answer meaningful questions.</p></li>
+</ol>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -643,6 +1811,7 @@ Solutions
 <ol>
 <li id="fn1"><p>Small, H. (2020). <em>Nightingale’s overlooked Scutari statistics</em>. <strong>Significance</strong>, 17(6), 28–33.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>The tails of a distribution are the parts that are for the lowest values and the highest values.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Why do we divide by <span class="math inline">\(n-1\)</span> in the variance and standard deviation instead of <span class="math inline">\(n\)</span>? We said that the variance was an average of the <span class="math inline">\(n\)</span> squared deviations, so should we not divide by <span class="math inline">\(n\)</span>? Basically it is because the deviations have only <span class="math inline">\(n - 1\)</span> pieces of information about variability: That is, <span class="math inline">\(n - 1\)</span> of the deviations determine the last one, because the deviations sum to 0. For example, suppose we haven <span class="math inline">\(n= 2\)</span> observations and the first observation has deviation <span class="math inline">\((x - \bar x) = 5\)</span>. Then the second observation must have deviation <span class="math inline">\((x - \bar x) = -5\)</span> because the deviations must add to 0. With <span class="math inline">\(n = 2\)</span>, there’s only <span class="math inline">\(n - 1 = 1\)</span> nonredundant piece of information about variability. And with <span class="math inline">\(n = 1\)</span>, the standard deviation is undefined because with only one observation, it’s impossible to get a sense of how much the data vary.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
