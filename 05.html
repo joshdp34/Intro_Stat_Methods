@@ -216,6 +216,22 @@ window.Quarto = {
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
   </ul></li>
+  <li><a href="#sec-05_02" id="toc-sec-05_02" class="nav-link" data-scroll-target="#sec-05_02"><span class="header-section-number">5.2</span> Conditional Probability and Independence</a>
+  <ul class="collapse">
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability">Conditional probability</a></li>
+  <li><a href="#independent-and-dependent-events" id="toc-independent-and-dependent-events" class="nav-link" data-scroll-target="#independent-and-dependent-events">Independent and dependent events</a></li>
+  <li><a href="#mutually-exclusive-events-versus-independent-events" id="toc-mutually-exclusive-events-versus-independent-events" class="nav-link" data-scroll-target="#mutually-exclusive-events-versus-independent-events">Mutually Exclusive Events versus Independent Events</a></li>
+  <li><a href="#conditional-probability-from-contingency-table" id="toc-conditional-probability-from-contingency-table" class="nav-link" data-scroll-target="#conditional-probability-from-contingency-table">Conditional probability from contingency table</a></li>
+  <li><a href="#recap-1" id="toc-recap-1" class="nav-link" data-scroll-target="#recap-1">Recap</a></li>
+  <li><a href="#check-your-understanding-1" id="toc-check-your-understanding-1" class="nav-link" data-scroll-target="#check-your-understanding-1">Check your understanding</a></li>
+  </ul></li>
+  <li><a href="#sec-05_03" id="toc-sec-05_03" class="nav-link" data-scroll-target="#sec-05_03"><span class="header-section-number">5.3</span> Bayes Rule</a>
+  <ul class="collapse">
+  <li><a href="#understanding-bayes-rule-through-an-example" id="toc-understanding-bayes-rule-through-an-example" class="nav-link" data-scroll-target="#understanding-bayes-rule-through-an-example">Understanding Bayes’ Rule through an example</a></li>
+  <li><a href="#working-in-jmp-2" id="toc-working-in-jmp-2" class="nav-link" data-scroll-target="#working-in-jmp-2">Working in JMP</a></li>
+  <li><a href="#recap-2" id="toc-recap-2" class="nav-link" data-scroll-target="#recap-2">Recap</a></li>
+  <li><a href="#check-your-understanding-2" id="toc-check-your-understanding-2" class="nav-link" data-scroll-target="#check-your-understanding-2">Check your understanding</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -664,270 +680,495 @@ Solutions
 </div>
 </div>
 </div>
-<!-- ## Conditional Probability and Independence {#sec-05_02} -->
-<!-- > "Is it probable that probability brings certainty?" – Blaise Pascal -->
-<!-- > **Guiding question:** *What does it mean for events to be independent?* -->
-<!-- Our earlier discussion focused on single events and how to combine them using unions and complements.  In many situations, we want to know the probability of an event **given that** another has already occurred.  Thinking this way is essential when events are not isolated but are part of a process or sequence.  For example, the probability that a randomly selected person is left‑handed might be different once you know the person is an artist.  This leads us to the idea of *conditional probability*. -->
-<!-- ### Conditional probability -->
-<!-- If $A$ and $B$ are events with $P(A)>0$, the **conditional probability** of $B$ given $A$, written $P(B|A)$, describes the chance that $B$ occurs *assuming* that $A$ has occurred or will occur.  When we condition on $A$, the sample space shrinks to just the outcomes where $A$ happens.  In terms of probabilities, this shrinking translates to the formula -->
-<!-- $$ -->
-<!-- P(B\mid A) = \frac{P(A\cap B)}{P(A)} -->
-<!-- $$ -->
-<!-- which says that we compare how often both events occur to how often $A$ occurs at all.   -->
-<!-- You can read $P(B|A)$ as “the probability of $B$ *given* $A$.” -->
-<!-- Rearranging the conditional probability formula yields the *multiplication rule* for any two events $A$ and $B$: -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- P(A\cap B) =& P(A)\,P(B\mid A)\\ -->
-<!-- =& P(B)\,P(A\mid B) -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- This rule tells us how to find the probability that *both* events occur: multiply the probability of the first event by the conditional probability of the second event given the first.   -->
-<!-- #### Example: smoking and cancer -->
-<!-- Many medical researchers have conducted experiments to examine the relationship -->
-<!-- between cigarette smoking and cancer.  -->
-<!-- Consider an individual randomly -->
-<!-- selected from an adult male population.  -->
-<!-- Let $A$ represent the event that the individual -->
-<!-- smokes, and let $A^c$ denote the complement of $A$ (the event that the individual does not -->
-<!-- smoke).  -->
-<!-- Similarly, let $B$ represent the event that the individual develops cancer, and -->
-<!-- let $B^c$ be the complement of that event.  -->
-<!-- Suppose a large sample from the population resulted in the proportions below: -->
-<!-- |         | $B$ | $B^{c}$  | -->
-<!-- |---------|-----|-------| -->
-<!-- | $A$     | .05 | .20   | -->
-<!-- | $A^{c}$ | .03 | .72   | -->
-<!-- Use these probabilities to -->
-<!-- examine the relationship between smoking and cancer. -->
-<!-- First, find the probability that an individual smokes: -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- P(A) =& {P(A\cap B)+P(A\cap B^c)}\\ -->
-<!-- =& {0.05+0.20}\\ -->
-<!-- =& {0.25} -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- Now find the probability that an individual doesn't smoke: -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- P(A^c) =& {P(A^c\cap B)+P(A^c\cap B^c)}\\ -->
-<!-- =& {0.03+0.72}\\ -->
-<!-- =& {0.75} -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- Let's now determine the probability that an individual develops cancer given they are a smoker: -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- P(B\mid A) =& \frac{P(A\cap B)}{P(A)}\\ -->
-<!-- =& \frac{0.05}{0.25}\\ -->
-<!-- =& 0.2 -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- Let's now determine the probability that an individual develops cancer given they are a smoker: -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- P(B\mid A^c) =& \frac{P(A^c\cap B)}{P(A^c)}\\ -->
-<!-- =& \frac{0.03}{0.75}\\ -->
-<!-- =& 0.04 -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- ### Independent and dependent events -->
-<!-- When the occurrence of one event does **not** change the probability of another, we call the events *independent*.   -->
-<!-- Formally, $A$ and $B$ are **independent** if  -->
-<!-- $$ -->
-<!-- P(B\mid A)=P(B) -->
-<!-- $$  -->
-<!-- or equivalently  -->
-<!-- $$ -->
-<!-- P(A\mid B)=P(A) -->
-<!-- $$ -->
-<!-- If either holds, then the other does too. -->
-<!-- For independent events, the multiplication rule simplifies to -->
-<!-- $$ -->
-<!-- P(A\cap B)=P(A)\,P(B) -->
-<!-- $$ -->
-<!-- If knowing that $A$ has occurred *does* change the probability of $B$, the events are called **dependent**. -->
-<!-- #### Example: flipping coins -->
-<!-- Think about tossing a fair coin twice.  Let $H_1$ be the event “the first toss is heads” and $H_2$ be “the second toss is heads.”  The probability of a head on each toss is 0.5, and the outcome of the first toss does not affect the outcome of the second.  Therefore, $P(H_2\mid H_1)=P(H_2)=0.5$, and the events are independent.  Using the multiplication rule, -->
-<!-- $$ -->
-<!-- P(H_1\cap H_2) = P(H_1)\,P(H_2) = 0.5\times0.5 = 0.25\ -->
-<!-- $$ -->
-<!-- #### Example: sampling without replacement -->
-<!-- Independence can break down when we sample from a finite population **without** replacement.  Suppose a box contains 10 batteries, 4 of which are defective.  You draw two batteries at random **without replacement**.  Let $D_1$ be the event “the first battery is defective” and $D_2$ be “the second battery is defective.”  The probability the first battery is defective is $P(D_1)=4/10=0.4$.  If the first battery is defective, there are now 3 defectives among 9 remaining batteries, so $P(D_2\mid D_1)=3/9=0.333$.  If the first battery is good, there are still 4 defectives among 9 batteries, so $P(D_2\mid D_1^c)=4/9\approx0.444$.  Because $P(D_2)$ depends on whether $D_1$ happened, the events are dependent.  When we sample **with** replacement, the draws are independent, since after each draw the composition of the box resets to 4 defectives out of 10.  -->
-<!-- In practice, when the sample size is much smaller than the population, the difference between sampling with and without replacement becomes negligible and we can treat the draws as independent. -->
-<!-- ### Mutually Exclusive Events versus Independent Events -->
-<!-- There is often confusion between the concepts of -->
-<!-- independent events and disjoint events.  -->
-<!-- Actually, these are quite different -->
-<!-- notions, and perhaps this is seen best by comparisons involving conditional -->
-<!-- probabilities.  -->
-<!-- Specifically, if $A$ and $B$ are mutually exclusive, then -->
-<!-- $$ -->
-<!-- P(A \cap B) = 0 -->
-<!-- $$ -->
-<!-- whereas for independent events, we have -->
-<!-- $$ -->
-<!-- P(A \cap B)  = P(A) P(B) -->
-<!-- $$ -->
-<!-- If $P(A)>0$ and $P(B)>0$, then how can -->
-<!-- $$ -->
-<!-- P(A) P(B) = 0 ? -->
-<!-- $$ -->
-<!-- This is impossible. -->
-<!-- In other words, the property -->
-<!-- of being mutually exclusive involves a very strong form of dependence, -->
-<!-- because the occurrence of one event mean the other event cannot occur.  -->
-<!-- Thus, if two events are mutually exclusive, they cannot be independent.  -->
-<!-- If two events are independent, they cannot be mutually exclusive.  -->
-<!-- ### Conditional probability from contingency table -->
-<!-- Let's go back to the pulmonary embolism example from last section.  -->
-<!-- Here is the table again: -->
-<!-- | Pulmonary‐embolism status  | D‑dimer positive    | D‑dimer negative   | Total | -->
-<!-- | ----------------------------------------- | ------------------- | ------------------ | ----- | -->
-<!-- | Pulmonary embolism present           | 700    | 300  | 1000    | -->
-<!-- | Pulmonary embolism absent             | 1300  | 7700  | 9000    | -->
-<!-- | Total                                 | 2000                  | 8000                 | 10000   | -->
-<!-- Suppose we wanted to estimate the probability of a pulmonary embolism given the patient had a D-dimer positive result. When looking for conditional probability from a contingency table, remember that the conditioned event is all we are focusing on . In this case, the conditioned event is D-dimer positive. There are a total of 2000 patients that are D-dimer positive. Of those 2000 patients, 700 had a pulmonary embolism. Thus, the conditional probability is  -->
-<!-- $$ -->
-<!-- P(PE\mid \text{D-dimer positive})=\frac{700}{2000}=0.35 -->
-<!-- $$ -->
-<!-- #### Working in JMP Pro 17 -->
-<!-- JMP makes it easy to explore conditional probabilities and independence using contingency tables.  Enter your data with one column for each categorical variable (for example, “Major” and “Year”).  Under **Analyze → Fit Y by X**, choose one variable as the response and the other as the explanatory factor.  The resulting mosaic or contingency table will show joint counts.  Right‑click and choose **Row Percents** or **Column Percents** to view conditional proportions.  If the row percentages are the same across all columns (and vice versa), the variables are approximately independent; if the percentages differ, there is evidence of dependence. -->
-<!-- ### Recap -->
-<!-- | **Keyword**                     | **Definition**                                                                                                                  | -->
-<!-- |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------| -->
-<!-- | **Conditional probability**     | The probability of one event given that another event has occurred; computed as $P(B\mid A)=P(A\cap B)/P(A)$ when $P(A)>0$.   | -->
-<!-- | **Multiplication rule**         | A rule that expresses the joint probability of two events: $P(A\cap B)=P(A)\,P(B\mid A)=P(B)\,P(A\mid B)$.                    | -->
-<!-- | **Independent events**          | Events $A$ and $B$ for which $P(B\mid A)=P(B)$ (equivalently $P(A\mid B)=P(A)$) and $P(A\cap B)=P(A)P(B)$.                   | -->
-<!-- ### Check your understanding -->
-<!-- 1. **Calculus and statistics courses.** At a certain college, 40% of students have taken calculus, 30% have taken statistics, and 15% have taken both.   -->
-<!--     a. What is the probability that a student has taken statistics **given** they have taken calculus?   -->
-<!--     b. Are taking calculus and statistics independent events?  Explain your reasoning. -->
-<!-- 2. **Drawing marbles without replacement.** A jar contains 5 red marbles and 3 green marbles.  You draw two marbles at random **without replacement**.   -->
-<!--     a. What is the probability that both marbles are red?   -->
-<!--     b. If you draw **with replacement**, what would be the probability of drawing two red marbles?   -->
-<!--     c. Which scenario involves independent events? -->
-<!-- 3. **Pass rates.** In a school, 60% of students pass mathematics, 50% pass physics, and 35% pass **both** subjects.   -->
-<!--     1. What is $P(\text{Physics} \mid \text{Math})$?   -->
-<!--     2. Are passing mathematics and passing physics independent?  Why or why not? -->
-<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
-<!-- 1. **Calculus and statistics.**   -->
-<!--    - The conditional probability that a student has taken statistics given they have taken calculus is $P(\text{Stats}\mid \text{Calc}) = P(\text{Stats}\cap \text{Calc}) / P(\text{Calc}) = 0.15/0.40 = 0.375$.   -->
-<!--    - If calculus and statistics were independent, we would have $P(\text{Stats}\cap \text{Calc}) = P(\text{Stats})\,P(\text{Calc}) = 0.30\times0.40 = 0.12$.  Because the actual joint probability 0.15 is greater than 0.12, these events are **not** independent; students who take calculus are more likely to take statistics. -->
-<!-- 2. **Drawing marbles.**   -->
-<!--    - Without replacement, the probability both marbles are red is $P(\text{first red})\times P(\text{second red}\mid \text{first red}) = (5/8)\times (4/7) = 20/56 \approx 0.357$.   -->
-<!--    - With replacement, the probability stays $(5/8)\times (5/8) = 25/64 \approx 0.391$ because the composition of the jar is reset after each draw.   -->
-<!--    - Drawing **with replacement** yields independent events.  Without replacement the draws are dependent, since the first draw changes the composition for the second. -->
-<!-- 3. **Pass rates.**   -->
-<!--    - The conditional probability that a student passes physics given they pass mathematics is $P(\text{Physics}\mid \text{Math}) = 0.35/0.60 \approx 0.583$.   -->
-<!--    - For independence we would need $P(\text{Physics}\mid \text{Math}) = P(\text{Physics}) = 0.50$.  Because $0.583\ne 0.50$, passing mathematics and passing physics are **not** independent; students who pass one subject are more likely to pass the other. -->
-<!-- ::: -->
-<!-- ## Bayes Rule {#sec-05_03} -->
-<!-- > "Absence of evidence is not evidence of absence." – Carl Sagan -->
-<!-- **Guiding question:** *How can we use probability to assess diagnostic tests?* -->
-<!-- When you receive a lab report or a rapid test result it is tempting to take the outcome at face value: a *positive* means you have the disease; a *negative* means you do not.  In reality, every diagnostic test has some chance of making mistakes.  To interpret a result responsibly we need to take two things into account: -->
-<!-- 1. **The accuracy of the test itself.** How often does it correctly flag someone who is sick? How often does it incorrectly flag someone who is healthy?  These properties are captured by **sensitivity** and **specificity**. -->
-<!-- 2. **The prevalence of the condition.** How common is the disease in the population you are testing?  This is the prior probability that a random person is infected before considering the test result. -->
-<!-- **Bayes' Rule** is the mathematical tool that combines those two pieces of information.  It takes the evidence (the test result) and updates the prior probability to produce a new, *posterior* probability: the chance the person actually has the disease given the result.  Bayes' Rule is simply a rearrangement of the multiplication rule for probabilities; for events $A$ and $B$ with $P(B)>0$ it says -->
-<!-- $$ -->
-<!-- P(A\mid B) = \frac{P(B\mid A)\,P(A)}{P(B)}. -->
-<!-- $$ -->
-<!-- In diagnostic testing we let $A$ be the event “person has the disease” and $B$ be “test is positive.”  Then: -->
-<!-- - $P(A)$ is the **prevalence** of the disease (our prior belief). This is usually known or estimated by epidemiologists.  -->
-<!-- - $P(B\mid A)$ is the **sensitivity**: the probability the test correctly labels a diseased person as positive. This value is estimated in a clinical setting.  -->
-<!-- - $P(B\mid A^c)$ is the false–positive rate, which is $1$ minus the **specificity**. Also estimated in a clinical setting.  -->
-<!-- - $P(A\mid B)$ is the quantity we really want: the probability a person is truly sick given they test positive.  This is called the **positive predictive value** (PPV) of the test. -->
-<!-- Notice that Bayes' Rule also works for a negative result.  If $T^c$ denotes a negative test, the probability of being healthy given a negative result, $P(A^c\mid T^c)$, is the **negative predictive value** (NPV). -->
-<!-- ### Understanding Bayes' Rule through an example -->
-<!-- To see how Bayes’ Rule plays out, imagine a disease that affects 1% of the population.  A new screening test has 90% sensitivity and 95% specificity.  In plain language: -->
-<!-- - If you **have** the disease, there is a 90% chance the test is positive (and a 10% chance of a *false negative*). -->
-<!-- - If you **do not** have the disease, there is a 95% chance the test is negative (and a 5% chance of a *false positive*). -->
-<!-- Suppose you go to the clinic and your test comes back positive.  What is the probability you actually have the disease?  Let $D$ be “has the disease” and $T$ be “test is positive.” We can use the conditional probability rule: -->
-<!-- $$ -->
-<!-- P(D\mid T)=\frac{P(T\cap D)}{P(T)} -->
-<!-- $$ -->
-<!-- Unfortunately, we do not know $P(T\cap D)$ or $P(T)$. All we know is -->
-<!--  - $P(T\mid D)$, which is the sensitivity -->
-<!--  - $P(T^c\mid D^c)$ which is the specificity. Sometimes we have instead the complement of specificity $P(T\mid D^c)$. -->
-<!--  - $P(D)$ which is the prevalence. -->
-<!--  In terms of our example, we have -->
-<!--  - $P(T\mid D)=0.90$ -->
-<!--  - $P(T^c\mid D^c)=0.95$ which implies $P(T \mid D^c)=1-P(T^c\mid D^c)=0.05$ -->
-<!--  - $P(D)=0.01$ -->
-<!-- In the numerator above, we can use the multiplicative rule to find $P(T\cap D)$: -->
-<!-- $$ -->
-<!-- P(T\cap D)=P(T\mid D)\,P(D) -->
-<!-- $$ -->
-<!-- In the denominator, we can write -->
-<!-- $$ -->
-<!-- P(T) = P(T\cap D) + P(T\cap D^c) -->
-<!-- $$ -->
-<!-- Now, let's apply the multiplicative rule to both of these intersections using the information that we do know: -->
-<!-- $$ -->
-<!-- P(T) = P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c) -->
-<!-- $$ -->
-<!-- Let's put everything together to give us a formula that has quantities we do know: -->
-<!-- $$ -->
-<!-- P(D\mid T)=\frac{P(T\mid D)\,P(D)}{P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c)} -->
-<!-- $$ -->
-<!-- This equation is known as **Bayes' Rule**. -->
-<!-- Substituting our known values into the equation gives us -->
-<!-- $$ -->
-<!-- \begin{align*} -->
-<!-- P(D\mid T)=&\frac{P(T\mid D)\,P(D)}{P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c)}\\ -->
-<!-- =&\frac{(0.90)(0.01)}{(0.90)(0.01) + (0.05)(0.99)}\\ -->
-<!-- =&0.1538 -->
-<!-- \end{align*} -->
-<!-- $$ -->
-<!-- Even though the test is fairly accurate, a *positive** result only raises the probability of disease to about 0.1538.  The reason is that the disease is so rare that most positive tests are false alarms.   -->
-<!-- #### A genetic screening example in biology -->
-<!-- Bayesian thinking is not confined to clinical medicine.  Geneticists often screen organisms for rare traits.  Imagine a plant species in which 5% of individuals carry a gene conferring resistance to a particular fungus.  A DNA test has 90% sensitivity and 80% specificity.  If a randomly selected plant tests positive, how likely is it to possess the resistance gene? -->
-<!-- Let $R$ be “has the resistance gene” and $T$ be “test positive.”  Then $P(R)=0.05$, $P(T\mid R)=0.90$ and $P(T\mid R^c)=0.20$ (since specificity is 80%).  Bayes’ Rule tells us -->
-<!-- $$ -->
-<!-- P(R\mid T) = \frac{0.90\times 0.05}{0.90\times 0.05 + 0.20\times 0.95} \approx 0.191. -->
-<!-- $$ -->
-<!-- So even a positive test only implies about a 19% chance of carrying the gene.  The key message is the same: when a condition is rare, false positives can overwhelm true positives, and Bayes' Rule quantifies how evidence updates our beliefs. -->
-<!-- ### Working in JMP Pro 17 -->
-<!-- JMP does not have a dedicated “Bayes’ Rule” button, but you can apply the rule by constructing a contingency table and computing appropriate proportions.  To explore the medicine example above in JMP: -->
-<!-- * Create a table with one column for the **true condition** (Diseased vs Healthy) and one column for the **test result** (Positive vs Negative).  Enter the counts from the confusion matrix (for example, 90 true positives, 495 false positives, 9 405 true negatives and 10 false negatives per 10 000 screened). -->
-<!-- * Choose **Analyze → Fit Y by X** and assign **True condition** to the Y role and **Test result** to the X role.  The resulting contingency table shows the joint counts.  Right‑click on the table and select **Row Percents** or **Column Percents** to view conditional probabilities. -->
-<!-- * You can then compute the PPV as the percentage in the Diseased row of the Positive column divided by the total percentage in the Positive column, and the NPV as the percentage in the Healthy row of the Negative column divided by the total percentage in the Negative column. -->
-<!-- These steps replicate the Bayes’ Rule calculation without writing formulas.  JMP’s probability calculators can also be used for more complex Bayesian analyses in later chapters. -->
-<!-- ### Recap -->
-<!-- | **Keyword/Concept**             | **Definition/Meaning**                                                                                                                                                                                                                           | -->
-<!-- |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -->
-<!-- | **Bayes’ Rule**                 | Formula to update probabilities in light of new evidence                                                                  | -->
-<!-- | **Sensitivity**                 | Probability that a diagnostic test correctly identifies a diseased individual as positive; a high sensitivity means few false negatives.                                                                                                         | -->
-<!-- | **Specificity**                 | Probability that a diagnostic test correctly identifies a healthy individual as negative; a high specificity means few false positives.                                                                                                            | -->
-<!-- | **Positive predictive value**   | The probability that a person actually has the condition given a positive test result, $P(D\mid T)$; depends on sensitivity, specificity and the disease prevalence.                                                                        | -->
-<!-- | **Negative predictive value**   | The probability that a person is disease‑free given a negative test result, $P(D^c\mid T^c)$; often high when the disease is rare and the test has good sensitivity.                                                                        | -->
-<!-- | **Prevalence** | The proportion of individuals in the population who truly have the disease before any testing; the prior belief in Bayes’ Rule.                                                                                                               | -->
-<!--                                                                                                              | -->
-<!-- ### Check your understanding -->
-<!-- 1. **Interpreting a positive screening result.** Suppose 2% of a population has a certain virus.  A test for the virus has 95% sensitivity and 90% specificity. -->
-<!--    a. Using Bayes’ Rule, compute the probability that a randomly selected person actually has the virus given they test positive. -->
-<!--    b. What is the probability that a person who tests negative is truly virus‑free? -->
-<!-- 2. **Understanding predictive values.** A small genetic screening test for a mutation has 80% sensitivity and 97% specificity.  In the population being tested, 0.5% carry the mutation.  Explain why the positive predictive value of this test is quite low, despite its high specificity.  How would the predictive value change if the prevalence were higher? -->
-<!-- 3. **Designing a screening program.** A veterinary lab develops a new blood test for heartworm disease in dogs.  Preliminary studies estimate the prevalence of heartworm in the region at 3%, and the test’s sensitivity and specificity are 92% and 94%, respectively.  Explain how you would use Bayes’ Rule to decide whether a positive test result warrants immediate treatment or should be confirmed with a second test.  What role does the disease prevalence play in your decision? -->
-<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
-<!-- 1. **Interpreting a positive screening result.** -->
-<!--    - Let $D$ be “has the virus” and $T$ be “test positive.”  We are given $P(D)=0.02$, $P(T\mid D)=0.95$ and $P(T\mid D^c)=0.10$ (because specificity 90% implies a 10% false‑positive rate).  First compute $P(T)=0.95\times0.02 + 0.10\times0.98=0.019 + 0.098=0.117$.  Then -->
-<!--      $$P(D\mid T)=\frac{0.95\times0.02}{0.117}\approx0.162.$$ -->
-<!--      So even with good sensitivity and decent specificity, a positive result only implies about a 16% chance of infection when prevalence is 2%. -->
-<!--    - For a negative result we look at the NPV.  The probability of being virus‑free given a negative test is -->
-<!--      $$P(D^c\mid T^c)=\frac{P(T^c\mid D^c)\,P(D^c)}{P(T^c)}.$$ -->
-<!--      Here $P(T^c\mid D^c)=0.90$ (the specificity) and $P(T^c\mid D)=1-0.95=0.05$.  Compute $P(T^c)=0.05\times0.02 + 0.90\times0.98 = 0.019 + 0.882=0.901$.  Then -->
-<!--      $$P(D^c\mid T^c)=\frac{0.90\times0.98}{0.901}\approx0.979.$$ -->
-<!--      Thus, a negative test is highly reassuring: about 98% of negatives are true negatives. -->
-<!-- 2. **Understanding predictive values.**  With sensitivity 80%, specificity 97% and prevalence 0.5%, we have $P(D)=0.005$, $P(T\mid D)=0.80$ and $P(T\mid D^c)=0.03$.  Using Bayes’ Rule, -->
-<!--    $$P(D\mid T)=\frac{0.80\times0.005}{0.80\times0.005 + 0.03\times0.995} \approx 0.118.$$ -->
-<!--    So only about 12% of positive results reflect true mutation carriers.  The test is quite specific, but the condition is extremely rare, so the few false positives swamp the handful of true positives.  If the prevalence were higher—say 5%—the same calculation would yield -->
-<!--    $$P(D\mid T)=\frac{0.80\times0.05}{0.80\times0.05 + 0.03\times0.95} \approx 0.585,$$ -->
-<!--    meaning a positive result would be far more convincing.  The predictive value increases with prevalence. -->
-<!-- 3. **Designing a screening program.**  Let $H$ be “has heartworm” and $T$ be “test positive.”  We are given $P(H)=0.03$, $P(T\mid H)=0.92$ and $P(T\mid H^c)=0.06$ (since specificity 94% means a 6% false‑positive rate).  Bayes’ Rule tells us -->
-<!--    $$P(H\mid T)=\frac{0.92\times0.03}{0.92\times0.03 + 0.06\times0.97} \approx 0.32.$$  A single positive test thus implies roughly a 32% chance of heartworm.  Whether that warrants immediate treatment depends on the risks and costs of treating a false positive versus missing a true case.  Because the prevalence is relatively low and the PPV modest, many veterinarians would confirm a positive with a second, more specific test or use a confirmatory diagnostic (like an antigen test or imaging).  If the disease were more common in the region (higher prevalence), the PPV would rise and clinicians might opt to treat after one positive result.  Bayes’ Rule helps quantify this trade‑off: as prevalence increases, positive tests become more trustworthy. -->
-<!-- ::: -->
+</section>
+</section>
+<section id="sec-05_02" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-05_02"><span class="header-section-number">5.2</span> Conditional Probability and Independence</h2>
+<blockquote class="blockquote">
+<p>“Is it probable that probability brings certainty?” – Blaise Pascal</p>
+</blockquote>
+<p>Our earlier discussion focused on single events and how to combine them using unions and complements. In many situations, we want to know the probability of an event <strong>given that</strong> another has already occurred. Thinking this way is essential when events are not isolated but are part of a process or sequence. For example, the probability that a randomly selected person is left‑handed might be different once you know the person is an artist. This leads us to the idea of <em>conditional probability</em>.</p>
+<section id="conditional-probability" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-probability">Conditional probability</h3>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are events with <span class="math inline">\(P(A)&gt;0\)</span>, the <strong>conditional probability</strong> of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span>, written <span class="math inline">\(P(B|A)\)</span>, describes the chance that <span class="math inline">\(B\)</span> occurs <em>assuming</em> that <span class="math inline">\(A\)</span> has occurred or will occur. When we condition on <span class="math inline">\(A\)</span>, the sample space shrinks to just the outcomes where <span class="math inline">\(A\)</span> happens. In terms of probabilities, this shrinking translates to the formula <span class="math display">\[
+P(B\mid A) = \frac{P(A\cap B)}{P(A)}
+\]</span> which says that we compare how often both events occur to how often <span class="math inline">\(A\)</span> occurs at all.</p>
+<p>You can read <span class="math inline">\(P(B|A)\)</span> as “the probability of <span class="math inline">\(B\)</span> <em>given</em> <span class="math inline">\(A\)</span>.”</p>
+<p>Rearranging the conditional probability formula yields the <em>multiplication rule</em> for any two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>: <span class="math display">\[
+\begin{align*}
+P(A\cap B) =&amp; P(A)\,P(B\mid A)\\
+=&amp; P(B)\,P(A\mid B)
+\end{align*}
+\]</span> This rule tells us how to find the probability that <em>both</em> events occur: multiply the probability of the first event by the conditional probability of the second event given the first.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.6: Smoking and Cancer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many medical researchers have conducted experiments to examine the relationship between cigarette smoking and cancer.</p>
+<p>Consider an individual randomly selected from an adult male population.</p>
+<p>Let <span class="math inline">\(A\)</span> represent the event that the individual smokes, and let <span class="math inline">\(A^c\)</span> denote the complement of <span class="math inline">\(A\)</span> (the event that the individual does not smoke).</p>
+<p>Similarly, let <span class="math inline">\(B\)</span> represent the event that the individual develops cancer, and let <span class="math inline">\(B^c\)</span> be the complement of that event.</p>
+<p>Suppose a large sample from the population resulted in the proportions below:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(B\)</span></th>
+<th><span class="math inline">\(B^{c}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A\)</span></td>
+<td>.05</td>
+<td>.20</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A^{c}\)</span></td>
+<td>.03</td>
+<td>.72</td>
+</tr>
+</tbody>
+</table>
+<p>Use these probabilities to examine the relationship between smoking and cancer.</p>
+<p>First, find the probability that an individual smokes: <span class="math display">\[
+\begin{align*}
+P(A) =&amp; {P(A\cap B)+P(A\cap B^c)}\\
+=&amp; {0.05+0.20}\\
+=&amp; {0.25}
+\end{align*}
+\]</span></p>
+<p>Now find the probability that an individual doesn’t smoke: <span class="math display">\[
+\begin{align*}
+P(A^c) =&amp; {P(A^c\cap B)+P(A^c\cap B^c)}\\
+=&amp; {0.03+0.72}\\
+=&amp; {0.75}
+\end{align*}
+\]</span></p>
+<p>Let’s now determine the probability that an individual develops cancer given they are a smoker: <span class="math display">\[
+\begin{align*}
+P(B\mid A) =&amp; \frac{P(A\cap B)}{P(A)}\\
+=&amp; \frac{0.05}{0.25}\\
+=&amp; 0.2
+\end{align*}
+\]</span></p>
+<p>Let’s now determine the probability that an individual develops cancer given they are a smoker: <span class="math display">\[
+\begin{align*}
+P(B\mid A^c) =&amp; \frac{P(A^c\cap B)}{P(A^c)}\\
+=&amp; \frac{0.03}{0.75}\\
+=&amp; 0.04
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="independent-and-dependent-events" class="level3">
+<h3 class="anchored" data-anchor-id="independent-and-dependent-events">Independent and dependent events</h3>
+<p>When the occurrence of one event does <strong>not</strong> change the probability of another, we call the events <em>independent</em>.</p>
+<p>Formally, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>independent</strong> if <span class="math display">\[
+P(B\mid A)=P(B)
+\]</span> or equivalently <span class="math display">\[
+P(A\mid B)=P(A)
+\]</span> If either holds, then the other does too.</p>
+<p>For independent events, the multiplication rule simplifies to <span class="math display">\[
+P(A\cap B)=P(A)\,P(B)
+\]</span> If knowing that <span class="math inline">\(A\)</span> has occurred <em>does</em> change the probability of <span class="math inline">\(B\)</span>, the events are called <strong>dependent</strong>.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.7: Flipping coins
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think about tossing a fair coin twice. Let <span class="math inline">\(H_1\)</span> be the event “the first toss is heads” and <span class="math inline">\(H_2\)</span> be “the second toss is heads.” The probability of a head on each toss is 0.5, and the outcome of the first toss does not affect the outcome of the second. Therefore, <span class="math inline">\(P(H_2\mid H_1)=P(H_2)=0.5\)</span>, and the events are independent. Using the multiplication rule, <span class="math display">\[
+P(H_1\cap H_2) = P(H_1)\,P(H_2) = 0.5\times0.5 = 0.25\
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.8: Sampling without replacement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Independence can break down when we sample from a finite population <strong>without</strong> replacement.</p>
+<p>Suppose a box contains 10 batteries, 4 of which are defective. You draw two batteries at random <strong>without replacement</strong>.</p>
+<p>Let <span class="math inline">\(D_1\)</span> be the event “the first battery is defective” and <span class="math inline">\(D_2\)</span> be “the second battery is defective.”</p>
+<p>The probability the first battery is defective is <span class="math inline">\(P(D_1)=4/10=0.4\)</span>.</p>
+<p>If the first battery is defective, there are now 3 defectives among 9 remaining batteries, so <span class="math inline">\(P(D_2\mid D_1)=3/9=0.333\)</span>. If the first battery is good, there are still 4 defectives among 9 batteries, so <span class="math inline">\(P(D_2\mid D_1^c)=4/9\approx0.444\)</span>.</p>
+<p>Because <span class="math inline">\(P(D_2)\)</span> depends on whether <span class="math inline">\(D_1\)</span> happened, the events are dependent.</p>
+<p>When we sample <strong>with</strong> replacement, the draws are independent, since after each draw the composition of the box resets to 4 defectives out of 10.</p>
+</div>
+</div>
+<p>In practice, when the sample size is much smaller than the population, the difference between sampling with and without replacement becomes negligible and we can treat the draws as independent.</p>
+</section>
+<section id="mutually-exclusive-events-versus-independent-events" class="level3">
+<h3 class="anchored" data-anchor-id="mutually-exclusive-events-versus-independent-events">Mutually Exclusive Events versus Independent Events</h3>
+<p>There is often confusion between the concepts of independent events and disjoint events.</p>
+<p>Actually, these are quite different notions, and perhaps this is seen best by comparisons involving conditional probabilities.</p>
+<p>Specifically, if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive, then <span class="math display">\[
+P(A \cap B) = 0
+\]</span> whereas for independent events, we have <span class="math display">\[
+P(A \cap B)  = P(A) P(B)
+\]</span></p>
+<p>If <span class="math inline">\(P(A)&gt;0\)</span> and <span class="math inline">\(P(B)&gt;0\)</span>, then how can <span class="math display">\[
+P(A) P(B) = 0 ?
+\]</span> This is impossible.</p>
+<p>In other words, the property of being mutually exclusive involves a very strong form of dependence, because the occurrence of one event mean the other event cannot occur.</p>
+<p>Thus, if two events are mutually exclusive, they cannot be independent.</p>
+<p>If two events are independent, they cannot be mutually exclusive.</p>
+</section>
+<section id="conditional-probability-from-contingency-table" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-probability-from-contingency-table">Conditional probability from contingency table</h3>
+<p>Let’s go back to the pulmonary embolism example from last section.</p>
+<p>Here is the table again:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 49%">
+<col style="width: 22%">
+<col style="width: 21%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pulmonary‐embolism status</th>
+<th>D‑dimer positive</th>
+<th>D‑dimer negative</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pulmonary embolism present</td>
+<td>700</td>
+<td>300</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>Pulmonary embolism absent</td>
+<td>1300</td>
+<td>7700</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>2000</td>
+<td>8000</td>
+<td>10000</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose we wanted to estimate the probability of a pulmonary embolism given the patient had a D-dimer positive result.</p>
+<p>When looking for conditional probability from a contingency table, remember that the conditioned event is all we are focusing on .</p>
+<p>In this case, the conditioned event is D-dimer positive. There are a total of 2000 patients that are D-dimer positive. Of those 2000 patients, 700 had a pulmonary embolism. Thus, the conditional probability is</p>
+<p><span class="math display">\[
+P(PE\mid \text{D-dimer positive})=\frac{700}{2000}=0.35
+\]</span></p>
+<p>We can think of this as an application of the Law of Large Numbers. We use the counts in the table to estimate the desired probability. We just need to know what to use as the numerator and denominator based on what conditional probability you want to find.</p>
+<section id="working-in-jmp-1" class="level4">
+<h4 class="anchored" data-anchor-id="working-in-jmp-1">Working in JMP</h4>
+<p>JMP makes it easy to explore conditional probabilities and independence using contingency tables. Enter your data with one column for each categorical variable (for example, “Major” and “Year”). Under <strong>Analyze&nbsp;→ Fit Y by X</strong>, choose one variable as the response and the other as the explanatory factor. The resulting mosaic or contingency table will show joint counts. Right‑click and choose <strong>Row Percents</strong> or <strong>Column Percents</strong> to view conditional proportions. If the row percentages are the same across all columns (and vice versa), the variables are approximately independent; if the percentages differ, there is evidence of dependence.</p>
+</section>
+</section>
+<section id="recap-1" class="level3">
+<h3 class="anchored" data-anchor-id="recap-1">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Conditional probability</strong></td>
+<td>The probability of one event given that another event has occurred; computed as <span class="math inline">\(P(B\mid A)=P(A\cap B)/P(A)\)</span> when <span class="math inline">\(P(A)&gt;0\)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Multiplication rule</strong></td>
+<td>A rule that expresses the joint probability of two events: <span class="math inline">\(P(A\cap B)=P(A)\,P(B\mid A)=P(B)\,P(A\mid B)\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Independent events</strong></td>
+<td>Events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> for which <span class="math inline">\(P(B\mid A)=P(B)\)</span> (equivalently <span class="math inline">\(P(A\mid B)=P(A)\)</span>) and <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-1" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-1">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Calculus and statistics courses.</strong> At a certain college, 40% of students have taken calculus, 30% have taken statistics, and 15% have taken both.</p>
+<ol type="a">
+<li>What is the probability that a student has taken statistics <strong>given</strong> they have taken calculus?</li>
+<li>Are taking calculus and statistics independent events? Explain your reasoning.</li>
+</ol></li>
+<li><p><strong>Drawing marbles without replacement.</strong> A jar contains 5 red marbles and 3 green marbles. You draw two marbles at random <strong>without replacement</strong>.</p>
+<ol type="a">
+<li>What is the probability that both marbles are red?</li>
+<li>If you draw <strong>with replacement</strong>, what would be the probability of drawing two red marbles?</li>
+<li>Which scenario involves independent events?</li>
+</ol></li>
+<li><p><strong>Pass rates.</strong> In a school, 60% of students pass mathematics, 50% pass physics, and 35% pass <strong>both</strong> subjects.</p>
+<ol type="1">
+<li>What is <span class="math inline">\(P(\text{Physics} \mid \text{Math})\)</span>?</li>
+<li>Are passing mathematics and passing physics independent? Why or why not?</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Calculus and statistics.</strong>
+<ul>
+<li>The conditional probability that a student has taken statistics given they have taken calculus is <span class="math inline">\(P(\text{Stats}\mid \text{Calc}) = P(\text{Stats}\cap \text{Calc}) / P(\text{Calc}) = 0.15/0.40 = 0.375\)</span>.</li>
+<li>If calculus and statistics were independent, we would have <span class="math inline">\(P(\text{Stats}\cap \text{Calc}) = P(\text{Stats})\,P(\text{Calc}) = 0.30\times0.40 = 0.12\)</span>. Because the actual joint probability 0.15 is greater than 0.12, these events are <strong>not</strong> independent; students who take calculus are more likely to take statistics.</li>
+</ul></li>
+<li><strong>Drawing marbles.</strong>
+<ul>
+<li>Without replacement, the probability both marbles are red is <span class="math inline">\(P(\text{first red})\times P(\text{second red}\mid \text{first red}) = (5/8)\times (4/7) = 20/56 \approx 0.357\)</span>.</li>
+<li>With replacement, the probability stays <span class="math inline">\((5/8)\times (5/8) = 25/64 \approx 0.391\)</span> because the composition of the jar is reset after each draw.</li>
+<li>Drawing <strong>with replacement</strong> yields independent events. Without replacement the draws are dependent, since the first draw changes the composition for the second.</li>
+</ul></li>
+<li><strong>Pass rates.</strong>
+<ul>
+<li>The conditional probability that a student passes physics given they pass mathematics is <span class="math inline">\(P(\text{Physics}\mid \text{Math}) = 0.35/0.60 \approx 0.583\)</span>.</li>
+<li>For independence we would need <span class="math inline">\(P(\text{Physics}\mid \text{Math}) = P(\text{Physics}) = 0.50\)</span>. Because <span class="math inline">\(0.583\ne 0.50\)</span>, passing mathematics and passing physics are <strong>not</strong> independent; students who pass one subject are more likely to pass the other.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-05_03" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-05_03"><span class="header-section-number">5.3</span> Bayes Rule</h2>
+<blockquote class="blockquote">
+<p>“Absence of evidence is not evidence of absence.” – Carl Sagan</p>
+</blockquote>
+<p>When you receive a lab report or a rapid test result it is tempting to take the outcome at face value: a <em>positive</em> means you have the disease; a <em>negative</em> means you do not. In reality, every diagnostic test has some chance of making mistakes. To interpret a result responsibly we need to take two things into account:</p>
+<ol type="1">
+<li><strong>The accuracy of the test itself.</strong> How often does it correctly flag someone who is sick? How often does it incorrectly flag someone who is healthy? These properties are captured by <strong>sensitivity</strong> and <strong>specificity</strong>.</li>
+<li><strong>The prevalence of the condition.</strong> How common is the disease in the population you are testing? This is the prior probability that a random person is infected before considering the test result.</li>
+</ol>
+<p><strong>Bayes’ Rule</strong> is the mathematical tool that combines those two pieces of information. It takes the evidence (the test result) and updates the prior probability to produce a new, <em>posterior</em> probability: the chance the person actually has the disease given the result. Bayes’ Rule is simply a rearrangement of the multiplication rule for probabilities; for events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with <span class="math inline">\(P(B)&gt;0\)</span> it says</p>
+<p><span class="math display">\[
+P(A\mid B) = \frac{P(B\mid A)\,P(A)}{P(B)}.
+\]</span></p>
+<p>In diagnostic testing we let <span class="math inline">\(A\)</span> be the event “person has the disease” and <span class="math inline">\(B\)</span> be “test is positive.” Then:</p>
+<ul>
+<li><span class="math inline">\(P(A)\)</span> is the <strong>prevalence</strong> of the disease (our prior belief). This is usually known or estimated by epidemiologists.</li>
+<li><span class="math inline">\(P(B\mid A)\)</span> is the <strong>sensitivity</strong>: the probability the test correctly labels a diseased person as positive. This value is estimated in a clinical setting.</li>
+<li><span class="math inline">\(P(B\mid A^c)\)</span> is the false–positive rate, which is <span class="math inline">\(1\)</span> minus the <strong>specificity</strong>. Also estimated in a clinical setting.</li>
+<li><span class="math inline">\(P(A\mid B)\)</span> is the quantity we really want: the probability a person is truly sick given they test positive. This is called the <strong>positive predictive value</strong> (PPV) of the test.</li>
+</ul>
+<p>Notice that Bayes’ Rule also works for a negative result. If <span class="math inline">\(T^c\)</span> denotes a negative test, the probability of being healthy given a negative result, <span class="math inline">\(P(A^c\mid T^c)\)</span>, is the <strong>negative predictive value</strong> (NPV).</p>
+<section id="understanding-bayes-rule-through-an-example" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-bayes-rule-through-an-example">Understanding Bayes’ Rule through an example</h3>
+<p>To see how Bayes’ Rule plays out, imagine a disease that affects 1% of the population. A new screening test has 90% sensitivity and 95% specificity. In plain language:</p>
+<ul>
+<li>If you <strong>have</strong> the disease, there is a 90% chance the test is positive (and a 10% chance of a <em>false negative</em>).</li>
+<li>If you <strong>do not</strong> have the disease, there is a 95% chance the test is negative (and a 5% chance of a <em>false positive</em>).</li>
+</ul>
+<p>Suppose you go to the clinic and your test comes back positive. What is the probability you actually have the disease? Let <span class="math inline">\(D\)</span> be “has the disease” and <span class="math inline">\(T\)</span> be “test is positive.” We can use the conditional probability rule:</p>
+<p><span class="math display">\[
+P(D\mid T)=\frac{P(T\cap D)}{P(T)}
+\]</span> Unfortunately, we do not know <span class="math inline">\(P(T\cap D)\)</span> or <span class="math inline">\(P(T)\)</span>. All we know is</p>
+<ul>
+<li><span class="math inline">\(P(T\mid D)\)</span>, which is the sensitivity</li>
+<li><span class="math inline">\(P(T^c\mid D^c)\)</span> which is the specificity. Sometimes we have instead the complement of specificity <span class="math inline">\(P(T\mid D^c)\)</span>.</li>
+<li><span class="math inline">\(P(D)\)</span> which is the prevalence.</li>
+</ul>
+<p>In terms of our example, we have</p>
+<ul>
+<li><span class="math inline">\(P(T\mid D)=0.90\)</span></li>
+<li><span class="math inline">\(P(T^c\mid D^c)=0.95\)</span> which implies <span class="math inline">\(P(T \mid D^c)=1-P(T^c\mid D^c)=0.05\)</span></li>
+<li><span class="math inline">\(P(D)=0.01\)</span></li>
+</ul>
+<p>In the numerator above, we can use the multiplicative rule to find <span class="math inline">\(P(T\cap D)\)</span>: <span class="math display">\[
+P(T\cap D)=P(T\mid D)\,P(D)
+\]</span> In the denominator, we can write <span class="math display">\[
+P(T) = P(T\cap D) + P(T\cap D^c)
+\]</span> Now, let’s apply the multiplicative rule to both of these intersections using the information that we do know: <span class="math display">\[
+P(T) = P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c)
+\]</span></p>
+<p>Let’s put everything together to give us a formula that has quantities we do know: <span class="math display">\[
+P(D\mid T)=\frac{P(T\mid D)\,P(D)}{P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c)}
+\]</span></p>
+<p>This equation is known as <strong>Bayes’ Rule</strong>.</p>
+<p>Substituting our known values into the equation gives us <span class="math display">\[
+\begin{align*}
+P(D\mid T)=&amp;\frac{P(T\mid D)\,P(D)}{P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c)}\\
+=&amp;\frac{(0.90)(0.01)}{(0.90)(0.01) + (0.05)(0.99)}\\
+=&amp;0.1538
+\end{align*}
+\]</span></p>
+<p>Even though the test is fairly accurate, a *positive** result only raises the probability of disease to about 0.1538. The reason is that the disease is so rare that most positive tests are false alarms.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.9: Genetic Screening
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bayesian thinking is not confined to clinical medicine. Geneticists often screen organisms for rare traits. Imagine a plant species in which 5% of individuals carry a gene conferring resistance to a particular fungus. A DNA test has 90% sensitivity and 80% specificity. If a randomly selected plant tests positive, how likely is it to possess the resistance gene?</p>
+<p>Let <span class="math inline">\(R\)</span> be “has the resistance gene” and <span class="math inline">\(T\)</span> be “test positive.” Then <span class="math inline">\(P(R)=0.05\)</span>, <span class="math inline">\(P(T\mid R)=0.90\)</span> and <span class="math inline">\(P(T\mid R^c)=0.20\)</span> (since specificity is 80%). Bayes’ Rule tells us</p>
+<p><span class="math display">\[
+P(R\mid T) = \frac{0.90\times 0.05}{0.90\times 0.05 + 0.20\times 0.95} \approx 0.191.
+\]</span></p>
+<p>So even a positive test only implies about a 19% chance of carrying the gene. The key message is the same: when a condition is rare, false positives can overwhelm true positives, and Bayes’ Rule quantifies how evidence updates our beliefs.</p>
+</div>
+</div>
+</section>
+<section id="working-in-jmp-2" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp-2">Working in JMP</h3>
+<p>JMP does not have a dedicated “Bayes’ Rule” button, but you can apply the rule by constructing a contingency table and computing appropriate proportions. To explore the medicine example above in JMP:</p>
+<ul>
+<li>Create a table with one column for the <strong>true condition</strong> (Diseased vs Healthy) and one column for the <strong>test result</strong> (Positive vs Negative). Enter the counts from the confusion matrix (for example, 90 true positives, 495 false positives, 9 405 true negatives and 10 false negatives per 10 000 screened).</li>
+<li>Choose <strong>Analyze → Fit Y by X</strong> and assign <strong>True condition</strong> to the Y role and <strong>Test result</strong> to the X role. The resulting contingency table shows the joint counts. Right‑click on the table and select <strong>Row Percents</strong> or <strong>Column Percents</strong> to view conditional probabilities.</li>
+<li>You can then compute the PPV as the percentage in the Diseased row of the Positive column divided by the total percentage in the Positive column, and the NPV as the percentage in the Healthy row of the Negative column divided by the total percentage in the Negative column.</li>
+</ul>
+<p>These steps replicate the Bayes’ Rule calculation without writing formulas. JMP’s probability calculators can also be used for more complex Bayesian analyses in later chapters.</p>
+</section>
+<section id="recap-2" class="level3">
+<h3 class="anchored" data-anchor-id="recap-2">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword/Concept</strong></th>
+<th><strong>Definition/Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bayes’ Rule</strong></td>
+<td>Formula to update probabilities in light of new evidence</td>
+</tr>
+<tr class="even">
+<td><strong>Sensitivity</strong></td>
+<td>Probability that a diagnostic test correctly identifies a diseased individual as positive; a high sensitivity means few false negatives.</td>
+</tr>
+<tr class="odd">
+<td><strong>Specificity</strong></td>
+<td>Probability that a diagnostic test correctly identifies a healthy individual as negative; a high specificity means few false positives.</td>
+</tr>
+<tr class="even">
+<td><strong>Positive predictive value</strong></td>
+<td>The probability that a person actually has the condition given a positive test result, <span class="math inline">\(P(D\mid T)\)</span>; depends on sensitivity, specificity and the disease prevalence.</td>
+</tr>
+<tr class="odd">
+<td><strong>Negative predictive value</strong></td>
+<td>The probability that a person is disease‑free given a negative test result, <span class="math inline">\(P(D^c\mid T^c)\)</span>; often high when the disease is rare and the test has good sensitivity.</td>
+</tr>
+<tr class="even">
+<td><strong>Prevalence</strong></td>
+<td>The proportion of individuals in the population who truly have the disease before any testing; the prior belief in Bayes’ Rule.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding-2" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding-2">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Interpreting a positive screening result.</strong> Suppose 2% of a population has a certain virus. A test for the virus has 95% sensitivity and 90% specificity.</p>
+<ol type="a">
+<li>Using Bayes’ Rule, compute the probability that a randomly selected person actually has the virus given they test positive.</li>
+<li>What is the probability that a person who tests negative is truly virus‑free?</li>
+</ol></li>
+<li><p><strong>Understanding predictive values.</strong> A small genetic screening test for a mutation has 80% sensitivity and 97% specificity. In the population being tested, 0.5% carry the mutation. Explain why the positive predictive value of this test is quite low, despite its high specificity. How would the predictive value change if the prevalence were higher?</p></li>
+<li><p><strong>Designing a screening program.</strong> A veterinary lab develops a new blood test for heartworm disease in dogs. Preliminary studies estimate the prevalence of heartworm in the region at 3%, and the test’s sensitivity and specificity are 92% and 94%, respectively. Explain how you would use Bayes’ Rule to decide whether a positive test result warrants immediate treatment or should be confirmed with a second test. What role does the disease prevalence play in your decision?</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Interpreting a positive screening result.</strong></p>
+<ul>
+<li>Let <span class="math inline">\(D\)</span> be “has the virus” and <span class="math inline">\(T\)</span> be “test positive.” We are given <span class="math inline">\(P(D)=0.02\)</span>, <span class="math inline">\(P(T\mid D)=0.95\)</span> and <span class="math inline">\(P(T\mid D^c)=0.10\)</span> (because specificity 90% implies a 10% false‑positive rate). First compute <span class="math inline">\(P(T)=0.95\times0.02 + 0.10\times0.98=0.019 + 0.098=0.117\)</span>. Then <span class="math display">\[P(D\mid T)=\frac{0.95\times0.02}{0.117}\approx0.162.\]</span> So even with good sensitivity and decent specificity, a positive result only implies about a 16% chance of infection when prevalence is 2%.</li>
+<li>For a negative result we look at the NPV. The probability of being virus‑free given a negative test is <span class="math display">\[P(D^c\mid T^c)=\frac{P(T^c\mid D^c)\,P(D^c)}{P(T^c)}.\]</span> Here <span class="math inline">\(P(T^c\mid D^c)=0.90\)</span> (the specificity) and <span class="math inline">\(P(T^c\mid D)=1-0.95=0.05\)</span>. Compute <span class="math inline">\(P(T^c)=0.05\times0.02 + 0.90\times0.98 = 0.019 + 0.882=0.901\)</span>. Then <span class="math display">\[P(D^c\mid T^c)=\frac{0.90\times0.98}{0.901}\approx0.979.\]</span> Thus, a negative test is highly reassuring: about 98% of negatives are true negatives.</li>
+</ul></li>
+<li><p><strong>Understanding predictive values.</strong> With sensitivity 80%, specificity 97% and prevalence 0.5%, we have <span class="math inline">\(P(D)=0.005\)</span>, <span class="math inline">\(P(T\mid D)=0.80\)</span> and <span class="math inline">\(P(T\mid D^c)=0.03\)</span>. Using Bayes’ Rule, <span class="math display">\[P(D\mid T)=\frac{0.80\times0.005}{0.80\times0.005 + 0.03\times0.995} \approx 0.118.\]</span> So only about 12% of positive results reflect true mutation carriers. The test is quite specific, but the condition is extremely rare, so the few false positives swamp the handful of true positives. If the prevalence were higher—say 5%—the same calculation would yield <span class="math display">\[P(D\mid T)=\frac{0.80\times0.05}{0.80\times0.05 + 0.03\times0.95} \approx 0.585,\]</span> meaning a positive result would be far more convincing. The predictive value increases with prevalence.</p></li>
+<li><p><strong>Designing a screening program.</strong> Let <span class="math inline">\(H\)</span> be “has heartworm” and <span class="math inline">\(T\)</span> be “test positive.” We are given <span class="math inline">\(P(H)=0.03\)</span>, <span class="math inline">\(P(T\mid H)=0.92\)</span> and <span class="math inline">\(P(T\mid H^c)=0.06\)</span> (since specificity 94% means a 6% false‑positive rate). Bayes’ Rule tells us <span class="math display">\[P(H\mid T)=\frac{0.92\times0.03}{0.92\times0.03 + 0.06\times0.97} \approx 0.32.\]</span> A single positive test thus implies roughly a 32% chance of heartworm. Whether that warrants immediate treatment depends on the risks and costs of treating a false positive versus missing a true case. Because the prevalence is relatively low and the PPV modest, many veterinarians would confirm a positive with a second, more specific test or use a confirmatory diagnostic (like an antigen test or imaging). If the disease were more common in the region (higher prevalence), the PPV would rise and clinicians might opt to treat after one positive result. Bayes’ Rule helps quantify this trade‑off: as prevalence increases, positive tests become more trustworthy.</p></li>
+</ol>
+</div>
+</div>
+</div>
 
 
 </section>
