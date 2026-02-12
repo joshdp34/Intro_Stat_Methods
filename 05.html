@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Probability Concepts – STA 2381 Introductory Statistical Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-2ea2d3e7f2364fcda3d434693d3458e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+div.callout-example.callout {
+  border-left-color: #008000;
+}
+div.callout-example.callout-style-default > .callout-header {
+  background-color: rgba(0, 128, 0, 0.13);
+}
+div.callout-example .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-example.callout-style-default .callout-icon::before, div.callout-example.callout-titled .callout-icon::before {
+  content: '📈';
+  background-image: none;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href=".center-panel.quarto-layout-panel {
+  justify-content: center;
+  column-gap: 1rem;
+}">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Concepts</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"></a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Collecting Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Describing Data with Tables and Graphs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Describing Data with Numbers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Concepts</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-05_01" id="toc-sec-05_01" class="nav-link active" data-scroll-target="#sec-05_01"><span class="header-section-number">5.1</span> Basic Probability Rules</a>
+  <ul class="collapse">
+  <li><a href="#experiments-outcomes-and-sample-spaces" id="toc-experiments-outcomes-and-sample-spaces" class="nav-link" data-scroll-target="#experiments-outcomes-and-sample-spaces">Experiments, outcomes and sample spaces</a></li>
+  <li><a href="#events-and-interpretations-of-probability" id="toc-events-and-interpretations-of-probability" class="nav-link" data-scroll-target="#events-and-interpretations-of-probability">Events and interpretations of probability</a></li>
+  <li><a href="#law-of-large-numbers" id="toc-law-of-large-numbers" class="nav-link" data-scroll-target="#law-of-large-numbers">Law of Large Numbers</a></li>
+  <li><a href="#complements-and-the-complement-rule" id="toc-complements-and-the-complement-rule" class="nav-link" data-scroll-target="#complements-and-the-complement-rule">Complements and the complement rule</a></li>
+  <li><a href="#unions-intersections-and-the-addition-rule" id="toc-unions-intersections-and-the-addition-rule" class="nav-link" data-scroll-target="#unions-intersections-and-the-addition-rule">Unions, intersections and the addition rule</a></li>
+  <li><a href="#mutually-exlcusive" id="toc-mutually-exlcusive" class="nav-link" data-scroll-target="#mutually-exlcusive">Mutually Exlcusive</a></li>
+  <li><a href="#probility-from-contingency-tables" id="toc-probility-from-contingency-tables" class="nav-link" data-scroll-target="#probility-from-contingency-tables">Probility from contingency tables</a></li>
+  <li><a href="#working-in-jmp" id="toc-working-in-jmp" class="nav-link" data-scroll-target="#working-in-jmp">Working in JMP</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Concepts</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-05_01" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-05_01"><span class="header-section-number">5.1</span> Basic Probability Rules</h2>
+<blockquote class="blockquote">
+<p>“The theory of probabilities is at bottom nothing but common sense reduced to calculus.” – Pierre‑Simon Laplace</p>
+</blockquote>
+<p>When people say “there’s a 70 percent chance of rain” or that a team has “even odds” of winning, they’re using probability to express how likely an outcome seems. In statistics, we give that vague notion a precise meaning. A <strong>probability</strong> is a number between 0 and 1 that measures how often we expect an event to occur in the long run.</p>
+<p>A probability of 0 means the event can never happen, a probability of 1 means it is certain, and values in between describe varying degrees of likelihood.</p>
+<section id="experiments-outcomes-and-sample-spaces" class="level3">
+<h3 class="anchored" data-anchor-id="experiments-outcomes-and-sample-spaces">Experiments, outcomes and sample spaces</h3>
+<p>Probability always starts with an <strong>experiment</strong>—a repeatable situation whose result is not predetermined.</p>
+<p>Flipping a coin, rolling a die or drawing a card are familiar examples. Each trial produces an <em>outcome</em>, and the set of all possible outcomes is called the <strong>sample space</strong>.</p>
+<p>We often use <span class="math inline">\(S\)</span> to denote the sample space. For instance, when you flip one fair coin, the sample space is <span class="math inline">\(S=\{\text{H},\text{T}\}\)</span>; when you roll a six‑sided die, <span class="math inline">\(S=\{1,2,3,4,5,6\}\)</span>.</p>
+<p>It is essential to describe the sample space clearly because the probability of any event is computed relative to it. In practice, the sample space can be finite (like the faces of a die) or infinite (like all possible real‑valued measurements of temperature). Identifying <span class="math inline">\(S\)</span> helps us keep track of what outcomes are possible before we assign probabilities.</p>
+</section>
+<section id="events-and-interpretations-of-probability" class="level3">
+<h3 class="anchored" data-anchor-id="events-and-interpretations-of-probability">Events and interpretations of probability</h3>
+<p>An <strong>event</strong> is any subset of the sample space. Events can be simple (containing one outcome) or compound (containing several outcomes).</p>
+<p>Let <span class="math inline">\(A\)</span> be the event that a die roll is even. Then <span class="math inline">\(A=\{2,4,6\}\)</span>, which contains three outcomes from the sample space <span class="math inline">\(S=\{1,2,3,4,5,6\}\)</span>.</p>
+<p>The <em>probability</em> of an event <span class="math inline">\(A\)</span>, written <strong><span class="math inline">\(P(A)\)</span></strong>, quantifies how likely <span class="math inline">\(A\)</span> is to occur.</p>
+<p>When the outcomes in <span class="math inline">\(S\)</span> are equally likely (as with a fair die or fair coin), the <em>classical</em> probability of <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+P(A) = \frac{\text{number of outcomes in }A}{\text{number of outcomes in }S}\,.
+\]</span></p>
+<p>In the die example above, there are three even numbers out of six, so <span class="math inline">\(P(A)=3/6=0.5\)</span>. This agrees with our intuition that even and odd numbers are equally likely on a fair die.</p>
+<p>Probability has several interpretations. In the <strong>frequentist</strong> view, <span class="math inline">\(P(A)\)</span> is the <em>long‑run relative frequency</em> of <span class="math inline">\(A\)</span>—the fraction of times <span class="math inline">\(A\)</span> occurs if we repeat the experiment many times under identical conditions. For example, the probability of flipping a head on a fair coin is 0.5 because, in the long run, about half of the flips will show heads.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.1: Rolling a six-sided die
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we rolled a six-sided die 20 times. Using the idea of equally likely outcomes, the probability of rolling a six is <span class="math display">\[
+\begin{align}
+P(6)=&amp;\frac{1}{6}\\
+\approx&amp; 0.167
+\end{align}
+\]</span> Let’s see how many times we get a six when rolling the die 20 times.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We see that we rolled a six 2 out of the 20 times. The relative frequency is thus <span class="math display">\[
+\frac{\text{number of sixes}}{\text{number of rolls}}=\frac{2}{20}=0.1
+\]</span></p>
+<p>Let’s look at a bar chart for all of the rolls:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s now roll the die 1,000 times:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The number of times we rolled each value is a little more even. Focusing only on six, we have <span class="math display">\[
+\frac{\text{number of sixes}}{\text{number of rolls}}=\frac{160}{1000}=0.16
+\]</span> which is close to the theoretical proportion of <span class="math inline">\(1/6\approx 0.167\)</span></p>
+<p>We can keep increasing the number of times we roll the die and we will see the number of each value “even out” across all values:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Each value will converge to the theoretical value of <span class="math inline">\(1/6\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.2: Flipping a coin
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we flip a coin many times and track the proportion of heads over time. Early on, the proportion jumps around; as the number of flips grows, it tends to settle near the true probability of 0.5.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="law-of-large-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="law-of-large-numbers">Law of Large Numbers</h3>
+<p>In 1689, the Swiss mathematician Jacob Bernoulli proved that as the number of trials increases, the proportion of occurrences of any given outcome approaches a particular number (such as 1/6 or 1/2) in the long run.</p>
+<p>To show this, he assumed that the outcome of any one trial does not depend on the outcome of any other trial. Bernoulli’s result is known as the <strong>Law of Large Numbers</strong>.</p>
+<p>We will interpret the probability of an outcome to represent long-run results. This is the frequentist approach to probability.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Frequentist and Subjective probability">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Frequentist and Subjective probability
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Probability can be defined in different ways:</p>
+<ul>
+<li><strong>Frequentist (long‑run relative frequency).</strong> For repeatable experiments, <span class="math inline">\(P(A)\)</span> is the limit of the proportion of times <span class="math inline">\(A\)</span> occurs in a large number of trials.</li>
+<li><strong>Subjective.</strong> Probability reflects a personal belief based on available information; two people may assign different probabilities to the same event.</li>
+</ul>
+<p>No matter how you interpret it, probability values lie between 0 and 1 and follow certain algebraic rules.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="complements-and-the-complement-rule" class="level3">
+<h3 class="anchored" data-anchor-id="complements-and-the-complement-rule">Complements and the complement rule</h3>
+<p>If <span class="math inline">\(A\)</span> is an event, the <strong>complement</strong> of <span class="math inline">\(A\)</span> (denoted <span class="math inline">\(A^c\)</span>) consists of all outcomes in <span class="math inline">\(S\)</span> that are <strong>not</strong> in <span class="math inline">\(A\)</span>. In everyday terms, either <span class="math inline">\(A\)</span> happens or it doesn’t, so the probabilities of <span class="math inline">\(A\)</span> and its complement must sum to 1. This leads to the <em>complement rule</em>:</p>
+<p><span class="math display">\[
+P(A^c) = 1 - P(A)
+\]</span></p>
+<p>The complement rule is especially handy for “at least one” problems. Suppose you toss a fair coin three times and want the probability of getting <em>at least one head</em>. Let <span class="math inline">\(A\)</span> be the event “at least one head” and <span class="math inline">\(A^c\)</span> be “no heads” (all tails). There are eight possible equally likely outcomes in the sample space <span class="math display">\[
+S=\left\{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\right\}
+\]</span></p>
+<p>There is only one outcome with no heads—TTT—so <span class="math inline">\(P(A^c)=1/8\)</span>.</p>
+<p>By the complement rule, <span class="math inline">\(P(A)=1-1/8=7/8\)</span>.</p>
+</section>
+<section id="unions-intersections-and-the-addition-rule" class="level3">
+<h3 class="anchored" data-anchor-id="unions-intersections-and-the-addition-rule">Unions, intersections and the addition rule</h3>
+<p>When you combine events, you need to think about unions and intersections. The <strong>union</strong> of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (written <span class="math inline">\(A\cup B\)</span>) contains outcomes that are in <span class="math inline">\(A\)</span> or in <span class="math inline">\(B\)</span> (or in both).</p>
+<p>The <strong>intersection</strong> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (written <span class="math inline">\(A\cap B\)</span>) contains outcomes that are in <em>both</em> <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The probability of the union is given by the <em>general additive rule</em>:</p>
+<p><span class="math display">\[
+P(A\cup B) = P(A) + P(B) - P(A\cap B)\,.
+\]</span></p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.3: Additive rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine a survey of 200 students about their beverage preferences:</p>
+<ul>
+<li>120 students like <em>coffee</em>.</li>
+<li>90 students like <em>tea</em>.</li>
+<li>60 students like <em>both</em> coffee and tea.</li>
+</ul>
+<p>Define event <span class="math inline">\(C\)</span> = “student likes coffee” and event <span class="math inline">\(T\)</span> = “student likes tea.” Then</p>
+<ul>
+<li><span class="math inline">\(P(C) = 120/200 = 0.60\)</span></li>
+<li><span class="math inline">\(P(T) = 90/200 = 0.45\)</span></li>
+<li><span class="math inline">\(P(C\cap T) = 60/200 = 0.30\)</span></li>
+</ul>
+<p>The probability that a randomly chosen student likes <em>either coffee or tea (or both)</em> is</p>
+<p><span class="math display">\[
+\begin{align*}
+P(C\cup T) =&amp; P(C) + P(T) - P(C\cap T)\\
+           =&amp; 0.60 + 0.45 - 0.30\\
+           =&amp; 0.75
+\end{align*}
+\]</span></p>
+<p>So 75% of students like at least one of the two beverages.</p>
+<p>Notice that this formula counts how many like coffee (<span class="math inline">\(P(C)\)</span>). Then it adds how many like tea (<span class="math inline">\(P(T)\)</span>). When these two are added together, the students who like both coffee and tea are added twice: once in <span class="math inline">\(P(C)\)</span> and again in <span class="math inline">\(P(T)\)</span>. Therefore, those students must be subtracted off one time. That is why we subtract off the intersection <span class="math inline">\(P(C\cap T)\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="mutually-exlcusive" class="level3">
+<h3 class="anchored" data-anchor-id="mutually-exlcusive">Mutually Exlcusive</h3>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>mutually exclusive</strong> (also called disjoint)—meaning they have no outcomes in common—then <span class="math inline">\(P(A\cap B)=0\)</span> and the rule simplifies to <span class="math inline">\(P(A\cup B)=P(A)+P(B)\)</span>. A simple example involves rolling a die. Let <span class="math inline">\(A\)</span> be “rolling a 2” and <span class="math inline">\(B\)</span> be “rolling an odd number.” These events are disjoint because 2 is even, so <span class="math display">\[
+P(A\cup B)=P(\text{2})+P(\text{odd})=1/6+3/6=2/3
+\]</span></p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.4: Hospital patients
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hospital records show that 12% of all patients are admitted for surgical treatment, 16% are admitted for obstetrics, and 2% receive both obstetrics and surgical treatment.</p>
+<p>If a new patient is admitted to the hospital, what is the probability that the patient will be admitted for surgery, for obstetrics, or for both?</p>
+<p>Let <span class="math inline">\(A=\{\text{A patient admitted to the hospital receives surgical treatment.}\}\)</span><br>
+and <span class="math inline">\(B=\{\text{A patient admitted to the hospital receives obstetrics treatment.}\}\)</span></p>
+<p>We have <span class="math display">\[
+P(A) = 0.12\qquad P(B) = 0.16\qquad P(A\cap B) = 0.02
+\]</span> Since some patients receives both surgical and obstetrics treatments, these events are <em>not</em> mutually exclusive. The general addition rule gives</p>
+<p><span class="math display">\[
+\begin{align*}
+P(A\cup B) &amp;= P(A) +  P(B) -P(A\cap B) \\
+&amp; = 0.12+.016-.02\\
+&amp; = 0.26
+\end{align*}
+\]</span></p>
+<p>Thus, 26% of all patients admitted to the hospital receive either surgical treatment, obstetrics treatment, or both.</p>
+</div>
+</div>
+</section>
+<section id="probility-from-contingency-tables" class="level3">
+<h3 class="anchored" data-anchor-id="probility-from-contingency-tables">Probility from contingency tables</h3>
+<p>Given a contingency table where the data is displayed by two categorical variables, we can estimate the probabilities by using the frequencies in the cells.</p>
+<div class="callout callout-style-simple callout-example callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example 5.5: PE blood test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The table below involves diagnosing <strong>pulmonary embolism (PE)</strong> using a <em>D‑dimer</em> blood test. In a group of 10,000 patients suspected of PE, a perfusion scan was used as the gold‑standard diagnostic. Of the 1000 individuals who actually had PE, the D‑dimer test was positive in 700 cases (and negative in 300); of the 9000 individuals without PE, the test was negative in 7700 cases (and positive in 1300). Thus 2000 people had a positive D‑dimer test result, but only 700 of them truly had PE.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 49%">
+<col style="width: 22%">
+<col style="width: 21%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pulmonary‐embolism status</th>
+<th>D‑dimer positive</th>
+<th>D‑dimer negative</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pulmonary embolism present</td>
+<td>700</td>
+<td>300</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td>Pulmonary embolism absent</td>
+<td>1300</td>
+<td>7700</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>2000</td>
+<td>8000</td>
+<td>10000</td>
+</tr>
+</tbody>
+</table>
+<p>We can estimate probabilities by taking the frequencies in the cells and dividing by the total number of patients (10,000). For example, the probability that a patient had a pulmonary embolism is <span class="math display">\[
+P(PE)=\frac{1000}{10000}=0.1
+\]</span></p>
+<p>The probability that a patient pas a pulmonary embolism and is D-dimer positive is <span class="math display">\[
+P(PE\cap \text{D-dimer positive})=\frac{700}{10000}=0.07
+\]</span></p>
+<p>For an union, we can apply the additive rule. For example, the probaility that a patient has a pulmonary embolism or has a D-dimer positive result is <span class="math display">\[
+\begin{align*}
+P(PE\cup \text{D-dimer positive})=&amp;P(PE)+P(\text{D-dimer positive})-P(PE\cap \text{D-dimer positive})\\
+=&amp;\frac{1000}{10000}+\frac{2000}{10000}-\frac{700}{10000}\\
+=&amp;\frac{2300}{10000}\\
+=&amp; 0.23
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="working-in-jmp" class="level3">
+<h3 class="anchored" data-anchor-id="working-in-jmp">Working in JMP</h3>
+<p>Although this book emphasizes concepts, it’s worth noting how you can explore probability in JMP. The <strong>Distribution Calculator</strong> (under <strong>Help → Probability Calculator</strong>) lets you compute probabilities and quantiles for many distributions without writing formulas. For custom experiments like coin tosses or die rolls, you can simulate data by adding a column of random values: use <strong>Rows → Add Rows</strong> to create the desired number of trials, add a column with a formula such as <code>Random Integer(1,6)</code> for die rolls, and then use <strong>Analyze → Distribution</strong> to summarise the results. This empirical approach reinforces the frequentist idea that probabilities emerge from long‑run relative frequencies.</p>
+</section>
+<section id="recap" class="level3">
+<h3 class="anchored" data-anchor-id="recap">Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Keyword</strong></th>
+<th><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Probability</strong></td>
+<td>A number between 0 and 1 measuring how likely an event is to occur.</td>
+</tr>
+<tr class="even">
+<td><strong>Experiment</strong></td>
+<td>A repeatable process with uncertain outcome (e.g., flipping a coin, rolling a die).</td>
+</tr>
+<tr class="odd">
+<td><strong>Outcome</strong></td>
+<td>A single possible result of an experiment; elements of the sample space.</td>
+</tr>
+<tr class="even">
+<td><strong>Sample space</strong></td>
+<td>The set of all possible outcomes of an experiment.</td>
+</tr>
+<tr class="odd">
+<td><strong>Event</strong></td>
+<td>A subset of the sample space; may include one or many outcomes.</td>
+</tr>
+<tr class="even">
+<td><strong>Frequentist interpretation</strong></td>
+<td>Defines probability as the long‑run relative frequency of an event in repeated trial.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-your-understanding" class="level3">
+<h3 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Problems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Describe the parts of a probability model.</strong> In your own words, explain the difference between an outcome, an event and a sample space. Use the experiment of rolling a six‑sided die as an example.</p></li>
+<li><p><strong>Equally likely probability.</strong> If you roll a fair die, what is the probability of getting a number greater than 4? Explain how you arrive at your answer.</p></li>
+<li><p><strong>Complement rule in practice.</strong> You toss a fair coin four times. What is the probability of getting at least one tail? Use the complement rule to find the answer.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solutions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solutions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Parts of a probability model.</strong> A <em>sample space</em> is the set of all possible outcomes—for a six‑sided die, <span class="math inline">\(S=\{1,2,3,4,5,6\}\)</span>. An <em>outcome</em> is one specific element of <span class="math inline">\(S\)</span>, such as rolling a 4. An <em>event</em> is any subset of <span class="math inline">\(S\)</span>; it might contain one outcome (e.g., <span class="math inline">\(\{6\}\)</span>, “rolling a six”) or several (e.g., <span class="math inline">\(\{2,4,6\}\)</span>, “rolling an even number”). We assign probabilities to events based on the rules discussed above.</p></li>
+<li><p><strong>Probability of a number greater than 4.</strong> The event <span class="math inline">\(A\)</span> of rolling greater than 4 corresponds to outcomes <span class="math inline">\(\{5,6\}\)</span>. There are two favorable outcomes and six outcomes in total, so by the equally likely events <span class="math inline">\(P(A)=2/6=1/3\)</span>.</p></li>
+<li><p><strong>At least one tail in four tosses.</strong> Let <span class="math inline">\(A\)</span> be “at least one tail.” The complement <span class="math inline">\(A^c\)</span> is “no tails,” which means getting all heads (HHHH). Since the probability of all heads is <span class="math inline">\((1/2)^4=1/16\)</span>, the complement rule gives <span class="math inline">\(P(A)=1-1/16=15/16\)</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<!-- ## Conditional Probability and Independence {#sec-05_02} -->
+<!-- > "Is it probable that probability brings certainty?" – Blaise Pascal -->
+<!-- > **Guiding question:** *What does it mean for events to be independent?* -->
+<!-- Our earlier discussion focused on single events and how to combine them using unions and complements.  In many situations, we want to know the probability of an event **given that** another has already occurred.  Thinking this way is essential when events are not isolated but are part of a process or sequence.  For example, the probability that a randomly selected person is left‑handed might be different once you know the person is an artist.  This leads us to the idea of *conditional probability*. -->
+<!-- ### Conditional probability -->
+<!-- If $A$ and $B$ are events with $P(A)>0$, the **conditional probability** of $B$ given $A$, written $P(B|A)$, describes the chance that $B$ occurs *assuming* that $A$ has occurred or will occur.  When we condition on $A$, the sample space shrinks to just the outcomes where $A$ happens.  In terms of probabilities, this shrinking translates to the formula -->
+<!-- $$ -->
+<!-- P(B\mid A) = \frac{P(A\cap B)}{P(A)} -->
+<!-- $$ -->
+<!-- which says that we compare how often both events occur to how often $A$ occurs at all.   -->
+<!-- You can read $P(B|A)$ as “the probability of $B$ *given* $A$.” -->
+<!-- Rearranging the conditional probability formula yields the *multiplication rule* for any two events $A$ and $B$: -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- P(A\cap B) =& P(A)\,P(B\mid A)\\ -->
+<!-- =& P(B)\,P(A\mid B) -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- This rule tells us how to find the probability that *both* events occur: multiply the probability of the first event by the conditional probability of the second event given the first.   -->
+<!-- #### Example: smoking and cancer -->
+<!-- Many medical researchers have conducted experiments to examine the relationship -->
+<!-- between cigarette smoking and cancer.  -->
+<!-- Consider an individual randomly -->
+<!-- selected from an adult male population.  -->
+<!-- Let $A$ represent the event that the individual -->
+<!-- smokes, and let $A^c$ denote the complement of $A$ (the event that the individual does not -->
+<!-- smoke).  -->
+<!-- Similarly, let $B$ represent the event that the individual develops cancer, and -->
+<!-- let $B^c$ be the complement of that event.  -->
+<!-- Suppose a large sample from the population resulted in the proportions below: -->
+<!-- |         | $B$ | $B^{c}$  | -->
+<!-- |---------|-----|-------| -->
+<!-- | $A$     | .05 | .20   | -->
+<!-- | $A^{c}$ | .03 | .72   | -->
+<!-- Use these probabilities to -->
+<!-- examine the relationship between smoking and cancer. -->
+<!-- First, find the probability that an individual smokes: -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- P(A) =& {P(A\cap B)+P(A\cap B^c)}\\ -->
+<!-- =& {0.05+0.20}\\ -->
+<!-- =& {0.25} -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- Now find the probability that an individual doesn't smoke: -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- P(A^c) =& {P(A^c\cap B)+P(A^c\cap B^c)}\\ -->
+<!-- =& {0.03+0.72}\\ -->
+<!-- =& {0.75} -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- Let's now determine the probability that an individual develops cancer given they are a smoker: -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- P(B\mid A) =& \frac{P(A\cap B)}{P(A)}\\ -->
+<!-- =& \frac{0.05}{0.25}\\ -->
+<!-- =& 0.2 -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- Let's now determine the probability that an individual develops cancer given they are a smoker: -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- P(B\mid A^c) =& \frac{P(A^c\cap B)}{P(A^c)}\\ -->
+<!-- =& \frac{0.03}{0.75}\\ -->
+<!-- =& 0.04 -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- ### Independent and dependent events -->
+<!-- When the occurrence of one event does **not** change the probability of another, we call the events *independent*.   -->
+<!-- Formally, $A$ and $B$ are **independent** if  -->
+<!-- $$ -->
+<!-- P(B\mid A)=P(B) -->
+<!-- $$  -->
+<!-- or equivalently  -->
+<!-- $$ -->
+<!-- P(A\mid B)=P(A) -->
+<!-- $$ -->
+<!-- If either holds, then the other does too. -->
+<!-- For independent events, the multiplication rule simplifies to -->
+<!-- $$ -->
+<!-- P(A\cap B)=P(A)\,P(B) -->
+<!-- $$ -->
+<!-- If knowing that $A$ has occurred *does* change the probability of $B$, the events are called **dependent**. -->
+<!-- #### Example: flipping coins -->
+<!-- Think about tossing a fair coin twice.  Let $H_1$ be the event “the first toss is heads” and $H_2$ be “the second toss is heads.”  The probability of a head on each toss is 0.5, and the outcome of the first toss does not affect the outcome of the second.  Therefore, $P(H_2\mid H_1)=P(H_2)=0.5$, and the events are independent.  Using the multiplication rule, -->
+<!-- $$ -->
+<!-- P(H_1\cap H_2) = P(H_1)\,P(H_2) = 0.5\times0.5 = 0.25\ -->
+<!-- $$ -->
+<!-- #### Example: sampling without replacement -->
+<!-- Independence can break down when we sample from a finite population **without** replacement.  Suppose a box contains 10 batteries, 4 of which are defective.  You draw two batteries at random **without replacement**.  Let $D_1$ be the event “the first battery is defective” and $D_2$ be “the second battery is defective.”  The probability the first battery is defective is $P(D_1)=4/10=0.4$.  If the first battery is defective, there are now 3 defectives among 9 remaining batteries, so $P(D_2\mid D_1)=3/9=0.333$.  If the first battery is good, there are still 4 defectives among 9 batteries, so $P(D_2\mid D_1^c)=4/9\approx0.444$.  Because $P(D_2)$ depends on whether $D_1$ happened, the events are dependent.  When we sample **with** replacement, the draws are independent, since after each draw the composition of the box resets to 4 defectives out of 10.  -->
+<!-- In practice, when the sample size is much smaller than the population, the difference between sampling with and without replacement becomes negligible and we can treat the draws as independent. -->
+<!-- ### Mutually Exclusive Events versus Independent Events -->
+<!-- There is often confusion between the concepts of -->
+<!-- independent events and disjoint events.  -->
+<!-- Actually, these are quite different -->
+<!-- notions, and perhaps this is seen best by comparisons involving conditional -->
+<!-- probabilities.  -->
+<!-- Specifically, if $A$ and $B$ are mutually exclusive, then -->
+<!-- $$ -->
+<!-- P(A \cap B) = 0 -->
+<!-- $$ -->
+<!-- whereas for independent events, we have -->
+<!-- $$ -->
+<!-- P(A \cap B)  = P(A) P(B) -->
+<!-- $$ -->
+<!-- If $P(A)>0$ and $P(B)>0$, then how can -->
+<!-- $$ -->
+<!-- P(A) P(B) = 0 ? -->
+<!-- $$ -->
+<!-- This is impossible. -->
+<!-- In other words, the property -->
+<!-- of being mutually exclusive involves a very strong form of dependence, -->
+<!-- because the occurrence of one event mean the other event cannot occur.  -->
+<!-- Thus, if two events are mutually exclusive, they cannot be independent.  -->
+<!-- If two events are independent, they cannot be mutually exclusive.  -->
+<!-- ### Conditional probability from contingency table -->
+<!-- Let's go back to the pulmonary embolism example from last section.  -->
+<!-- Here is the table again: -->
+<!-- | Pulmonary‐embolism status  | D‑dimer positive    | D‑dimer negative   | Total | -->
+<!-- | ----------------------------------------- | ------------------- | ------------------ | ----- | -->
+<!-- | Pulmonary embolism present           | 700    | 300  | 1000    | -->
+<!-- | Pulmonary embolism absent             | 1300  | 7700  | 9000    | -->
+<!-- | Total                                 | 2000                  | 8000                 | 10000   | -->
+<!-- Suppose we wanted to estimate the probability of a pulmonary embolism given the patient had a D-dimer positive result. When looking for conditional probability from a contingency table, remember that the conditioned event is all we are focusing on . In this case, the conditioned event is D-dimer positive. There are a total of 2000 patients that are D-dimer positive. Of those 2000 patients, 700 had a pulmonary embolism. Thus, the conditional probability is  -->
+<!-- $$ -->
+<!-- P(PE\mid \text{D-dimer positive})=\frac{700}{2000}=0.35 -->
+<!-- $$ -->
+<!-- #### Working in JMP Pro 17 -->
+<!-- JMP makes it easy to explore conditional probabilities and independence using contingency tables.  Enter your data with one column for each categorical variable (for example, “Major” and “Year”).  Under **Analyze → Fit Y by X**, choose one variable as the response and the other as the explanatory factor.  The resulting mosaic or contingency table will show joint counts.  Right‑click and choose **Row Percents** or **Column Percents** to view conditional proportions.  If the row percentages are the same across all columns (and vice versa), the variables are approximately independent; if the percentages differ, there is evidence of dependence. -->
+<!-- ### Recap -->
+<!-- | **Keyword**                     | **Definition**                                                                                                                  | -->
+<!-- |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------| -->
+<!-- | **Conditional probability**     | The probability of one event given that another event has occurred; computed as $P(B\mid A)=P(A\cap B)/P(A)$ when $P(A)>0$.   | -->
+<!-- | **Multiplication rule**         | A rule that expresses the joint probability of two events: $P(A\cap B)=P(A)\,P(B\mid A)=P(B)\,P(A\mid B)$.                    | -->
+<!-- | **Independent events**          | Events $A$ and $B$ for which $P(B\mid A)=P(B)$ (equivalently $P(A\mid B)=P(A)$) and $P(A\cap B)=P(A)P(B)$.                   | -->
+<!-- ### Check your understanding -->
+<!-- 1. **Calculus and statistics courses.** At a certain college, 40% of students have taken calculus, 30% have taken statistics, and 15% have taken both.   -->
+<!--     a. What is the probability that a student has taken statistics **given** they have taken calculus?   -->
+<!--     b. Are taking calculus and statistics independent events?  Explain your reasoning. -->
+<!-- 2. **Drawing marbles without replacement.** A jar contains 5 red marbles and 3 green marbles.  You draw two marbles at random **without replacement**.   -->
+<!--     a. What is the probability that both marbles are red?   -->
+<!--     b. If you draw **with replacement**, what would be the probability of drawing two red marbles?   -->
+<!--     c. Which scenario involves independent events? -->
+<!-- 3. **Pass rates.** In a school, 60% of students pass mathematics, 50% pass physics, and 35% pass **both** subjects.   -->
+<!--     1. What is $P(\text{Physics} \mid \text{Math})$?   -->
+<!--     2. Are passing mathematics and passing physics independent?  Why or why not? -->
+<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
+<!-- 1. **Calculus and statistics.**   -->
+<!--    - The conditional probability that a student has taken statistics given they have taken calculus is $P(\text{Stats}\mid \text{Calc}) = P(\text{Stats}\cap \text{Calc}) / P(\text{Calc}) = 0.15/0.40 = 0.375$.   -->
+<!--    - If calculus and statistics were independent, we would have $P(\text{Stats}\cap \text{Calc}) = P(\text{Stats})\,P(\text{Calc}) = 0.30\times0.40 = 0.12$.  Because the actual joint probability 0.15 is greater than 0.12, these events are **not** independent; students who take calculus are more likely to take statistics. -->
+<!-- 2. **Drawing marbles.**   -->
+<!--    - Without replacement, the probability both marbles are red is $P(\text{first red})\times P(\text{second red}\mid \text{first red}) = (5/8)\times (4/7) = 20/56 \approx 0.357$.   -->
+<!--    - With replacement, the probability stays $(5/8)\times (5/8) = 25/64 \approx 0.391$ because the composition of the jar is reset after each draw.   -->
+<!--    - Drawing **with replacement** yields independent events.  Without replacement the draws are dependent, since the first draw changes the composition for the second. -->
+<!-- 3. **Pass rates.**   -->
+<!--    - The conditional probability that a student passes physics given they pass mathematics is $P(\text{Physics}\mid \text{Math}) = 0.35/0.60 \approx 0.583$.   -->
+<!--    - For independence we would need $P(\text{Physics}\mid \text{Math}) = P(\text{Physics}) = 0.50$.  Because $0.583\ne 0.50$, passing mathematics and passing physics are **not** independent; students who pass one subject are more likely to pass the other. -->
+<!-- ::: -->
+<!-- ## Bayes Rule {#sec-05_03} -->
+<!-- > "Absence of evidence is not evidence of absence." – Carl Sagan -->
+<!-- **Guiding question:** *How can we use probability to assess diagnostic tests?* -->
+<!-- When you receive a lab report or a rapid test result it is tempting to take the outcome at face value: a *positive* means you have the disease; a *negative* means you do not.  In reality, every diagnostic test has some chance of making mistakes.  To interpret a result responsibly we need to take two things into account: -->
+<!-- 1. **The accuracy of the test itself.** How often does it correctly flag someone who is sick? How often does it incorrectly flag someone who is healthy?  These properties are captured by **sensitivity** and **specificity**. -->
+<!-- 2. **The prevalence of the condition.** How common is the disease in the population you are testing?  This is the prior probability that a random person is infected before considering the test result. -->
+<!-- **Bayes' Rule** is the mathematical tool that combines those two pieces of information.  It takes the evidence (the test result) and updates the prior probability to produce a new, *posterior* probability: the chance the person actually has the disease given the result.  Bayes' Rule is simply a rearrangement of the multiplication rule for probabilities; for events $A$ and $B$ with $P(B)>0$ it says -->
+<!-- $$ -->
+<!-- P(A\mid B) = \frac{P(B\mid A)\,P(A)}{P(B)}. -->
+<!-- $$ -->
+<!-- In diagnostic testing we let $A$ be the event “person has the disease” and $B$ be “test is positive.”  Then: -->
+<!-- - $P(A)$ is the **prevalence** of the disease (our prior belief). This is usually known or estimated by epidemiologists.  -->
+<!-- - $P(B\mid A)$ is the **sensitivity**: the probability the test correctly labels a diseased person as positive. This value is estimated in a clinical setting.  -->
+<!-- - $P(B\mid A^c)$ is the false–positive rate, which is $1$ minus the **specificity**. Also estimated in a clinical setting.  -->
+<!-- - $P(A\mid B)$ is the quantity we really want: the probability a person is truly sick given they test positive.  This is called the **positive predictive value** (PPV) of the test. -->
+<!-- Notice that Bayes' Rule also works for a negative result.  If $T^c$ denotes a negative test, the probability of being healthy given a negative result, $P(A^c\mid T^c)$, is the **negative predictive value** (NPV). -->
+<!-- ### Understanding Bayes' Rule through an example -->
+<!-- To see how Bayes’ Rule plays out, imagine a disease that affects 1% of the population.  A new screening test has 90% sensitivity and 95% specificity.  In plain language: -->
+<!-- - If you **have** the disease, there is a 90% chance the test is positive (and a 10% chance of a *false negative*). -->
+<!-- - If you **do not** have the disease, there is a 95% chance the test is negative (and a 5% chance of a *false positive*). -->
+<!-- Suppose you go to the clinic and your test comes back positive.  What is the probability you actually have the disease?  Let $D$ be “has the disease” and $T$ be “test is positive.” We can use the conditional probability rule: -->
+<!-- $$ -->
+<!-- P(D\mid T)=\frac{P(T\cap D)}{P(T)} -->
+<!-- $$ -->
+<!-- Unfortunately, we do not know $P(T\cap D)$ or $P(T)$. All we know is -->
+<!--  - $P(T\mid D)$, which is the sensitivity -->
+<!--  - $P(T^c\mid D^c)$ which is the specificity. Sometimes we have instead the complement of specificity $P(T\mid D^c)$. -->
+<!--  - $P(D)$ which is the prevalence. -->
+<!--  In terms of our example, we have -->
+<!--  - $P(T\mid D)=0.90$ -->
+<!--  - $P(T^c\mid D^c)=0.95$ which implies $P(T \mid D^c)=1-P(T^c\mid D^c)=0.05$ -->
+<!--  - $P(D)=0.01$ -->
+<!-- In the numerator above, we can use the multiplicative rule to find $P(T\cap D)$: -->
+<!-- $$ -->
+<!-- P(T\cap D)=P(T\mid D)\,P(D) -->
+<!-- $$ -->
+<!-- In the denominator, we can write -->
+<!-- $$ -->
+<!-- P(T) = P(T\cap D) + P(T\cap D^c) -->
+<!-- $$ -->
+<!-- Now, let's apply the multiplicative rule to both of these intersections using the information that we do know: -->
+<!-- $$ -->
+<!-- P(T) = P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c) -->
+<!-- $$ -->
+<!-- Let's put everything together to give us a formula that has quantities we do know: -->
+<!-- $$ -->
+<!-- P(D\mid T)=\frac{P(T\mid D)\,P(D)}{P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c)} -->
+<!-- $$ -->
+<!-- This equation is known as **Bayes' Rule**. -->
+<!-- Substituting our known values into the equation gives us -->
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- P(D\mid T)=&\frac{P(T\mid D)\,P(D)}{P(T\mid D)\,P(D) + P(T\mid D^c)\,P(D^c)}\\ -->
+<!-- =&\frac{(0.90)(0.01)}{(0.90)(0.01) + (0.05)(0.99)}\\ -->
+<!-- =&0.1538 -->
+<!-- \end{align*} -->
+<!-- $$ -->
+<!-- Even though the test is fairly accurate, a *positive** result only raises the probability of disease to about 0.1538.  The reason is that the disease is so rare that most positive tests are false alarms.   -->
+<!-- #### A genetic screening example in biology -->
+<!-- Bayesian thinking is not confined to clinical medicine.  Geneticists often screen organisms for rare traits.  Imagine a plant species in which 5% of individuals carry a gene conferring resistance to a particular fungus.  A DNA test has 90% sensitivity and 80% specificity.  If a randomly selected plant tests positive, how likely is it to possess the resistance gene? -->
+<!-- Let $R$ be “has the resistance gene” and $T$ be “test positive.”  Then $P(R)=0.05$, $P(T\mid R)=0.90$ and $P(T\mid R^c)=0.20$ (since specificity is 80%).  Bayes’ Rule tells us -->
+<!-- $$ -->
+<!-- P(R\mid T) = \frac{0.90\times 0.05}{0.90\times 0.05 + 0.20\times 0.95} \approx 0.191. -->
+<!-- $$ -->
+<!-- So even a positive test only implies about a 19% chance of carrying the gene.  The key message is the same: when a condition is rare, false positives can overwhelm true positives, and Bayes' Rule quantifies how evidence updates our beliefs. -->
+<!-- ### Working in JMP Pro 17 -->
+<!-- JMP does not have a dedicated “Bayes’ Rule” button, but you can apply the rule by constructing a contingency table and computing appropriate proportions.  To explore the medicine example above in JMP: -->
+<!-- * Create a table with one column for the **true condition** (Diseased vs Healthy) and one column for the **test result** (Positive vs Negative).  Enter the counts from the confusion matrix (for example, 90 true positives, 495 false positives, 9 405 true negatives and 10 false negatives per 10 000 screened). -->
+<!-- * Choose **Analyze → Fit Y by X** and assign **True condition** to the Y role and **Test result** to the X role.  The resulting contingency table shows the joint counts.  Right‑click on the table and select **Row Percents** or **Column Percents** to view conditional probabilities. -->
+<!-- * You can then compute the PPV as the percentage in the Diseased row of the Positive column divided by the total percentage in the Positive column, and the NPV as the percentage in the Healthy row of the Negative column divided by the total percentage in the Negative column. -->
+<!-- These steps replicate the Bayes’ Rule calculation without writing formulas.  JMP’s probability calculators can also be used for more complex Bayesian analyses in later chapters. -->
+<!-- ### Recap -->
+<!-- | **Keyword/Concept**             | **Definition/Meaning**                                                                                                                                                                                                                           | -->
+<!-- |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -->
+<!-- | **Bayes’ Rule**                 | Formula to update probabilities in light of new evidence                                                                  | -->
+<!-- | **Sensitivity**                 | Probability that a diagnostic test correctly identifies a diseased individual as positive; a high sensitivity means few false negatives.                                                                                                         | -->
+<!-- | **Specificity**                 | Probability that a diagnostic test correctly identifies a healthy individual as negative; a high specificity means few false positives.                                                                                                            | -->
+<!-- | **Positive predictive value**   | The probability that a person actually has the condition given a positive test result, $P(D\mid T)$; depends on sensitivity, specificity and the disease prevalence.                                                                        | -->
+<!-- | **Negative predictive value**   | The probability that a person is disease‑free given a negative test result, $P(D^c\mid T^c)$; often high when the disease is rare and the test has good sensitivity.                                                                        | -->
+<!-- | **Prevalence** | The proportion of individuals in the population who truly have the disease before any testing; the prior belief in Bayes’ Rule.                                                                                                               | -->
+<!--                                                                                                              | -->
+<!-- ### Check your understanding -->
+<!-- 1. **Interpreting a positive screening result.** Suppose 2% of a population has a certain virus.  A test for the virus has 95% sensitivity and 90% specificity. -->
+<!--    a. Using Bayes’ Rule, compute the probability that a randomly selected person actually has the virus given they test positive. -->
+<!--    b. What is the probability that a person who tests negative is truly virus‑free? -->
+<!-- 2. **Understanding predictive values.** A small genetic screening test for a mutation has 80% sensitivity and 97% specificity.  In the population being tested, 0.5% carry the mutation.  Explain why the positive predictive value of this test is quite low, despite its high specificity.  How would the predictive value change if the prevalence were higher? -->
+<!-- 3. **Designing a screening program.** A veterinary lab develops a new blood test for heartworm disease in dogs.  Preliminary studies estimate the prevalence of heartworm in the region at 3%, and the test’s sensitivity and specificity are 92% and 94%, respectively.  Explain how you would use Bayes’ Rule to decide whether a positive test result warrants immediate treatment or should be confirmed with a second test.  What role does the disease prevalence play in your decision? -->
+<!-- ::: {.callout-tip collapse="true" title="Solutions"} -->
+<!-- 1. **Interpreting a positive screening result.** -->
+<!--    - Let $D$ be “has the virus” and $T$ be “test positive.”  We are given $P(D)=0.02$, $P(T\mid D)=0.95$ and $P(T\mid D^c)=0.10$ (because specificity 90% implies a 10% false‑positive rate).  First compute $P(T)=0.95\times0.02 + 0.10\times0.98=0.019 + 0.098=0.117$.  Then -->
+<!--      $$P(D\mid T)=\frac{0.95\times0.02}{0.117}\approx0.162.$$ -->
+<!--      So even with good sensitivity and decent specificity, a positive result only implies about a 16% chance of infection when prevalence is 2%. -->
+<!--    - For a negative result we look at the NPV.  The probability of being virus‑free given a negative test is -->
+<!--      $$P(D^c\mid T^c)=\frac{P(T^c\mid D^c)\,P(D^c)}{P(T^c)}.$$ -->
+<!--      Here $P(T^c\mid D^c)=0.90$ (the specificity) and $P(T^c\mid D)=1-0.95=0.05$.  Compute $P(T^c)=0.05\times0.02 + 0.90\times0.98 = 0.019 + 0.882=0.901$.  Then -->
+<!--      $$P(D^c\mid T^c)=\frac{0.90\times0.98}{0.901}\approx0.979.$$ -->
+<!--      Thus, a negative test is highly reassuring: about 98% of negatives are true negatives. -->
+<!-- 2. **Understanding predictive values.**  With sensitivity 80%, specificity 97% and prevalence 0.5%, we have $P(D)=0.005$, $P(T\mid D)=0.80$ and $P(T\mid D^c)=0.03$.  Using Bayes’ Rule, -->
+<!--    $$P(D\mid T)=\frac{0.80\times0.005}{0.80\times0.005 + 0.03\times0.995} \approx 0.118.$$ -->
+<!--    So only about 12% of positive results reflect true mutation carriers.  The test is quite specific, but the condition is extremely rare, so the few false positives swamp the handful of true positives.  If the prevalence were higher—say 5%—the same calculation would yield -->
+<!--    $$P(D\mid T)=\frac{0.80\times0.05}{0.80\times0.05 + 0.03\times0.95} \approx 0.585,$$ -->
+<!--    meaning a positive result would be far more convincing.  The predictive value increases with prevalence. -->
+<!-- 3. **Designing a screening program.**  Let $H$ be “has heartworm” and $T$ be “test positive.”  We are given $P(H)=0.03$, $P(T\mid H)=0.92$ and $P(T\mid H^c)=0.06$ (since specificity 94% means a 6% false‑positive rate).  Bayes’ Rule tells us -->
+<!--    $$P(H\mid T)=\frac{0.92\times0.03}{0.92\times0.03 + 0.06\times0.97} \approx 0.32.$$  A single positive test thus implies roughly a 32% chance of heartworm.  Whether that warrants immediate treatment depends on the risks and costs of treating a false positive versus missing a true case.  Because the prevalence is relatively low and the PPV modest, many veterinarians would confirm a positive with a second, more specific test or use a confirmatory diagnostic (like an antigen test or imaging).  If the disease were more common in the region (higher prevalence), the PPV would rise and clinicians might opt to treat after one positive result.  Bayes’ Rule helps quantify this trade‑off: as prevalence increases, positive tests become more trustworthy. -->
+<!-- ::: -->
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
