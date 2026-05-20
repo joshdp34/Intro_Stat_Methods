@@ -372,7 +372,7 @@ window.Quarto = {
 \]</span></p>
 <p>The test statistic is an F ratio—the ratio of variation between groups to variation within groups. If <span class="math inline">\(H_0\)</span> is false, perhaps all the population means differ, but perhaps only one mean differs from the others.</p>
 <p>The test analyzes whether the differences observed among the sample means could have reasonably occurred by chance, if the null hypothesis of equal population means was true.</p>
-<!-- ![](images/13.png) -->
+<p><img src="images/14.png" class="img-fluid"></p>
 <section id="between-and-withingroup-variation" class="level3">
 <h3 class="anchored" data-anchor-id="between-and-withingroup-variation">Between‑ and within‑group variation</h3>
 <p>Consider <span class="math inline">\(m\)</span> groups with <span class="math inline">\(n_i\)</span> observations in group <span class="math inline">\(i\)</span>. Let <span class="math inline">\(\bar{y}_{i\cdot}\)</span> be the sample mean of group <span class="math inline">\(i\)</span> and <span class="math inline">\(\bar{y}_{\cdot\cdot}\)</span> be the grand mean. ANOVA partitions the total sum of squares,</p>
@@ -709,6 +709,7 @@ Solutions
 <p>“Statistics is the art of stating in precise terms that which one does not know.” - William Kruskal</p>
 </blockquote>
 <p>When experiments involve two categorical factors—say, <em>treatment</em> and <em>gender</em>, or <em>fertilizer type</em> and <em>irrigation level</em>—we can use a <strong>two‑way ANOVA</strong>. This model allows us to test for <strong>main effects</strong> of each factor and to examine whether the effect of one factor depends on the level of the other (the <strong>interaction</strong>). In certain designs where a second factor is used only to reduce variability and is not of substantive interest, we call it a <strong>randomized block design</strong>.</p>
+<p><img src="images/15.png" class="img-fluid"></p>
 <section id="model-and-hypotheses" class="level3">
 <h3 class="anchored" data-anchor-id="model-and-hypotheses">Model and hypotheses</h3>
 <p>Suppose we have two factors, <span class="math inline">\(A\)</span> with <span class="math inline">\(a\)</span> levels and <span class="math inline">\(B\)</span> with <span class="math inline">\(b\)</span> levels. Each treatment combination has <span class="math inline">\(n_{ij}\)</span> observations. Let <span class="math inline">\(\mu_{ij}\)</span> be the mean for combination <span class="math inline">\((i,j)\)</span>. We write the model as</p>
