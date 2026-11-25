@@ -1,0 +1,45 @@
+# ---- Quarto build output (GitHub Actions renders the site) ----
+/.quarto/
+/_book/
+/_site/
+*_files/
+
+# Keep _freeze/ (computed R results) committed so unchanged chapters
+# are not re-run on GitHub.
+
+# ---- Folders and files that are not part of the rendered book ----
+/skeleton files/
+/yt video slides/
+/generated_qti/
+/monty-hall/
+/Intro_Stat_Methods/
+/data/
+/TOC.qmd
+/TOC questions.qmd
+/sections.xlsx
+/*.csv
+
+# ---- R / RStudio ----
+.Rhistory
+.RData
+.Rapp.history
+.Ruserdata
+.Rproj.user/
+rsconnect/
+
+# ---- OS, Office and Box clutter ----
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+.~lock.*
+
+# ---- Editor / tool settings ----
+.vscode/
+.claude/
+
+# ---- Python / IDE ----
+.venv/
+.idea/
+__pycache__/
